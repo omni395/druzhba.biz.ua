@@ -17,6 +17,7 @@ set :user, 'druzhba_admin'
 set :deploy_to, '/home/druzhba_admin/www/druzhba'
 set :repository, 'https://github.com/omni395/druzhba.biz.ua.git'
 set :branch, 'main'
+set :passenger_restart_with_touch, false
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
