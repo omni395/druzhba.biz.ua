@@ -1,0 +1,19 @@
+uk:
+  activerecord:
+    attributes:
+      landing_message:
+        name: Імʼя
+        phone: Телефон
+        email: Електронна пошта
+        status: Статус
+        message: Повідомлення
+        created_at_field: Створено
+        updated_at_field: Оновлено
+  enums:
+    admin:
+      landing_message:
+        status:
+          new: Новий
+          in_work: В роботі
+          done: Завершено
+          rejected: Відхилено

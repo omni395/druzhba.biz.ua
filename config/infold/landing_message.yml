@@ -1,0 +1,91 @@
+model:
+  validate:
+    name: 
+      - presence
+      - length:
+          maximum: 50
+          minimum: 3
+    phone:
+      - presence
+      - format:
+          with: /\A\(?[\d]{3}\)?[\s|-]?[\d]{3}-?[\d]{4}\z/i
+          message: I18n.t('global.errors.phone_format')}
+          length:
+            - in: 10..15
+    email:
+      #- presence
+      - format:
+          with: URI::MailTo::EMAIL_REGEXP
+      - length:
+          minimum: 5
+          maximum: 255
+    message:
+      - presence
+      - length:
+          maximum: 1000
+          minimum: 10
+  enum:
+    status:
+      new:
+        value: 0
+        color: lime
+      in_work:
+        value: 1
+        color: pink
+      done:
+        value: 2
+        color: green
+      rejected:
+        value: 3
+        color: blue
+
+app:
+  title: Повідомлення
+  # index view settings (search condition, list and csv)
+  index:
+    conditions:
+      - name:
+          sign: full_like
+          form_kind: text
+      - email:
+          sign: full_like
+          form_kind: text
+      - status:
+          sign: any
+          form_kind: checkbox
+
+    list:
+      fields:
+        - id
+        - name
+        - email
+        - phone
+        - status
+        - updated_at_field
+      default_order:
+        field: id
+        kind: desc
+    csv:
+      # If fields is empty, all fields are covered. (The show view is the same)
+      fields:
+  # show view settings
+  show:
+    fields:
+      - id
+      - name
+      - email
+      - phone
+      - status
+      - updated_at_field
+      - message
+  # form view settings
+  form:
+    fields:
+      - name:
+          kind: text
+      - phone
+      - email:
+          kind: email
+      - message
+      - status:
+          kind: radio

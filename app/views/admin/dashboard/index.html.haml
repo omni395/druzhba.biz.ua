@@ -1,0 +1,36 @@
+%div{class: "tw-p-2 tw-flex tw-flex-col-reverse md:tw-flex-row"}
+  %div{class: "tw-flex tw-flex-col tw-justify-center tw-items-center md:tw-w-4/6"}
+    %div{class: "tw-bg-green-200"} 1
+    %div{class: "tw-bg-green-300"} 2
+  %div{class: "tw-flex tw-flex-col tw-justify-center tw-items-center md:tw-w-2/6"}
+    %div{class: "tw-bg-green-200"} 1
+    %div{class: "tw-bg-green-300"} 2
+    %div{class: "tw-bg-green-400"} 3
+
+
+
+
+
+%div{class: "tw-flex tw-flex-col tw-m-2 tw-justify-evenly lg:tw-flex-row"}
+  %a{class: "tw-text-center sm:tw-text-start tw-cursor-pointer tw-flex tw-flex-row tw-m-1 tw-space-y-4 tw-transition-all tw-duration-500 tw-bg-white tw-border tw-border-indigo-100 tw-rounded-lg tw-shadow hover:tw-shadow-xl", :href => admin_landing_messages_path}
+    %div{class: "tw-p-1"}
+      %h5{class: "tw-text-xl tw-font-bold"} Повідомлення
+      %div{class: "tw-flex tw-flex-col sm:tw-flex-row"}
+        %p{class: "badge bg-lime tw-rounded-lg tw-p-1 tw-m-1 tw-text-md tw-text-gray-600"} Нових: #{LandingMessage.where(status: 0).count}
+        %p{class: "badge bg-lime tw-rounded-lg tw-p-1 tw-m-1 tw-text-md tw-text-gray-600"} За тиждень: #{LandingMessage.where('updated_at > ?', 1.week.ago).count}
+        %p{class: "badge bg-lime tw-rounded-lg tw-p-1 tw-m-1 tw-text-md tw-text-gray-600"} За місяць: #{LandingMessage.where('updated_at > ?', 1.month.ago).count}
+        %p{class: "badge bg-lime tw-rounded-lg tw-p-1 tw-m-1 tw-text-md tw-text-gray-600"} Прострочено: #{LandingMessage.where('updated_at <= ?', 1.week.ago).count}
+  %a{class: "tw-text-center sm:tw-text-start tw-cursor-pointer tw-flex tw-flex-row tw-m-1 tw-space-y-4 tw-transition-all tw-duration-500 tw-bg-white tw-border tw-border-indigo-100 tw-rounded-lg tw-shadow hover:tw-shadow-xl", :href => admin_orders_path}
+    %div{class: "tw-p-1"}
+      %h5{class: "tw-text-xl tw-font-bold"} Замовлення
+      %div{class: "tw-flex tw-flex-col sm:tw-flex-row"}
+        %p{class: "badge bg-lime tw-rounded-lg tw-p-1 tw-m-1 tw-text-md tw-text-gray-600"} Нових: #{LandingMessage.where(status: 0).count}
+        %p{class: "badge bg-lime tw-rounded-lg tw-p-1 tw-m-1 tw-text-md tw-text-gray-600"} За тиждень: #{LandingMessage.where('updated_at > ?', 1.week.ago).count}
+        %p{class: "badge bg-lime tw-rounded-lg tw-p-1 tw-m-1 tw-text-md tw-text-gray-600"} За місяць: #{LandingMessage.where('updated_at > ?', 1.month.ago).count}
+        %p{class: "badge bg-lime tw-rounded-lg tw-p-1 tw-m-1 tw-text-md tw-text-gray-600"} Прострочено: #{LandingMessage.where('updated_at <= ?', 1.week.ago).count}
+
+    
+= column_chart Order.group_by_day(:updated_at).sum(:price), title: "Прибутки", width: "480px", height: "240px", colors: ["#b00", "#666"]
+
+-#= line_chart Order.group(:price).count.group_by_day(:updated_at).count
+

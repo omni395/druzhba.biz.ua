@@ -1,0 +1,29 @@
+---
+uk:
+  infold:
+    operation:
+      create: Створити
+      edit: Редагувати
+      show: Показати
+      update: Оновити
+      delete: Видалити
+      submit: Підтвердити
+      cancel: Скасувати
+      clear: Очистити
+      new: Новий
+      add: Додати
+      search: Пошук
+      setting: Налаштування
+      output_csv: Експорт CSV
+      confirm: "Ви впевнені？"
+    flash:
+      created: Успішно створено
+      updated: Успішно оновлено
+      destroyed: Успішно видалено
+      invalid: Неможливо зберегти запис
+      invalid_destroy: Неможливо видалити запис
+      build_completed: Збірку завершено
+      db_synced: Синхронізація БД завершена
+    badge:
+      required: Обовʼязково
+    no_data: Не знайдено

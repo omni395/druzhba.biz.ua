@@ -1,0 +1,25 @@
+%div{class: "", id: ""}
+  %div{class: "tw-py-16 tw-opacity-0 tw-element-animation", id: "hero-section"}
+    = render "hero_section"
+  
+  %div{class: "tw-py-16 tw-opacity-0 element-animation", id: "services"}
+    = render "services"
+
+  %div{class: "tw-opacity-0 element-animation", id: "about"}
+    = render "about"
+
+  %div{class: "tw-opacity-0 element-animation", id: "reviews"}
+    = render "reviews"
+
+  %div{class: "tw-opacity-0 element-animation", id: "contacts"}
+    = render "contacts"
+  
+-# Scroll to Top button
+%div{class: "tw-fixed tw-bottom-10 end-10", id: ""}
+  %a{class: "", "data-popover-target": "scroll-to-top", "data-popover-placement": "left", type: "button", href: "#main"}
+    %i{class: "tw-text-2xl tw-text-stone-600 fa-solid fa-jet-fighter-up"}
+  %div{id: "scroll-to-top", class: "tw-w-24 tw-absolute tw-z-10 tw-invisible tw-inline-block tw-transition-opacity tw-duration-300", "data-popover": "", role: "tooltip"}
+    %p{class: "tw-font-caveat tw-text-xl tw-text-stone-600"} До початку
+
+-# Modal dialog contact form
+= render "contact_form"

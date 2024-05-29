@@ -1,0 +1,24 @@
+uk:
+  activerecord:
+    attributes:
+      order:
+        customer: Замовник
+        customer_id: Замовник
+        status: Статус
+        paid: Оплата
+
+        created_at_field: Створено
+        updated_at_field: Оновлено
+        price: Вартість
+
+  enums:
+    admin:
+      order:
+        paid:
+          inpaid: Сплачено
+          unpaid: Не сплачено
+        status:
+          new: Новий
+          in_work: В роботі
+          done: Завершено
+          rejected: Відхилено

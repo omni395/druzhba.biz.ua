@@ -1,0 +1,16 @@
+- if @landing_message.invalid?
+  = turbo_stream.update "form_body" do
+    = fields_for @landing_message do |form|
+      = render "form", form: form
+- else
+  = turbo_stream.update "modal_main" do
+    = render Admin::RemoteModalComponent.new do |modal|
+      = render 'show_wrapper', modal: modal, landing_message: @landing_message
+  - if action_name == "create"
+    = turbo_stream.prepend "landing_messages" do
+      = render 'index_row', landing_message: @landing_message
+    = turbo_stream.remove "no_data"
+  - else
+    = turbo_stream.replace @landing_message do
+      = render 'index_row', landing_message: @landing_message
+= admin_turbo_stream_flash

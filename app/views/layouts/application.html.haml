@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title Швейна майстерня "Дружба"
+    = favicon_link_tag asset_path('favicon.png')
+
+    %link{href: "https://fonts.googleapis.com", rel: "preconnect"}
+    %link{crossorigin: "", href: "https://fonts.gstatic.com", rel: "preconnect"}
+    %link{href: "https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat:wght@400..700&display=swap", rel: "stylesheet"}
+    
+    -# FontAwesome
+    %link{crossorigin: "anonymous",
+          href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css",
+          integrity: "sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==",
+          rel: "stylesheet"}
+    
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
+  %body{class: "tw-bg-stone-100", id: "main"}
+    %div{class: "tw-flex tw-content-center tw-py-6 tw-px-8 tw-h-80"}
+      Under construction
+    -#%navigation{class: "tw-w-full tw-relative tw-top-0 tw-start-0"}
+    -#  = render "shared/navigation"
+    -#%main{class: "tw-relative tw-start-0 tw-p-2"}
+    -#  = yield
+    -#  %footer{class: ""}
+    -#    = render "shared/footer"
+

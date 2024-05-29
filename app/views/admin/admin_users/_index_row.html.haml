@@ -1,0 +1,9 @@
+%tr{ id: dom_id(admin_user) }
+  %td.icon_cell
+    = link_to admin_admin_user_path(admin_user), class: 'd-block', data: { turbo_frame: 'modal_main' } do
+      %i.bi.bi-file-text.h3
+  %td
+    = admin_user.email
+  %td.icon_cell
+    = link_to edit_admin_admin_user_path(admin_user), class: 'd-block', data: { turbo_frame: "modal_main" } do
+      %i.bi.bi-pencil-square.h3

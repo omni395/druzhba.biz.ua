@@ -1,0 +1,16 @@
+- if @customer.invalid?
+  = turbo_stream.update "form_body" do
+    = fields_for @customer do |form|
+      = render "form", form: form
+- else
+  = turbo_stream.update "modal_main" do
+    = render Admin::RemoteModalComponent.new do |modal|
+      = render 'show_wrapper', modal: modal, customer: @customer
+  - if action_name == "create"
+    = turbo_stream.prepend "customers" do
+      = render 'index_row', customer: @customer
+    = turbo_stream.remove "no_data"
+  - else
+    = turbo_stream.replace @customer do
+      = render 'index_row', customer: @customer
+= admin_turbo_stream_flash

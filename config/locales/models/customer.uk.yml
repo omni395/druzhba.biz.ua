@@ -1,0 +1,9 @@
+uk:
+  activerecord:
+    attributes:
+      customer:
+        name: Імʼя
+        description: Коментар
+        phone: Телефон
+        created_at_field: Створено
+        updated_at_field: Оновлено

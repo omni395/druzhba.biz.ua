@@ -1,0 +1,48 @@
+.list-group.mb-3
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= order.class.human_attribute_name(:id)
+      .col-md-9
+        = order.id
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= order.class.human_attribute_name(:customer_id)
+      .col-md-9
+        = link_to order.customer.name, admin_customer_path(order.customer), data: { turbo_frame: 'modal_sub' } if order.customer
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= order.class.human_attribute_name(:status)
+      .col-md-9
+        = render Admin::BadgeComponent.new(order.status_i18n, order.status_color)
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= order.class.human_attribute_name(:paid)
+      .col-md-9
+        = render Admin::BadgeComponent.new(order.paid_i18n, order.paid_color)
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= order.class.human_attribute_name(:price)
+      .col-md-9
+        = order.price
+.card.mb-3
+  .card-header
+    %h4.text-muted.mb-0= Admin::OrderDetail.model_name.human
+  - if order.order_details.blank?
+    .card-body
+      .alert= t('infold.no_data')
+  - else
+    .table-responsive
+      %table.table.table-hover.card-table
+        %thead
+          %tr
+            %th= Admin::OrderDetail.human_attribute_name(:service_id)
+        %tbody
+          - order.order_details.each do |order_detail|
+            %tr
+              %td
+                = link_to order_detail.service.title, admin_service_path(order_detail.service), data: { turbo_frame: 'modal_sub' } if order_detail.service

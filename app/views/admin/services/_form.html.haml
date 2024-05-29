@@ -1,0 +1,7 @@
+.list-group.mb-3
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :title, :text)
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :photo, :file)
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :description, :text_area)

@@ -1,0 +1,52 @@
+%nav.navbar.navbar-light
+  .container-fluid
+    %ol.breadcrumb
+      %li.breadcrumb-item.active Замовлення
+    .ms-auto
+      = link_to t('infold.operation.new'), new_admin_order_path, class: 'btn btn-warning', data: { turbo_frame: "modal_main" }
+#index_page.d-md-flex{ data: { controller: 'index-page', index_page_target: 'wrapper' } }
+  #conditions.bg-white.container-fluid.border-end.pe-3.py-3
+    = form_with model: @search, url: admin_orders_path, method: :get, scope: 'search',
+      data: { index_page_target: 'searchForm' } do |form|
+      = form.hidden_field :sort_field, data: { index_page_target: 'sortField' }
+      = form.hidden_field :sort_kind, data: { index_page_target: 'sortKind' }
+      .mb-3
+        = render Admin::FieldsetComponent.new(form, :customer_id_eq, :association_search, alignment: false, 
+          label: Admin::Order.human_attribute_name(:customer_id), association_name: :customer, search_path: admin_customers_path(name_field: :name), name_field: :customer_name)
+      .mb-3
+        = render Admin::FieldsetComponent.new(form, :status_any, :checkbox, alignment: false, 
+          label: Admin::Order.human_attribute_name(:status), list: Admin::Order.statuses_i18n, checked_values: form.object.status_any)
+      .mb-3
+        = render Admin::FieldsetComponent.new(form, :paid_any, :checkbox, alignment: false, 
+          label: Admin::Order.human_attribute_name(:paid), list: Admin::Order.paids_i18n, checked_values: form.object.paid_any)
+      %hr.my-3
+      .row.gx-2
+        .col-6.order-2.d-grid
+          = form.submit t('infold.operation.search'), class: 'btn btn-primary'
+        .col-6.d-grid
+          = link_to t('infold.operation.clear'), admin_orders_path, class: 'btn btn-secondary'
+  #result.flex-fill.container-fluid.ps-3.py-3{ data: { index_page_target: 'resultArea' } }
+    - if @orders.blank?
+      .alert#no_data= t('infold.no_data')
+    .card.border-top-0
+      .table_wrapper.table-responsive.bg-secondary-lt{ data: { index_page_target: 'resultTableWrapper' } }
+        %table.table.table-hover.table-striped.mb-0.bg-white
+          %thead{ data: { index_page_target: 'thead' } }
+            %tr{class: "text-center"}
+              %th.icon_cell
+              %th= render Admin::SortableComponent.new(@search, :id, label: Admin::Order.human_attribute_name(:id))
+              %th= render Admin::SortableComponent.new(@search, :customer_id, label: Admin::Order.human_attribute_name(:customer_id))
+              %th= render Admin::SortableComponent.new(@search, :status, label: Admin::Order.human_attribute_name(:status))
+              %th= render Admin::SortableComponent.new(@search, :paid, label: Admin::Order.human_attribute_name(:paid))
+              %th= render Admin::SortableComponent.new(@search, :price, label: Admin::Order.human_attribute_name(:price))
+              %th= render Admin::SortableComponent.new(@search, :updated_at_field, label: Admin::Order.human_attribute_name(:updated_at_field))
+              %th.icon_cell
+          %tbody#orders
+            = render partial: "index_row", collection: @orders, as: 'order'
+      - if @orders.present?
+        .card-body.d-md-flex.align-items-center.justify-content-between
+          .mb-3.mb-md-0
+            = admin_search_result_count(@orders)
+          .mb-3.mb-md-0
+            = paginate(@orders, views_prefix: "admin")
+          = link_to t('infold.operation.output_csv'), '#', class: 'btn btn-info', data: { action: 'index-page#outputCsv' }

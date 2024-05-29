@@ -1,0 +1,15 @@
+%tr{ id: dom_id(customer) }
+  %td.icon_cell
+    = link_to admin_customer_path(customer), class: 'd-block', data: { turbo_frame: 'modal_main' } do
+      %i.bi.bi-file-text.h3
+  %td
+    = customer.id
+  %td
+    = customer.name
+  %td
+    = customer.phone
+  %td
+    = customer.description
+  %td.icon_cell
+    = link_to edit_admin_customer_path(customer), class: 'd-block', data: { turbo_frame: "modal_main" } do
+      %i.bi.bi-pencil-square.h3

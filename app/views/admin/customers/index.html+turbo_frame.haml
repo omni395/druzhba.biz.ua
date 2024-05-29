@@ -1,0 +1,38 @@
+= turbo_frame_tag(admin_remote_modal_id) do
+  = render Admin::RemoteModalComponent.new('modal_sub') do |modal|
+    = modal.with_header { 'Замовники' }
+    = modal.with_body do
+      .modal-body
+        .mb-3
+          = form_with model: Admin::CustomerSearchForm.new, url: admin_customers_path, method: :get,
+            scope: 'search', data: { turbo_frame: 'association_search_body' } do |form|
+            .row.gy-3.align-items-end
+              .col-lg-6.col-xl-4
+                = render Admin::FieldsetComponent.new(form, :name_full_like, :text, alignment: false, 
+                  label: Admin::Customer.human_attribute_name(:name), placeholder: 'like %...%')
+              .col-lg-6.col-xl-4
+                = hidden_field_tag :name_field, params[:name_field]
+                = form.submit t('infold.operation.search'), class: 'btn btn-primary'
+        = turbo_frame_tag 'association_search_body' do
+          - if @customers.blank?
+            .alert= t('infold.no_data')
+          - else
+            .table_wrapper.table-responsive.bg-white.border.mb-3
+              %table.table.table-striped.table-hover
+                %thead
+                  %tr
+                    %th= Admin::Customer.human_attribute_name(:id)
+                    %th= Admin::Customer.human_attribute_name(:name)
+                    %th
+                %tbody
+                  - @customers.each do |customer|
+                    %tr
+                      %td
+                        = customer.id
+                      %td
+                        = customer.name
+                      %td.icon_cell
+                        %a{ href: '#', data: { action: "relation-search#select remote-modal#close",
+                          id: customer.id, name: customer.read_attribute(params[:name_field]) } }
+                          %i.bi.bi-check2-square.h3
+            = paginate(@customers, views_prefix: "admin")

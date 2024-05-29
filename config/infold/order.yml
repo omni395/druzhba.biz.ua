@@ -1,0 +1,193 @@
+model:
+  validate:
+    price:
+      - presence
+    status:
+      - presence
+    paid:
+      - presence
+
+  association:
+    customer:
+      kind: belongs_to
+      name_field: name
+    order_details:
+      kind: has_many
+      dependent: destroy
+      model: # Associated models (order_details) can also be set
+        validate:
+          service: presence
+        association: # Further associations to order_details (product)
+          service:
+            kind: belongs_to
+            name_field: title
+  enum:
+    status:
+      new:
+        value: 0
+        color: lime
+      in_work:
+        value: 1
+        color: pink
+      done:
+        value: 2
+        color: green
+      rejected:
+        value: 3
+        color: blue
+    paid:
+      unpaid:
+        value: 0
+        color: red
+      inpaid:
+        value: 1
+        color: lime
+
+app:
+  title: Замовлення
+  index:
+    conditions:
+      - customer_id:
+          sign: eq
+          form_kind: association_search
+      - status:
+          sign: any
+          form_kind: checkbox
+      - paid:
+          sign: any
+          form_kind: checkbox
+    
+    list:
+      fields:
+        - id
+        - customer_id
+        - status
+        - paid
+        - price
+        - updated_at_field
+      default_order:
+        field: id
+        kind: desc
+
+
+  show:
+    fields:
+      - id
+      - customer
+      - status
+      - paid
+      - price
+      - order_details:
+          kind: association
+          fields:
+            - service
+
+  form:
+    fields:
+      - customer:
+          kind: association_search
+      - order_details:
+          kind: association
+          fields:
+            - service:
+                kind: select
+      - price:
+          kind: number
+      - status:
+          kind: radio
+      - paid:
+          kind: radio
+
+#model:
+#  # Define validation here
+#  validate:
+#    amount: presence
+#    price:
+#      - presence
+#      - numericality:
+#          greater_than_or_equal_to: 0
+#  # Define Enum here
+#  enum:
+#    status:
+#      ordered:
+#        value: 1
+#        color: blue
+#      charged:
+#        value: 2
+#        color: pink
+#  # Define decorator here
+#  decorator:
+#    price:
+#      prepend: $
+#      digit: true
+#  # Define association here
+#  association:
+#    customer:
+#      kind: belongs_to
+#      name_field: name
+#    order_details:
+#      kind: has_many
+#      dependent: destroy
+#      # If the child model on the has_many side also needs to be configured, define it here.
+#      model:
+#        validate:
+#        enum:
+#        decorator:
+#        association:
+#  # Define active_storage here
+#  active_storage:
+#    photo:
+#      kind: image
+#app:
+#  title: ORDERS
+#  # index view settings (search condition, list and csv)
+#  index:
+#    conditions:
+#      - id:
+#          sign: eq
+#      - status:
+#          sign: any
+#          form_kind: checkbox
+#    list:
+#      fields:
+#        - id
+#        - customer
+#        - status
+#      default_order:
+#        field: id
+#        kind: desc
+#    csv:
+#      # If fields is empty, all fields are covered. (The show view is the same)
+#      fields:
+#  # show view settings
+#  show:
+#    fields:
+#      - id
+#      - customer
+#      - order_details:
+#          fields:
+#            - product
+#            - amount
+#  # form view settings
+#  form:
+#    fields:
+#      - status:
+#          kind: radio
+#      - customer:
+#          kind: association_search
+#      #Bulk registration of has_many
+#      - order_details:
+#          kind: association
+#          fields:
+#            - product
+#                kind: association_search
+#            - amount
+#  # Child screen search for related models
+#  association_search:
+#    conditions:
+#      - id:
+#          sign: eq
+#    list:
+#      fields:
+#        - id
+#        - title

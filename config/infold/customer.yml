@@ -1,0 +1,154 @@
+model:
+  association:
+    orders:
+      kind: has_many
+      name_field: updated_at
+      dependent: destroy
+      model:
+        validate:
+          service: presence
+        association:
+          service:
+            kind: belongs_to
+            name_field: title
+  
+  validate:
+    name: presence
+    phone:
+      - presence
+      - uniqueness
+
+app:
+  title: Замовники
+
+  form:
+    fields:
+      - name
+      - phone
+      - description:
+          kind: text_area
+
+  show:
+    fields:
+      - name
+      - phone
+      - description
+      - orders:
+          fields:
+            - updated_at_field
+
+  index:
+    conditions:
+        - name:
+            sign: full_like
+        - phone:
+            sign: full_like
+    list:
+      fields:
+        - id
+        - name
+        - phone
+        - description
+
+  association_search:
+    conditions:
+      - name:
+          sign: full_like
+    list:
+        fields:
+          - id
+          - name
+
+#model:
+#  # Define validation here
+#  validate:
+#    amount: presence
+#    price:
+#      - presence
+#      - numericality:
+#          greater_than_or_equal_to: 0
+#  # Define Enum here
+#  enum:
+#    status:
+#      ordered:
+#        value: 1
+#        color: blue
+#      charged:
+#        value: 2
+#        color: pink
+#  # Define decorator here
+#  decorator:
+#    price:
+#      prepend: $
+#      digit: true
+#  # Define association here
+#  association:
+#    customer:
+#      kind: belongs_to
+#      name_field: name
+#    order_details:
+#      kind: has_many
+#      dependent: destroy
+#      # If the child model on the has_many side also needs to be configured, define it here.
+#      model:
+#        validate:
+#        enum:
+#        decorator:
+#        association:
+#  # Define active_storage here
+#  active_storage:
+#    photo:
+#      kind: image
+#app:
+#  title: CUSTOMERS
+#  # index view settings (search condition, list and csv)
+#  index:
+#    conditions:
+#      - id:
+#          sign: eq
+#      - status:
+#          sign: any
+#          form_kind: checkbox
+#    list:
+#      fields:
+#        - id
+#        - customer
+#        - status
+#      default_order:
+#        field: id
+#        kind: desc
+#    csv:
+#      # If fields is empty, all fields are covered. (The show view is the same)
+#      fields:
+#  # show view settings
+#  show:
+#    fields:
+#      - id
+#      - customer
+#      - order_details:
+#          fields:
+#            - product
+#            - amount
+#  # form view settings
+#  form:
+#    fields:
+#      - status:
+#          kind: radio
+#      - customer:
+#          kind: association_search
+#      #Bulk registration of has_many
+#      - order_details:
+#          kind: association
+#          fields:
+#            - product
+#                kind: association_search
+#            - amount
+#  # Child screen search for related models
+#  association_search:
+#    conditions:
+#      - id:
+#          sign: eq
+#    list:
+#      fields:
+#        - id
+#        - title

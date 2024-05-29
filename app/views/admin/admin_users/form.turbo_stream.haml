@@ -1,0 +1,16 @@
+- if @admin_user.invalid?
+  = turbo_stream.update "form_body" do
+    = fields_for @admin_user do |form|
+      = render "form", form: form
+- else
+  = turbo_stream.update "modal_main" do
+    = render Admin::RemoteModalComponent.new do |modal|
+      = render 'show_wrapper', modal: modal, admin_user: @admin_user
+  - if action_name == "create"
+    = turbo_stream.prepend "admin_users" do
+      = render 'index_row', admin_user: @admin_user
+    = turbo_stream.remove "no_data"
+  - else
+    = turbo_stream.replace @admin_user do
+      = render 'index_row', admin_user: @admin_user
+= admin_turbo_stream_flash

@@ -1,0 +1,9 @@
+uk:
+  activerecord:
+    attributes:
+      service: 
+        title: Назва
+        description: Опис
+        photo: Фото
+        created_at_field: Створено
+        updated_at_field: Оновлено

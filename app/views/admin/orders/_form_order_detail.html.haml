@@ -1,0 +1,7 @@
+%tr.nested-fields{ class: "#{'d-none' if form.object._destroy}", data: { new_record: form.object.new_record? } }
+  %td.nested_form
+    = render Admin::FieldsetComponent.new(form, :service_id, :select, required: true, no_label: true, list: Admin::Service.all.pluck(:title, :id), selected_value: form.object.service_id)
+  %td.icon_cell
+    = link_to "#", class: 'd-block', data: { action: "click->nested-form#remove_association" } do
+      %i.bi.bi-trash.h3
+    = form.hidden_field :_destroy

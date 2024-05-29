@@ -1,0 +1,32 @@
+.list-group.mb-3
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :customer_id, :association_search, association_name: :customer, search_path: admin_customers_path(name_field: :name), name_field: :customer_name)
+.card.mb-3{ data: {controller: 'nested-form'} }
+  .card-header
+    %div
+      %h4.text-muted.mb-0= Admin::OrderDetail.model_name.human
+      = render Admin::InvalidMessageComponent.new(form, :order_details)
+    %template{ data: { nested_form_target: 'template' } }
+      = form.fields_for :order_details, Admin::OrderDetail.new, child_index: 'NEW_RECORD' do |nested_form|
+        = render 'form_order_detail', form: nested_form
+  .table-responsive
+    %table.table.nested_form_table.card-table
+      %thead
+        %tr
+          %th.required
+            = Admin::OrderDetail.human_attribute_name(:service_id)
+          %th.icon_sell
+      %tbody{ data: { nested_form_target: 'links' } }
+        = form.fields_for :order_details do |nested_form|
+          = render 'form_order_detail', form: nested_form
+  .card-body.text-end.py-2
+    = link_to t('infold.operation.add'), '#', class: 'btn btn-info', data: { action: 'nested-form#add_association' }
+.list-group.mb-3
+  .list-group-item
+    %div{class: "row"}
+      %div{class: "col"}
+        = render Admin::FieldsetComponent.new(form, :price, :number, required: true)
+      %div{class: "col"}
+        = render Admin::FieldsetComponent.new(form, :status, :radio, required: true, list: Admin::Order.statuses_i18n.invert)
+      %div{class: "col"}
+        = render Admin::FieldsetComponent.new(form, :paid, :radio, required: true, list: Admin::Order.paids_i18n.invert)

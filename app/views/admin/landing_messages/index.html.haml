@@ -1,0 +1,51 @@
+%nav.navbar.navbar-light
+  .container-fluid
+    %ol.breadcrumb
+      %li.breadcrumb-item.active Повідомлення
+    .ms-auto
+      = link_to t('infold.operation.new'), new_admin_landing_message_path, class: 'btn btn-warning', data: { turbo_frame: "modal_main" }
+#index_page.d-md-flex{ data: { controller: 'index-page', index_page_target: 'wrapper' } }
+  #conditions.bg-white.container-fluid.border-end.pe-3.py-3
+    = form_with model: @search, url: admin_landing_messages_path, method: :get, scope: 'search',
+      data: { index_page_target: 'searchForm' } do |form|
+      = form.hidden_field :sort_field, data: { index_page_target: 'sortField' }
+      = form.hidden_field :sort_kind, data: { index_page_target: 'sortKind' }
+      .mb-3
+        = render Admin::FieldsetComponent.new(form, :name_full_like, :text, alignment: false, 
+          label: Admin::LandingMessage.human_attribute_name(:name), placeholder: 'like %...%')
+      .mb-3
+        = render Admin::FieldsetComponent.new(form, :email_full_like, :text, alignment: false, 
+          label: Admin::LandingMessage.human_attribute_name(:email), placeholder: 'like %...%')
+      .mb-3
+        = render Admin::FieldsetComponent.new(form, :status_any, :checkbox, alignment: false, 
+          label: Admin::LandingMessage.human_attribute_name(:status), list: Admin::LandingMessage.statuses_i18n, checked_values: form.object.status_any)
+      %hr.my-3
+      .row.gx-2
+        .col-6.order-2.d-grid
+          = form.submit t('infold.operation.search'), class: 'btn btn-primary'
+        .col-6.d-grid
+          = link_to t('infold.operation.clear'), admin_landing_messages_path, class: 'btn btn-secondary'
+  #result.flex-fill.container-fluid.ps-3.py-3{ data: { index_page_target: 'resultArea' } }
+    - if @landing_messages.blank?
+      .alert#no_data= t('infold.no_data')
+    .card.border-top-0
+      .table_wrapper.table-responsive.bg-secondary-lt{ data: { index_page_target: 'resultTableWrapper' } }
+        %table.table.table-hover.table-striped.mb-0.bg-white
+          %thead{ data: { index_page_target: 'thead' } }
+            %tr.text-center
+              %th.icon_cell
+              %th= render Admin::SortableComponent.new(@search, :id, label: Admin::LandingMessage.human_attribute_name(:id))
+              %th= render Admin::SortableComponent.new(@search, :name, label: Admin::LandingMessage.human_attribute_name(:name))
+              %th= render Admin::SortableComponent.new(@search, :email, label: Admin::LandingMessage.human_attribute_name(:email))
+              %th= render Admin::SortableComponent.new(@search, :phone, label: Admin::LandingMessage.human_attribute_name(:phone))
+              %th= render Admin::SortableComponent.new(@search, :status, label: Admin::LandingMessage.human_attribute_name(:status))
+              %th.icon_cell
+          %tbody#landing_messages
+            = render partial: "index_row", collection: @landing_messages, as: 'landing_message'
+      - if @landing_messages.present?
+        .card-body.d-md-flex.align-items-center.justify-content-between
+          .mb-3.mb-md-0
+            = admin_search_result_count(@landing_messages)
+          .mb-3.mb-md-0
+            = paginate(@landing_messages, views_prefix: "admin")
+          = link_to t('infold.operation.output_csv'), '#', class: 'btn btn-info', data: { action: 'index-page#outputCsv' }

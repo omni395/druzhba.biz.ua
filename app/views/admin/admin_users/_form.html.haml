@@ -1,0 +1,5 @@
+.list-group.mb-3
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :email, :email, required: true)
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :password, :password, required: true)

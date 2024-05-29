@@ -1,0 +1,19 @@
+.list-group.mb-3
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= admin_user.class.human_attribute_name(:email)
+      .col-md-9
+        = admin_user.email
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= admin_user.class.human_attribute_name(:created_at)
+      .col-md-9
+        = admin_user.created_at
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= admin_user.class.human_attribute_name(:updated_at)
+      .col-md-9
+        = admin_user.updated_at

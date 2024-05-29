@@ -1,0 +1,17 @@
+%tr{ id: dom_id(landing_message) }
+  %td.icon_cell
+    = link_to admin_landing_message_path(landing_message), class: 'd-block', data: { turbo_frame: 'modal_main' } do
+      %i.bi.bi-file-text.h3
+  %td
+    = landing_message.id
+  %td
+    = landing_message.name
+  %td
+    = landing_message.email
+  %td
+    = landing_message.phone
+  %td{class: "text-center"}
+    = render Admin::BadgeComponent.new(landing_message.status_i18n, landing_message.status_color)
+  %td.icon_cell
+    = link_to edit_admin_landing_message_path(landing_message), class: 'd-block', data: { turbo_frame: "modal_main" } do
+      %i.bi.bi-pencil-square.h3
