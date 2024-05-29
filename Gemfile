@@ -58,6 +58,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "html2haml"
+  gem "mina"
   
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
