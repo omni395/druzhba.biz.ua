@@ -13,6 +13,7 @@ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 
 set :application_name, 'druzhba'
 set :domain, 'druzhba.biz.ua'
+set :user, 'druzhba_admin'
 set :deploy_to, '/home/druzhba_admin/www/druzhba'
 set :repository, 'https://github.com/omni395/druzhba.biz.ua.git'
 set :branch, 'main'
