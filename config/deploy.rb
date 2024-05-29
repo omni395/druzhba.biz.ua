@@ -2,7 +2,8 @@
 lock "~> 3.18.1"
 
 set :application, "druzhba.biz.ua"
-set :repo_url, "git@github.com:omni395/druzhba.biz.ua.git"
+# SSH set :repo_url, "git@github.com:omni395/druzhba.biz.ua.git"
+set :repo_url, "https://github.com/omni395/druzhba.biz.ua.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
