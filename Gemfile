@@ -58,7 +58,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "html2haml"
-  gem "mina"
+  #gem "mina"
   
 
   #gem 'capistrano', '~> 3.11'
@@ -87,4 +87,9 @@ gem 'rails-i18n'
 gem "groupdate"
 gem "chartkick"
 
-gem "passenger", require: "phusion_passenger/rack_handler"
+#gem "passenger", require: "phusion_passenger/rack_handler"
+
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
