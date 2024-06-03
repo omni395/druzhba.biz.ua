@@ -87,8 +87,6 @@ gem 'rails-i18n'
 gem "groupdate"
 gem "chartkick"
 
-#gem "passenger", require: "phusion_passenger/rack_handler"
-
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-passenger', '~> 0.2.0'
