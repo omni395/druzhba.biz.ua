@@ -1,7 +1,8 @@
 module Admin
   class AdminUserSearchForm < BaseSearchForm
 
-    set_condition :email_eq
+    set_condition :email_eq,
+                  :name_full_like
 
     def perform(page = nil, limit: nil, csv: false)
       records = AdminUser.distinct

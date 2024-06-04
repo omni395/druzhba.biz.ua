@@ -14,6 +14,12 @@
   .list-group-item
     .row
       .col-md-3
+        .text-muted.fw-bold= order.class.human_attribute_name(:admin_user_id)
+      .col-md-9
+        = link_to order.admin_user.name, admin_admin_user_path(order.admin_user), data: { turbo_frame: 'modal_sub' } if order.admin_user
+  .list-group-item
+    .row
+      .col-md-3
         .text-muted.fw-bold= order.class.human_attribute_name(:status)
       .col-md-9
         = render Admin::BadgeComponent.new(order.status_i18n, order.status_color)

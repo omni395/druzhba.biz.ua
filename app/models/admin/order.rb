@@ -1,12 +1,14 @@
 module Admin
   class Order < ::Order
     belongs_to :customer, foreign_key: 'customer_id'
+    belongs_to :admin_user, foreign_key: 'admin_user_id'
     has_many :order_details, dependent: :destroy
 
     accepts_nested_attributes_for :order_details, reject_if: :all_blank, allow_destroy: true
     validates_associated :order_details
 
     delegate :name, to: :customer, prefix: true, allow_nil: true
+    delegate :name, to: :admin_user, prefix: true, allow_nil: true
 
     validates :status, presence: true
     validates :paid, presence: true
@@ -26,6 +28,10 @@ module Admin
 
     scope :paid_any, ->(v) do
       where(paid: v) if v.present?
+    end
+
+    scope :admin_user_id_eq, ->(v) do
+      where(admin_user_id: v) if v.present?
     end
 
 

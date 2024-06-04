@@ -58,6 +58,7 @@ module Admin
     def search_params
       params[:search]&.permit(
         :email_eq,
+        :name_full_like,
         :sort_field,
         :sort_kind
       )
@@ -66,6 +67,7 @@ module Admin
     def post_params
       params.require(:admin_admin_user).permit(
         :email,
+        :name,
         :password
       )
     end

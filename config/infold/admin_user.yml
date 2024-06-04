@@ -1,6 +1,7 @@
 model:
   validate:
     email: presence
+    name: presence
     password: presence
   decorator:
   association:
@@ -15,17 +16,29 @@ app:
     list:
       fields:
         - email
+        - name
       default_order:
     csv:
       fields:
   show:
     fields:
       - email
+      - name
       - created_at
       - updated_at
   form:
     fields:
       - email:
           kind: email
+      - name
       - password:
           kind: password
+
+  association_search:
+    conditions:
+      - name:
+          sign: full_like
+    list:
+        fields:
+          - id
+          - name

@@ -8,8 +8,8 @@
             scope: 'search', data: { turbo_frame: 'association_search_body' } do |form|
             .row.gy-3.align-items-end
               .col-lg-6.col-xl-4
-                = render Admin::FieldsetComponent.new(form, :id_eq, :text, alignment: false, 
-                  label: Admin::AdminUser.human_attribute_name(:id), placeholder: '=')
+                = render Admin::FieldsetComponent.new(form, :name_full_like, :text, alignment: false, 
+                  label: Admin::AdminUser.human_attribute_name(:name), placeholder: 'like %...%')
               .col-lg-6.col-xl-4
                 = hidden_field_tag :name_field, params[:name_field]
                 = form.submit t('infold.operation.search'), class: 'btn btn-primary'
@@ -22,7 +22,7 @@
                 %thead
                   %tr
                     %th= Admin::AdminUser.human_attribute_name(:id)
-                    %th= Admin::AdminUser.human_attribute_name(:email)
+                    %th= Admin::AdminUser.human_attribute_name(:name)
                     %th
                 %tbody
                   - @admin_users.each do |admin_user|
@@ -30,7 +30,7 @@
                       %td
                         = admin_user.id
                       %td
-                        = admin_user.email
+                        = admin_user.name
                       %td.icon_cell
                         %a{ href: '#', data: { action: "relation-search#select remote-modal#close",
                           id: admin_user.id, name: admin_user.read_attribute(params[:name_field]) } }

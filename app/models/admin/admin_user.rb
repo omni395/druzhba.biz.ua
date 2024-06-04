@@ -6,6 +6,7 @@ module Admin
     datetime_field :remember_created_at
 
     validates :email, presence: true
+    validates :name, presence: true
     validates :password, presence: true
 
     validates :reset_password_sent_at_date, presence: true, if: -> { reset_password_sent_at_time.present? }
@@ -15,6 +16,10 @@ module Admin
 
     scope :email_eq, ->(v) do
       where(email: v) if v.present?
+    end
+
+    scope :name_full_like, ->(v) do
+      where(arel_table[:name].matches("%#{v}%")) if v.present?
     end
 
 

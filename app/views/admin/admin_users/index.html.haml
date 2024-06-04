@@ -29,6 +29,7 @@
             %tr
               %th.icon_cell
               %th= render Admin::SortableComponent.new(@search, :email, label: Admin::AdminUser.human_attribute_name(:email))
+              %th= render Admin::SortableComponent.new(@search, :name, label: Admin::AdminUser.human_attribute_name(:name))
               %th.icon_cell
           %tbody#admin_users
             = render partial: "index_row", collection: @admin_users, as: 'admin_user'

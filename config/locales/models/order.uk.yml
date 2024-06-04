@@ -2,8 +2,8 @@ uk:
   activerecord:
     attributes:
       order:
-        customer: Замовник
         customer_id: Замовник
+        admin_user_id: Відповідальний
         status: Статус
         paid: Оплата
 

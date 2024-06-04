@@ -9,6 +9,7 @@ CSV.generate do |csv|
     Admin::Order.human_attribute_name(:price),
     Admin::Order.human_attribute_name(:created_at),
     Admin::Order.human_attribute_name(:updated_at),
+    Admin::Order.human_attribute_name(:admin_user_id),
     Admin::Order.human_attribute_name(:customer_id),
   ]
   # set body rows
@@ -20,6 +21,7 @@ CSV.generate do |csv|
       order.price,
       order.created_at,
       order.updated_at,
+      order.admin_user_id,
       order.customer_id,
     ]
   end

@@ -11,6 +11,9 @@ model:
     customer:
       kind: belongs_to
       name_field: name
+    admin_user:
+      kind: belongs_to
+      name_field: name
     order_details:
       kind: has_many
       dependent: destroy
@@ -50,6 +53,9 @@ app:
       - customer_id:
           sign: eq
           form_kind: association_search
+      - admin_user_id:
+            sign: eq
+            form_kind: association_search
       - status:
           sign: any
           form_kind: checkbox
@@ -61,6 +67,7 @@ app:
       fields:
         - id
         - customer_id
+        - admin_user_id
         - status
         - paid
         - price
@@ -69,11 +76,11 @@ app:
         field: id
         kind: desc
 
-
   show:
     fields:
       - id
       - customer
+      - admin_user
       - status
       - paid
       - price
@@ -85,6 +92,8 @@ app:
   form:
     fields:
       - customer:
+          kind: association_search
+      - admin_user:
           kind: association_search
       - order_details:
           kind: association

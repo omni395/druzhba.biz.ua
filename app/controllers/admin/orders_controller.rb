@@ -59,6 +59,7 @@ module Admin
     def search_params
       params[:search]&.permit(
         :customer_id_eq,
+        :admin_user_id_eq,
         :sort_field,
         :sort_kind,
         status_any: [],
@@ -69,6 +70,7 @@ module Admin
     def post_params
       params.require(:admin_order).permit(
         :customer_id,
+        :admin_user_id,
         :price,
         :status,
         :paid,
