@@ -1,25 +1,25 @@
 -# Modal
-%div{id: "contactFormModal", class: "tw-fixed tw-z-10 tw-inset-0 tw-overflow-y-auto tw-hidden"}
-  %div{class: "tw-flex tw-items-center tw-justify-center tw-min-h-screen"}
-    %div{class: "tw-bg-white tw-p-6 tw-rounded-2xl tw-shadow-md tw-w-1/2"}
+%div{id: "contactFormModal", class: "fixed z-10 inset-0 overflow-y-auto hidden"}
+  %div{class: "flex items-center justify-center min-h-screen"}
+    %div{class: "bg-white p-6 rounded-2xl shadow-md w-1/2"}
       %div{class: "flex justify-end"}
         -# Close Button
-        %button{id: "closeContactForm", class: "tw-text-gray-700 hover:tw-text-red-500"}
-          %svg{class: "tw-w-6 tw-h-6", fill: "none", stroke: "currentColor", viewbox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg"}
+        %button{id: "closeContactForm", class: "text-gray-700 hover:text-red-500"}
+          %svg{class: "w-6 h-6", fill: "none", stroke: "currentColor", viewbox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg"}
             %path{d: "M6 18L18 6M6 6l12 12", "stroke-linecap": "round", "stroke-linejoin": "round", "stroke-width": "2"}
-      %h2{class: "tw-text-2xl tw-font-bold tw-mb-4 tw-text-center"} Відправити повідомлення
+      %h2{class: "text-2xl font-bold mb-4 text-center"} Відправити повідомлення
       = form_with(model: @landing_message, url: landing_messages_path) do |f|
         = hidden_field_tag :format, :html
-        %div{class: "tw-mb-4"}
+        %div{class: "mb-4"}
           %label.block.text-gray-700.text-sm.font-bold.mb-2{:for => "name"} Імʼя
-          = f.text_field :name, class: "tw-w-full tw-p-2 tw-border tw-rounded-md focus:tw-outline-none focus:tw-border-blue-500", id: "name"
-        %div{class: "tw-mb-4"}
+          = f.text_field :name, class: "w-full p-2 border rounded-md focus:outline-none focus:border-blue-500", id: "name"
+        %div{class: "mb-4"}
           %label.block.text-gray-700.text-sm.font-bold.mb-2{:for => "phone"} Телефон
-          = f.telephone_field :phone, class: 'tw-w-full tw-p-2 tw-border tw-rounded-md focus:tw-outline-none focus:tw-border-blue-500', id: 'phone'
-        %div{class: "tw-mb-4"}
+          = f.telephone_field :phone, class: 'w-full p-2 border rounded-md focus:outline-none focus:border-blue-500', id: 'phone'
+        %div{class: "mb-4"}
           %label.block.text-gray-700.text-sm.font-bold.mb-2{:for => "email"} E-mail
-          = f.email_field :email, class: 'tw-w-full tw-p-2 tw-border tw-rounded-md focus:tw-outline-none focus:tw-border-blue-500', id: 'email'
-        %div{class: "tw-mb-4"}
+          = f.email_field :email, class: 'w-full p-2 border rounded-md focus:outline-none focus:border-blue-500', id: 'email'
+        %div{class: "mb-4"}
           %label.block.text-gray-700.text-sm.font-bold.mb-2{:for => "message"} Ваше повідомлення
-          = f.text_area :message, size: "70x2", class: 'tw-w-full tw-p-2 tw-border tw-rounded-md focus:tw-outline-none focus:tw-border-blue-500', id: 'message'
-        = f.submit 'Відправити', data: { disable_with: false }, class: "tw-cursor-pointer tw-font-caveat tw-inline-block tw-w-1/3 tw-rx-auto tw-text-center tw-text-xl tw-font-medium tw-text-red-600 tw-bg-stone-100 hover:tw-bg-stone-200 tw-border tw-border-red-600 tw-rounded-lg tw-font-bold tw-py-2 tw-px-4", type: "submit"
+          = f.text_area :message, size: "70x2", class: 'w-full p-2 border rounded-md focus:outline-none focus:border-blue-500', id: 'message'
+        = f.submit 'Відправити', data: { disable_with: false }, class: "cursor-pointer font-caveat inline-block w-1/3 rx-auto text-center text-xl font-medium text-red-600 bg-stone-100 hover:bg-stone-200 border border-red-600 rounded-lg font-bold py-2 px-4", type: "submit"

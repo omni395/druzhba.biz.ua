@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #root to: 'landing#index'
+  root to: 'landing#index'
   
   # Admin routes with gem infold  
   draw(:admin)
