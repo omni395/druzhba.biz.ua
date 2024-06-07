@@ -6,14 +6,14 @@ class LandingMessagesController < ApplicationController
 
   def create
     @landing_message = LandingMessage.new
-    @landing_message.update_attributes(landing_message_params)
+    @landing_message.assign_attributes(landing_message_params)
 
     respond_to do |format|
       if @landing_message.save
-        format.html { redirect_to root_path }
+        format.html { redirect_back fallback_location: root_path }
         flash.now[:notice] = 'Повідомлення відпраавлено'
       else
-        format.html { render :index, status: :unprocessable_entity}
+        format.html { redirect_to root_path, status: :unprocessable_entity}
         flash.now[:alert] = t('infold.flash.invalid')
       end
     end

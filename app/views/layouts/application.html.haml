@@ -1,9 +1,10 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
-    %title Швейна майстерня "Дружба"
+    %title Швейна майстерня ☞ ДРУЖБА ☜
     = favicon_link_tag asset_path('favicon.png')
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{:content => "ремонт одягу пошив індивідуальний пошив ремонт одежды укоротить брюки штаны юбка платье", :name => "description"}
 
     %link{href: "https://fonts.googleapis.com", rel: "preconnect"}
     %link{crossorigin: "", href: "https://fonts.gstatic.com", rel: "preconnect"}
@@ -20,11 +21,9 @@
     = stylesheet_link_tag "application", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
-  %body{class: "tw-bg-stone-100", id: "main"}
-    %navigation{class: "tw-w-full tw-relative tw-top-0 tw-start-0"}
+  %body{class: "bg-stone-100", id: "main"}
+    %navigation{class: "w-full relative top-0 start-0"}
       = render "shared/navigation"
-    %main{class: "tw-relative tw-start-0 tw-p-2"}
+    %main{class: "relative start-0 p-2"}
       = yield
-    %footer{class: ""}
-      = render "shared/footer"
 

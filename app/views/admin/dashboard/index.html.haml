@@ -36,7 +36,7 @@
         %p{class: "badge bg-lime rounded-lg p-1 m-1 text-md text-gray-600"} Прострочено: #{LandingMessage.where('updated_at <= ?', 1.week.ago).count}
 
     
-= column_chart Order.group_by_day(:updated_at).sum(:price), title: "Прибутки", width: "480px", height: "240px", colors: ["#b00", "#666"]
+= column_chart Order.group_by_day(:created_at).sum(:price), title: "Прибутки", width: "480px", height: "240px", colors: ["#b00", "#666"]
 
 -#= line_chart Order.group(:price).count.group_by_day(:updated_at).count
 
