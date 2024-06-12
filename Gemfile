@@ -69,6 +69,7 @@ end
 
 gem "infold", require: false
 gem "haml-rails"
+gem "sassc-rails"
 gem 'devise', '4.8.1'
 gem "kaminari"
 gem "view_component"

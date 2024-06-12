@@ -7,7 +7,7 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/views/**/*.{erb,haml,html,slim}',
-    './node_modules/flowbite/**/*.js'
+    './node_modules/flowbite/**/*.js',
   ],
   theme: {
     extend: {
@@ -16,6 +16,13 @@ module.exports = {
         caveat: ['Caveat', ...defaultTheme.fontFamily.sans],
         bad_script: ['Bad script', ...defaultTheme.fontFamily.sans],
       },
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+      }
     },
   },
   plugins: [

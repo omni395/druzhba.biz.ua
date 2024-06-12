@@ -3,26 +3,26 @@
   -# Modal dialog contact form
   = render "contact_form"
   
-  %div{class: "position-relative py-8 opacity-0 element-animation", id: "hero-section"}
+  %div{class: "position-relative mt-2 opacity-0 element-animation", id: "hero-section"}
     = render "1_hero_section"
   
-  %div{class: "position-relative py-8 opacity-0 element-animation", id: "services"}
+  %div{class: "position-relative mt-8 opacity-0 element-animation", id: "services"}
     = render "2_services"
-
-  %div{class: "position-relative opacity-0 element-animation", id: "about"}
-    = render "about"
-
-  %div{class: "position-relative opacity-0 element-animation", id: "reviews"}
-    = render "reviews"
-
-  %div{class: "position-relative opacity-0 element-animation", id: "contacts"}
-    = render "contacts"
-
-  %div{class: "position-relative opacity-0 element-animation", id: "contact_form"}
-    = render "contact_form"
   
+  %div{class: "position-relative mt-2 opacity-0 element-animation", id: "services"}
+    = render "3_services"
+
+  %div{class: "position-relative mt-16 opacity-0 element-animation", id: "about"}
+    = render "4_about"
+
+  %div{class: "position-relative mt-16 opacity-0 element-animation", id: "reviews"}
+    = render "5_reviews"
+
+  %div{class: "position-relative mt-16 opacity-0 element-animation", id: "contacts"}
+    = render "6_contacts"
+
   %footer{class: "", id: "footer"}
-    = render "footer"
+    = render "7_footer"
   
 -# Scroll to Top button
 %div{class: "fixed bottom-10 end-10", id: ""}

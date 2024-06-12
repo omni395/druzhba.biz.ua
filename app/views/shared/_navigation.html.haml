@@ -1,6 +1,6 @@
 %nav{class: "w-full z-20 border-b border-gray-200"}
   %div{class: "max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-2"}
-    %a{class: "flex items-center space-x-1 rtl:space-x-reverse", href: root_path}
+    %a{class: "flex items-center space-x-1 rtl:space-x-reverse", href: root_path, onclick: "window.location.reload(true);"}
       %span{class: "pr-1 self-center text-2xl font-bad_script font-bold whitespace-nowrap"} Швейна майстерня
       = image_tag("scissors.svg", class: "h-4", alt: ">")
       %div{class: "flex content-center"}
@@ -17,11 +17,11 @@
         %svg{class: "w-5 h-5", "aria-hidden": "true", fill: "none", viewbox: "0 0 17 14", xmlns: "http://www.w3.org/2000/svg"}
           %path{d: "M1 1h15M1 7h15M1 13h15", stroke: "currentColor", "stroke-linecap": "round",
                 "stroke-linejoin": "round", "stroke-width": "2"}
-      %button{id: "openContactForm", class: "animate-pulse hover:animate-none focus:animate-none font-caveat inline-block w-full text-center text-xl font-medium text-red-600 bg-stone-100 hover:bg-stone-200 border border-red-600 rounded-lg font-bold py-2 px-4"} Залишити заявку
+      %button{id: "openContactForm", class: "animate-pulse hover:animate-none focus:animate-none font-caveat inline-block w-full text-center text-xl font-medium text-red-600 bg-stone-100 hover:bg-stone-200 border border-red-600 rounded-lg font-bold py-2 px-4"} Звʼязатися з нами
     %div{id: "navbar-sticky", class: "items-center justify-between hidden w-full md:flex md:w-auto md:order-1"}
       %ul{class: "flex flex-col p-2 md:p-0 mt-2 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-stone-100"}
         %li
-          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: root_path} Головна
+          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: root_path, onclick: "window.location.reload(true);"} Головна
         %li
           %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#services"} Послуги
         %li

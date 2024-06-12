@@ -19,6 +19,8 @@ import jquery from "jquery";
 window.jQuery = jquery;
 window.$ = jquery;
 
+// Disable Turbo
+Turbo.setFormMode("off");
 
 // Плавная прокрутка
 var $page = $('html, body');
@@ -38,7 +40,7 @@ function onEntry(entry) {
     });
   }
   
-  let options = { threshold: [0.5] };
+  let options = { threshold: [0.3] };
   let observer = new IntersectionObserver(onEntry, options);
   let elements = document.querySelectorAll('.element-animation');
   

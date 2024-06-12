@@ -1,53 +1,33 @@
-%section{class: "container font-caveat mx-auto px-4 space-y-6 bg-stone-100 py-8 md:py-10 lg:py-14"}
-  %div{class: "mx-auto flex flex-col items-center space-y-4 text-center max-w-[64rem]"}
-    %h2{class: "font-bold text-3xl md:text-6xl leading-[1.1]"} Більше 15 років досвіду роботи
-    %p{class: "leading-normal text-muted-foreground md:text-lg md:leading-5 max-w-[85%]"}
-      %div{class: "flex mx-auto items-center justify-between flex-col md:flex-row w-full text-center md:text-left"}
-        %i{class: "text-red-600 h-8 w-8 fa-solid fa-person-chalkboard"}
-        %div{class: "flex flex-col py-2 pr-2"}
-          %h4{class: "text-2xl font-light"} Індивідуальне відношення до кожного клієнта
-        %i{class: "text-red-600 h-8 w-8 fa-solid fa-money-bill-trend-up"}
-        %div{class: "flex flex-col py-2 pr-2"}
-          %h4{class: "text-2xl font-light"} Гнучкі ціни
-        %i{class: "text-red-600 h-8 w-8 fa-solid fa-plug-circle-check"}
-        %div{class: "flex flex-col py-2 pr-2"}
-          %h4{class: "text-2xl font-light"} Якісне обслуговування
+%section{class: "relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl"}
+  %div{class: "py-3 sm:py-6"}
+    %h1{class: "text-2xl py-2 font-bad_script text-center font-bold tracking-tight sm:text-3xl font-medium text-red-600"}
+      %span{class: "text-3xl"} Більше
+      %span{class: "text-4xl"} 15
+      %span{class: "text-3xl"} років досвіду роботи. Понад
+      %span{class: "text-4xl"}5000
+      %span{class: "text-3xl"} задоволених клієнтів.
+  %div{class: "grid w-full grid-cols-1 gap-6 mx-auto md:grid-cols-3"}
+    %div{class: "p-6 shadow-md"}
+      %div{class: "hidden md:block"}
+        = image_tag("zip.png", class: "object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейна майстерня ☞ ДРУЖБА ☜")
+      %h1.mx-auto.mb-4.text-2xl.font-semibold.leading-none.tracking-tighter.text-neutral-600.lg:text-3xl
+        Заміна замків у верхньому та легкому одягу
+      %p.mx-auto.text-base.leading-relaxed.text-gray-500
+        Якщо у вас вийшов з ладу замок, це не означає, що речі вийшла з ладу та її потрібно викинути.
+        Ми проведемо швидку його заміну, і ваш виріб прослужить ще не один день.
+    %div{class: "p-6 shadow-md"}
+      %div{class: "hidden md:block"}
+        = image_tag("djeans.png", class: "object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейна майстерня ☞ ДРУЖБА ☜")
+      %h1.mx-auto.mb-4.text-2xl.font-semibold.leading-none.tracking-tighter.text-neutral-600.lg:text-3xl
+        Штопка (штуковка джинсових виробів)
+      %p.mx-auto.text-base.leading-relaxed.text-gray-500
+        штуковка
+    %div{class: "p-6 shadow-md"}
+      %div{class: "hidden md:block"}
+        = image_tag("skin.png", class: "object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейна майстерня ☞ ДРУЖБА ☜")
+      %h1.mx-auto.mb-4.text-2xl.font-semibold.leading-none.tracking-tighter.text-neutral-600.lg:text-3xl
+        Ремонт шкіряних та хутрових виробів
+      %p.mx-auto.text-base.leading-relaxed.text-gray-500
+        Ремонт шкіряних та хутрових виробів
 
-  %div{class: "mx-auto grid justify-center gap-4 sm:grid-cols-2 md:grid-cols-3 md:max-w-[64rem]"}
-    %div{class: "relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2"}
-      %div{class: "flex flex-col justify-between rounded-md p-6 h-[130px]"}
-        = image_tag("mashine.svg", size: "48x48", class: "h-12 w-12 fill-current mx-auto")
-        %div{class: "space-y-2"}
-          -#%h3{class: "font-bold"} Next.js 13
-          %p{class: "text-xl text-muted-foreground"} Заміна замків у верхньому та легкому одягу
-    %div{class: "relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2"}
-      %div{class: "flex flex-col justify-between rounded-md p-6 h-[130px]"}
-        = image_tag("button.svg", size: "48x48", class: "h-12 w-12 fill-current mx-auto")
-        %div{class: "space-y-2"}
-          -#%h3{class: "font-bold"} Штопка (штуковка джинсових виробів)
-          %p{class: "text-xl text-muted-foreground"} Штопка (штуковка джинсових виробів)
-    %div{class: "relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2"}
-      %div{class: "flex flex-col justify-between rounded-md p-6 h-[130px]"}
-        = image_tag("pin.svg", size: "48x48", class: "h-12 w-12 fill-current mx-auto")
-        %div{class: "space-y-2"}
-          -#%h3{class: "font-bold"} Next.js 13
-          %p{class: "text-xl text-muted-foreground"} Ремонт шкіряних та хутрових виробів
-    %div{class: "relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2"}
-      %div{class: "flex flex-col justify-between rounded-md p-6 h-[130px]"}
-        = image_tag("model.svg", size: "48x48", class: "h-12 w-12 fill-current mx-auto")
-        %div{class: "space-y-2"}
-          -#%h3{class: "font-bold"} Next.js 13
-          %p{class: "text-xl text-muted-foreground"} Підгін низу (джинси, сукні, пальто та інші речі)
-    %div{class: "relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2"}
-      %div{class: "flex flex-col justify-between rounded-md p-6 h-[130px]"}
-        = image_tag("pins.svg", size: "48x48", class: "h-12 w-12 fill-current mx-auto")
-        %div{class: "space-y-2"}
-          -#%h3{class: "font-bold"} Next.js 13
-          %p{class: "text-xl text-muted-foreground"} Дрібний ремонт одягу
-    %div{class: "relative overflow-hidden rounded-lg border bg-white select-none hover:shadow hover:shadow-teal-200 p-2"}
-      %div{class: "flex flex-col justify-between rounded-md p-6 h-[130px]"}
-        = image_tag("scissors.svg", size: "48x48", class: "h-12 w-12 fill-current mx-auto")
-        %div{class: "space-y-2"}
-          -#%h3{class: "font-bold"} Next.js 13
-          %p{class: "text-xl text-muted-foreground"} Підшивання шторів та штор
 

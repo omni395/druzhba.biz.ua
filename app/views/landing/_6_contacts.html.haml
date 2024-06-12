@@ -1,0 +1,30 @@
+-#%div{class: ""}
+%section{class: "container font-caveat mx-auto px-4 space-y-6 bg-stone-100 py-8 md:py-10 lg:py-14"}
+  .max-w-2xl.lg:max-w-4xl.mx-auto.text-center
+    %h2.text-4xl.font-extrabold.text-gray-900 Ми завжди раді вас бачити
+    -#%p.mt-4.text-lg.text-gray-500 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  %div{class: "container mx-auto px-8 lg:flex"}
+    %div{class: "text-center lg:text-left lg:w-1/2"}
+      .max-w-7xl.mx-auto.py-4.px-4.sm:px-6.lg:py-8.lg:px-8
+        .flex.flex-col.md:flex-row.overflow-hidden
+          %div{"data-turbo" => "false"}
+            %iframe{:allowfullscreen => "", :height => "450", :loading => "lazy", :referrerpolicy => "no-referrer-when-downgrade", :src => "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5349.459246092125!2d33.456670112719706!3d47.902918261544116!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40db2100265898f1%3A0xc888e195cbff0202!2z0KjQstC10LnQvdCwINC80LDQudGB0YLQtdGA0L3RjyDimJ4g0JTQoNCj0JbQkdCQIOKYnA!5e0!3m2!1sru!2sua!4v1718172960386!5m2!1sru!2sua", :style => "border:0;", :width => "600"}
+          %div{class: ""}
+            .max-w-full.mx-auto.rounded-lg.overflow-hidden
+              .px-6.py-4
+                %h3.text-lg.font-medium.text-gray-900 Наша адреса:
+                %p.mt-1.text-gray-600.text-2xl 50055, вул. Кокчетавська 3, м. Кривий Ріг
+              .border-t.border-gray-200.px-6.py-4
+                %h3.text-lg.font-medium.text-gray-900 Часи роботи:
+                %p.mt-1.text-gray-600.text-2xl Вівторок - Пʼятниця: 9:00 - 17:00
+                %p.mt-1.text-gray-600.text-2xl Субота: 10:00 - 16:00
+                %p.mt-1.text-gray-600.text-2xl Неділя - Понеділок: Зачинено
+              .border-t.border-gray-200.px-6.py-4
+                %h3.text-lg.font-medium.text-gray-900 Контакти:
+                %p.mt-1.text-gray-600.text-2xl
+                  Email:
+                  %a{href: "mailto:ksuha@druzhba.biz.ua"}ksuha@druzhba.biz.ua
+                %p.mt-1.text-gray-600.text-2xl
+                  Телефон:
+                  %a{href: "tel:+380972870571"}+38 097 287 05 71 (зателефонувати)
+
