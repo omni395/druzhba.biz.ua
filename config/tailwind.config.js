@@ -15,6 +15,7 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         caveat: ['Caveat', ...defaultTheme.fontFamily.sans],
         bad_script: ['Bad script', ...defaultTheme.fontFamily.sans],
+        messiri: ['El Messiri', ...defaultTheme.fontFamily.sans],
       },
       screens: {
         'sm': '640px',

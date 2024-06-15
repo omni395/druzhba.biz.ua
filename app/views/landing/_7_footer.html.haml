@@ -1,11 +1,12 @@
-%footer.bg-gray-200.py-8.px-4.shadow-md.z-10.flex.justify-content-center.align-items-center.dark:bg-slate-900.dark:text-white
-  .text-sm.text-gray-600.dark:text-gray-300 Copyright © 2022-2024 www.druzhba.biz.ua
-  .flex.ml-auto.gap-4
-    %a.text-gray-700.hover:text-gray-900.dark:text-gray-500.hover:dark:text-gray-700{:href => "#"}
+%footer{class: "py-4 px-4 shadow-md z-10 flex justify-content-center align-items-center bg-stone-200"}
+  %div{class: "text-sm text-gray-600"}
+    Copyright © 2022-#{Date.today.strftime('%Y')} Швейна майстерня ☞ ДРУЖБА ☜
+  -#.flex.ml-auto.gap-4
+    %a.text-gray-700.hover:text-gray-900{:href => "#"}
       Terms
-    %a.text-gray-700.hover:text-gray-900.dark:text-gray-500.hover:dark:text-gray-700{:href => "#"}
+    %a.text-gray-700.hover:text-gray-900{:href => "#"}
       Conditions
-    %a.text-gray-700.hover:text-gray-900.dark:text-gray-500.hover:dark:text-gray-700{:href => "#"}
+    %a.text-gray-700.hover:text-gray-900{:href => "#"}
       Privacy
-    %a.text-gray-700.hover:text-gray-900.dark:text-gray-500.hover:dark:text-gray-700{:href => "#"}
+    %a.text-gray-700.hover:text-gray-900{:href => "#"}
       Policy

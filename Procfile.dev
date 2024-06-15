@@ -1,7 +1,10 @@
-#web: bin/rails server
-#css: bin/rails tailwindcss:watch
-#js: yarn build --watch
-
-web: env RUBY_DEBUG_OPEN=true bin/rails server
+# Development
+web: bin/rails server
+tailwind: bin/rails tailwindcss:watch
 js: yarn build --watch
-tailwind: yarn build:tailwind --watch
+
+
+# Production
+#web: env RUBY_DEBUG_OPEN=true bin/rails server
+#js: yarn build --watch
+#tailwind: yarn build:tailwind --watch
