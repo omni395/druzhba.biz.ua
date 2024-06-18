@@ -10,3 +10,8 @@ Faker::Config.locale = :uk# druzhba.biz.ua
 переименовать app/assets/builds в build
 сделать assets:precompile
 перезапустить сервер
+
+финансовые потоки: пришли, куда потрачено, кому выплачеено, проценты от заказов.
+
+add google busines reviews
+add i18n locales :uk, :en, :ru
