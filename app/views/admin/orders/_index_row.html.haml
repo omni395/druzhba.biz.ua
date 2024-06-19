@@ -12,8 +12,8 @@
     = render Admin::BadgeComponent.new(order.status_i18n, order.status_color)
   %td
     = render Admin::BadgeComponent.new(order.paid_i18n, order.paid_color)
-  %td
-    = order.price
+  %td.text-center
+    #{order.price} грн.
   %td
     = order.updated_at_field
   %td.icon_cell

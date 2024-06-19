@@ -32,8 +32,6 @@ app:
       - email
       - name
       - role
-      - created_at
-      - updated_at
   form:
     fields:
       - email:

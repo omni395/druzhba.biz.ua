@@ -1,30 +1,46 @@
 %div{class: "col-12 col-sm-6"}
   %div{class: "card m-2 shadow"}
     %div{class: "p-0 card-header justify-content-center"}
-      %h4{class: "p-0 m-0 fs-3"} Повідомлення
+      %h4{class: "p-0 m-0 fs-3 text-info"} Повідомлення
     %div{class: "p-0 card-body"}
       %div{class: "card-text"}
-        %div{class: "row fs-5 text-center"}
+        %div{class: "row fs-4 text-center"}
           %div{class: "col-12 col-lg col-md-6"}
-            Нових: #{LandingMessage.where(status: 0).count}
+            Нових:
+            %strong{class: "fs-3 text-lime"}
+              #{LandingMessage.where(status: 0).count}
           %div{class: "col-12 col-lg col-md-6"}
-            За тиждень: #{LandingMessage.where('updated_at > ?', 1.week.ago).count}
+            За тиждень:
+            %strong{class: "fs-3 text-info"}
+              #{LandingMessage.where('updated_at > ?', 1.week.ago).count}
           %div{class: "col-12 col-lg col-md-6"}
-            За місяць: #{LandingMessage.where('updated_at > ?', 1.month.ago).count}
+            За місяць:
+            %strong{class: "fs-3 text-info"}
+              #{LandingMessage.where('updated_at > ?', 1.month.ago).count}
           %div{class: "col-12 col-lg col-md-6"}
-            Прострочено: #{LandingMessage.where('updated_at <= ?', 1.week.ago).count}
+            Прострочено:
+            %strong{class: "fs-3 text-danger"}
+              #{LandingMessage.where('updated_at <= ?', 1.week.ago).count}
 %div{class: "col-12 col-sm-6"}
   %div{class: "card m-2 shadow"}
     %div{class: "p-0 card-header justify-content-center"}
-      %h4{class: "p-0 m-0 fs-3"} Замовлення
+      %h4{class: "p-0 m-0 fs-3 text-purple"} Замовлення
     %div{class: "p-0 card-body"}
       %div{class: "card-text"}
-        %div{class: "row fs-5 text-center"}
+        %div{class: "row fs-4 text-center"}
           %div{class: "col-12 col-lg col-md-6"}
-            Нових: #{Order.where(status: 0).count}
+            Нових:
+            %strong{class: "fs-3 text-lime"}
+              #{Order.where(status: 0).count}
           %div{class: "col-12 col-lg col-md-6"}
-            За тиждень: #{Order.where('updated_at > ?', 1.week.ago).count}
+            За тиждень:
+            %strong{class: "fs-3 text-info"}
+              #{Order.where('updated_at > ?', 1.week.ago).count}
           %div{class: "col-12 col-lg col-md-6"}
-            За місяць: #{Order.where('updated_at > ?', 1.month.ago).count}
+            За місяць:
+            %strong{class: "fs-3 text-info"}
+              #{Order.where('updated_at > ?', 1.month.ago).count}
           %div{class: "col-12 col-lg col-md-6"}
-            Прострочено: #{Order.where('updated_at <= ?', 1.week.ago).count}
+            Прострочено:
+            %strong{class: "fs-3 text-danger"}
+              #{Order.where('updated_at <= ?', 1.week.ago).count}

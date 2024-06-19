@@ -4,7 +4,7 @@ uk:
       landing_message:
         name: Імʼя
         phone: Телефон
-        email: Електронна пошта
+        email: Email
         status: Статус
         message: Повідомлення
         created_at_field: Створено
