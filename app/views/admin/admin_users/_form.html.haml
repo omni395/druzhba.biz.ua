@@ -4,4 +4,6 @@
   .list-group-item
     = render Admin::FieldsetComponent.new(form, :name, :text, required: true)
   .list-group-item
+    = render Admin::FieldsetComponent.new(form, :role, :select, list: Admin::AdminUser.roles_i18n.invert, selected_value: form.object.role)
+  .list-group-item
     = render Admin::FieldsetComponent.new(form, :password, :password, required: true)

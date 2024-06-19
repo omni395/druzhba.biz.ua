@@ -5,7 +5,7 @@ class CreateLandingMessages < ActiveRecord::Migration[7.1]
       t.string :phone
       t.string :email
       t.text :message
-      t.integer :status, :default => '0'
+      t.integer :status, default: '0'
 
       t.timestamps
     end

@@ -10,6 +10,7 @@ CSV.generate do |csv|
     Admin::AdminUser.human_attribute_name(:created_at),
     Admin::AdminUser.human_attribute_name(:updated_at),
     Admin::AdminUser.human_attribute_name(:name),
+    Admin::AdminUser.human_attribute_name(:role),
     Admin::AdminUser.human_attribute_name(:email),
     Admin::AdminUser.human_attribute_name(:reset_password_token),
   ]
@@ -23,6 +24,7 @@ CSV.generate do |csv|
       admin_user.created_at,
       admin_user.updated_at,
       admin_user.name,
+      admin_user.role_i18n,
       admin_user.email,
       admin_user.reset_password_token,
     ]

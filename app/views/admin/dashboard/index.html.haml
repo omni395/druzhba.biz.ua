@@ -1,42 +1,65 @@
+%div{class: ""}
+  %div{class: "row"}
+    = render "cards"
+  %div{class: "px-1"}
+    %div{class: "row m-2"}
+      %h3{class: "text-center text-info shadow-lg"} Повідомлення
+      %div{class: "col-12 col-md-6"}
+        %table{class: "fs-5 table table-sm table-hover table-striped"}
+          %tr
+            %th
+            %th Імʼя
+            %th Електронна пошта
+            %th Телефон
+            %th
+          - LandingMessage.where(status: 0).last(5).each do |landing_message|
+            %tr{ id: dom_id(landing_message), "data-bs-trigger": "hover focus", "data-content": "", "data-toggle": "popover", "title": "#{landing_message.message}"}
+              %td.icon_cell
+                = link_to admin_landing_message_path(landing_message), class: 'd-block', data: { turbo_frame: 'modal_main' } do
+                  %i.bi.bi-file-text.h3
+              %td
+                = landing_message.name
+              %td
+                = landing_message.email
+              %td
+                = landing_message.phone
+              %td{class: "icon_cell"}
+                = link_to edit_admin_landing_message_path(landing_message), class: 'd-block', data: { turbo_frame: "modal_main" } do
+                  %i.bi.bi-pencil-square.h3
+      %div{class: "col-12 col-md-6"}
+        = line_chart LandingMessage.group_by_day(:created_at).count, title: "", width: "100%", height: "200px", class: "d-flex px-2", colors: ["#4299e1"]
+    %div{class: "row m-2"}
+      %h3{class: "text-center text-purple shadow-lg"} Замовлення
+      %div{class: "col-12 col-md-6"}
+        %table{class: "fs-5 table table-sm table-hover table-stripe"}
+          %tr
+            %th
+            %th Імʼя
+            %th Відповідальний
+            %th Сума
+            %th Дата
+            %th
+          - Order.where(status: 0).last(5).each do |order|
+            = link_to admin_order_path(order) do
+              %tr{ id: dom_id(order) }
+                %td.icon_cell
+                  = link_to admin_order_path(order), class: 'd-block', data: { turbo_frame: 'modal_main' } do
+                    %i.bi.bi-file-text.h3
+                %td
+                  = link_to order.customer.name, admin_customer_path(order.customer), data: { turbo_frame: 'modal_sub' } if order.customer
+                %td
+                  = link_to order.admin_user.name, admin_admin_user_path(order.admin_user), data: { turbo_frame: 'modal_sub' } if order.admin_user
+                %td{class: "text-center"}
+                  #{order.price} грн
+                %td
+                  = order.updated_at_field
+                %td.icon_cell
+                  = link_to edit_admin_order_path(order), class: 'd-block', data: { turbo_frame: "modal_main" } do
+                    %i.bi.bi-pencil-square.h3
+      %div{class: "col-12 col-md-6"}
+        = line_chart Order.group_by_day(:updated_at).count, title: "", width: "100%", height: "200px", class: "d-flex px-2", colors: ["#ae3ec9"]
 
-
-
-
-
-
-%div{class: "p-2 flex flex-col-reverse md:flex-row"}
-  %div{class: "flex flex-col justify-center items-center md:w-4/6"}
-    %div{class: "bg-green-200"} 1
-    %div{class: "bg-green-300"} 2
-  %div{class: "flex flex-col justify-center items-center md:w-2/6"}
-    %div{class: "bg-green-200"} 1
-    %div{class: "bg-green-300"} 2
-    %div{class: "bg-green-400"} 3
-
-
-
-
-
-%div{class: "flex flex-col m-2 justify-evenly lg:flex-row"}
-  %a{class: "text-center sm:text-start cursor-pointer flex flex-row m-1 space-y-4 transition-all duration-500 bg-white border border-indigo-100 rounded-lg shadow hover:shadow-xl", :href => admin_landing_messages_path}
-    %div{class: "p-1"}
-      %h5{class: "text-xl font-bold"} Повідомлення
-      %div{class: "flex flex-col sm:flex-row"}
-        %p{class: "badge bg-lime rounded-lg p-1 m-1 text-md text-gray-600"} Нових: #{LandingMessage.where(status: 0).count}
-        %p{class: "badge bg-lime rounded-lg p-1 m-1 text-md text-gray-600"} За тиждень: #{LandingMessage.where('updated_at > ?', 1.week.ago).count}
-        %p{class: "badge bg-lime rounded-lg p-1 m-1 text-md text-gray-600"} За місяць: #{LandingMessage.where('updated_at > ?', 1.month.ago).count}
-        %p{class: "badge bg-lime rounded-lg p-1 m-1 text-md text-gray-600"} Прострочено: #{LandingMessage.where('updated_at <= ?', 1.week.ago).count}
-  %a{class: "text-center sm:text-start cursor-pointer flex flex-row m-1 space-y-4 transition-all duration-500 bg-white border border-indigo-100 rounded-lg shadow hover:shadow-xl", :href => admin_orders_path}
-    %div{class: "p-1"}
-      %h5{class: "text-xl font-bold"} Замовлення
-      %div{class: "flex flex-col sm:flex-row"}
-        %p{class: "badge bg-lime rounded-lg p-1 m-1 text-md text-gray-600"} Нових: #{LandingMessage.where(status: 0).count}
-        %p{class: "badge bg-lime rounded-lg p-1 m-1 text-md text-gray-600"} За тиждень: #{LandingMessage.where('updated_at > ?', 1.week.ago).count}
-        %p{class: "badge bg-lime rounded-lg p-1 m-1 text-md text-gray-600"} За місяць: #{LandingMessage.where('updated_at > ?', 1.month.ago).count}
-        %p{class: "badge bg-lime rounded-lg p-1 m-1 text-md text-gray-600"} Прострочено: #{LandingMessage.where('updated_at <= ?', 1.week.ago).count}
-
-    
-= column_chart Order.group_by_day(:created_at).sum(:price), title: "Прибутки", width: "480px", height: "240px", colors: ["#b00", "#666"]
-
--#= line_chart Order.group(:price).count.group_by_day(:updated_at).count
-
+%div{class: "row"}
+  %div{class: "col-12 col-md-4 bg-info"} 1
+  %div{class: "col-12 col-md-4 bg-purple"} 2
+  %div{class: "col-12 col-md-4 bg-warning"} 3

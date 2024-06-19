@@ -5,8 +5,14 @@ model:
     password: presence
   decorator:
   association:
-  enum:
   active_storage:
+  enum:
+    role:
+      admin:
+        value: 0
+      manager:
+        value: 1
+
 app:
   title: Користувач системи
   index:
@@ -17,6 +23,7 @@ app:
       fields:
         - email
         - name
+        - role
       default_order:
     csv:
       fields:
@@ -24,6 +31,7 @@ app:
     fields:
       - email
       - name
+      - role
       - created_at
       - updated_at
   form:
@@ -31,6 +39,8 @@ app:
       - email:
           kind: email
       - name
+      - role:
+          kind: select
       - password:
           kind: password
 

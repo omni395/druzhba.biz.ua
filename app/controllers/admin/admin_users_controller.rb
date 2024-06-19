@@ -68,6 +68,7 @@ module Admin
       params.require(:admin_admin_user).permit(
         :email,
         :name,
+        :role,
         :password
       )
     end
