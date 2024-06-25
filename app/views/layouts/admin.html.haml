@@ -2,25 +2,24 @@
 %html{lang: "uk"}
   %head
     %title= @page_title.present? ? "#{@page_title} - Адміністрування" : 'Головна'
-    %meta{:content => "uk", "http-equiv" => "content-language"}
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
-    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}
-    %meta{:content => "no-cache", :name => "turbo-cache-control"}
+    %meta{content: "uk", "http-equiv": "content-language"}
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
+    %meta{content: "no-cache", name: "turbo-cache-control"}
     = favicon_link_tag asset_path('favicon.png')
     = csrf_meta_tags
     = csp_meta_tag
-    %link{:href => "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css", :rel => "stylesheet"}
-    %link{:href => "https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css", :rel => "stylesheet"}
-    %link{:href => "https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css", :rel => "stylesheet"}
-    %link{:href => "https://npmcdn.com/flatpickr/dist/themes/dark.css", :rel => "stylesheet", :type => "text/css"}
-    %script{:src => "https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"}
-    %script{:src => "https://cdn.jsdelivr.net/npm/flatpickr"}
+    %link{href: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css", rel: "stylesheet"}
+    %link{href: "https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css", rel: "stylesheet"}
+    %link{href: "https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css", rel: "stylesheet"}
+    %link{href: "https://npmcdn.com/flatpickr/dist/themes/dark.css", rel: "stylesheet", type: "text/css"}
+    %script{src: "https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"}
+    %script{src: "https://cdn.jsdelivr.net/npm/flatpickr"}
 
-    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"}
-    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"}
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"}
+    %script{src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"}
 
     = stylesheet_link_tag "admin", "data-turbo-track": "reload"
-    -#= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = javascript_include_tag "admin", "data-turbo-track": "reload", defer: true, type: "module"
     
     -# FontAwesome
@@ -40,17 +39,17 @@
               %span{class: "navbar-toggler-icon"}
             %div{id: "navbar-menu", class: "collapse navbar-collapse"}
               = render 'admin/common/header_menu'
-              %ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+              %ul{class: "navbar-nav ms-auto mb-2 mb-lg-0"}
                 - if current_admin_user.has_role?(0)
-                  %li.nav-item
+                  %li{class: "nav-item"}
                     = link_to 'Користувачі', admin_admin_users_path, class: 'nav-link fs-3'
-                %li.nav-item.dropdown
-                  %a.nav-link.dropdown-toggle#header_current_user{ role: :button, data: { bs_toggle: :dropdown } }
+                %li{class: "nav-item dropdown"}
+                  %a{class: "nav-link dropdown-toggle", id: "header_current_user", role: :button, data: { bs_toggle: :dropdown } }
                     = current_admin_user.email
-                  %ul.dropdown-menu.dropdown-menu-end.dropdown-menu-arrow{ 'aria-labelledby' => 'header_current_user' }
+                  %ul{class: "dropdown-menu dropdown-menu-end dropdown-menu-arrow", 'aria-labelledby': 'header_current_user' }
                     %li
                       = link_to 'Редагувати аккаунт', edit_admin_user_registration_path, class: 'dropdown-item'
-                    %li.dropdown-divider
+                    %li{class: "dropdown-divider"}
                     %li
                       = button_to 'Вийти', destroy_admin_user_session_path, class: 'dropdown-item', method: :delete
       = yield

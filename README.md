@@ -9,3 +9,5 @@ add google busines reviews
 add i18n locales :uk, :en, :ru
 
 разделить вид в дашборде по ролям
+
+RASZVQHJQH463ZXW9U7TDW16 - sendgrig

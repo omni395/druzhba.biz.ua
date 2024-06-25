@@ -1,8 +1,10 @@
 -#%div{class: ""}
 %section{class: "container font-messiri mx-auto px-4 space-y-6 bg-stone-100 py-8"}
   %div{class: "mx-auto text-center"}
-    %h2.text-4xl.font-extrabold.text-gray-900 Завітайте до нас. Ми завжди вам раді:
-    -#%p.mt-4.text-lg.text-gray-500 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    %h2{class: "text-4xl font-extrabold text-gray-900"}
+      Завітайте до нас. Ми завжди вам раді:
+    -#%p{class: "mt-4 text-lg text-gray-500"}
+      -#Lorem ipsum dolor sit amet consectetur adipisicing elit.
   %div{class: "text-center lg:text-left"}
     %div{class: ""}
       %div{class: "flex flex-col md:flex-row"}
@@ -12,18 +14,24 @@
         %div{class: "md:w-1/2"}
           %div{class: "px-6 py-4"}
             %h3{class: "text-lg font-medium text-gray-900"} Наша адреса:
-            %p.mt-1.text-gray-600.text-2xl 50055, вул. Кокчетавська 3, м. Кривий Ріг
+            %p{class: "mt-1 text-gray-600 text-2xl"}
+              50055, вул. Кокчетавська 3, м. Кривий Ріг
+          %div{class: "border-t border-gray-200 px-6 py-4"}
+            %h3{class: "text-lg font-medium text-gray-900"}
+              Часи роботи:
+            %p{class: "mt-1 text-gray-600 text-2xl"}
+              Вівторок - Пʼятниця: 9:00 - 17:00
+            %p{class: "mt-1 text-gray-600 text-2xl"}
+              Субота: 10:00 - 16:00
+            %p{class: "mt-1 text-gray-600 text-2xl"}
+              Неділя - Понеділок: Зачинено
           .border-t.border-gray-200.px-6.py-4
-            %h3.text-lg.font-medium.text-gray-900 Часи роботи:
-            %p.mt-1.text-gray-600.text-2xl Вівторок - Пʼятниця: 9:00 - 17:00
-            %p.mt-1.text-gray-600.text-2xl Субота: 10:00 - 16:00
-            %p.mt-1.text-gray-600.text-2xl Неділя - Понеділок: Зачинено
-          .border-t.border-gray-200.px-6.py-4
-            %h3.text-lg.font-medium.text-gray-900 Контакти:
-            %p.mt-1.text-gray-600.text-2xl
+            %h3{class: "text-lg font-medium text-gray-900"}
+              Контакти:
+            %p{class: "mt-1 text-gray-600 text-2xl"}
               Email:
               %a{href: "mailto:ksuha@druzhba.biz.ua"}ksuha@druzhba.biz.ua
-            %p.mt-1.text-gray-600.text-2xl
+            %p{class: "mt-1 text-gray-600 text-2xl"}
               Телефон:
               %a{href: "tel:+380972870571"}+38 097 287 05 71 (зателефонувати)
 
