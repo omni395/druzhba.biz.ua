@@ -36,7 +36,7 @@
       .col-md-9
         = order.price
 .card.mb-3
-  .card-header
+  .card-header.py-2
     %h4.text-muted.mb-0= Admin::OrderDetail.model_name.human
   - if order.order_details.blank?
     .card-body
@@ -46,7 +46,7 @@
       %table.table.table-hover.card-table
         %thead
           %tr
-            %th= Admin::OrderDetail.human_attribute_name(:service_id)
+            %th= Admin::Service.model_name.human+':'
         %tbody
           - order.order_details.each do |order_detail|
             %tr

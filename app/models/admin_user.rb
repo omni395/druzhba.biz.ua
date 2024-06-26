@@ -12,6 +12,6 @@ class AdminUser < ApplicationRecord
   end
 
   def month_salary(user)
-    Order.where(admin_user: user).where(created_at: Date.today.at_beginning_of_month..Date.tomorrow).pluck(:price).sum
+    Order.where(admin_user: user).where(updated_at: Date.today.at_beginning_of_month..Date.tomorrow).pluck(:price).sum
   end
 end

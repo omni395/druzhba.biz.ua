@@ -34,12 +34,25 @@
       - if admin_user_signed_in?
         %header{class: "navbar navbar-expand-md bg-body-tertiary"}
           %div{class: "container-fluid"}
-            %a{class: "navbar-brand pe-0 pe-md-3", href: "/admin"} Головна
+            %a{class: "navbar-brand p-1", href: admin_root_path} Головна
             %button{class: "navbar-toggler", "data-bs-target": "#navbar-menu", "data-bs-toggle": "collapse", type: "button"}
               %span{class: "navbar-toggler-icon"}
             %div{id: "navbar-menu", class: "collapse navbar-collapse"}
               = render 'admin/common/header_menu'
-              %ul{class: "navbar-nav ms-auto mb-2 mb-lg-0"}
+              %ul{class: "navbar-nav ms-auto mb-0"}
+                %li{class: "nav-item dropdown"}
+                  %a{class: "nav-link dripdown-toggle", id: "service-menu", role: :button, data: { bs_toggle: :dropdown} }
+                    %i{class: "bi bi-gear"}
+                  %ul{class: "dropdown-menu dropdown-menu-end dropdown-menu-arrow", "aria-labelledby": "service-menu"}
+                    %li{class: ""}
+                      = link_to 'Послуги', admin_services_path, class: "dropdown-item"
+                    %li{class: "m-0 dropdown-divider"}
+                    %li{class: ""}
+                      = link_to 'Замовники', admin_customers_path, class: 'dropdown-item'
+                    %li{class: "m-0 dropdown-divider"}
+                    %li{class: ""}
+                      %div{class: "dropdown-item"}
+                        Категорії витрат (зробити)
                 - if current_admin_user.has_role?(0)
                   %li{class: "nav-item"}
                     = link_to 'Користувачі', admin_admin_users_path, class: 'nav-link fs-3'
@@ -47,10 +60,10 @@
                   %a{class: "nav-link dropdown-toggle", id: "header_current_user", role: :button, data: { bs_toggle: :dropdown } }
                     = current_admin_user.email
                   %ul{class: "dropdown-menu dropdown-menu-end dropdown-menu-arrow", 'aria-labelledby': 'header_current_user' }
-                    %li
+                    %li{class: ""}
                       = link_to 'Редагувати аккаунт', edit_admin_user_registration_path, class: 'dropdown-item'
-                    %li{class: "dropdown-divider"}
-                    %li
+                    %li{class: "m-0 dropdown-divider"}
+                    %li{class: ""}
                       = button_to 'Вийти', destroy_admin_user_session_path, class: 'dropdown-item', method: :delete
       = yield
       = turbo_frame_tag "modal_main", target: "_top"

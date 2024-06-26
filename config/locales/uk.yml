@@ -1,6 +1,13 @@
 ---
 uk:
   activerecord:
+    models:
+      admin_user: Користувач
+      customer: Замовник
+      order: Замовлення
+      order_detail: Деталі замовлення
+      service: Послуга
+      landing_message: Повідомлення
     errors:
       messages:
         record_invalid: 'Виникли помилки: %{errors}'

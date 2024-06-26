@@ -6,7 +6,7 @@ module FormattedField
   end
 
   def updated_at_field
-    attributes['created_at'].strftime("%d-%m-%Y %H:%M")
+    attributes['updated_at'].strftime("%d-%m-%Y %H:%M")
   end
 
 end

@@ -1,0 +1,9 @@
+uk:
+  activerecord:
+    attributes:
+      admin_user:
+        name: Імʼя
+        email: E-mail
+        role: Роль
+        created_at_field: Створено
+        updated_at_field: Оновлено
