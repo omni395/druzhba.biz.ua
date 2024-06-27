@@ -1,5 +1,5 @@
-%div{class: "col-12 col-sm-6"}
-  %div{class: "card m-2 shadow"}
+%div{class: "col-6 col-xs-12"}
+  %div{class: "card my-2  ms-2 shadow"}
     %div{class: "p-0 card-header justify-content-center"}
       %h4{class: "p-0 m-0 fs-3 text-info"} Повідомлення
     %div{class: "p-0 card-body"}
@@ -21,8 +21,8 @@
             Прострочено:
             %strong{class: "fs-3 text-danger"}
               #{LandingMessage.where('updated_at <= ?', 1.week.ago).count}
-%div{class: "col-12 col-sm-6"}
-  %div{class: "card m-2 shadow"}
+%div{class: "col-6 col-xs-12"}
+  %div{class: "card my-2 me-2 shadow"}
     %div{class: "p-0 card-header justify-content-center"}
       %h4{class: "p-0 m-0 fs-3 text-purple"} Замовлення
     %div{class: "p-0 card-body"}

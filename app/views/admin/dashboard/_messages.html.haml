@@ -14,10 +14,12 @@
             = link_to admin_landing_message_path(landing_message), class: 'd-block', data: { turbo_frame: 'modal_main' } do
               %i{class: "bi bi-file-text h3"}
           %td
-            = landing_message.name
-          %td
+            - landing_message.name.split(" ").each do |n|
+              %span{class: "text-nowrap"}
+                = n
+          %td{class: "text-nowrap"}
             = landing_message.email
-          %td
+          %td{class: "text-nowrap"}
             = landing_message.phone
           %td{class: "icon_cell"}
             = link_to edit_admin_landing_message_path(landing_message), class: 'd-block', data: { turbo_frame: "modal_main" } do
