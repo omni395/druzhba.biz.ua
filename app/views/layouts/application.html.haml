@@ -2,12 +2,7 @@
 %html
   %head
     -# Google tag (gtag.js)
-    %script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN"}
-    :javascript
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-B1HN94WVHN');
+    %script{async: "", "data-turbo-track" => "reload", src: "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN"}
 
     %title Швейна майстерня ☞ ДРУЖБА ☜
     = favicon_link_tag asset_path('favicon.png')

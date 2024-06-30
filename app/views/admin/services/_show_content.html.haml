@@ -22,4 +22,7 @@
               = image_tag(service.photo, class: 'img-fluid')
             - else
               = service.photo.filename
-
+  .list-group-item
+    - service.articles.each do |article|
+      = article.title
+      = article.created_at.strftime("%d-%m-%Y %H:%M")

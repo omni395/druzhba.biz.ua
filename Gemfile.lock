@@ -86,7 +86,7 @@ GEM
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.3.0)
-    capistrano (3.18.1)
+    capistrano (3.19.0)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -105,7 +105,6 @@ GEM
     concurrent-ruby (1.3.3)
     connection_pool (2.4.1)
     crass (1.0.6)
-    csv (3.3.0)
     date (3.3.4)
     debug (1.9.2)
       irb (~> 1.10)
@@ -133,9 +132,6 @@ GEM
     ffi (1.17.0-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-business-reviews (0.1.1)
-    google_places (2.0.0)
-      httparty (>= 0.13.1)
     groupdate (6.4.0)
       activesupport (>= 6.1)
     haml (6.3.0)
@@ -152,10 +148,6 @@ GEM
       haml (>= 4.0)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
-    httparty (0.22.0)
-      csv
-      mini_mime (>= 1.0.0)
-      multi_xml (>= 0.5.2)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -196,12 +188,10 @@ GEM
     method_source (1.1.0)
     mini_magick (4.13.1)
     mini_mime (1.1.5)
-    minitest (5.23.1)
+    minitest (5.24.0)
     msgpack (1.7.2)
-    multi_xml (0.7.1)
-      bigdecimal (~> 3.1)
     mutex_m (0.2.0)
-    net-imap (0.4.13)
+    net-imap (0.4.14)
       date
       net-protocol
     net-pop (0.1.2)
@@ -235,7 +225,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.8.0)
-    rack (3.1.3)
+    rack (3.1.4)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -289,6 +279,7 @@ GEM
       railties (>= 5.2)
     ruby-vips (2.2.1)
       ffi (~> 1.12)
+    ruby_http_client (3.5.5)
     ruby_parser (3.21.0)
       racc (~> 1.5)
       sexp_processor (~> 4.16)
@@ -300,6 +291,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sendgrid-ruby (6.7.0)
+      ruby_http_client (~> 3.4)
     sexp_processor (4.17.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -308,9 +301,8 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sshkit (1.22.2)
+    sshkit (1.23.0)
       base64
-      mutex_m
       net-scp (>= 1.1.2)
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
@@ -331,7 +323,7 @@ GEM
       railties (>= 7.0.0)
     temple (0.10.3)
     thor (1.3.1)
-    tilt (2.3.0)
+    tilt (2.4.0)
     timeout (0.4.1)
     turbo-rails (2.0.5)
       actionpack (>= 6.0.0)
@@ -377,8 +369,6 @@ DEPENDENCIES
   enum_help
   esbuild-rails
   faker
-  google-business-reviews
-  google_places
   groupdate
   haml-rails
   html2haml
@@ -393,6 +383,7 @@ DEPENDENCIES
   rails-i18n
   redis (>= 4.0.1)
   sassc-rails
+  sendgrid-ruby
   sprockets-rails
   stimulus-rails
   tailwindcss-rails

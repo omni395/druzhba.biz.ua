@@ -1,0 +1,14 @@
+= turbo_frame_tag("modal_main") do
+  = form_with model: @article do |form|
+    = render Admin::RemoteModalComponent.new(backdrop: :static) do |modal|
+      = modal.with_header do
+        %ol.breadcrumb.text-dark
+          %li.breadcrumb-item Стаття
+          %li.breadcrumb-item.active= "#{t('infold.operation.edit')} ##{@article.id}"
+      = modal.with_body do
+        .modal-body#form_body
+          = render "form", form: form
+      = modal.with_footer do
+        .modal-footer
+          %button.btn.btn-secondary{"data-bs-dismiss" => "modal", :type => "button"}= t('infold.operation.cancel')
+          = form.submit t('infold.operation.update'), class: 'btn btn-primary'

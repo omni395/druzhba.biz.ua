@@ -1,0 +1,39 @@
+%nav.navbar.navbar-light
+  .container-fluid
+    .ms-auto
+      = link_to t('infold.operation.new'), new_admin_article_path, class: 'btn btn-warning', data: { turbo_frame: "modal_main" }
+#index_page.d-md-flex{ data: { controller: 'index-page', index_page_target: 'wrapper' } }
+  #conditions.bg-white.container-fluid.border-end.pe-3.py-3
+    = form_with model: @search, url: admin_articles_path, method: :get, scope: 'search',
+      data: { index_page_target: 'searchForm' } do |form|
+      = form.hidden_field :sort_field, data: { index_page_target: 'sortField' }
+      .mb-3
+        = render Admin::FieldsetComponent.new(form, :name_full_like, :text, alignment: false, 
+          label: Admin::Customer.human_attribute_name(:name), placeholder: 'like %...%')
+      %hr.my-3
+      .row.gx-2
+        .col-6.order-2.d-grid
+          = form.submit t('infold.operation.search'), class: 'btn btn-primary'
+        .col-6.d-grid
+          = link_to t('infold.operation.clear'), admin_customers_path, class: 'btn btn-secondary'
+  #result.flex-fill.container-fluid.ps-3.py-3{ data: { index_page_target: 'resultArea' } }
+    - if @articles.blank?
+      .alert#no_data= t('infold.no_data')
+    .card.border-top-0
+      .table_wrapper.table-responsive.bg-secondary-lt{ data: { index_page_target: 'resultTableWrapper' } }
+        %table.table.table-sm.table-hover.table-striped.mb-0.bg-white
+          %thead{ data: { index_page_target: 'thead' } }
+            %tr
+              %th.icon_cell
+              %th= render Admin::SortableComponent.new(@search, :title, label: Admin::Article.human_attribute_name(:title))
+              %th= render Admin::SortableComponent.new(@search, :service_id, label: Admin::Article.human_attribute_name(:service_id))
+              %th.icon_cell
+          %tbody#articles
+            = render partial: "index_row", collection: @articles, as: 'article'
+      - if @articles.present?
+        .card-body.d-md-flex.align-items-center.justify-content-between
+          .mb-3.mb-md-0
+            = admin_search_result_count(@articles)
+          .mb-3.mb-md-0
+            = paginate(@articles, views_prefix: "admin")
+          = link_to t('infold.operation.output_csv'), '#', class: 'btn btn-info', data: { action: 'index-page#outputCsv' }

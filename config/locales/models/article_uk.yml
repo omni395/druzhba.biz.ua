@@ -1,0 +1,11 @@
+uk:
+  activerecord:
+    attributes:
+      article:
+        service_id: Послуга
+        title: Назва статті
+        description: Короткий опис
+        body: Стаття
+        image: Фото
+        created_at_field: Створено
+        updated_at_field: Оновлено

@@ -4,8 +4,15 @@ import "./controllers";
 import "flowbite";
 import 'flowbite-datepicker';
 
+// Trix as rich text area
+import "trix"
+import "@rails/actiontext"
+
 // Chartkick for grafs and charts in dashboard
 import "chartkick/chart.js";
+
+// Google analitics
+import gtag from "./src/analitics";
 
 // FontAwesome
 import {far} from "@fortawesome/free-regular-svg-icons";
@@ -31,7 +38,7 @@ $('a[href*="#"]').click(function() {
     return false;
 });
 
-// Появление єлеммента во время прокрутки страниці
+// Появление элеммента во время прокрутки страницы
 function onEntry(entry) {
     entry.forEach(change => {
       if (change.isIntersecting) {

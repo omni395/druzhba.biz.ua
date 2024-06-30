@@ -1,0 +1,15 @@
+= modal.with_header do
+  %ol.breadcrumb.text-dark
+    %li.breadcrumb-item Назва
+    %li.breadcrumb-item.active= "#{t('infold.operation.show')} ##{article.id}"
+= modal.with_body do
+  .modal-body
+    = render 'show_content', article: article
+- unless admin_remote_modal_id == 'modal_sub'
+  = modal.with_footer do
+    .modal-footer
+      = link_to t('infold.operation.edit'), edit_admin_article_path(article),
+        class: 'btn btn-primary', data: { turbo_frame: "modal_main" }
+      = link_to t('infold.operation.delete'), admin_article_path(article),
+        class: 'btn btn-danger ms-1', data: { turbo_confirm: t('infold.operation.confirm',
+        submit: t('infold.operation.delete')), turbo_method: :delete, turbo_frame: "_top" }

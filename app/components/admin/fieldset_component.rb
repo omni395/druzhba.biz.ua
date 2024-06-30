@@ -25,6 +25,8 @@ module Admin
 
     def form_field
       case @kind
+      when :rich_text_area
+        Admin::RichTextAreaComponent.new(@form, @field)
       when :checkbox
         Admin::CheckboxComponent.new(@form,
                                      @field,

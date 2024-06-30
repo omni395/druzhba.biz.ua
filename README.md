@@ -10,4 +10,8 @@ add i18n locales :uk, :en, :ru
 
 разделить вид в дашборде по ролям
 
-RASZVQHJQH463ZXW9U7TDW16 - sendgrig
+#N1PRQKKJBACBGYMJJV4U99BY - sendgrig
+
+Доделать гугл аналитику (gtag.js)
+
+rich_text_area_component ????

@@ -1,0 +1,16 @@
+- if @article.invalid?
+  = turbo_stream.update "form_body" do
+    = fields_for @article do |form|
+      = render "form", form: form
+- else
+  = turbo_stream.update "modal_main" do
+    = render Admin::RemoteModalComponent.new do |modal|
+      = render 'show_wrapper', modal: modal, article: @article
+  - if action_name == "create"
+    = turbo_stream.prepend "articles" do
+      = render 'index_row', article: @article
+    = turbo_stream.remove "no_data"
+  - else
+    = turbo_stream.replace @article do
+      = render 'index_row', article: @article
+= admin_turbo_stream_flash

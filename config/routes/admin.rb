@@ -8,6 +8,7 @@ devise_scope :admin_user do
 end
 
 namespace 'admin' do
+  resources :articles
   resources :orders
   resources :services
   resources :customers

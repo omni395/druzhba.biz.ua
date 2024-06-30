@@ -42,4 +42,4 @@
 /node_modules
 
 #/config/credentials/production.key
-/README.md
+/README.mdsendgrid.env

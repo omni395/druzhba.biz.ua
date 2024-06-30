@@ -1,5 +1,7 @@
 module Admin
   class Service < ::Service
+    has_many :articles, dependent: :destroy
+
     has_one_attached :photo
     attr_accessor :remove_photo
     before_validation { self.photo = nil if remove_photo.to_s == '1' }

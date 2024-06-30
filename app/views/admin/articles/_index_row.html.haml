@@ -1,0 +1,11 @@
+%tr{ id: dom_id(article) }
+  %td.icon_cell
+    = link_to admin_article_path(article), class: 'd-block', data: { turbo_frame: 'modal_main' } do
+      %i.bi.bi-file-text.h3
+  %td.d-flex.flex-grow
+    = article.title
+  %td
+    = link_to article.service.title, admin_service_path(article.service), data: { turbo_frame: 'modal_sub' } if article.service
+  %td.icon_cell
+    = link_to edit_admin_article_path(article), class: 'd-block', data: { turbo_frame: "modal_main" } do
+      %i.bi.bi-pencil-square.h3

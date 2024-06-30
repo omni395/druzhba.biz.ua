@@ -1,0 +1,37 @@
+.list-group.mb-3
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= article.class.human_attribute_name(:service_id)
+      .col-md-9
+        = link_to article.service.title, admin_service_path(article.service), data: { turbo_frame: 'modal_sub' } if article.service
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= article.class.human_attribute_name(:image)
+      .col-md-9
+        - if article.image.attached?
+          = link_to url_for(article.image), target: '_blank' do
+            - if article.image.blob.image?
+              = image_tag(article.image, class: 'img-fluid')
+            - else
+              = article.image.filename
+
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= article.class.human_attribute_name(:title)
+      .col-md-9
+        = article.title
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= article.class.human_attribute_name(:description)
+      .col-md-9
+        = article.description
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= article.class.human_attribute_name(:body)
+      .col-md-9
+        = article.body

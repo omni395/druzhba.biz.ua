@@ -2,6 +2,15 @@ model:
   active_storage:
     photo:
       kind: image
+  association:
+    articles:
+      kind: has_many
+      dependent: destroy
+      model:
+        active_storage:
+          image:
+            kind: image
+        
 app:
   title: Послуги
   index:

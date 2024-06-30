@@ -34,7 +34,8 @@
       - if admin_user_signed_in?
         %header{class: "navbar navbar-expand-md bg-body-tertiary"}
           %div{class: "container-fluid"}
-            %a{class: "navbar-brand p-0", href: admin_root_path} Головна
+            %a{class: "navbar-brand p-0", href: admin_root_path}
+              = image_tag("favicon.png", size: "48x48")
             %button{class: "navbar-toggler", "data-bs-target": "#navbar-menu", "data-bs-toggle": "collapse", type: "button"}
               %span{class: "navbar-toggler-icon"}
             %div{id: "navbar-menu", class: "collapse navbar-collapse"}
@@ -50,6 +51,9 @@
                       %li{class: "m-0 dropdown-divider bg-info"}
                       %li{class: ""}
                         = link_to 'Замовники', admin_customers_path, class: 'dropdown-item'
+                      %li{class: "m-0 dropdown-divider bg-info"}
+                      %li{class: ""}
+                        = link_to 'Статті', admin_articles_path, class: 'dropdown-item'
                       %li{class: "m-0 dropdown-divider bg-info"}
                       %li{class: ""}
                         %div{class: "dropdown-item"}

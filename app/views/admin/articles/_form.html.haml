@@ -1,0 +1,11 @@
+.list-group.mb-3
+  .list-group-item.m-2.py-2
+    = render Admin::FieldsetComponent.new(form, :service_id, :association_search, association_name: :service, search_path: admin_services_path(name_field: :title), name_field: :service_title)
+  .list-group-item.m-2.py-2
+    = render Admin::FieldsetComponent.new(form, :title, :text)
+  .list-group-item.m-2.py-2
+    = render Admin::FieldsetComponent.new(form, :image, :file)
+  .list-group-item.m-2.py-2
+    = render Admin::FieldsetComponent.new(form, :description, :text_area)
+  .list-group-item.m-2.py-2
+    = render Admin::FieldsetComponent.new(form, :body, :rich_text_area), class: "w-full"
