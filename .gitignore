@@ -43,3 +43,6 @@
 
 #/config/credentials/production.key
 /README.mdsendgrid.env
+
+
+/sendgrid.env
