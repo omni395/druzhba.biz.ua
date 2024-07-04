@@ -4,6 +4,10 @@ import "./controllers";
 import "flowbite";
 import 'flowbite-datepicker';
 
+// WOW.js for animation
+import WOW from "./src/WOW"
+new WOW({offset: 1, live: true}).init();
+
 // Trix as rich text area
 import "trix"
 import "@rails/actiontext"
@@ -38,7 +42,9 @@ $('a[href*="#"]').click(function() {
     return false;
 });
 
-// Появление элеммента во время прокрутки страницы
+//window.onload
+
+/* Появление элеммента во время прокрутки страницы
 function onEntry(entry) {
     entry.forEach(change => {
       if (change.isIntersecting) {
@@ -54,6 +60,7 @@ function onEntry(entry) {
   for (let elm of elements) {
     observer.observe(elm);
   }
+*/
 
 // Toggle the modal
 const openContactFormButton = document.getElementById('openContactForm');

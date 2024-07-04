@@ -5,6 +5,7 @@ uk:
         service_id: Послуга
         title: Назва статті
         description: Короткий опис
+        published: Опубліковано
         body: Стаття
         image: Фото
         created_at_field: Створено

@@ -1,6 +1,6 @@
 %nav{class: "w-full z-20 border-b border-gray-200"}
   %div{class: "max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-2"}
-    %a{class: "flex items-center space-x-1 rtl:space-x-reverse", href: root_path, onclick: "window.location.reload(true);"}
+    %a{class: "flex items-center space-x-1 rtl:space-x-reverse", href: root_path}
       %span{class: "pr-1 self-center text-2xl font-bad_script font-bold whitespace-nowrap"} Швейна майстерня
       = image_tag("scissors.svg", class: "h-4", alt: ">")
       %div{class: "flex content-center"}
@@ -29,9 +29,9 @@
             %i{class: "fa-solid fa-angle-down"}
           -# Dropdown menu
           %div{id: "servicesDropdownHover", class: "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44"}
-            %ul.py-2.text-sm.text-gray-700.dark:text-gray-200{"aria-labelledby" => "servicesDropdownButton"}
+            %ul.py-2.text-sm.text-gray-700{"aria-labelledby" => "servicesDropdownButton"}
               %li
-                %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 hover:bg-transparent hover:text-red-600 p-0", href: "#about"} Dashboard
+                %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 hover:bg-transparent hover:text-red-600 p-0", href: "#{root_path + "#services"}"} Dashboard
               %li
                 %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 hover:bg-transparent hover:text-red-600 p-0", href: "#about"} Dashboard
               %li
@@ -43,10 +43,10 @@
               %li
                 %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 hover:bg-transparent hover:text-red-600 p-0", href: "#about"} Dashboard                                                                
         %li
-          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#about"} Ціни
+          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#{root_path + "#price"}"}Ціни
         %li
-          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#about"} Про нас
+          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#{root_path + "#about"}"} Про нас
         %li
-          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#reviews"} Відгуки
+          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#{root_path + "#rewiews"}"} Відгуки
         %li
-          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#contacts"} Контакти
+          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#{root_path + "##contacts"}"} Контакти

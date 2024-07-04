@@ -9,12 +9,12 @@
   %td
     = service.description
   %td.image_cell
-    - if service.photo.attached?
-      = link_to url_for(service.photo), target: '_blank' do
-        - if service.photo.blob.image?
-          = image_tag(service.photo, class: 'img-fluid')
+    - if service.image.attached?
+      = link_to url_for(service.image), target: '_blank' do
+        - if service.image.blob.image?
+          = image_tag(service.image, class: 'img-fluid')
         - else
-          = service.photo.filename
+          = service.image.filename
 
   %td.icon_cell
     = link_to edit_admin_service_path(service), class: 'd-block', data: { turbo_frame: "modal_main" } do

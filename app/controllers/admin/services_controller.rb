@@ -66,8 +66,8 @@ module Admin
     def post_params
       params.require(:admin_service).permit(
         :title,
-        :photo,
-        :remove_photo,
+        :image,
+        :remove_image,
         :description
       )
     end

@@ -14,15 +14,12 @@
   .list-group-item
     .row
       .col-md-3
-        .text-muted.fw-bold= service.class.human_attribute_name(:photo)
+        .text-muted.fw-bold= service.class.human_attribute_name(:image)
       .col-md-9
-        - if service.photo.attached?
-          = link_to url_for(service.photo), target: '_blank' do
-            - if service.photo.blob.image?
-              = image_tag(service.photo, class: 'img-fluid')
+        - if service.image.attached?
+          = link_to url_for(service.image), target: '_blank' do
+            - if service.image.blob.image?
+              = image_tag(service.image, class: 'img-fluid')
             - else
-              = service.photo.filename
-  .list-group-item
-    - service.articles.each do |article|
-      = article.title
-      = article.created_at.strftime("%d-%m-%Y %H:%M")
+              = service.image.filename
+

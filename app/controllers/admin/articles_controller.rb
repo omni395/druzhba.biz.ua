@@ -57,7 +57,8 @@ module Admin
 
     def search_params
       params[:search]&.permit(
-        :id_eq,
+        :service_id_eq,
+        :published_eq,
         :sort_field,
         :sort_kind
       )
@@ -66,6 +67,7 @@ module Admin
     def post_params
       params.require(:admin_article).permit(
         :service_id,
+        :published,
         :title,
         :image,
         :remove_image,

@@ -16,26 +16,25 @@
     %i{class: "fa-solid fa-xmark"}
 
 %div{class: "", id: ""}
-  
   -# Modal dialog contact form
   = render "contact_form"
   
-  %div{class: "position-relative opacity-0 element-animation", id: "hero-section"}
+  %div{class: "wow bounceInLeft", id: "hero-section", "data-wow-duration": "2s"}
     = render "1_hero_section"
   
-  %div{class: "position-relative mt-8 opacity-0 element-animation", id: "services"}
+  %div{class: "mt-8 wow bounceInRight", id: "services"}
     = render "2_services"
   
-  %div{class: "position-relative mt-2 opacity-0 element-animation", id: "services"}
+  %div{class: "mt-2 wow bounceInLeft", id: "services"}
     = render "3_services"
 
-  %div{class: "position-relative mt-16 opacity-0 element-animation", id: "about"}
+  %div{class: "mt-16 wow bounceInRight", id: "about"}
     = render "4_about"
 
-  -#%div{class: "position-relative mt-16 opacity-0 element-animation", id: "reviews"}
-  -#  = render "5_reviews"
+  %div{class: "mt-16 wow bounceInLeft", id: "reviews"}
+    = render "5_reviews"
 
-  %div{class: "position-relative mt-16 opacity-0 element-animation", id: "contacts"}
+  %div{class: "mt-16 wow bounceInRight", id: "contacts"}
     = render "6_contacts"
 
   %footer{class: "", id: "footer"}

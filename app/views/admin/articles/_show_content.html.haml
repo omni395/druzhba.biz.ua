@@ -8,6 +8,12 @@
   .list-group-item
     .row
       .col-md-3
+        .text-muted.fw-bold= article.class.human_attribute_name(:published)
+      .col-md-9
+        = article.published_display
+  .list-group-item
+    .row
+      .col-md-3
         .text-muted.fw-bold= article.class.human_attribute_name(:image)
       .col-md-9
         - if article.image.attached?

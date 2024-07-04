@@ -1,6 +1,6 @@
 model:
   active_storage:
-    photo:
+    image:
       kind: image
   association:
     articles:
@@ -23,7 +23,7 @@ app:
         - id
         - title
         - description
-        - photo
+        - image
       default_order:
         field: id
         kind: asc
@@ -31,12 +31,12 @@ app:
     fields:
       - title
       - description
-      - photo
+      - image
 
   form:
     fields:
       - title
-      - photo:
+      - image:
           kind: file
       - description:
           kind: text_area

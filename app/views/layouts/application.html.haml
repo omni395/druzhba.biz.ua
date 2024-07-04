@@ -6,17 +6,17 @@
 
     %title Швейна майстерня ☞ ДРУЖБА ☜
     = favicon_link_tag asset_path('favicon.png')
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
-    %meta{:content => "ремонт одягу пошив індивідуальний пошив ремонт одежды укоротить брюки штаны юбка платье", :name => "description"}
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
+    %meta{content: "ремонт одягу пошив індивідуальний пошив ремонт одежды укоротить брюки штаны юбка платье", :name => "description"}
+
+    %link{href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css", rel: "stylesheet"}
 
     -# Google fonts
     %link{href: "https://fonts.googleapis.com", rel: "preconnect"}
     %link{crossorigin: "", href: "https://fonts.gstatic.com", rel: "preconnect"}
     %link{href: "https://fonts.googleapis.com/css2?family=Bad+Script&family=messiri:wght@400..700&display=swap", rel: "stylesheet"}
-    %link{:href => "https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap", :rel => "stylesheet"}
-
-
+    %link{href: "https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap", rel: "stylesheet"}
 
     -# FontAwesome
     %link{crossorigin: "anonymous",
@@ -30,8 +30,7 @@
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
   %body{class: "bg-stone-100", id: "main"}
-    %navigation{class: "w-full relative top-0 start-0"}
+    %navigation{class: ""}
       = render "shared/navigation"
-    %main{class: "relative start-0 p-2"}
+    %main{class: ""}
       = yield
-

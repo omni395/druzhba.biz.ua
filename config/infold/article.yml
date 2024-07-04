@@ -15,16 +15,24 @@ model:
 app:
   title: Назва
   index:
+    conditions:
+      - service_id:
+          sign: eq
+          form_kind: association_search
+      - published:
+          form_kind: switch
     list:
       fields:
         - service
         - title
+        - published
       default_order:
         field: id
         kind: asc
   show:
     fields:
       - service
+      - published
       - image
       - title
       - description
@@ -33,13 +41,15 @@ app:
     fields:
       - service_id:
           kind: association_search
+      - published:
+          kind: switch
       - title
       - image:
           kind: file
       - description:
           kind: text_area
       - body:
-          kind: rich_text_area
+          kind: text_area
 
 #model:
 #  # Define validation here

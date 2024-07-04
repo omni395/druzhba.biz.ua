@@ -9,6 +9,7 @@ CSV.generate do |csv|
     Admin::Article.human_attribute_name(:body),
     Admin::Article.human_attribute_name(:created_at),
     Admin::Article.human_attribute_name(:updated_at),
+    Admin::Article.human_attribute_name(:published),
     Admin::Article.human_attribute_name(:service_id),
   ]
   # set body rows
@@ -20,6 +21,7 @@ CSV.generate do |csv|
       article.body,
       article.created_at,
       article.updated_at,
+      article.published,
       article.service_id,
     ]
   end
