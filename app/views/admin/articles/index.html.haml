@@ -15,7 +15,7 @@
           label: Admin::Article.human_attribute_name(:service_id), association_name: :service, search_path: admin_services_path(name_field: :title), name_field: :service_title)
       .mb-3
         = render Admin::FieldsetComponent.new(form, :published_eq, :switch, alignment: false, 
-          label: "Неопублінокано", include_hidden: false)
+          label: Admin::Article.human_attribute_name(:published), include_hidden: false)
       %hr.my-3
       .row.gx-2
         .col-6.order-2.d-grid
@@ -27,13 +27,13 @@
       .alert#no_data= t('infold.no_data')
     .card.border-top-0
       .table_wrapper.table-responsive.bg-secondary-lt{ data: { index_page_target: 'resultTableWrapper' } }
-        %table.table-sm.table.table-hover.table-striped.mb-0.bg-white
+        %table.table.table-hover.table-striped.mb-0.bg-white
           %thead{ data: { index_page_target: 'thead' } }
             %tr
               %th.icon_cell
-              %th.icon_cell
               %th= render Admin::SortableComponent.new(@search, :service_id, label: Admin::Article.human_attribute_name(:service_id))
               %th= render Admin::SortableComponent.new(@search, :title, label: Admin::Article.human_attribute_name(:title))
+              %th= render Admin::SortableComponent.new(@search, :published, label: Admin::Article.human_attribute_name(:published))
               %th.icon_cell
           %tbody#articles
             = render partial: "index_row", collection: @articles, as: 'article'

@@ -1,3 +1,18 @@
-%div{class: "container mx-auto my-4"}
-  = @service.title
-  = @service.description
+%div{class: "container mx-auto my-4 font-messiri"}
+  .flex.flex-wrap.justify-between
+    .w-full.px-4.mb-8{:class => "md:w-8/12"}
+      = image_tag(@service.image, class: "w-full h-64 object-cover rounded", alt: @service.title)
+      %h2.text-4xl.font-bold.mt-4.mb-2
+        = @service.title
+      %p.text-stone-700.mb-4
+        = @service.description
+    .w-full.px-4.mb-8{class: "md:w-4/12"}
+      .bg-stone-100.px-4.py-6.rounded
+        %h3.text-lg.font-bold.mb-2 Наші роботи:
+        %ul.list-disc.list-inside
+          - @service.articles.each do |article|
+            - if article.published
+              %li
+                = link_to article.title, article_path(article), class: "text-stone-700 hover:text-stone-900"
+            - else
+              Працюємо над заповненням розділу.

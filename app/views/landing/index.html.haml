@@ -16,10 +16,8 @@
     %i{class: "fa-solid fa-xmark"}
 
 %div{class: "", id: ""}
-  -# Modal dialog contact form
-  = render "contact_form"
   
-  %div{class: "wow bounceInLeft", id: "hero-section", "data-wow-duration": "2s"}
+  %div{class: "wow bounceInLeft", id: "hero-section"}
     = render "1_hero_section"
   
   %div{class: "mt-8 wow bounceInRight", id: "services"}
@@ -36,13 +34,3 @@
 
   %div{class: "mt-16 wow bounceInRight", id: "contacts"}
     = render "6_contacts"
-
-  %footer{class: "", id: "footer"}
-    = render "7_footer"
-  
--# Scroll to Top button
-%div{class: "fixed bottom-10 end-10", id: ""}
-  %a{class: "", "data-popover-target": "scroll-to-top", "data-popover-placement": "left", type: "button", href: "#main"}
-    %i{class: "text-2xl text-stone-600 fa-solid fa-jet-fighter-up"}
-  %div{id: "scroll-to-top", class: "w-24 absolute z-10 invisible inline-block transition-opacity duration-300", "data-popover": "", role: "tooltip"}
-    %p{class: "font-messiri text-md text-stone-600"} До початку

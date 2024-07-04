@@ -1,6 +1,6 @@
 module Admin
   class ArticlesController < BaseController
-    before_action { @page_title = 'Статті' }
+    before_action { @page_title = 'Назва' }
 
     def index
       @search = ArticleSearchForm.new(search_params)
@@ -8,7 +8,7 @@ module Admin
     end
 
     def show
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
     end
 
     def new
@@ -28,7 +28,7 @@ module Admin
     end
 
     def edit
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
     end
 
     def update

@@ -16,7 +16,7 @@ module Admin
       classes = %W(form-control)
       classes << 'is-invalid' if helpers.admin_field_invalid?(@form, @id_field) || helpers.admin_field_invalid?(@form, @association_name)
       text_field_tag '',
-                     @form.object.send(@name_field),
+                     @form.object.send(@id_field),
                      disabled: true,
                      class: classes.join(' '),
                      data: { relation_search_target: 'selectedName' }

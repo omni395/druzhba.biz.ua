@@ -34,3 +34,16 @@
       = render "shared/navigation"
     %main{class: ""}
       = yield
+      %footer{class: "", id: "footer"}
+    %footer{class: "relative start-0 bottom-0"}
+      = render "shared/footer"
+
+    -# Modal dialog contact form
+    = render "shared/contact_form"
+
+    -# Scroll to Top button
+    %div{class: "fixed bottom-10 end-10", id: ""}
+      %a{class: "", "data-popover-target": "scroll-to-top", "data-popover-placement": "left", type: "button", href: "#main"}
+        %i{class: "text-2xl text-stone-600 fa-solid fa-jet-fighter-up"}
+      %div{id: "scroll-to-top", class: "w-24 absolute z-10 invisible inline-block transition-opacity duration-300", "data-popover": "", role: "tooltip"}
+        %p{class: "font-messiri text-md text-stone-600"} До початку

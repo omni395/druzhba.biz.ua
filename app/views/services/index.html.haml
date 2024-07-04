@@ -1,17 +1,39 @@
-%div{class: "container mx-auto my-4"}
-  - @services.each do |service|
-    %a{class: "flex flex-col justify-between md:flex-row m-4 p-4 object-cover shadow-md cursor-pointer hover:shadow-lg hover:shadow-red-300", href: service_path(service)}
-      - if service.image.attached?
-        %div{cass: "content-center"}
-          = image_tag(service.image, style: "width: 250px; height: auto;", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover items-center lg:h-48 rounded-xl", alt: "Швейна майстерня ☞ ДРУЖБА ☜")
-      - else
-        = image_tag("favicon.png", style: "width: 250px; height: auto;", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover items-center lg:h-48 rounded-xl", alt: "Швейна майстерня ☞ ДРУЖБА ☜")
-      %div{class: "w-full md:w-2/3"}
-        %div{class: "px-8 py-auto grow"}
-          %h1{class: "grow mx-auto my-4 text-xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-2xl"}
-            = service.title
-          %p.mx-auto.text-base.leading-relaxed.text-gray-500
-            = service.description
-        %div{class: "text-red-600 w-full flex justify-end items-end"}
-          %div{class: "pe-1 md:pe-2 w-full sm:w-2/3 border-t-2 border-red-300 text-end"}
-            Докладніше
+- @services.each do |service|
+  - if service.id.odd?
+    %a{class: "", href: service_path(service)}
+      %div{class: "font-messiri bg-stone-50 my-4 container mx-auto rounded-xl shadow-md cursor-pointer hover:shadow-lg hover:shadow-red-300 overflow-hidden max-w-6xl"}
+        %div{class: "sm:flex"}
+          %div{class: "hidden sm:block"}
+            - if service.image.attached?
+              = image_tag(service.image, class: "h-48 w-full object-cover sm:h-full sm:w-48 transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: service.title)
+            - else
+              = image_tag("favicon.png", class: "h-48 w-full object-cover sm:h-full sm:w-48", alt: service.title)
+          %div{class: "p-8"}
+            %p{class: "block mt-1 text-lg leading-tight font-medium text-black"}
+              Incredible
+              accommodation for your team
+            %p{class: "mt-2 text-slate-500"}
+              Looking to take your team away on a retreat to enjoy awesome food and take in
+              some sunshine? We have a list of places to do just that.
+            %div{class: "text-red-600 w-full flex justify-end items-end"}
+              %div{class: "pe-1 sm:pe-2 w-full sm:w-2/3 border-t-2 border-red-300 text-end"}
+                Докладніше
+  - else
+    %a{class: "", href: service_path(service)}
+      %div{class: "font-messiri bg-stone-50 my-4 container mx-auto rounded-xl shadow-md cursor-pointer hover:shadow-lg hover:shadow-red-300 overflow-hidden max-w-6xl"}
+        %div{class: "sm:flex"}
+          %div{class: "p-8"}
+            %p{class: "block mt-1 text-lg leading-tight font-medium text-black"}
+              Incredible
+              accommodation for your team
+            %p{class: "mt-2 text-slate-500"}
+              Looking to take your team away on a retreat to enjoy awesome food and take in
+              some sunshine? We have a list of places to do just that.
+            %div{class: "text-red-600 w-full flex justify-start items-start"}
+              %div{class: "pe-1 sm:pe-2 w-full sm:w-2/3 border-t-2 border-red-300 text-start"}
+                Докладніше
+          %div{class: "hidden sm:block"}
+            - if service.image.attached?
+              = image_tag(service.image, class: "h-48 w-full object-cover sm:h-full sm:w-48 transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: service.title)
+            - else
+              = image_tag("favicon.png", class: "h-48 w-full object-cover sm:h-full sm:w-48", alt: service.title)

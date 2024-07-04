@@ -8,7 +8,7 @@ module Admin
     end
 
     def show
-      @service = Service.find(params[:id])
+      @service = Service.friendly.find(params[:id])
     end
 
     def new
@@ -28,7 +28,7 @@ module Admin
     end
 
     def edit
-      @service = Service.find(params[:id])
+      @service = Service.friendly.find(params[:id])
     end
 
     def update

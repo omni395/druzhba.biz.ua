@@ -1,4 +1,3 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails";
 import "./controllers";
 import "flowbite";
@@ -6,7 +5,7 @@ import 'flowbite-datepicker';
 
 // WOW.js for animation
 import WOW from "./src/WOW"
-new WOW({offset: 1, live: true}).init();
+new WOW({offset: 0, live: true}).init();
 
 // Trix as rich text area
 import "trix"
