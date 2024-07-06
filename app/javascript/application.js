@@ -4,8 +4,7 @@ import "flowbite";
 import 'flowbite-datepicker';
 
 // WOW.js for animation
-import WOW from "./src/WOW"
-new WOW({offset: 0, live: true}).init();
+new WOW({offset: 50, live: true}).init();
 
 // Trix as rich text area
 import "trix"
@@ -29,47 +28,19 @@ import jquery from "jquery";
 window.jQuery = jquery;
 window.$ = jquery;
 
-// Disable Turbo
-Turbo.setFormMode("off");
-
-// Плавная прокрутка
-var $page = $('html, body');
-$('a[href*="#"]').click(function() {
-    $page.animate({
-        scrollTop: $($.attr(this, 'href')).offset().top
-    }, 400);
-    return false;
-});
-
-//window.onload
-
-/* Появление элеммента во время прокрутки страницы
+// Появление элеммента во время прокрутки страницы
 function onEntry(entry) {
-    entry.forEach(change => {
-      if (change.isIntersecting) {
-       change.target.classList.add('element-show');
-      }
-    });
-  }
+  entry.forEach(change => {
+    if (change.isIntersecting) {
+      change.target.classList.add('element-show');
+    }
+  });
   
   let options = { threshold: [0.3] };
   let observer = new IntersectionObserver(onEntry, options);
   let elements = document.querySelectorAll('.element-animation');
-  
+
   for (let elm of elements) {
     observer.observe(elm);
   }
-*/
-
-// Toggle the modal
-const openContactFormButton = document.getElementById('openContactForm');
-const closeContactFormButton = document.getElementById('closeContactForm');
-const contactFormModal = document.getElementById('contactFormModal');
-
-openContactFormButton.addEventListener('click', () => {
-    contactFormModal.classList.remove('hidden');
-});
-
-closeContactFormButton.addEventListener('click', () => {
-    contactFormModal.classList.add('hidden');
-});
+}

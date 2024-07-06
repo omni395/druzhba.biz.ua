@@ -5,6 +5,7 @@ class Article < ApplicationRecord
 
   belongs_to :service
   has_rich_text :body
+  has_one_attached :image
 
   def to_param
     slug

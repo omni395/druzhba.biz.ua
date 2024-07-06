@@ -5,3 +5,4 @@
 //= link admin.css
 //= link_tree ../builds
 //= link admin.js
+//= link application.js

@@ -33,7 +33,7 @@
       .alert#no_data= t('infold.no_data')
     .card.border-top-0
       .table_wrapper.table-responsive.bg-secondary-lt{ data: { index_page_target: 'resultTableWrapper' } }
-        %table.table-sm.table.table-hover.table-striped.mb-0.bg-white
+        %table.table.table-hover.table-striped.mb-0.bg-white
           %thead{ data: { index_page_target: 'thead' } }
             %tr
               %th.icon_cell
@@ -43,7 +43,8 @@
               %th= render Admin::SortableComponent.new(@search, :status, label: Admin::Order.human_attribute_name(:status))
               %th= render Admin::SortableComponent.new(@search, :paid, label: Admin::Order.human_attribute_name(:paid))
               %th= render Admin::SortableComponent.new(@search, :price, label: Admin::Order.human_attribute_name(:price))
-              %th= render Admin::SortableComponent.new(@search, :updated_at_field, label: Admin::Order.human_attribute_name(:updated_at_field))
+              %th= render Admin::SortableComponent.new(@search, :dead_date, label: Admin::Order.human_attribute_name(:dead_date))
+              %th= render Admin::SortableComponent.new(@search, :dead_time, label: Admin::Order.human_attribute_name(:dead_time))
               %th.icon_cell
           %tbody#orders
             = render partial: "index_row", collection: @orders, as: 'order'

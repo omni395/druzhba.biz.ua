@@ -7,7 +7,7 @@
         %span{class: "pr-1 self-center text-2xl font-bad_script font-bold whitespace-nowrap"} ДРУЖБА
       = image_tag("scissors.svg", class: "h-4 rotate-180", alt: "<")
 
-%nav{class: "w-full z-20 shadow-md border-gray-200 mt-auto"}
+%nav{class: "w-full z-20 shadow-md border-gray-200 mt-auto font-messiri"}
   %div{class: "max-w-screen-xl flex flex-wrap items-center justify-center md:items-center md:justify-between mx-auto px-8 py-1"}
     %div{class: "flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"}
       %button{class: "text-stone-600 hover:text-red-200 inline-flex items-center mt-1 p-2 w-10 h-10 justify-center text-sm text-red-600 rounded-lg md:hidden hover:bg-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-600",
@@ -17,36 +17,18 @@
         %svg{class: "w-5 h-5", "aria-hidden": "true", fill: "none", viewbox: "0 0 17 14", xmlns: "http://www.w3.org/2000/svg"}
           %path{d: "M1 1h15M1 7h15M1 13h15", stroke: "currentColor", "stroke-linecap": "round",
                 "stroke-linejoin": "round", "stroke-width": "2"}
-      %button{id: "openContactForm", class: "animate-pulse hover:animate-none focus:animate-none font-caveat inline-block w-full text-center text-xl font-medium text-red-600 bg-stone-100 hover:bg-stone-200 border border-red-600 rounded-lg font-bold py-1 px-2"} Звʼязатися з нами
+      %button{id: "openContactForm", class: "animate-pulse hover:animate-none focus:animate-none font-messiri inline-block w-full text-center text-xl font-medium text-red-600 bg-stone-100 hover:bg-stone-200 border border-red-600 rounded-lg font-bold py-1 px-2"} Звʼязатися з нами
     %div{id: "navbar-sticky", class: "text-center items-center justify-between hidden w-full md:flex md:w-auto md:order-1"}
       %ul{class: "flex flex-col p-2 md:p-0 mt-2 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-stone-100"}
         %li
-          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: root_path} Головна
+          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: root_path} Головна
         %li
-          -# Services dropdown
-          %button{id: "servicesDropdownButton", class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", "data-dropdown-toggle": "servicesDropdownHover", "data-dropdown-trigger": "hover", type: "button"}
-            Послуги
-            %i{class: "fa-solid fa-angle-down"}
-          -# Dropdown menu
-          %div{id: "servicesDropdownHover", class: "z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44"}
-            %ul.py-2.text-sm.text-gray-700{"aria-labelledby" => "servicesDropdownButton"}
-              %li
-                %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 hover:bg-transparent hover:text-red-600 p-0", href: "#{root_path + "#services"}"} Dashboard
-              %li
-                %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 hover:bg-transparent hover:text-red-600 p-0", href: "#about"} Dashboard
-              %li
-                %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 hover:bg-transparent hover:text-red-600 p-0", href: "#about"} Dashboard
-              %li
-                %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 hover:bg-transparent hover:text-red-600 p-0", href: "#about"} Dashboard
-              %li
-                %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 hover:bg-transparent hover:text-red-600 p-0", href: "#about"} Dashboard
-              %li
-                %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 hover:bg-transparent hover:text-red-600 p-0", href: "#about"} Dashboard                                                                
+          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: services_path} Послуги
         %li
-          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#{root_path + "#price"}"}Ціни
+          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: root_path + "#prices"}Ціни
         %li
-          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#{root_path + "#about"}"} Про нас
+          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: root_path + "#about"} Про нас
+        -#%li
+        -#  %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: root_path + "#reviews"} Відгуки
         %li
-          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#{root_path + "#rewiews"}"} Відгуки
-        %li
-          %a{class: "font-caveat text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: "#{root_path + "#contacts"}"} Контакти
+          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-600 rounded text-red-600 md:hover:bg-transparent md:hover:text-red-600 md:p-0", href: root_path + "#contacts"} Контакти

@@ -6,6 +6,7 @@ class Service < ApplicationRecord
   has_many :order_details
   has_many :articles
   has_one_attached :image
+  has_rich_text :body
 
   def to_param
     slug

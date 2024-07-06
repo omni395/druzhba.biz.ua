@@ -2,9 +2,9 @@
   %div{class: "rounded-xl p-2 ring-1 ring-inset lg:-m-4 lg:rounded-2xl lg:p-4 bg-gray-900/5 ring-gray-900/10"}
     = image_tag("hero-2.png", class: "", alt: "Швейна майстерня ☞ ДРУЖБА ☜")
 
-%section{class: "font-messiri relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl"}
+%section{class: "bg-white font-messiri relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl"}
   %div{class: "grid w-full grid-cols-1 gap-6 mx-auto md:grid-cols-3"}
-    %div{class: "flex flex-col p-6 shadow-md cursor-pointer hover:shadow-lg hover:shadow-red-300"}
+    %a{class: "flex flex-col p-6 shadow-md cursor-pointer hover:shadow-lg hover:shadow-red-300", href: services_path}
       %div{class: "hidden md:block"}
         = image_tag("niz.png", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейна майстерня ☞ ДРУЖБА ☜")
       %h1{class: "grow mx-auto mb-4 text-xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-2xl"}
@@ -14,7 +14,7 @@
       %div{class: "text-red-600 w-full flex justify-end h-18 content-end"}
         %div{class: "pe-1 md:pe-2 w-full md:w-2/3 border-t-2 border-red-300 text-end"}
           Докладніше
-    %div{class: "flex flex-col p-6 shadow-md cursor-pointer hover:shadow-lg hover:shadow-red-300"}
+    %a{class: "flex flex-col p-6 shadow-md cursor-pointer hover:shadow-lg hover:shadow-red-300", href: services_path}
       %div{class: "hidden md:block"}
         = image_tag("melkiy.png", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейна майстерня ☞ ДРУЖБА ☜")
       %h1{class: "grow mx-auto mb-4 text-xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-2xl"}
@@ -24,7 +24,7 @@
       %div{class: "text-red-600 w-full flex justify-end h-18 content-end"}
         %div{class: "pe-1 md:pe-2 w-full md:w-2/3 border-t-2 border-red-300 text-end"}
           Докладніше
-    %div{class: "flex flex-col p-6 shadow-md cursor-pointer hover:shadow-lg hover:shadow-red-300"}
+    %a{class: "flex flex-col p-6 shadow-md cursor-pointer hover:shadow-lg hover:shadow-red-300", href: services_path}
       %div{class: "hidden md:block"}
         = image_tag("shtory.png", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейна майстерня ☞ ДРУЖБА ☜")
       %h1{class: "grow mx-auto mb-4 text-xl font-semibold leading-none tracking-tighter text-neutral-600 lg:text-2xl"}

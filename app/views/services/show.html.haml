@@ -1,18 +1,26 @@
 %div{class: "container mx-auto my-4 font-messiri"}
-  .flex.flex-wrap.justify-between
-    .w-full.px-4.mb-8{:class => "md:w-8/12"}
-      = image_tag(@service.image, class: "w-full h-64 object-cover rounded", alt: @service.title)
-      %h2.text-4xl.font-bold.mt-4.mb-2
-        = @service.title
-      %p.text-stone-700.mb-4
-        = @service.description
-    .w-full.px-4.mb-8{class: "md:w-4/12"}
+  %div{class: "flex flex-wrap justify-between"}
+    .w-full.px-4{class: "lg:w-8/12"}
+      %sectionmx-auto.p-5.sm:p-10.md:p-16.relative.font-messiri
+        .bg-cover.bg-center.text-center.overflow-hidden{:style => "min-height: 450px; background-image: url('#{url_for(@service.image)}')", title: @service.title}
+        .max-w-3xl.mx-auto.mb-8
+          .mt-3.bg-white.rounded-b.lg:rounded-b-none.lg:rounded-r.flex.flex-col.justify-between.leading-normal
+            .bg-white.relative.top-0.-mt-32.p-5.sm:p-10
+              %h1.text-gray-900.font-bold.text-3xl.mb-2
+                = @service.title
+              %blockquote.text-base.leading-8.my-5.text-stone-700.mb-4.text-2xl.border-s-4.border-stone-300.p-4.shadow-md
+                = @service.description
+              %p.text-base.leading-8.my-5
+                = @service.body
+
+    .w-full.px-4{class: "lg:w-4/12"}
       .bg-stone-100.px-4.py-6.rounded
         %h3.text-lg.font-bold.mb-2 Наші роботи:
-        %ul.list-disc.list-inside
+        %ul.list-outside
           - @service.articles.each do |article|
-            - if article.published
-              %li
-                = link_to article.title, article_path(article), class: "text-stone-700 hover:text-stone-900"
+            - if article.present? && article.published?
+              %li.mb-2.text-justify
+                %i{class: "me-2 text-sm fa-solid fa-feather text-red-500"}
+                = link_to article.title, article_path(article), class: "text-xl hover:border-b-2 hover:border-red-500 text-stone-500 hover:text-stone-900"
             - else
               Працюємо над заповненням розділу.

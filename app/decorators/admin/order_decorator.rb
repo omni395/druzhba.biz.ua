@@ -26,5 +26,17 @@ module Admin
       updated_at ? I18n.l(updated_at) : ''
     end
 
+    def daadline_display
+      daadline ? I18n.l(daadline) : ''
+    end
+
+    def deadline_display
+      deadline ? I18n.l(deadline) : ''
+    end
+
+    def dead_date_display
+      dead_date ? I18n.l(dead_date) : ''
+    end
+
   end
 end

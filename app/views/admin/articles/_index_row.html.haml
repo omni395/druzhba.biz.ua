@@ -4,7 +4,7 @@
       %i.bi.bi-file-text.h3
   %td
     = link_to article.service.title, admin_service_path(article.service), data: { turbo_frame: 'modal_sub' } if article.service
-  %td
+  %td.text-wrap
     = article.title
   %td
     = article.published_display

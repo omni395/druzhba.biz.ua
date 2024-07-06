@@ -30,8 +30,9 @@ app:
   show:
     fields:
       - title
-      - description
       - image
+      - description
+      - body
 
   form:
     fields:
@@ -40,6 +41,8 @@ app:
           kind: file
       - description:
           kind: text_area
+      - body:
+          kind: rich_text_area
 
 #model:
 #  # Define validation here

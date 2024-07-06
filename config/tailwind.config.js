@@ -8,6 +8,7 @@ module.exports = {
     './app/javascript/**/*.js',
     './app/views/**/*.{erb,haml,html,slim}',
     './node_modules/flowbite/**/*.js',
+    './app/views/**/*',
   ],
   theme: {
     extend: {
@@ -17,6 +18,7 @@ module.exports = {
         messiri: ['El Messiri', ...defaultTheme.fontFamily.sans],
       },
       screens: {
+        'xs': '320x',
         'sm': '640px',
         'md': '768px',
         'lg': '1024px',

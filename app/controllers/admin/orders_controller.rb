@@ -72,6 +72,8 @@ module Admin
         :customer_id,
         :admin_user_id,
         :price,
+        :dead_date,
+        :dead_time,
         :status,
         :paid,
         order_details_attributes: [

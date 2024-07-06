@@ -11,6 +11,8 @@
     %meta{content: "ремонт одягу пошив індивідуальний пошив ремонт одежды укоротить брюки штаны юбка платье", :name => "description"}
 
     %link{href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css", rel: "stylesheet"}
+    %script{crossorigin: "anonymous", integrity: "sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==", referrerpolicy: "no-referrer", src: "https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"}
+
 
     -# Google fonts
     %link{href: "https://fonts.googleapis.com", rel: "preconnect"}
@@ -29,7 +31,7 @@
     = stylesheet_link_tag "application", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
-  %body{class: "bg-stone-100", id: "main"}
+  %body{class: "bg-stone-100", id: "main", "data-controller" => "landing--index"}
     %navigation{class: ""}
       = render "shared/navigation"
     %main{class: ""}

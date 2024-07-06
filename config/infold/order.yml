@@ -6,6 +6,8 @@ model:
       - presence
     paid:
       - presence
+    deadline:
+      - presence
 
   association:
     customer:
@@ -71,7 +73,8 @@ app:
         - status
         - paid
         - price
-        - updated_at_field
+        - dead_date
+        - dead_time
       default_order:
         field: id
         kind: desc
@@ -84,6 +87,8 @@ app:
       - status
       - paid
       - price
+      - dead_date
+      - dead_time
       - order_details:
           kind: association
           fields:
@@ -102,6 +107,10 @@ app:
                 kind: select
       - price:
           kind: number
+      - dead_date:
+          kind: date
+      - dead_time:
+          kind: time
       - status:
           kind: radio
       - paid:

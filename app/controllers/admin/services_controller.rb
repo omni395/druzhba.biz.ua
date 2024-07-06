@@ -32,7 +32,7 @@ module Admin
     end
 
     def update
-      @service = Service.find(params[:id])
+      @service = Service.friendly.find(params[:id])
       @service.assign_attributes(post_params)
       if @service.save
         flash.now[:notice] = t('infold.flash.updated')
@@ -44,7 +44,7 @@ module Admin
     end
 
     def destroy
-      @service = Service.find(params[:id])
+      @service = Service.friendly.find(params[:id])
       if @service.destroy
         redirect_to admin_services_path, status: :see_other, flash: { notice: t('infold.flash.destroyed') }
       else
@@ -68,7 +68,8 @@ module Admin
         :title,
         :image,
         :remove_image,
-        :description
+        :description,
+        :body
       )
     end
   end

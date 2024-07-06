@@ -12,10 +12,12 @@
     = render Admin::BadgeComponent.new(order.status_i18n, order.status_color)
   %td
     = render Admin::BadgeComponent.new(order.paid_i18n, order.paid_color)
-  %td.text-center
-    #{order.price} грн.
   %td
-    = order.updated_at_field
+    = order.price
+  %td
+    = order.dead_date
+  %td
+    = order.dead_time
   %td.icon_cell
     = link_to edit_admin_order_path(order), class: 'd-block', data: { turbo_frame: "modal_main" } do
       %i.bi.bi-pencil-square.h3

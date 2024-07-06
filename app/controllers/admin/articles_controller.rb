@@ -32,7 +32,7 @@ module Admin
     end
 
     def update
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
       @article.assign_attributes(post_params)
       if @article.save
         flash.now[:notice] = t('infold.flash.updated')
@@ -44,7 +44,7 @@ module Admin
     end
 
     def destroy
-      @article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
       if @article.destroy
         redirect_to admin_articles_path, status: :see_other, flash: { notice: t('infold.flash.destroyed') }
       else
