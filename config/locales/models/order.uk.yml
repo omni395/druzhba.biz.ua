@@ -6,7 +6,8 @@ uk:
         admin_user_id: Відповідальний
         status: Статус
         paid: Оплата
-        deadline: Дата замовлення
+        dead_date: Дата замовлення
+        dead_time: Час замовлення
         created_at_field: Створено
         updated_at_field: Оновлено
         price: Вартість

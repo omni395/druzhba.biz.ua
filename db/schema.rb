@@ -126,8 +126,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_06_093320) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "admin_user_id"
-    t.datetime "daadline"
-    t.datetime "deadline"
     t.date "dead_date"
     t.time "dead_time"
     t.index ["admin_user_id"], name: "index_orders_on_admin_user_id"

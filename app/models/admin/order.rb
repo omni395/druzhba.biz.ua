@@ -2,9 +2,6 @@ module Admin
   class Order < ::Order
     include DatetimeFieldConcern
 
-    datetime_field :daadline
-    datetime_field :deadline
-
     belongs_to :customer, foreign_key: 'customer_id'
     belongs_to :admin_user, foreign_key: 'admin_user_id'
     has_many :order_details, dependent: :destroy
@@ -18,10 +15,6 @@ module Admin
     validates :status, presence: true
     validates :paid, presence: true
     validates :price, presence: true
-    validates :deadline, presence: true
-
-    validates :deadline_date, presence: true, if: -> { deadline_time.present? }
-    validates :deadline_time, presence: true, if: -> { deadline_date.present? }
 
     enum status: { new: 0, in_work: 1, done: 2, rejected: 3 }, _prefix: true
     enum paid: { unpaid: 0, inpaid: 1 }, _prefix: true
