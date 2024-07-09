@@ -13,9 +13,7 @@ export default class extends Controller {
 
   // Optional function for when controller is connected, can remove
   connect(){
-    console.log(`${postControllerIndexFilePath} connected`)
-    // Disable Turbo
-    //Turbo.setFormMode("off");
+    //console.log(`${postControllerIndexFilePath} connected`)
     this.exFunction();
     // import "flowbite";
     window.document.addEventListener('turbo:load', (event) => {
@@ -38,6 +36,10 @@ export default class extends Controller {
 
   exFunction() {
     //console.log("\nsuper cool exFunction function")
+
+    // Disable Turbo
+    //Turbo.setFormMode("off");
+    
     // Плавная прокрутка
     var $page = $('html, body');
     $('a[href*="#"]').click(function() {

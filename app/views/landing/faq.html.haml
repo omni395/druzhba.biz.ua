@@ -119,5 +119,6 @@
 
     %p{class: "text-2xl text-stone-500 sm:text-3xl leading-normal font-extrabold tracking-tight"}
       Якщо у вас ще залишились запитання, заповніть
-      %button{id: "openContactForm", href: "", class: "leading-8 text-red-500 hover:border-b-2 hover:border-red-500"} форму
+      -# Разобраться почему кнопка просто так не работает. Без onclick
+      %button{onclick: "contactFormModal.classList.remove('hidden');", id: "openContactForm", href: "", class: "leading-8 text-red-500 hover:border-b-2 hover:border-red-500"} форму
       , і ми обов'язково з вами зв'яжемось, та і дамо відповіді на питання, що вас цікавлять.
