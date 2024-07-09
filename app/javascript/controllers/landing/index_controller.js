@@ -13,7 +13,7 @@ export default class extends Controller {
 
   // Optional function for when controller is connected, can remove
   connect(){
-    //console.log(`${postControllerIndexFilePath} connected`)
+    console.log(`${postControllerIndexFilePath} connected`)
     // Disable Turbo
     //Turbo.setFormMode("off");
     this.exFunction();
@@ -23,7 +23,9 @@ export default class extends Controller {
       window.document.dispatchEvent(new Event("DOMContentLoaded", {
         bubbles: true,
         cancelable: true,
-        carousel: true
+        carousel: true,
+        dropdown: true,
+        modal: true
       }));
     });
     // Other functions you want to execute when controller is connected

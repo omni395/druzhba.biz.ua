@@ -31,7 +31,7 @@
     = stylesheet_link_tag "application", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
-  %body{class: "bg-stone-100", id: "main", "data-controller" => "landing--index"}
+  %body{class: "bg-stone-100", id: "main", "data-controller": "landing--index"}
     %navigation{class: ""}
       = render "shared/navigation"
     %main{class: ""}

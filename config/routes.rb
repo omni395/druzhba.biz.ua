@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root to: 'landing#index'
   
+  get "prices", to: "landing#prices"
+  get "about", to: "landing#about"
+  get "contacts", to: "landing#contacts"
+  get "faq", to: "landing#faq"
+
   # Admin routes with gem infold  
   draw(:admin)
 

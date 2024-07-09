@@ -29,7 +29,7 @@ window.jQuery = jquery;
 window.$ = jquery;
 
 // Появление элеммента во время прокрутки страницы
-function onEntry(entry) {
+/*function onEntry(entry) {
   entry.forEach(change => {
     if (change.isIntersecting) {
       change.target.classList.add('element-show');
@@ -43,4 +43,4 @@ function onEntry(entry) {
   for (let elm of elements) {
     observer.observe(elm);
   }
-}
+} */
