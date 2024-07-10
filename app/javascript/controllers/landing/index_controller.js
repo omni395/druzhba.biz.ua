@@ -8,38 +8,48 @@ export default class extends Controller {
 
   // Optional function for when controller is initialized, can remove
   initialize(){
-    //console.log(`${postControllerIndexFilePath} initialized`)
   }
 
   // Optional function for when controller is connected, can remove
   connect(){
-    //console.log(`${postControllerIndexFilePath} connected`)
     this.exFunction();
-    // import "flowbite";
-    window.document.addEventListener('turbo:load', (event) => {
-      // trigger flowbite events
-      window.document.dispatchEvent(new Event("DOMContentLoaded", {
-        bubbles: true,
-        cancelable: true,
-        carousel: true,
-        dropdown: true,
-        modal: true
-      }));
+    window.addEventListener('load', function(){
+      $('#hero-section-1').addClass('animate__animated animate__fadeInLeft');
+      $('#hero-section-1').attr("data-wow-duration", "2s");
+      $('#hero-section-1').attr("data-wow-delay", ".5s");
+
+      $('#services').addClass('animate__animated animate__fadeInRight');
+      $('#services').attr("data-wow-duration", "2s");
+      $('#services').attr("data-wow-delay", ".5s");
+
+      $('#hero-section-2').addClass('animate__animated animate__fadeInLeft');
+      $('#hero-section-2').attr("data-wow-duration", "2s");
+      $('#hero-section-2').attr("data-wow-delay", ".5s");
+
+      $('#about').addClass('animate__animated animate__fadeInRight');
+      $('#about').attr("data-wow-duration", "2s");
+      $('#about').attr("data-wow-delay", ".5s");
+
+      $('#hero-section-1').addClass('animate__animated animate__fadeInLeft');
+      $('#hero-section-1').attr("data-wow-duration", "2s");
+      $('#hero-section-1').attr("data-wow-delay", ".5s");
+
+      $('#faq').addClass('animate__animated animate__fadeInRight');
+      $('#faq').attr("data-wow-duration", "2s");
+      $('#faq').attr("data-wow-delay", ".5s");
+
+      $('#contacts').addClass('animate__animated animate__fadeInLeft');
+      $('#contacts').attr("data-wow-duration", "2s");
+      $('#contacts').attr("data-wow-delay", ".5s");
     });
     // Other functions you want to execute when controller is connected
   }
 
   // Optional function for when controller is disconnected, can remove
   disconnect() {
-    //console.log(`${postControllerIndexFilePath} disconnected`)
   }
 
   exFunction() {
-    //console.log("\nsuper cool exFunction function")
-
-    // Disable Turbo
-    //Turbo.setFormMode("off");
-    
     // Плавная прокрутка
     var $page = $('html, body');
     $('a[href*="#"]').click(function() {
