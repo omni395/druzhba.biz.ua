@@ -43,6 +43,7 @@
 
 #/config/credentials/production.key
 /README.md
+/my_notes
 /sendgrid.env
 
 
