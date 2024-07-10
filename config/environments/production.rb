@@ -100,7 +100,7 @@ Rails.application.configure do
     address:              'mail.druzhba.biz.ua',
     port:                 587,
     domain:               'druzhba.biz.ua',
-    user_name:            'info@druzhba.biz.ua',
+    user_name:            'info',
     password:             '1234QWER!@#$',
     authentication:       'plain',
     enable_starttls_auto: true,

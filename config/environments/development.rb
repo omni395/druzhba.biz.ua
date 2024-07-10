@@ -83,14 +83,4 @@ Rails.application.configure do
     host: 'localhost:3000', 
     protocol: 'http'
   }
-  config.action_mailer.smtp_settings = {
-    address:              'mail.druzhba.biz.ua',
-    port:                 587,
-    domain:               'druzhba.biz.ua',
-    user_name:            'info',
-    password:             '1234QWER!@#$',
-    authentication:       'plain',
-    enable_starttls_auto: true,
-    openssl_verify_mode: 'none'
-  }
 end
