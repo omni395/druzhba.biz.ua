@@ -83,6 +83,7 @@ gem "jsbundling-rails", "~> 1.3"
 gem 'rails-i18n'
 gem "groupdate"
 gem "chartkick"
+gem 'jquery-rails'
 
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'
