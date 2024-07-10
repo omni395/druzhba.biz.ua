@@ -1,7 +1,8 @@
 class MessageNotifierMailer < ApplicationMailer
-  def new_message_email(landing_message, email)
+  def new_message_email(landing_message, email, subject)
     @landing_message = landing_message
     @email = email
-    mail(to: email, subject: 'Нове повідомлення від #{@landing_message.name}')
+    @subject = subject
+    mail(to: email, subject: subject)
   end
 end

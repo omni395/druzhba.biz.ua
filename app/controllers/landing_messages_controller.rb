@@ -10,7 +10,7 @@ class LandingMessagesController < ApplicationController
 
     respond_to do |format|
       if @landing_message.save
-        MessageNotifierMailer.new_message_email(@landing_message, 'ksuha@druzhba.biz.ua').deliver_now
+        MessageNotifierMailer.new_message_email(@landing_message, 'ksuha@druzhba.biz.ua', 'Нове повідомлення від #{@landind_message.name}').deliver_now
         MessageNotifierMailer.new_message_email(@landing_message, 'admin@druzhba.biz.ua').deliver_now
         format.html { redirect_back fallback_location: root_path }
         flash.now[:notice] = 'Повідомлення відпраавлено'
