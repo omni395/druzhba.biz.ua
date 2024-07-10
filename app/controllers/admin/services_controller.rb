@@ -59,13 +59,16 @@ module Admin
       params[:search]&.permit(
         :title_full_like,
         :sort_field,
-        :sort_kind
+        :sort_kind,
+        svc_any: []
       )
     end
 
     def post_params
       params.require(:admin_service).permit(
         :title,
+        :svc,
+        :price,
         :image,
         :remove_image,
         :description,

@@ -1,9 +1,13 @@
 .list-group.mb-3
   .list-group-item
-    = render Admin::FieldsetComponent.new(form, :title, :text)
+    = render Admin::FieldsetComponent.new(form, :title, :text, required: true)
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :svc, :radio, required: true, list: Admin::Service.svcs_i18n.invert)
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :price, :text, required: true)
   .list-group-item
     = render Admin::FieldsetComponent.new(form, :image, :file)
   .list-group-item
-    = render Admin::FieldsetComponent.new(form, :description, :text_area)
+    = render Admin::FieldsetComponent.new(form, :description, :text_area, required: true)
   .list-group-item
-    = render Admin::FieldsetComponent.new(form, :body, :rich_text_area)
+    = render Admin::FieldsetComponent.new(form, :body, :rich_text_area, required: true)

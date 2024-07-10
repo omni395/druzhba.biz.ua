@@ -4,6 +4,15 @@ uk:
       service: 
         title: Назва
         description: Опис
+        body: Опис послуги
         photo: Фото
+        svc: Категорія
+        price: Ціна
         created_at_field: Створено
         updated_at_field: Оновлено
+  enums:
+    admin:
+      service:
+        svc:
+          repair: Ремонт
+          sewing: Пошив

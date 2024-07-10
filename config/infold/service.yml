@@ -1,4 +1,16 @@
 model:
+  validate:
+    title:
+      - presence
+    description:
+      - presence
+    body:
+      - presence
+    svc:
+      - presence
+    price:
+      - presence
+
   active_storage:
     image:
       kind: image
@@ -10,6 +22,14 @@ model:
         active_storage:
           image:
             kind: image
+  enum:
+    svc:
+      repair:
+        value: 0
+        color: lime
+      sewing:
+        value: 1
+        color: green
         
 app:
   title: Послуги
@@ -18,6 +38,9 @@ app:
       - title:
           sign: full_like
           form_kind: text
+      - svc:
+          sign: any
+          form_kind: checkbox
     list:
       fields:
         - id
@@ -32,11 +55,16 @@ app:
       - title
       - image
       - description
+      - svc
+      - price
       - body
 
   form:
     fields:
       - title
+      - svc:
+          kind: radio
+      - price
       - image:
           kind: file
       - description:

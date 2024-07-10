@@ -12,7 +12,7 @@ module Admin
     end
 
     def call
-      "<span class=\"#{badge_class}\">#{@name}</span>".html_safe if @name.present?
+      "<span class=\"#{badge_class}\" style=\"width: 105px\">#{@name}</span>".html_safe if @name.present?
     end
   end
 end

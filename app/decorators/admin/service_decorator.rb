@@ -1,5 +1,13 @@
 module Admin
   module ServiceDecorator
+    def svc_color
+      case svc.to_s
+      when 'repair' then 'lime'
+      when 'sewing' then 'green'
+      else ''
+      end
+    end
+
     def created_at_display
       created_at ? I18n.l(created_at) : ''
     end

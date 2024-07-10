@@ -8,3 +8,10 @@
   text-align: justify;
   text-indent: 2rem;
 }
+
+.trix-content div img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 75%; */
+}

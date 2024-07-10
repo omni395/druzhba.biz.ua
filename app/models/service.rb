@@ -11,4 +11,7 @@ class Service < ApplicationRecord
   def to_param
     slug
   end
+
+  scope :repair, -> { where(svc: 0) }
+  scope :sewing, -> { where(svc: 1) }
 end

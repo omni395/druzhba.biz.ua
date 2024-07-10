@@ -1,4 +1,25 @@
-- @articles.each do |article|
-  = article.title
-  = article.description
-  
+%section{class: "mt-8 font-messiri max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between"}
+  %div{class: "text-center"}
+    %h1{class: "text-3xl text-red-500 sm:text-4xl leading-normal font-extrabold tracking-tight"}
+      Наш блог
+%div{class: "max-w-7xl mx-auto p-5 sm:p-10 md:p-16"}
+  %div{class: "grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-4 gap-10"}
+    - @articles.each do |article|
+      %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: article_path(article)}
+        %div{class: "row"}
+          - if article.image.attached?
+            = image_tag(article.image, class: "rounded-t-xl w-full h-[150px] sm:w-full sm:h-[200px] transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: article.title)
+          - else
+            = image_tag("favicon.png", class: "rounded-t-xl w-full h-[150px] sm:h-[200px] transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: article.title)
+          %div{class: "p-4 pt-2 h-auto md:h-70 lg:h-64 xl:h-56"}
+            %div{class: "mb-8"}
+              %p.text-stone-900.font-bold.text-lg.mb-2.hover:text-red-500.inline-block
+                = article.title
+                %i{class: "text-indigo-500 font-bold text-sm mb-2 inline-block"}
+                  \#
+                  = article.service.title
+              %p.text-stone-700.text-sm.text-ellipsis
+                = article.description
+          -#%div{class: "pe-2 pb-2 text-red-500 w-full flex justify-end items-end"}
+          -#  %div{class: "pe-2 sm:pe-4 w-full sm:w-2/3 border-t-2 border-red-300 text-end"}
+          -#    Докладніше

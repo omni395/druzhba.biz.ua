@@ -1,7 +1,8 @@
 module Admin
   class ServiceSearchForm < BaseSearchForm
 
-    set_condition :title_full_like
+    set_condition :title_full_like,
+                  :svc_any
 
     def perform(page = nil, limit: nil, csv: false)
       records = Service.distinct

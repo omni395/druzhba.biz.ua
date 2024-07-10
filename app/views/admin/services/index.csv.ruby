@@ -8,6 +8,8 @@ CSV.generate do |csv|
     Admin::Service.human_attribute_name(:description),
     Admin::Service.human_attribute_name(:created_at),
     Admin::Service.human_attribute_name(:updated_at),
+    Admin::Service.human_attribute_name(:price),
+    Admin::Service.human_attribute_name(:svc),
     Admin::Service.human_attribute_name(:slug),
   ]
   # set body rows
@@ -18,6 +20,8 @@ CSV.generate do |csv|
       service.description,
       service.created_at,
       service.updated_at,
+      service.price,
+      service.svc_i18n,
       service.slug,
     ]
   end

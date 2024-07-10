@@ -3,6 +3,8 @@ class LandingController < ApplicationController
   end
 
   def prices
+    @repair = Service.repair
+    @sewing = Service.sewing
   end
 
   def about

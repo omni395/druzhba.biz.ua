@@ -26,6 +26,18 @@
   .list-group-item
     .row
       .col-md-3
+        .text-muted.fw-bold= service.class.human_attribute_name(:svc)
+      .col-md-9
+        = render Admin::BadgeComponent.new(service.svc_i18n, service.svc_color)
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= service.class.human_attribute_name(:price)
+      .col-md-9
+        = service.price
+  .list-group-item
+    .row
+      .col-md-3
         .text-muted.fw-bold= service.class.human_attribute_name(:body)
       .col-md-9
         = service.body

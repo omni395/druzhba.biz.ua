@@ -2,3 +2,35 @@
   %div{class: "text-center"}
     %h2{class: "text-3xl text-red-500 sm:text-4xl leading-normal font-extrabold tracking-tight"}
       Наші ціни
+
+  %div{class: "relative overflow-x-auto shadow-md sm:rounded-lg my-10"}
+    %table{class: "w-full text-md text-left rtl:text-right text-stone-500"}
+      %thead{class: "text-xl text-stone-700 uppercase bg-stone-50"}
+        %tr{class: "bg-stone-200"}
+          %th{class: "px-6 py-3", scope: "col"}
+            Ціни на послуги по ремонту одягу
+          %th{class: "px-6 py-3 text-center", scope: "col"}
+            Ціна
+      %tbody
+        - @repair.each do |repair|
+          %tr{class: "bg-white border-b hover:bg-stone-50"}
+            %th{class: "px-6 py-4 font-medium text-stone-900 whitespace-nowrap", scope: "row"}
+              = repair.title
+            %td{class: "px-6 py-4 text-center"}
+              = repair.price
+
+  %div{class: "relative overflow-x-auto shadow-md sm:rounded-lg my-10"}
+    %table{class: "w-full text-md text-left rtl:text-right text-stone-500"}
+      %thead{class: "text-xl text-stone-700 uppercase bg-stone-50"}
+        %tr{class: "bg-stone-200"}
+          %th{class: "px-6 py-3", scope: "col"}
+            Ціни на послуги індивідуального пошиву
+          %th{class: "px-6 py-3 text-center", scope: "col"}
+            Ціна
+      %tbody
+        - @sewing.each do |sewing|
+          %tr{class: "bg-white border-b hover:bg-stone-50"}
+            %th{class: "px-6 py-4 font-medium text-stone-900 whitespace-nowrap", scope: "row"}
+              = sewing.title
+            %td{class: "px-6 py-4 text-center"}
+              = sewing.price
