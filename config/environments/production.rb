@@ -103,6 +103,7 @@ Rails.application.configure do
     user_name:            'info@druzhba.biz.ua',
     password:             '1234QWER!@#$',
     authentication:       'plain',
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    openssl_verify_mode: 'none'
   }
 end
