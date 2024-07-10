@@ -1,8 +1,7 @@
 class MessageNotifierMailer < ApplicationMailer
-  def new_message_email(landing_message, email, subject)
+  def new_message_email(landing_message, email)
     @landing_message = landing_message
     @email = email
-    @subject = subject
-    mail(to: email, subject: subject)
+    mail(to: email, subject: landing_message.name)
   end
 end
