@@ -27,9 +27,11 @@
   .list-group-item
     = render Admin::FieldsetComponent.new(form, :price, :number, required: true)
   .list-group-item
-    = render Admin::FieldsetComponent.new(form, :dead_date, :date, datepicker: true)
+    = render Admin::FieldsetComponent.new(form, :description, :text)
   .list-group-item
-    = render Admin::FieldsetComponent.new(form, :dead_time, :time)
+    = render Admin::FieldsetComponent.new(form, :dead_date, :date, required: true, datepicker: true)
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :dead_time, :time, required: true)
   .list-group-item
     = render Admin::FieldsetComponent.new(form, :status, :radio, required: true, list: Admin::Order.statuses_i18n.invert)
   .list-group-item

@@ -26,10 +26,6 @@ module Admin
       updated_at ? I18n.l(updated_at) : ''
     end
 
-    def dead_time_display
-      dead_time ? I18n.l(dead_time) : ''
-    end
-
     def dead_date_display
       dead_date ? I18n.l(dead_date) : ''
     end

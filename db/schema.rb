@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_10_070030) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_10_115741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -128,6 +128,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_070030) do
     t.bigint "admin_user_id"
     t.date "dead_date"
     t.time "dead_time"
+    t.string "description"
     t.index ["admin_user_id"], name: "index_orders_on_admin_user_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end

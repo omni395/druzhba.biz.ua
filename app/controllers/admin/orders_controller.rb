@@ -72,6 +72,7 @@ module Admin
         :customer_id,
         :admin_user_id,
         :price,
+        :description,
         :dead_date,
         :dead_time,
         :status,

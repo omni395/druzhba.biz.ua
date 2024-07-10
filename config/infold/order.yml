@@ -91,6 +91,7 @@ app:
       - price
       - dead_date
       - dead_time
+      - description
       - order_details:
           kind: association
           fields:
@@ -109,6 +110,7 @@ app:
                 kind: select
       - price:
           kind: number
+      - description
       - dead_date:
           kind: date
       - dead_time:

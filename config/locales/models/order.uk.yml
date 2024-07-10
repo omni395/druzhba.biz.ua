@@ -11,6 +11,7 @@ uk:
         created_at_field: Створено
         updated_at_field: Оновлено
         price: Вартість
+        description: Опис
 
   enums:
     admin:

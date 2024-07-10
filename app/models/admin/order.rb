@@ -1,7 +1,5 @@
 module Admin
   class Order < ::Order
-    include DatetimeFieldConcern
-
     belongs_to :customer, foreign_key: 'customer_id'
     belongs_to :admin_user, foreign_key: 'admin_user_id'
     has_many :order_details, dependent: :destroy
@@ -15,6 +13,8 @@ module Admin
     validates :status, presence: true
     validates :paid, presence: true
     validates :price, presence: true
+    validates :dead_date, presence: true
+    validates :dead_time, presence: true
 
     enum status: { new: 0, in_work: 1, done: 2, rejected: 3 }, _prefix: true
     enum paid: { unpaid: 0, inpaid: 1 }, _prefix: true
