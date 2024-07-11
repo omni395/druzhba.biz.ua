@@ -6,12 +6,12 @@
           %div{class: "bg-cover bg-center text-center overflow-hidden", style: "min-height: 450px; background-image: url('#{url_for(@article.image)}')", title: @article.title}
         - else
           %div{class: "bg-cover bg-center text-center overflow-hidden", style: "min-height: 450px; background-image: url('#{asset_path("favicon.png")}')", title: @article.title}
-        .max-w-5xl.mx-auto.mb-8
-          .mt-3.bg-white.rounded-b.lg:rounded-b-none.lg:rounded-r.flex.flex-col.justify-between.leading-normal
-            .bg-white.relative.top-0.-mt-32.p-5.sm:p-10
-              %h1.text-gray-900.font-bold.text-3xl.mb-2
+        %div{class: "max-w-5xl mx-auto mb-8"}
+          %div{class: "mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal"}
+            %div{class: "bg-white relative top-0 -mt-32 p-5 sm:p-10"}
+              %h1{class: "text-gray-900 font-bold text-3xl mb-2"}
                 = @article.title
-              %blockquote.text-base.leading-8.my-5.text-stone-700.mb-4.text-2xl.border-s-4.border-stone-300.p-4.shadow-md
+              %blockquote{class: "text-base leading-8 my-5 text-stone-700 mb-4 text-2xl border-s-4 border-stone-300 p-4 shadow-md"}
                 = @article.description
-              %p.text-base.leading-8.my-5
+              %p{class: "text-base leading-8 my-5"}
                 = @article.body

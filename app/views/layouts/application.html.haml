@@ -4,7 +4,8 @@
     -# Google tag (gtag.js)
     %script{async: "true", "data-turbo-track": "reload", src: "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN"}
 
-    %title Швейна майстерня ☞ ДРУЖБА ☜
+    %title
+      = @page_title.present? ? "Швейна майстерня ☞ ДРУЖБА ☜ - #{@page_title}" : "Швейна майстерня ☞ ДРУЖБА ☜"
     = favicon_link_tag asset_path('favicon.png')
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}

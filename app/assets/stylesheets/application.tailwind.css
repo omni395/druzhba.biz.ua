@@ -2,44 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.element-animation.element-show {
-  opacity: 1;
-  transition: all 3s;
-  transform: translateY(0%);
-}
-
-
-/***** Global Slide *****/
-.slide-right, .slide-left {
-  /*width: 100%;*/
-}
-/***** Slide Right *****/
-.slide-right {
-  animation: 2.5s slide-right;
-}
-@keyframes slide-right {
-  from {
-    margin-left: -100%;
-  }
-  to {
-    margin-left: 0%;
-  }
-}
-/***** Slide Left *****/
-.slide-left {
-  animation: 2.5s slide-left;
-}
-@keyframes slide-left {
-  from {
-    margin-left: 100%;
-  }
-  to {
-    margin-left: 0%;
-  }
-}
-
-
-
 /*
 
 @layer components {

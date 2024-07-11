@@ -93,3 +93,7 @@ gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 gem 'sendgrid-ruby'
 # Frendly urls
 gem 'friendly_id'
+
+# SiteMap generator
+gem 'dynamic_sitemaps'
+gem 'whenever', require: false 

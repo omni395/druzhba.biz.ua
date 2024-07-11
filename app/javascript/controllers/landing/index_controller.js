@@ -14,33 +14,10 @@ export default class extends Controller {
   connect(){
     this.exFunction();
     window.addEventListener('load', function(){
-      $('#hero-section-1').addClass('animate__animated animate__fadeInLeft');
-      $('#hero-section-1').attr("data-wow-duration", "2s");
-      $('#hero-section-1').attr("data-wow-delay", ".5s");
-
-      $('#services').addClass('animate__animated animate__fadeInRight');
-      $('#services').attr("data-wow-duration", "2s");
-      $('#services').attr("data-wow-delay", ".5s");
-
-      $('#hero-section-2').addClass('animate__animated animate__fadeInLeft');
-      $('#hero-section-2').attr("data-wow-duration", "2s");
-      $('#hero-section-2').attr("data-wow-delay", ".5s");
-
-      $('#about').addClass('animate__animated animate__fadeInRight');
-      $('#about').attr("data-wow-duration", "2s");
-      $('#about').attr("data-wow-delay", ".5s");
-
-      $('#hero-section-1').addClass('animate__animated animate__fadeInLeft');
-      $('#hero-section-1').attr("data-wow-duration", "2s");
-      $('#hero-section-1').attr("data-wow-delay", ".5s");
-
-      $('#faq').addClass('animate__animated animate__fadeInRight');
-      $('#faq').attr("data-wow-duration", "2s");
-      $('#faq').attr("data-wow-delay", ".5s");
-
-      $('#contacts').addClass('animate__animated animate__fadeInLeft');
-      $('#contacts').attr("data-wow-duration", "2s");
-      $('#contacts').attr("data-wow-delay", ".5s");
+      $('.odd').addClass('animate__animated animate__fadeInLeft');
+      $('.even').addClass('animate__animated animate__fadeInRight');
+      $('.odd, .even').attr("data-wow-duration", "2s");
+      $('.odd,  .even').attr("data-wow-delay", ".5s");
     });
     // Other functions you want to execute when controller is connected
   }
