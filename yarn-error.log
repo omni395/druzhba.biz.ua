@@ -843,7 +843,7 @@ Lockfile:
   foldertojson@*:
     version "0.4.7"
     resolved "https://registry.yarnpkg.com/foldertojson/-/foldertojson-0.4.7.tgz#dd3c87ea4f6c2d038fde77c8ca073ccd595a6817"
-    integrity sha512-XeKgstGtgbhgl7yyA5A47h6gX8TLDRQYm0WzJpgTW4RRY6vweH9mPY8Re77B80N/ffMDBbnaEE1z+AXRZdwyDw==
+    integrity sha512-XeKgstGtgbhgl7yyA5A47h6gX8TLDRQYm0WzavifTW4RRY6vweH9mPY8Re77B80N/ffMDBbnaEE1z+AXRZdwyDw==
     dependencies:
       davefilesystem "*"
       daveutils "*"
