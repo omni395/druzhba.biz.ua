@@ -1660,10 +1660,10 @@ pirates@^4.0.1:
   resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.6.tgz#3018ae32ecfcff6c29ba2267cbf21166ac1f36b9"
   integrity "sha1-MBiuMuz8/2wpuiJny/IRZqwfNrk= sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg=="
 
-pnpm@^9.2.0:
-  version "9.2.0"
-  resolved "https://registry.yarnpkg.com/pnpm/-/pnpm-9.2.0.tgz#886364ebd6dae009284bebc56ed4296bb6dd557a"
-  integrity "sha1-iGNk69ba4AkoS+vFbtQpa7bdVXo= sha512-mKgP0RwucJZ0d2IwQQZDKz3cZ9z1S1qMAck/aKLNXgXmghhJUioG+3YoTUGiZg1eM08u47vykYO/LnObHa+ncQ=="
+pnpm@^9.5.0:
+  version "9.5.0"
+  resolved "https://registry.yarnpkg.com/pnpm/-/pnpm-9.5.0.tgz#8c155dc114e1689d18937974f6571e0ceee66f1d"
+  integrity sha512-FAA2gwEkYY1iSiGHtQ0EKJ1aCH8ybJ7fwMzXM9dsT1LDoxPU/BSHlKKp2BVTAWAE5nQujPhQZwJopzh/wiDJAw==
 
 possible-typed-array-names@^1.0.0:
   version "1.0.0"
@@ -1731,7 +1731,7 @@ postcss@^8.4.23:
     picocolors "^1.0.0"
     source-map-js "^1.2.0"
 
-postcss@^8.4.4:
+postcss@^8.4.39, postcss@^8.4.4:
   version "8.4.39"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.39.tgz#aa3c94998b61d3a9c259efa51db4b392e1bde0e3"
   integrity sha512-0vzE+lAiG7hZl1/9I8yzKLx3aR9Xbof3fBHKunvMfOCYAtMhrsnccJY2iTURb9EZd5+pLuiNV9/c/GZJOHsgIw==
