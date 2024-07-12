@@ -1,5 +1,19 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+const purgecss = require("@fullhuman/postcss-purgecss")({
+  content: [
+    "./app/**/*.html.erb",
+    "./app/helpers/**/*.rb",
+    "./app/javascript/**/*.js",
+    "./app/assets/javascripts/**/*.js",
+  ],
+  defaultExtractor: (content) => {
+    const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [];
+    const innerMatches = content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || [];
+    return broadMatches.concat(innerMatches);
+  },
+});
+
 module.exports = {
   //prefix: 'tw-',
   content: [
@@ -33,5 +47,6 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
     require('flowbite/plugin'),
+    ...(process.env.NODE_ENV === "production" ? [purgecss] : []),
   ]
 }
