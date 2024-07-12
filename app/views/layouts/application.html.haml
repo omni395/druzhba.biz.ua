@@ -11,13 +11,6 @@
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
     %meta{content: "ремонт одягу пошив індивідуальний пошив ремонт одежды укоротить брюки штаны юбка платье", :name => "description"}
 
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag "application", "inter-font", "data-turbo-track": "reload"
-    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
-    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
-
-  %body{class: "bg-stone-100", id: "main", "data-controller": "landing--index"}
     -# FlowbiteJS
     %link{href: "https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css", rel: "stylesheet"}
     %script{:src => "https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"}
@@ -37,6 +30,16 @@
           integrity: "sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==",
           rel: "stylesheet"}
 
+
+
+
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "inter-font", "data-turbo-track": "reload"
+    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
+
+  %body{class: "bg-stone-100", id: "main", "data-controller": "landing--index"}
     %navigation{class: ""}
       = render "shared/navigation"
     %main{class: ""}
