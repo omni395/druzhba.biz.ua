@@ -33,7 +33,6 @@
               %th.icon_cell
               %th= render Admin::SortableComponent.new(@search, :id, label: Admin::Service.human_attribute_name(:id))
               %th= render Admin::SortableComponent.new(@search, :title, label: Admin::Service.human_attribute_name(:title))
-              %th= render Admin::SortableComponent.new(@search, :description, label: Admin::Service.human_attribute_name(:description))
               %th= render Admin::SortableComponent.new(@search, :image, label: Admin::Service.human_attribute_name(:image))
               %th.icon_cell
           %tbody#services

@@ -11,6 +11,7 @@ module Admin
     validates :description, presence: true
     validates :price, presence: true
     validates :svc, presence: true
+    validates :subtitle, presence: true
     validates :body, presence: true
 
     enum svc: { repair: 0, sewing: 1 }, _prefix: true

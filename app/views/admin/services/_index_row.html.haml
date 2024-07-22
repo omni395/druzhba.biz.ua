@@ -6,8 +6,6 @@
     = service.id
   %td
     = service.title
-  %td
-    = service.description
   %td.image_cell
     - if service.image.attached?
       = link_to url_for(service.image), target: '_blank' do

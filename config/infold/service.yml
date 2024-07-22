@@ -2,6 +2,8 @@ model:
   validate:
     title:
       - presence
+    subtitle:
+      - presence
     description:
       - presence
     body:
@@ -45,7 +47,6 @@ app:
       fields:
         - id
         - title
-        - description
         - image
       default_order:
         field: id
@@ -53,6 +54,7 @@ app:
   show:
     fields:
       - title
+      - subtitle
       - image
       - description
       - svc
@@ -62,6 +64,7 @@ app:
   form:
     fields:
       - title
+      - subtitle
       - svc:
           kind: radio
       - price

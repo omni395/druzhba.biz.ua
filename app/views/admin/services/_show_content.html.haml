@@ -8,6 +8,12 @@
   .list-group-item
     .row
       .col-md-3
+        .text-muted.fw-bold= service.class.human_attribute_name(:subtitle)
+      .col-md-9
+        = service.subtitle
+  .list-group-item
+    .row
+      .col-md-3
         .text-muted.fw-bold= service.class.human_attribute_name(:image)
       .col-md-9
         - if service.image.attached?
