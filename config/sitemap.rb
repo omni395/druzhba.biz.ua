@@ -12,7 +12,7 @@ sitemap :site do
   end
   # Articles
   url articles_url
-  Service.all.each do |article|
+  Article.all.each do |article|
     url article
   end
   # Prices
