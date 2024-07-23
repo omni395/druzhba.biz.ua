@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action { @page_title = "Послуги швейної майстерні ☞ДРУЖБА☜ у Кривому Розі" }
+  before_action { @page_title = "Послуги швейної майстерні у Кривому Розі" }
   before_action { @page_description }
 
   def index
@@ -10,7 +10,7 @@ class ServicesController < ApplicationController
   def show
     @service = Service.friendly.find(params[:id])
     @page_title = @service.title
-    @page_description = "Послуга швейної майстерні ☞ДРУЖБА☜ -" + @service.subtitle
+    @page_description = "Послуга швейної майстерні ☞ДРУЖБА☜ - " + @service.subtitle
   end
 
 end
