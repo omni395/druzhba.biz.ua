@@ -19,7 +19,7 @@
         - if service.image.attached?
           = link_to url_for(service.image), target: '_blank' do
             - if service.image.blob.image?
-              = image_tag(service.image, class: 'img-fluid')
+              = image_tag(service.image, width: "75%", class: 'img-fluid')
             - else
               = service.image.filename
 

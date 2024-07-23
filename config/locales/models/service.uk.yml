@@ -6,6 +6,7 @@ uk:
         description: Опис
         body: Опис послуги
         photo: Фото
+        image: Фото
         svc: Категорія
         price: Ціна
         created_at_field: Створено

@@ -17,6 +17,8 @@
                 = @service.description
               %p{class: "text-base leading-8 my-5"}
                 = @service.body
+          %div{class: "text-end p-4"}
+            = link_to "Повернутись на попередню сторінку", :back, class: "justify-end text-xl hover:border-b-2 hover:border-red-500 text-stone-500 hover:text-stone-900"
 
     %div{class: "px-4"}
       %div{class: "bg-stone-100 px-4 py-6 rounded"}

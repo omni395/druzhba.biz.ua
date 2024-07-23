@@ -27,13 +27,13 @@
       .alert#no_data= t('infold.no_data')
     .card.border-top-0
       .table_wrapper.table-responsive.bg-secondary-lt{ data: { index_page_target: 'resultTableWrapper' } }
-        %table.table.table-hover.table-striped.mb-0.bg-white
+        %table.table.table-sm.table-hover.table-striped.mb-0.bg-white
           %thead{ data: { index_page_target: 'thead' } }
             %tr
               %th.icon_cell
-              %th= render Admin::SortableComponent.new(@search, :id, label: Admin::Service.human_attribute_name(:id))
+              %th.icon_cell= render Admin::SortableComponent.new(@search, :id, label: Admin::Service.human_attribute_name(:id))
+              %th.icon_cell.text-center= render Admin::SortableComponent.new(@search, :image, label: Admin::Service.human_attribute_name(:image))
               %th= render Admin::SortableComponent.new(@search, :title, label: Admin::Service.human_attribute_name(:title))
-              %th= render Admin::SortableComponent.new(@search, :image, label: Admin::Service.human_attribute_name(:image))
               %th.icon_cell
           %tbody#services
             = render partial: "index_row", collection: @services, as: 'service'

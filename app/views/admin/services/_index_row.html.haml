@@ -2,18 +2,17 @@
   %td.icon_cell
     = link_to admin_service_path(service), class: 'd-block', data: { turbo_frame: 'modal_main' } do
       %i.bi.bi-file-text.h3
-  %td
+  %td.icon_cell
     = service.id
-  %td
-    = service.title
-  %td.image_cell
+  %td{class: "image_cell text-center icon_cell"}
     - if service.image.attached?
       = link_to url_for(service.image), target: '_blank' do
         - if service.image.blob.image?
-          = image_tag(service.image, class: 'img-fluid')
+          = image_tag(service.image, width: "100%", class: 'img-fluid')
         - else
           = service.image.filename
-
+  %td
+    = service.title
   %td.icon_cell
     = link_to edit_admin_service_path(service), class: 'd-block', data: { turbo_frame: "modal_main" } do
       %i.bi.bi-pencil-square.h3
