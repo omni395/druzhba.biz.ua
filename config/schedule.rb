@@ -1,6 +1,6 @@
 every 1.day, at: "4:30 am" do
-  rake "sitemap:generate"
- end
+  rails "sitemap:generate"
+end
 
 # Use this file to easily define all of your cron jobs.
 #
