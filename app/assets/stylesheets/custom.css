@@ -17,7 +17,7 @@
 }
 
 .trix-content ul {
-  color: rgb(120 113 108);
+  color: rgba(120 113 108);
 }
 
 .trix-content li {
@@ -25,5 +25,5 @@
 }
 
 .trix-content li::marker {
-  color: rgb(239 68 68);
+  color: rgba(239 68 68);
 }
