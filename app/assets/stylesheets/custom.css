@@ -21,7 +21,7 @@
 }
 
 .trix-content li {
-  list-style: square inside;
+  list-style: square outside;
 }
 
 .trix-content li::marker {
