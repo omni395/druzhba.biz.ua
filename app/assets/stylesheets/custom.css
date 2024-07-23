@@ -15,3 +15,15 @@
   margin-right: auto;
   /* width: 75%; */
 }
+
+.trix-content ul {
+  color: rgb(120 113 108);
+}
+
+.trix-content li {
+  list-style: square inside;
+}
+
+.trix-content li::marker {
+  color: rgb(239 68 68);
+}
