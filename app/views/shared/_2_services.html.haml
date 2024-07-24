@@ -35,19 +35,15 @@
 
       %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
         %div{class: "row relative"}
-          = image_tag("skin.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейна майстерня ☞ ДРУЖБА ☜ - Ремонт шкіряних та хутрових виробів")
+          = image_tag("skin.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{t "landing.services.card3.h2"}")
           %div{class: "p-4 pt-2 h-auto md:h-70 lg:h-70 xl:h-70"}
             %div{class: "mb-8"}
               %h2{class: "text-gray-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                Ремонт шкіряних та хутрових виробів
+                = t "landing.services.card3.h2"
               %p{class: "mx-auto text-base leading-relaxed text-red-500"}
-                від 200 грн              
+                = t "landing.services.card3.p1"     
               %p{class: "text-justify mx-auto text-base leading-relaxed text-stone-500"}
-                Дуже важлива процедура, яка зберігає якість та тривалість таких речей.
-                Під час ремонту фахівці здійснюють реставрацію пошкоджень,
-                змінюють застарілі деталі та повертають виробам першісний вигляд.
-                Це дозволяє продовжити термін використання шкіряних та хутрових виробів,
-                зберігаючи при цьому їх естетичний вигляд.  
+                = t "landing.services.card3.p2"
     
       %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
         %div{class: "row relative"}
