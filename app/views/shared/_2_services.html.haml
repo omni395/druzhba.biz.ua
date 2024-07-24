@@ -1,37 +1,37 @@
 %section{class: "font-messiri bg-white relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl"}
   %div{class: "py-3 sm:py-6"}
     %h2{class: "text-3xl uppercase font-messiri text-center font-bold tracking-tight font-medium text-red-500"}
-      Наші послуги на ремонт одягу
+      = t "landing.services.h2"
+
   %div{class: "mx-auto p-5 sm:p-10 md:p-16 lg:p-4 xl:p-2"}
     %div{class: "grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 xl:grid-cols-3 gap-5"}
       %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
         %div{class: "row relative"}
-          = image_tag("zip.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейна майстерня ☞ ДРУЖБА ☜ - Заміна замків у верхньому та легкому одягу")
+          = image_tag("zip.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{t "landing.services.card1.alt"}")
           %div{class: "p-4 pt-2 h-auto md:h-70 lg:h-70 xl:h-70"}
             %div{class: "mb-8"}
               %h2{class: "text-gray-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                Заміна замків у верхньому та легкому одягу
+                = t "landing.services.card1.h2"
+
               %p{class: "mx-auto text-base leading-relaxed text-red-500"}
-                від 150 грн
+                = t "landing.services.card1.p1"
+              
               %p{class: "text-justify mx-auto text-base leading-relaxed text-stone-500"}
-                Це важливий етап у догляді за вашим одягом.
-                Час від часу може знадобитися заміна зламаного або пошкодженого замка,
-                щоб ваш одяг виглядав на висоті. Це досить складний та трудомісткий процес,
-                але з нашою допомогою, ви зможете продовжити використовувати улюблені речі ще довгий час.
+                = t "landing.services.card1.p2"
+                
       %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
         %div{class: "row relative"}
-          = image_tag("jeans.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейна майстерня ☞ ДРУЖБА ☜ - Штопка (штуковка джинсових виробів)")
+          = image_tag("jeans.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{t "landing.services.card2.alt"}")
           %div{class: "p-4 pt-2 h-auto md:h-70 lg:h-70 xl:h-70"}
             %div{class: "mb-8"}
               %h2{class: "text-gray-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                Штуковка (штопка) джинсових виробів
+                = t "landing.services.card2.h2"
+                
               %p{class: "mx-auto text-base leading-relaxed text-red-500"}
-                від 150 грн
+                = t "landing.services.card2.p1"
+
               %p{class: "text-justify mx-auto text-base leading-relaxed text-stone-500"}
-                Це процес відновлення пошкоджених або протертих місць на джинсових речах.
-                Зазвичай це виконується шляхом закладання строчок чи патчів на пошкоджені ділянки,
-                що дозволяє джинсам виглядати як новими.
-                Штуковка джинсових виробів допомагає продовжити термін служби джинс та зберегти їх стильний вигляд.  
+                = t "landing.services.card2.p2"
 
       %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
         %div{class: "row relative"}

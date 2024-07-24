@@ -96,5 +96,5 @@ gem 'sendgrid-ruby'
 gem 'friendly_id'
 
 # SiteMap generator
-gem 'dynamic_sitemaps'
-gem 'whenever', require: false 
+gem 'sitemap_generator'
+gem 'whenever', require: false

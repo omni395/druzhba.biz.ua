@@ -1,7 +1,9 @@
 %nav{class: "w-full z-20 border-b border-gray-200"}
   %div{class: "max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-2"}
     %a{class: "flex items-center space-x-1 rtl:space-x-reverse", href: root_path}
-      %span{class: "pr-1 self-center text-2xl font-bad_script font-bold whitespace-nowrap"} Швейна майстерня
+      %span{class: "pr-1 self-center text-2xl font-bad_script font-bold whitespace-nowrap"}
+        -# landing.navigation.top
+        = t "landing.navigation.top"
       = image_tag("scissors.svg", class: "h-4", alt: ">")
       %div{class: "flex content-center"}
         %span{class: "pr-1 self-center text-2xl font-bad_script font-bold whitespace-nowrap"} ДРУЖБА
@@ -17,22 +19,42 @@
         %svg{class: "w-5 h-5", "aria-hidden": "true", fill: "none", viewbox: "0 0 17 14", xmlns: "http://www.w3.org/2000/svg"}
           %path{d: "M1 1h15M1 7h15M1 13h15", stroke: "currentColor", "stroke-linecap": "round",
                 "stroke-linejoin": "round", "stroke-width": "2"}
-      %button{id: "openContactForm", class: "animate-pulse hover:animate-none focus:animate-none font-messiri inline-block w-full text-center text-xl font-medium text-red-500 bg-stone-100 hover:bg-stone-200 border border-red-500 rounded-lg font-bold py-1 px-2"} Звʼязатися з нами
+      %button{id: "openContactForm", class: "animate-pulse hover:animate-none focus:animate-none font-messiri inline-block w-full text-center text-xl font-medium text-red-500 bg-stone-100 hover:bg-stone-200 border border-red-500 rounded-lg font-bold py-1 px-2"}
+        -# landing.navigation.contact_form_button
+        = t "landing.navigation.contact_form_button"
+      
+      -# Switch locales
+      - I18n.available_locales.each do |locale|
+        %div{class: "relative inline-block text-senter"}
+          .group
+            - if I18n.locale == locale
+              %button{class: "font-messiri inline-block w-full text-center text-xl font-medium text-red-500 bg-stone-100 p-1", type: "button"}
+                = t(locale, scope: 'locales')
+            - else
+              %div{class: "p-1 text-xl"}
+                = link_to t(locale, scope: 'locales'), url_for(locale: locale)
+
     %div{id: "navbar-sticky", class: "text-center items-center justify-between hidden w-full md:flex md:w-auto md:order-1"}
       %ul{class: "flex flex-col p-2 md:p-0 mt-2 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-stone-100"}
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: root_path} Головна
+          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: root_path}
+            = t "landing.navigation.main"
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: services_path} Послуги
+          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: services_path}
+            = t "landing.navigation.services"
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: prices_path}Ціни
+          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: prices_path}
+            = t "landing.navigation.prices"
         -#%li
         -#  %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: about_path} Про нас
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: faq_path} FAQ
+          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: faq_path}
+            = t "landing.navigation.faq"
         -#%li
         -#  %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: root_path + "#reviews"} Відгуки
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: contacts_path} Контакти
+          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: contacts_path}
+            = t "landing.navigation.contacts"
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: articles_path} Блог
+          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: articles_path}
+            = t "landing.navigation.articles"

@@ -1,6 +1,6 @@
 !!!
-%html{lang: "uk"}
-  %head
+%html
+  %head{lang: "#{I18n.locale}"}
     %title= @page_title.present? ? "#{@page_title} - Адміністрування" : 'Головна'
     %meta{content: "uk", "http-equiv": "content-language"}
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}

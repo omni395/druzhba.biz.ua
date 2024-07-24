@@ -1,57 +1,47 @@
-# Change this to your host. See the readme at https://github.com/lassebunk/dynamic_sitemaps
-# for examples of multiple hosts and folders.
-host "https://druzhba.biz.ua"
+# Set the host name for URL creation
+SitemapGenerator::Sitemap.default_host = "https://druzhba.biz.ua"
+SitemapGenerator::Sitemap.create_index = true
 
-sitemap :site do
-  url root_url, last_mod: Time.now, change_freq: "daily", priority: 1.0
-  
-  # Services
-  url services_url
-  Service.all.each do |service|
-    url service
+SitemapGenerator::Sitemap.create do
+  {uk: :ukrainian, ru: :russian}.each_pair do |locale, name|
+    group(sitemaps_path: "sitemaps/#{locale}/", filename: name) do
+      add root_path, changefreq: 'daily'
+      add prices_path
+      add about_path
+      add contacts_path
+      add faq_path
+      add services_path
+      add articles_path
+
+      Article.find_each do |article|
+        add articles_path(article), changefreq: 'daily', lastmod: article.updated_at
+      end
+    
+      Service.find_each do |service|
+        add services_path(service), changefreq: 'daily', lastmod: service.updated_at
+      end 
+    end
   end
-  # Articles
-  url articles_url
-  Article.all.each do |article|
-    url article
-  end
-  # Prices
-  url prices_url
-  # Faq
-  url faq_url
-  # Contacts
-  url contacts_url
+  # Put links creation logic here.
+  #
+  # The root path '/' and sitemap index file are added automatically for you.
+  # Links are added to the Sitemap in the order they are specified.
+  #
+  # Usage: add(path, options={})
+  #        (default options are used if you don't specify)
+  #
+  # Defaults: :priority => 0.5, :changefreq => 'weekly',
+  #           :lastmod => Time.now, :host => default_host
+  #
+  # Examples:
+  #
+  # Add '/articles'
+  #
+  #   add articles_path, :priority => 0.7, :changefreq => 'daily'
+  #
+  # Add all articles:
+  #
+  #   Article.find_each do |article|
+  #     add article_path(article), :lastmod => article.updated_at
+  #   end
 end
-
-# You can have multiple sitemaps like the above – just make sure their names are different.
-
-# Automatically link to all pages using the routes specified
-# using "resources :pages" in config/routes.rb. This will also
-# automatically set <lastmod> to the date and time in page.updated_at:
-#
-#   sitemap_for Page.scoped
-
-# For products with special sitemap name and priority, and link to comments:
-#
-#   sitemap_for Product.published, name: :published_products do |product|
-#     url product, last_mod: product.updated_at, priority: (product.featured? ? 1.0 : 0.7)
-#     url product_comments_url(product)
-#   end
-
-# If you want to generate multiple sitemaps in different folders (for example if you have
-# more than one domain, you can specify a folder before the sitemap definitions:
-# 
-#   Site.all.each do |site|
-#     folder "sitemaps/#{site.domain}"
-#     host site.domain
-#     
-#     sitemap :site do
-#       url root_url
-#     end
-# 
-#     sitemap_for site.products.scoped
-#   end
-
-# Ping search engines after sitemap generation:
-#
-#   ping_with "http://#{host}/sitemap.xml"

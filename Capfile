@@ -36,9 +36,11 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'capistrano/rbenv'
+require 'capistrano/sitemap_generator'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '3.3.1'
+set :sitemap_roles, :web # default
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
