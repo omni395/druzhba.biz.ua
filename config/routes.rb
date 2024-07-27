@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # Admin routes with gem infold  
+  draw(:admin)
+  
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'landing#index'
     
@@ -6,9 +9,6 @@ Rails.application.routes.draw do
     get "about", to: "landing#about"
     get "contacts", to: "landing#contacts"
     get "faq", to: "landing#faq"
-
-    # Admin routes with gem infold  
-    draw(:admin)
 
     # Отправка сообщения
     resources :landing_messages, only: [:new, :create]
