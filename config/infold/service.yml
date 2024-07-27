@@ -59,7 +59,7 @@ app:
       - description
       - svc
       - price
-      - body
+      - service_body
 
   form:
     fields:
@@ -72,7 +72,7 @@ app:
           kind: file
       - description:
           kind: text_area
-      - body:
+      - srvice_body:
           kind: rich_text_area
 
 #model:

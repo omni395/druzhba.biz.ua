@@ -13,7 +13,7 @@
               .col-lg-6.col-xl-4
                 = hidden_field_tag :name_field, params[:name_field]
                 = form.submit t('infold.operation.search'), class: 'btn btn-primary'
-        = turbo_frame_tag 'association_search_body' do
+        = turbo_frame_tag 'association_search_articlebody' do
           - if @articles.blank?
             .alert= t('infold.no_data')
           - else

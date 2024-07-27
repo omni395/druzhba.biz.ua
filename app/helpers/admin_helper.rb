@@ -19,4 +19,5 @@ module AdminHelper
   def admin_remote_modal_id
     admin_turbo_frame_request_id
   end
+  
 end

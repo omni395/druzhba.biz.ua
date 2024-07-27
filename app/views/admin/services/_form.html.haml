@@ -1,15 +1,20 @@
 .list-group.mb-3
   .list-group-item
-    = render Admin::FieldsetComponent.new(form, :title, :text, required: true)
-  .list-group-item
-    = render Admin::FieldsetComponent.new(form, :subtitle, :text, required: true)
-  .list-group-item
     = render Admin::FieldsetComponent.new(form, :svc, :radio, required: true, list: Admin::Service.svcs_i18n.invert)
   .list-group-item
     = render Admin::FieldsetComponent.new(form, :price, :text, required: true)
   .list-group-item
     = render Admin::FieldsetComponent.new(form, :image, :file)
-  .list-group-item
-    = render Admin::FieldsetComponent.new(form, :description, :text_area, required: true)
-  .list-group-item
-    = render Admin::FieldsetComponent.new(form, :body, :rich_text_area, required: true)
+  - all_locales.each do |locale|
+    .list-group-item
+      - title = "title_#{Mobility.normalize_locale(locale)}"
+      = render Admin::FieldsetComponent.new(form, title, :text, required: true)
+    .list-group-item
+      - subtitle = "subtitle_#{Mobility.normalize_locale(locale)}"
+      = render Admin::FieldsetComponent.new(form, subtitle, :text, required: true)
+    .list-group-item
+      - description = "description_#{Mobility.normalize_locale(locale)}"
+      = render Admin::FieldsetComponent.new(form, description, :text_area, required: true)
+    .list-group-item
+      - service_body = "service_body_#{Mobility.normalize_locale(locale)}"
+      = render Admin::FieldsetComponent.new(form, "#{service_body}", :rich_text_area, required: true)

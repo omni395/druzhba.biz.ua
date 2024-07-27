@@ -6,7 +6,7 @@ uk:
         title: Назва статті
         description: Короткий опис
         published: Статус
-        body: Стаття
+        article_body: Стаття
         image: Фото
         created_at_field: Створено
         updated_at_field: Оновлено

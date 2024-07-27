@@ -1,13 +1,19 @@
 .list-group.mb-3
   .list-group-item
-    = render Admin::FieldsetComponent.new(form, :service_id, :association_search, association_name: :service, search_path: admin_services_path(name_field: :title), name_field: :service_title)
-  .list-group-item
-    = render Admin::FieldsetComponent.new(form, :published, :switch, include_hidden: true)
-  .list-group-item
-    = render Admin::FieldsetComponent.new(form, :title, :text)
-  .list-group-item
-    = render Admin::FieldsetComponent.new(form, :image, :file)
-  .list-group-item
-    = render Admin::FieldsetComponent.new(form, :description, :text_area)
-  .list-group-item
-    = render Admin::FieldsetComponent.new(form, :body, :rich_text_area)
+    .row
+      .col.col-md-4
+        = render Admin::FieldsetComponent.new(form, :image, :file)
+      .col.col-md-6
+        = render Admin::FieldsetComponent.new(form, :service_id, :association_search, association_name: :service, search_path: admin_services_path(name_field: :title), name_field: :service_title)
+      .col.col-md-2
+        = render Admin::FieldsetComponent.new(form, :published, :switch, include_hidden: true)
+  - all_locales.each do |locale|
+    .list-group-item
+      - title = "title_#{Mobility.normalize_locale(locale)}"
+      = render Admin::FieldsetComponent.new(form, title, :text)
+    .list-group-item
+      - description = "description_#{Mobility.normalize_locale(locale)}"
+      = render Admin::FieldsetComponent.new(form, description, :text_area)
+    .list-group-item
+      - article_body = "article_body_#{Mobility.normalize_locale(locale)}"
+      = render Admin::FieldsetComponent.new(form, article_body, :rich_text_area)

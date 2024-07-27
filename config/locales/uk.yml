@@ -1,6 +1,14 @@
 ---
 uk:
   landing:
+    contact_form:
+      title: Відправити повідомлення
+      name: Имʼя
+      phone: Телефон
+      email: Электронна пошта
+      message: Ваше повідомлення
+      submit: Відправити
+
     navigation:
       top: "Швейна майстерня"
       contact_form_button: "Звʼязатися з нами"

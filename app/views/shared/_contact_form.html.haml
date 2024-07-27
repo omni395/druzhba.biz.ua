@@ -7,18 +7,23 @@
         %button{id: "closeContactForm", class: "text-gray-700 hover:text-red-500"}
           %svg{class: "w-6 h-6", fill: "none", stroke: "currentColor", viewbox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg"}
             %path{d: "M6 18L18 6M6 6l12 12", "stroke-linecap": "round", "stroke-linejoin": "round", "stroke-width": "2"}
-      %h2{class: "text-2xl font-bold mb-4 text-center"} Відправити повідомлення
+      %h2{class: "text-2xl font-bold mb-4 text-center"}
+        = t("landing.contact_form.title")
       = form_for [@landing_message, LandingMessage.new], remote: false do |f|
         %div{class: "mb-4"}
-          %label{class: "block text-gray-700 text-sm font-bold mb-2", for: "name"} Імʼя
+          %label{class: "block text-gray-700 text-sm font-bold mb-2", for: "name"}
+            = t("landing.contact_form.name")
           = f.text_field :name, required: true, class: "w-full p-2 border rounded-md focus:outline-none focus:border-blue-500", id: "name"
         %div{class: "mb-4"}
-          %label{class: "block text-gray-700 text-sm font-bold mb-2", for: "phone"} Телефон
+          %label{class: "block text-gray-700 text-sm font-bold mb-2", for: "phone"}
+            = t("landing.contact_form.phone")
           = f.telephone_field :phone, required: true, class: 'w-full p-2 border rounded-md focus:outline-none focus:border-blue-500', id: 'phone'
         %div{class: "mb-4"}
-          %label{class: "block text-gray-700 text-sm font-bold mb-2", for: "email"} E-mail
+          %label{class: "block text-gray-700 text-sm font-bold mb-2", for: "email"}
+            = t("landing.contact_form.email")
           = f.email_field :email, required: true, class: 'w-full p-2 border rounded-md focus:outline-none focus:border-blue-500', id: 'email'
         %div{class: "mb-4"}
-          %label{class: "block text-gray-700 text-sm font-bold mb-2", for: "message"} Ваше повідомлення
+          %label{class: "block text-gray-700 text-sm font-bold mb-2", for: "message"}
+            = t("landing.contact_form.message")
           = f.text_area :message, required: true, size: "70x2", class: 'w-full p-2 border rounded-md focus:outline-none focus:border-blue-500', id: 'message'
-        = f.submit 'Відправити', data: { disable_with: false }, class: "cursor-pointer font-messiri inline-block w-full md:w-1/2 flex ms-auto text-center text-xl font-medium text-red-500 bg-stone-100 hover:bg-stone-200 border border-red-500 rounded-lg font-bold py-2 px-4", type: "submit"
+        = f.submit "#{t("landing.contact_form.submit")}", data: { disable_with: false }, class: "cursor-pointer font-messiri inline-block w-full md:w-1/2 flex ms-auto text-center text-xl font-medium text-red-500 bg-stone-100 hover:bg-stone-200 border border-red-500 rounded-lg font-bold py-2 px-4", type: "submit"

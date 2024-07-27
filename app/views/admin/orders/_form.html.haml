@@ -27,7 +27,7 @@
   .list-group-item
     = render Admin::FieldsetComponent.new(form, :price, :number, required: true)
   .list-group-item
-    = render Admin::FieldsetComponent.new(form, :description, :text)
+    = render Admin::FieldsetComponent.new(form, :description, :text_area)
   .list-group-item
     = render Admin::FieldsetComponent.new(form, :dead_date, :date, required: true, datepicker: true)
   .list-group-item

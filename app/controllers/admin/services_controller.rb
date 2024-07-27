@@ -44,7 +44,7 @@ module Admin
     end
 
     def destroy
-      @service = Service.fiendly.find(params[:id])
+      @service = Service.friendly.find(params[:id])
       if @service.destroy
         redirect_to admin_services_path, status: :see_other, flash: { notice: t('infold.flash.destroyed') }
       else
@@ -65,16 +65,17 @@ module Admin
     end
 
     def post_params
-      params.require(:admin_service).permit(
-        :title,
-        :subtitle,
-        :svc,
-        :price,
-        :image,
-        :remove_image,
-        :description,
-        :body
-      )
+      params.require(:admin_service).permit(I18n.available_locales.map do |l|
+          [:published,
+          :image,
+          :remove_image,
+          :svc,
+          :price,
+          :"title_#{Mobility.normalize_locale(l)}",
+          :"subtitle_#{Mobility.normalize_locale(l)}",
+          :"description_#{Mobility.normalize_locale(l)}",
+          :"service_body_#{Mobility.normalize_locale(l)}"]
+      end.flatten)
     end
   end
 end

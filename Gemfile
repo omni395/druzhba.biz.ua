@@ -98,3 +98,8 @@ gem 'friendly_id'
 # SiteMap generator
 gem 'sitemap_generator'
 gem 'whenever', require: false
+
+gem "mobility"
+gem "friendly_id-mobility"
+
+gem "mobility-actiontext", "~> 1.1"

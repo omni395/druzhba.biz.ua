@@ -3,8 +3,9 @@ uk:
     attributes:
       service: 
         title: Назва
+        subtitle: Назва для опису
         description: Опис
-        body: Опис послуги
+        service_body: Опис послуги
         photo: Фото
         image: Фото
         svc: Категорія

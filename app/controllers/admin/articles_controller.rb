@@ -65,15 +65,15 @@ module Admin
     end
 
     def post_params
-      params.require(:admin_article).permit(
-        :service_id,
-        :published,
-        :title,
-        :image,
-        :remove_image,
-        :description,
-        :body
-      )
+      params.require(:admin_article).permit(I18n.available_locales.map do |l|
+          [:service_id,
+          :published,
+          :image,
+          :remove_image,
+          :"title_#{Mobility.normalize_locale(l)}",
+          :"description_#{Mobility.normalize_locale(l)}",
+          :"article_body_#{Mobility.normalize_locale(l)}"]
+      end.flatten)
     end
   end
 end

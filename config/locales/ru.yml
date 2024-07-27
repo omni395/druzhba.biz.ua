@@ -1,6 +1,14 @@
 ---
 ru:
   landing:
+    contact_form:
+      title: Отправить сообщение
+      name: Имя
+      phone: Телефон
+      email: Электронная почта
+      message: Ваше сообщение
+      submit: Отправить
+
     navigation:
       top: "Швейная мастерская"
       contact_form_button: "Связаться с нами"
@@ -10,7 +18,7 @@ ru:
       contacts: "Контакты"
       faq: "FAQ"
       articles: "Блог"
-
+ 
     hero-1:
       top: "Ищете идеальный ремонт одежды?"
       h1: "Ми предлагаем качественный ремонт и эксклюзивный пошив одежды. Весь спектр услуг портного."
@@ -49,7 +57,15 @@ ru:
             сохраняя при этом их эстетичный вид."
 
 
+
   activerecord:
+    attributes:
+      landing_message:
+        name: Имя
+        phone: Телефон
+        email: Электронная почта
+        messsage: Сообщение
+
     models:
       admin_user: Пользователь
       customer: Заказчик
