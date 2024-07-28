@@ -1,11 +1,19 @@
 uk:
   activerecord:
     attributes:
-      service: 
-        title: Назва
-        subtitle: Назва для опису
-        description: Опис
-        service_body: Опис послуги
+      service:
+        title: Назва послуги
+
+        title_uk: Назва послуги (укр)
+        subtitle_uk: Назва послуги для опису (укр)
+        description_uk: Короткий опис (укр)
+        body_uk: Опис послуги (укр)
+
+        title_ru: Назва послуги (рус)
+        subtitle_ru: Назва послуги для опису (рус)
+        description_uru: Короткий опис (рус)
+        body_ru: Опис послуги (рус)      
+
         photo: Фото
         image: Фото
         svc: Категорія

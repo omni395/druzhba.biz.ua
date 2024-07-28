@@ -8,7 +8,7 @@ model:
     - image
     - title
     - description
-    - article_body
+    - body
   active_storage:
     image:
       kind: image
@@ -36,7 +36,7 @@ app:
       - image
       - title
       - description
-      - article_body
+      - body
   form:
     fields:
       - service_id:
@@ -48,7 +48,7 @@ app:
           kind: file
       - description:
           kind: text_area
-      - article_body:
+      - body:
           kind: text_area
 
 #model:

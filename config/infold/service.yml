@@ -59,7 +59,7 @@ app:
       - description
       - svc
       - price
-      - service_body
+      - body
 
   form:
     fields:

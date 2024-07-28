@@ -72,7 +72,7 @@ module Admin
           :remove_image,
           :"title_#{Mobility.normalize_locale(l)}",
           :"description_#{Mobility.normalize_locale(l)}",
-          :"article_body_#{Mobility.normalize_locale(l)}"]
+          :"body_#{Mobility.normalize_locale(l)}"]
       end.flatten)
     end
   end

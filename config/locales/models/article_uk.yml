@@ -4,9 +4,16 @@ uk:
       article:
         service_id: Послуга
         title: Назва статті
-        description: Короткий опис
-        published: Статус
-        article_body: Стаття
+
+        title_uk: Назва статті (укр)
+        description_uk: Короткий опис (укр)
+        body_uk: Стаття (укр)
+
+        title_ru: Назва статті (рус)
+        description_ru: Короткий опис (рус)
+        body_ru: Стаття (рус)
+
         image: Фото
+        published: Статус
         created_at_field: Створено
         updated_at_field: Оновлено

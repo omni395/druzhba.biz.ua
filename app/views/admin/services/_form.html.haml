@@ -16,5 +16,5 @@
       - description = "description_#{Mobility.normalize_locale(locale)}"
       = render Admin::FieldsetComponent.new(form, description, :text_area, required: true)
     .list-group-item
-      - service_body = "service_body_#{Mobility.normalize_locale(locale)}"
-      = render Admin::FieldsetComponent.new(form, "#{service_body}", :rich_text_area, required: true)
+      - body = "body_#{Mobility.normalize_locale(locale)}"
+      = render Admin::FieldsetComponent.new(form, body, :rich_text_area, required: true)

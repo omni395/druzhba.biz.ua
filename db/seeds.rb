@@ -9,7 +9,7 @@ end
 end
 
 15.times do
-  Service.create(title: Faker::Commerce.product_name.upcase_first, subtitle: Faker::Commerce.product_name.upcase_first, description: Faker::Lorem.paragraph, service_body: Faker::Lorem.paragraph)
+  Service.create(title: Faker::Commerce.product_name.upcase_first, subtitle: Faker::Commerce.product_name.upcase_first, description: Faker::Lorem.paragraph, body: Faker::Lorem.paragraph)
 end
 
 15.times do

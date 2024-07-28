@@ -74,7 +74,7 @@ module Admin
           :"title_#{Mobility.normalize_locale(l)}",
           :"subtitle_#{Mobility.normalize_locale(l)}",
           :"description_#{Mobility.normalize_locale(l)}",
-          :"service_body_#{Mobility.normalize_locale(l)}"]
+          :"body_#{Mobility.normalize_locale(l)}"]
       end.flatten)
     end
   end
