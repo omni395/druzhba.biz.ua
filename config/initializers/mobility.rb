@@ -16,7 +16,7 @@ Mobility.configure do
     #
     # Defines ActiveRecord as ORM, and enables ActiveRecord-specific plugins.
     active_record
-    #dirty
+    dirty
 
     # Accessors
     #

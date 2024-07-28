@@ -3,7 +3,7 @@ class Article < ApplicationRecord
   translates :title
   translates :description
   translates :body, backend: :action_text
-  translates :slug
+  translates :slug, :title
 
   # Frendly urls
   extend FriendlyId
