@@ -2,6 +2,42 @@
   %div{class: "text-center"}
     %h1{class: "text-3xl text-red-500 sm:text-4xl leading-normal font-extrabold tracking-tight"}
       Наші послуги
+
+  %div{class: "mt-10"}
+    %dl{class: "space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10"}
+      %div{class: "relative"}
+        %dt
+          %div{class: "absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white"}
+            = image_tag "mashine.svg", width: "35px", alt: "#{t "service.dl1.dt.alt"}"
+          %p{class: "font-heading ml-16 text-lg leading-6 font-bold text-gray-700"}
+            = t ("service.dl1.dt.p")
+        %dd{class: "mt-2 ml-16 text-base text-gray-500 text-justify"}
+          = t ("service.dl1.dd")
+      %div{class: "relative"}
+        %dt
+          %div{class: "absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white"}
+            = image_tag "button.svg", width: "35px", alt: "#{t "service.dl2.dt.alt"}"
+          %p{class: "font-heading ml-16 text-lg leading-6 font-bold text-gray-700"}
+            = t ("service.dl2.dt.p")
+        %dd{class: "mt-2 ml-16 text-base text-gray-500 text-justify"}
+          = t ("service.dl2.dd")
+      %div{class: "relative"}
+        %dt
+          %div{class: "absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white"}
+            = image_tag "spool.svg", width: "35px", alt: "#{t "service.dl3.dt.alt"}"
+          %p{class: "font-heading ml-16 text-lg leading-6 font-bold text-gray-700"}
+            = t ("service.dl3.dt.p")
+        %dd{class: "mt-2 ml-16 text-base text-gray-500 text-justify"}
+          = t ("service.dl3.dd")
+      %div{class: "relative"}
+        %dt
+          %div{class: "absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white"}
+            = image_tag "model.svg", width: "35px", alt: "#{t "service.dl4.dt.alt"}"
+          %p{class: "font-heading ml-16 text-lg leading-6 font-bold text-gray-700"}
+            = t ("service.dl4.dt.p")
+        %dd{class: "mt-2 ml-16 text-base text-gray-500 text-justify"}
+          = t ("service.dl4.dd")
+
 %div{class: "mx-auto p-5 sm:p-10 md:p-16"}
   %h2{class: "text-center my-4 text-xl text-stone-500 sm:text-2xl leading-normal font-extrabold tracking-tight"}
     Ремонт одягу
