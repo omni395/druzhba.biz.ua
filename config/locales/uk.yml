@@ -1,5 +1,9 @@
 ---
 uk:
+  locales:
+    ru: рус
+    uk: укр
+
   landing:
     contact_form:
       title: Відправити повідомлення

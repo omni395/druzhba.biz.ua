@@ -1,5 +1,9 @@
 ---
 ru:
+  locales:
+    ru: рус
+    uk: укр
+
   landing:
     contact_form:
       title: Отправить сообщение
