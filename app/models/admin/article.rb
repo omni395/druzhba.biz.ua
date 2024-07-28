@@ -9,6 +9,9 @@ module Admin
       where(id: v) if v.present?
     end
 
+    scope :published_eq, ->(v) do
+      where(published: false) if v.present?
+    end
 
   end
 end

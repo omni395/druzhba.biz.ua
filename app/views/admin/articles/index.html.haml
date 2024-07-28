@@ -15,7 +15,7 @@
           label: Admin::Article.human_attribute_name(:service_id), association_name: :service, search_path: admin_services_path(name_field: :title), name_field: :service_title)
       .mb-3
         = render Admin::FieldsetComponent.new(form, :published_eq, :switch, alignment: false, 
-          label: Admin::Article.human_attribute_name(:published), include_hidden: false)
+          label: Admin::Article.human_attribute_name(:published_eq), include_hidden: false)
       %hr.my-3
       .row.gx-2
         .col-6.order-2.d-grid

@@ -15,5 +15,6 @@ uk:
 
         image: Фото
         published: Статус
+        published_eq: Показати неопубликовані
         created_at_field: Створено
         updated_at_field: Оновлено

@@ -65,6 +65,7 @@ uk:
       service: Послуга
       landing_message: Повідомлення
       articles: Статті
+      
     errors:
       messages:
         record_invalid: 'Виникли помилки: %{errors}'

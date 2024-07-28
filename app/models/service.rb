@@ -4,10 +4,11 @@ class Service < ApplicationRecord
   translates :subtitle, type: :string
   translates :description, type: :string
   translates :body, backend: :action_text
+  translates :slug
 
   # Frendly urls
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: :mobility
 
   has_many :order_details
   has_many :articles
