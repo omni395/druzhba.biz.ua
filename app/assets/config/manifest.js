@@ -5,3 +5,4 @@
 //= link_tree ../builds
 //= link admin.js
 //= link application.js
+//= link tailwind.css
