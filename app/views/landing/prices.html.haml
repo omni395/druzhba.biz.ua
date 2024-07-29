@@ -1,42 +1,42 @@
 %section{class: "mt-8 font-messiri max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between"}
   %div{class: "text-center"}
     %h1{class: "text-3xl text-red-500 sm:text-4xl leading-normal font-extrabold tracking-tight"}
-      Наші ціни
+      = t ("prices.h1")
 
   %div{class: "relative overflow-x-auto shadow-md sm:rounded-lg my-10"}
     %table{class: "w-full text-md text-left rtl:text-right text-stone-500"}
       %thead{class: "text-xl text-stone-700 uppercase bg-stone-50"}
         %tr{class: "bg-stone-200"}
           %th{class: "px-6 py-3", scope: "col"}
-            Ціни на послуги по ремонту одягу
+            = t ("prices.th_1_1")
           %th{class: "px-6 py-3 text-center", scope: "col"}
-            Ціна
+            = t ("prices.th_2")
       %tbody
         - @repair.each do |repair|
           %tr{class: "bg-white border-b hover:bg-stone-50"}
             %th{class: "px-6 py-4 font-medium text-stone-900 whitespace-nowrap", scope: "row"}
               = repair.title
             %td{class: "px-6 py-4 text-center"}
-              від
+              = t ("prices.td_1")
               %span{class: "text-stone-900"}
                 = repair.price
-              грн.
+              = t ("prices.td_2")
 
   %div{class: "relative overflow-x-auto shadow-md sm:rounded-lg my-10"}
     %table{class: "w-full text-md text-left rtl:text-right text-stone-500"}
       %thead{class: "text-xl text-stone-700 uppercase bg-stone-50"}
         %tr{class: "bg-stone-200"}
           %th{class: "px-6 py-3", scope: "col"}
-            Ціни на послуги індивідуального пошиву
+            = t ("prices.th_1_2")
           %th{class: "px-6 py-3 text-center", scope: "col"}
-            Ціна
+            = t ("prices.th_2")
       %tbody
         - @sewing.each do |sewing|
           %tr{class: "bg-white border-b hover:bg-stone-50"}
             %th{class: "px-6 py-4 font-medium text-stone-900 whitespace-nowrap", scope: "row"}
               = sewing.title
             %td{class: "px-6 py-4 text-center"}
-              від
+              = t ("prices.td_1")
               %span{class: "text-stone-900"}
                 = sewing.price
-              грн.
+              = t ("prices.td_2")

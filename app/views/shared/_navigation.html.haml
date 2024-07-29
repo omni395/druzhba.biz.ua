@@ -11,7 +11,7 @@
 
 %nav{class: "w-full z-20 shadow-md border-gray-200 mt-auto font-messiri"}
   %div{class: "max-w-screen-xl flex flex-wrap items-center justify-center md:items-center md:justify-between mx-auto px-8 py-1"}
-    %div{class: "flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"}
+    %div{class: "flex sm:order-2 space-x-3 sm:space-x-0 rtl:space-x-reverse"}
       %button{class: "text-stone-600 hover:text-red-200 inline-flex items-center mt-1 p-2 w-10 h-10 justify-center text-sm text-red-500 rounded-lg md:hidden hover:bg-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-600",
                       "aria-controls": "navbar-sticky", "aria-expanded": "false",
                       "data-collapse-toggle": "navbar-sticky", type: "button", "data-turbo": "false"}
@@ -19,20 +19,21 @@
         %svg{class: "w-5 h-5", "aria-hidden": "true", fill: "none", viewbox: "0 0 17 14", xmlns: "http://www.w3.org/2000/svg"}
           %path{d: "M1 1h15M1 7h15M1 13h15", stroke: "currentColor", "stroke-linecap": "round",
                 "stroke-linejoin": "round", "stroke-width": "2"}
-      %button{id: "openContactForm", class: "animate-pulse hover:animate-none focus:animate-none font-messiri inline-block w-full text-center text-xl font-medium text-red-500 bg-stone-100 hover:bg-stone-200 border border-red-500 rounded-lg font-bold py-1 px-2"}
-        -# landing.navigation.contact_form_button
-        = t "landing.navigation.contact_form_button"
-      
-      -# Switch locales
-      - I18n.available_locales.each do |locale|
-        %div{class: "relative inline-block text-senter"}
-          %div{class: "group"}
-            - if I18n.locale == locale
-              %button{class: "font-messiri inline-block w-full text-center text-xl font-medium text-red-500 bg-stone-100 p-1", type: "button"}
-                = t(locale, scope: 'locales')
-            - else
-              %div{class: "p-1 text-xl"}
-                = link_to t(locale, scope: 'locales'), root_path(locale: locale)
+      %div{class: "flex flex-inline"}
+        %button{id: "openContactForm", class: "mx-1 animate-pulse hover:animate-none focus:animate-none font-messiri inline-block w-full text-center text-xl font-medium text-red-500 bg-stone-100 hover:bg-stone-200 border border-red-500 rounded-lg font-bold py-1 px-2"}
+          -# landing.navigation.contact_form_button
+          = t "landing.navigation.contact_form_button"
+        
+        -# Switch locales
+        - I18n.available_locales.each do |locale|
+          %div{class: "relative inline-block text-senter mx-1"}
+            %div{class: "group"}
+              - if I18n.locale == locale
+                %button{class: "font-messiri inline-block w-full text-center text-xl font-medium text-red-500 bg-stone-100 p-1", type: "button"}
+                  = t(locale, scope: 'locales')
+              - else
+                %div{class: "p-1 text-xl"}
+                  = link_to t(locale, scope: 'locales'), root_path(locale: locale)
 
     %div{id: "navbar-sticky", class: "text-center items-center justify-between hidden w-full md:flex md:w-auto md:order-1"}
       %ul{class: "flex flex-col p-2 md:p-0 mt-2 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-stone-100"}

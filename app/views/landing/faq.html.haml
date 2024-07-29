@@ -1,7 +1,7 @@
 %section{class: "mt-8 font-messiri max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between"}
   %div{class: "text-center"}
     %h1{class: "text-3xl text-red-500 sm:text-4xl leading-normal font-extrabold tracking-tight"}
-      Найчастіші питання
+      = t ("faq.h1") 
     %ul{class: "my-10"}
       %li{class: "text-left mb-4"}
         %div{class: "flex flex-row items-start mb-2"}
@@ -9,12 +9,11 @@
             %i{class: "fa-regular fa-circle-question"}
           %div{class: "bg-stone-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %h4{class: "text-md leading-6 font-medium text-gray-900"}
-              Чи здійснюєте ви ремонт одягу?
+              = t ("faq.q1")
         %div{class: "flex flex-row items-start"}
           %div{class: "bg-indigo-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %p{class: "text-gray-700"}
-              Ми зможемо виправити вам тканеві виріби, а також виріби з кожі та хутра.
-              Здійснюємо ремонт будь-якої складності.
+              = t ("faq.a1")
           %div{class: "hidden sm:flex items-center justify-center p-3 ml-3 rounded-full bg-red-500 text-white border-4 border-white font-semibold"}
             %i{class: "fa-regular fa-comment-dots"}
       -#
@@ -24,14 +23,14 @@
             %i{class: "fa-regular fa-circle-question"}
           %div{class: "bg-stone-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %h4{class: "text-md leading-6 font-medium text-gray-900"}
-              Сільки мені буде коштувати виправити зіпсовану або пошкоджену речь?
+              = t ("faq.q2")
         %div{class: "flex flex-row items-start"}
           %div{class: "bg-indigo-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %p{class: "text-gray-700"}
-              Розрахунок кінцевої якості залежить від складності ремонту. Подивіться орієнтовни
+              = t ("faq.a2")
               %span{class: "text-red-500 hover:border-b-2 hover:border-red-500"}
-                = link_to "ціни", prices_path
-              на румонт одягу.
+                = link_to "#{t ("faq.a2_1")}", prices_path
+              = t ("faq.a2_2")
           %div{class: "hidden sm:flex items-center justify-center p-3 ml-3 rounded-full bg-red-500 text-white border-4 border-white font-semibold"}
             %i{class: "fa-regular fa-comment-dots"}
       -#
@@ -41,15 +40,14 @@
             %i{class: "fa-regular fa-circle-question"}
           %div{class: "bg-stone-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %h4{class: "text-md leading-6 font-medium text-gray-900"}
-              Я можу в вас заказати пошив якойсь речі індивідуально?
+              = t ("faq.q3")
         %div{class: "flex flex-row items-start"}
           %div{class: "bg-indigo-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %p{class: "text-gray-700"}
-              Звісно. Ми займаємось індивідуальним пошивом суконь, брюк, спідниць, джинсів, пальто, тощо.
-              З повним перечнем послуг ви можете ознайомитись у відповідному
+              = t ("faq.a3")
               %span{class: "text-red-500 hover:border-b-2 hover:border-red-500"}
-                = link_to "розділі", services_path
-              нашого сайта.
+                = link_to "#{t ("faq.a3_1")}", services_path
+              = t ("faq.a3_2")
           %div{class: "hidden sm:flex items-center justify-center p-3 ml-3 rounded-full bg-red-500 text-white border-4 border-white  font-semibold"}
             %i{class: "fa-regular fa-comment-dots"}
       -#
@@ -59,15 +57,14 @@
             %i{class: "fa-regular fa-circle-question"}
           %div{class: "bg-stone-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %h4{class: "text-md leading-6 font-medium text-gray-900"}
-              Скільки коштує індивідуальний пошив?
+              = t ("faq.q4")
         %div{class: "flex flex-row items-start"}
           %div{class: "bg-indigo-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %p{class: "text-gray-700 "}
-              На вартість пошиву впливають дуже багато факторів, такі як складність иа фасон вирібу,
-              якість та кількість матеріалів, терміновість пошиву. Подивіться орієнтовні
+              = t ("faq.a4")
               %span{class: "text-red-500 hover:border-b-2 hover:border-red-500"}
-                = link_to "ціни", prices_path
-              на індивідуальний пошив речей.
+                = link_to "#{t ("faq.a4_1")}", prices_path
+              = t ("faq.a4_2")
           %div{class: "hidden sm:flex items-center justify-center p-3 ml-3 rounded-full bg-red-500 text-white border-4 border-white  font-semibold"}
             %i{class: "fa-regular fa-comment-dots"}
       -#
@@ -77,13 +74,11 @@
             %i{class: "fa-regular fa-circle-question"}
           %div{class: "bg-stone-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %h4{class: "text-md leading-6 font-medium text-gray-900 "}
-              Ви працюєте з матеріалами замовника для пошиву речей?
+              = t ("faq.q5")
         %div{class: "flex flex-row items-start"}
           %div{class: "bg-indigo-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %p{class: "text-gray-700 "}
-              Так. Після консультації та зняття вимірів, ви можете придбати необхідну кількість тканини та фурнітури,
-              та предоставити нам для роботи.
-              Ми також можемо придбати необхідні матеріали за вас.
+              = t ("faq.a5")
           %div{class: "hidden sm:flex items-center justify-center p-3 ml-3 rounded-full bg-red-500 text-white border-4 border-white  font-semibold"}
             %i{class: "fa-regular fa-comment-dots"}
       -#
@@ -93,12 +88,11 @@
             %i{class: "fa-regular fa-circle-question"}
           %div{class: "bg-stone-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %h4{class: "text-md leading-6 font-medium text-gray-900 "}
-              Чи співпадають ваші ціни на сайті з реальними цінами?
+              = t ("faq.q6")
         %div{class: "flex flex-row items-start"}
           %div{class: "bg-indigo-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %p{class: "text-gray-700 "}
-              Ми оновляємо ціни на сайті згідно тих цін, котрі зараз є фактично,
-              тому цини на сайті актуальні на будь який момент часу, коли б ви їх не подивились.
+              = t ("faq.a6")
           %div{class: "hidden sm:flex items-center justify-center p-3 ml-3 rounded-full bg-red-500 text-white border-4 border-white  font-semibold"}
             %i{class: "fa-regular fa-comment-dots"}
       -#
@@ -108,17 +102,16 @@
             %i{class: "fa-regular fa-circle-question"}
           %div{class: "bg-stone-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %h4{class: "text-md leading-6 font-medium text-gray-900 "}
-              Скільки по часу займає ремонт або пошив одягу?
+              = t ("faq.a7")
         %div{class: "flex flex-row items-start"}
           %div{class: "bg-indigo-100 shadow-md p-2 px-10 w-full flex items-center rounded-xl"}
             %p{class: "text-gray-700 "}
-              Час ремонту залежить від складності роботи. У середньому час ремонту займає 1-2 дня.
-              Часи виконання робіт по індивідуальному пошиву речей обговорюється з кожним клієнтом особисто.
+              = t ("faq.a7")
           %div{class: "hidden sm:flex items-center justify-center p-3 ml-3 rounded-full bg-red-500 text-white border-4 border-white  font-semibold"}
             %i{class: "fa-regular fa-comment-dots"}
 
     %p{class: "text-2xl text-stone-500 sm:text-3xl leading-normal font-extrabold tracking-tight"}
-      Якщо у вас ще залишились запитання, заповніть
-      -# Разобраться почему кнопка просто так не работает. Без onclick
-      %button{onclick: "contactFormModal.classList.remove('hidden');", id: "openContactForm", href: "", class: "leading-8 text-red-500 hover:border-b-2 hover:border-red-500"} форму
-      , і ми обов'язково з вами зв'яжемось, та і дамо відповіді на питання, що вас цікавлять.
+      = t ("faq.p1")
+      %button{onclick: "contactFormModal.classList.remove('hidden');", id: "openContactForm", href: "", class: "leading-8 text-red-500 hover:border-b-2 hover:border-red-500"}
+        = t ("faq.p2")
+      = t ("faq.p3")

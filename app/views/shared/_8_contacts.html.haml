@@ -1,41 +1,40 @@
 -#%div{class: ""}
 %section{class: "container font-messiri mx-auto px-4 space-y-6 bg-stone-100 my-8 p-6"}
   %div{class: "mx-auto text-center"}
-    %h2{class: "text-4xl font-extrabold text-gray-900"}
-      Завітайте до нас. Ми завжди вам раді:
-    -#%p{class: "mt-4 text-lg text-gray-500"}
-      -#Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    %h2{class: "font-heading mt-2 text-3xl leading-8 font-semibold tracking-tight text-red-500 sm:text-4xl"}
+      = t ("contacts.h2")
   %div{class: "text-center lg:text-left"}
     %div{class: ""}
       %div{class: "flex flex-col md:flex-row"}
         %div{class: "md:w-1/2 text-center", style: "height:450px; display:inline-block; overflow:hidden;"}
           %iframe{allowfullscreen: "", height: "450", width: "600", loading: "lazy", referrerpolicy: "no-referrer-when-downgrade", src: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5349.459246092125!2d33.456670112719706!3d47.902918261544116!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40db2100265898f1%3A0xc888e195cbff0202!2z0KjQstC10LnQvdCwINC80LDQudGB0YLQtdGA0L3RjyDimJ4g0JTQoNCj0JbQkdCQIOKYnA!5e0!3m2!1sru!2sua!4v1718172960386!5m2!1sru!2sua", style: "position:relative; border:0;"}
-          -#%iframe{class: "", height: "450", width: "600", loading: "lazy", style: "position:relative; border:0;", src: "https://storage.googleapis.com/maps-solutions-xxwwsnsejq/locator-plus/imtc/locator-plus.html"}
         %div{class: "md:w-1/2"}
           %div{class: "px-6 py-4"}
-            %h3{class: "text-lg font-medium text-gray-900"} Наша адреса:
+            %h3{class: "text-lg font-medium text-gray-900"}
+              = t ("contacts.h3_1")
             %p{class: "mt-1 text-gray-600 text-2xl"}
-              50055, вул. Кокчетавська 3, м. Кривий Ріг
+              = t ("contacts.p_1")
           %div{class: "border-t-4 border-gray-200 mx-6 py-4"}
             %h3{class: "text-lg font-medium text-gray-900"}
-              Часи роботи:
+              = t ("contacts.h3_2")
             %p{class: "mt-1 text-gray-600 text-2xl"}
-              Вівторок - Пʼятниця: 9:00 - 17:00
+              = t ("contacts.p_2")
             %p{class: "mt-1 text-gray-600 text-2xl"}
-              Субота: 10:00 - 16:00
+              = t ("contacts.h3_3")
             %p{class: "mt-1 text-gray-600 text-2xl"}
-              Неділя - Понеділок: Зачинено
+              = t ("contacts.p_3")
             
             %div{id: "warning", class: "flex items-center w-full p-4 text-gray-500 bg-red-100 rounded-lg shadow", role: "alert"}
               %div{class: "inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg"}
                 %i{class: "fa-solid fa-triangle-exclamation"}
               %div{class: "ms-auto text-md font-normal text-center"}
-                У зв'язку з відключенням електроенергії, графік роботи може бути змінений. У разі виникнення питань телефонуйте:
+                = t ("contacts.warning.div1")
                 %span{class: "px-[5px] text-gray-900 whitespace-nowrap"}
                   %i{class: "fa-solid fa-phone"}
-                  %a{href: "tel:+380972870571"}+38 097 287 05 71
+                  %a{href: "tel:+380972870571"}
+                    = t ("contacts.warning.a")
                 %br
-                Просимо вибачення за незручності.
+                = t ("contacts.warning.div2")
               %button{class: "ms-auto bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 -mx-1.5 -my-1.5 p-1.5", "aria-label": "Close", "data-dismiss-target": "#warning", type: "button"}
                 %span.sr-only Close
                 %i{class: "fa-solid fa-xmark"}
@@ -43,11 +42,13 @@
 
           %div{class: "border-t-4 border-gray-200 mx-6 py-4"}
             %h3{class: "text-lg font-medium text-gray-900"}
-              Контакти:
+              = t ("contacts.h3_4")
             %p{class: "mt-1 text-gray-600 text-2xl"}
-              Email:
-              %a{href: "mailto:ksuha@druzhba.biz.ua"}ksuha@druzhba.biz.ua
+              = t ("contacts.p_4")
+              %a{href: "mailto:ksuha@druzhba.biz.ua"}
+                = t ("contacts.p_4_a")
             %p{class: "mt-1 text-gray-600 text-2xl"}
-              Телефон:
-              %a{href: "tel:+380972870571"}+38 097 287 05 71 (зателефонувати)
+              = t ("contacts.p_5")
+              %a{href: "tel:+380972870571"}
+                = t ("contacts.p_5_a")
 
