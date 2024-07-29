@@ -2,7 +2,7 @@
 %html{lang: "#{I18n.locale}"}
   %head
     -# Google tag (gtag.js)
-    %script{async: "true", "data-turbo-track": "reload", src: "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN"}
+    %script{async: "", "data-turbo-track": "reload", src: "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN"}
 
     %title
       = @page_title.present? ? "Швейна майстерня ☞ДРУЖБА☜ - #{@page_title}" : "Швейна майстерня ☞ ДРУЖБА ☜"
@@ -16,15 +16,15 @@
     = csp_meta_tag
     = stylesheet_link_tag "application", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
-    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true, async: "true"
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true, async: ""
 
     -# FlowbiteJS
     %link{href: "https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css", rel: "stylesheet"}
-    %script{async: "true", src: "https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"}
+    %script{async: "", src: "https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"}
     
     -# AnimatedCSS and WOWjs
     %link{href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css", rel: "stylesheet"}
-    %script{async: "true", crossorigin: "anonymous", integrity: "sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==", referrerpolicy: "no-referrer", src: "https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"}
+    %script{async: "", crossorigin: "anonymous", integrity: "sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==", referrerpolicy: "no-referrer", src: "https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"}
 
     -# Google fonts
     %link{href: "https://fonts.googleapis.com", rel: "preconnect"}
@@ -39,20 +39,19 @@
           rel: "stylesheet"}
 
   %body{class: "bg-stone-100", id: "main", "data-controller": "landing--index"}
-    %navigation{class: ""}
-      = render "shared/navigation"
     %main{class: ""}
+      %navigation{class: ""}
+        = render "shared/navigation"
       = yield
-      %footer{class: "", id: "footer"}
-    %footer{class: "relative start-0 bottom-0"}
+    %footer{class: "relative start-0 bottom-0", id: "footer"}
       = render "shared/footer"
 
     -# Modal dialog contact form
     = render "shared/contact_form"
 
     -# Scroll to Top button
-    %div{class: "fixed bottom-10 end-10", id: ""}
-      %a{class: "", "data-popover-target": "scroll-to-top", "data-popover-placement": "left", type: "button", href: "#main"}
+    %div{class: "fixed bottom-10 end-10"}
+      %a{class: "", "data-popover-target": "scroll-to-top", "data-popover-placement": "left", href: "#main"}
         %i{class: "text-2xl text-stone-600 fa-solid fa-jet-fighter-up"}
       %div{id: "scroll-to-top", class: "w-24 absolute z-10 invisible inline-block transition-opacity duration-300", "data-popover": "", role: "tooltip"}
         %p{class: "font-messiri text-md text-stone-600"} До початку
