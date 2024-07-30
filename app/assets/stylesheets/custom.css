@@ -27,3 +27,7 @@
 .trix-content li::marker {
   color: rgba(239, 68, 68, 1);
 }
+
+/*.trix-content strong {
+  text-shadow: 4px 4px 20px rgba(239, 68, 68, 1);
+}*/

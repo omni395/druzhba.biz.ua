@@ -1,12 +1,11 @@
 %section{class: "font-messiri bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between"}
-  %h2{class: "text-center"}
-    %div{class: "mt-4 text-sm leading-7 text-stone-500 font-regular"}
-      %span{class: "text-red-500 hover:text-red-500 hover:border-b-2 hover:border-red-500"}
-        = link_to "F.A.Q", faq_path
-    %h3{class: "text-center font-messiri text-stone-700 text-2xl font-medium uppercase lg:text-3xl"}
-      = t ("faq.h2_1")
-      %span{class: "text-red-500 hover:text-red-500 hover:underline hover:underline-offset-4"}
-        = link_to "#{t ("faq.h2_2")}", faq_path
+  %h2{class: "text-center mt-4 text-sm leading-7 text-stone-500 font-regular"}
+    %span{class: "text-red-500 hover:text-red-500 hover:border-b-2 hover:border-red-500"}
+      = link_to "F.A.Q", faq_path
+  %h3{class: "text-center font-messiri text-stone-700 text-2xl font-medium uppercase lg:text-3xl"}
+    = t ("faq.h2_1")
+    %span{class: "text-red-500 hover:text-red-500 hover:underline hover:underline-offset-4"}
+      = link_to "#{t ("faq.h2_2")}", faq_path
   %div{class: "mt-8"}
     %ul
       %li{class: "text-left mb-4"}
