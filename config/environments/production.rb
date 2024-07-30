@@ -102,15 +102,15 @@ Rails.application.configure do
     location: '/usr/sbin/sendmail',
     arguments: '-i'
   }
-  #config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.smtp_settings = {
-  #  address:              'mail.druzhba.biz.ua',
-  #  port:                 587,
-  #  domain:               'druzhba.biz.ua',
-  #  user_name:            'info',
-  #  password:             '1234QWER!@#$',
-  #  authentication:       'plain',
-  #  enable_starttls_auto: true,
-  #  openssl_verify_mode: 'none'
-  #}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'mail.druzhba.biz.ua',
+    port:                 587,
+    domain:               'druzhba.biz.ua',
+    user_name:            'info',
+    password:             '1234QWER!@#$',
+    authentication:       'plain',
+    enable_starttls_auto: true,
+    openssl_verify_mode: 'none'
+  }
 end

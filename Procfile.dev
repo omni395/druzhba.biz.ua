@@ -1,7 +1,6 @@
 # Development
 web: bin/rails server
-tailwind: yarn build:tailwind --watch
-#bin/rails tailwindcss:watch
+tailwind: bin/rails tailwindcss:watch
 js: yarn build --watch
 
 
