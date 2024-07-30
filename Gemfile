@@ -56,6 +56,7 @@ group :development, :test do
 
   gem "ed25519"
   gem "bcrypt_pbkdf"
+  #gem "foreman"
 end
 
 group :development do

@@ -7,8 +7,8 @@ import 'flowbite-datepicker';
 new WOW({offset: 50, live: true}).init();
 
 // Trix as rich text area
-import "trix"
-import "@rails/actiontext"
+import "trix";
+import "@rails/actiontext";
 
 // Chartkick for grafs and charts in dashboard
 import "chartkick/chart.js";
@@ -27,20 +27,3 @@ library.add(far, fas, fab);
 import jquery from "jquery";
 window.jQuery = jquery;
 window.$ = jquery;
-
-// Появление элеммента во время прокрутки страницы
-/*function onEntry(entry) {
-  entry.forEach(change => {
-    if (change.isIntersecting) {
-      change.target.classList.add('element-show');
-    }
-  });
-  
-  let options = { threshold: [0.3] };
-  let observer = new IntersectionObserver(onEntry, options);
-  let elements = document.querySelectorAll('.element-animation');
-
-  for (let elm of elements) {
-    observer.observe(elm);
-  }
-} */

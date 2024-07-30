@@ -4,7 +4,7 @@
       = t "landing.services.h2"
 
   %div{class: "mx-auto p-5 sm:p-10 md:p-16 lg:p-4 xl:p-2"}
-    %div{class: "grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 xl:grid-cols-3 gap-5"}
+    %div{class: "grid grid-cols-1 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5"}
       %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
         %div{class: "row relative"}
           = image_tag("zip.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{t "landing.services.card1.alt"}")
