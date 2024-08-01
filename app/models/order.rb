@@ -13,7 +13,7 @@ class Order < ApplicationRecord
   private
 
   def money_flow_record
-    if self.paid?
+    if self.paid == 1
       m = MoneyFlow.new
       m.order_id = self.id
       m.admin_user_id = self.admin_user_id
