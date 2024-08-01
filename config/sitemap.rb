@@ -5,6 +5,7 @@ SitemapGenerator::Sitemap.create_index = true
 SitemapGenerator::Sitemap.create do
   {uk: :ukrainian, ru: :russian}.each_pair do |locale, name|
     group(sitemaps_path: "sitemaps/#{locale}/", filename: name) do
+      I18n.locale = locale
       add root_path(locale: locale), changefreq: 'daily'
       add prices_path(locale: locale)
       add about_path(locale: locale)
@@ -18,8 +19,9 @@ SitemapGenerator::Sitemap.create do
       end
     
       Service.friendly.find_each do |service|
-        add service_path(service, locale: locale), changefreq: 'daily', lastmod: service.updated_at
-      end 
+        add service_path(service.slug, locale: locale), changefreq: 'daily', lastmod: service.updated_at
+      end
+
     end
   end
 end
