@@ -20,9 +20,6 @@ module Admin
       @order = Order.new
       @order.assign_attributes(post_params)
       if @order.save
-
-        add_money_flow_record(@order)
-
         flash.now[:notice] = t('infold.flash.created')
         render :form
       else
@@ -39,9 +36,6 @@ module Admin
       @order = Order.find(params[:id])
       @order.assign_attributes(post_params)
       if @order.save
-
-        add_money_flow_record(@order)
-
         flash.now[:notice] = t('infold.flash.updated')
         render :form
       else
@@ -53,9 +47,6 @@ module Admin
     def destroy
       @order = Order.find(params[:id])
       if @order.destroy
-
-        add_money_flow_record(@order)
-        
         redirect_to admin_orders_path, status: :see_other, flash: { notice: t('infold.flash.destroyed') }
       else
         flash.now[:alert] = t('flash.invalid_destroy')
@@ -64,19 +55,6 @@ module Admin
     end
 
     private
-
-    def add_money_flow_record(order)
-      # Запись создается, только если заказ оплачен
-      if order.paid == 1
-        m = MoneyFlow.new
-        m.admin_user_id = order.admin_user_id
-        m.title = "Надходження від замовлення #{order.id}, від #{order.created_at}"
-        m.description = "Опис надходження від замовлення"
-        m.total_amount = order.price
-        m.money_flow_details.build(amount: order.price, money_flow_category_id: "1")
-        m.save
-      end
-    end
 
     def search_params
       params[:search]&.permit(
@@ -103,20 +81,6 @@ module Admin
           :id,
           :_destroy,
           :service_id
-        ],
-        money_flows_attributes: [
-          :id,
-          :_destroy,
-          :admin_user_id,
-          :title,
-          :description,
-          :amount,
-          money_flow_deails_attributes: [
-            :id,
-            :money_flow_category_id,
-            :_destroy,
-            :amount
-          ]
         ]
       )
     end

@@ -14,8 +14,8 @@
         = render Admin::FieldsetComponent.new(form, :admin_user_id_eq, :association_search, alignment: false, 
           label: Admin::MoneyFlow.human_attribute_name(:admin_user_id), association_name: :admin_user, search_path: admin_admin_users_path(name_field: :name), name_field: :admin_user_name)
       .mb-3
-        = render Admin::FieldsetComponent.new(form, :money_flow_category_id_eq, :association_search, alignment: false, 
-          label: Admin::MoneyFlow.human_attribute_name(:money_flow_category_id), association_name: :money_flow_category, search_path: admin_money_flow_categories_path(name_field: :title), name_field: :money_flow_category_title)
+        = render Admin::FieldsetComponent.new(form, :money_flow_category_eq, :text, alignment: false, 
+          label: Admin::MoneyFlow.human_attribute_name(:money_flow_category), placeholder: '=')
       %hr.my-3
       .row.gx-2
         .col-6.order-2.d-grid

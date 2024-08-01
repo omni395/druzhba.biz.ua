@@ -2,13 +2,13 @@ model:
   validate:
     title:
       - presence
+    order_id:
+      - numericality:
+          allow_nil: true
   association:
     admin_user:
       kind: belongs_to
       name_field: name
-    money_flow_category:
-      kind: belongs_to
-      name_field: title
     money_flow_details:
       kind: has_many
       dependent: destroy
@@ -45,12 +45,13 @@ app:
       - admin_user
       - description
       - total_amount
+      - order_id
       - money_flow_details:
           kind: association
           fields:
-            - money_flow_category_id
+            - money_flow_category
             - amount
-            - order_id
+
   form:
     fields:
       - admin_user:

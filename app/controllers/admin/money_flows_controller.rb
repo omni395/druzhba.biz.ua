@@ -59,7 +59,7 @@ module Admin
     def search_params
       params[:search]&.permit(
         :admin_user_id_eq,
-        :money_flow_category_id_eq,
+        :money_flow_category_eq,
         :sort_field,
         :sort_kind
       )

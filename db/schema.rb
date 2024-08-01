@@ -148,7 +148,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_01_093520) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "amount"
-    t.integer "order_id"
     t.index ["money_flow_category_id"], name: "index_money_flow_details_on_money_flow_category_id"
     t.index ["money_flow_id"], name: "index_money_flow_details_on_money_flow_id"
   end
@@ -157,6 +156,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_01_093520) do
     t.string "title"
     t.string "description"
     t.float "total_amount"
+    t.integer "order_id"
     t.bigint "admin_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
