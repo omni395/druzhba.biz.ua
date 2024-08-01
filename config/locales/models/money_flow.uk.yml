@@ -1,0 +1,15 @@
+uk:
+  activerecord:
+    attributes:
+      money_flow:
+        admin_user_id: Користувач
+        money_flow_detail_id: Категорія надходжень / витрат
+        money_flow_category_id: Категорія надходжень / витрат
+        description: Короткий опис
+        total_amount: Сума
+        created_at_field: Створено
+        updated_at_field: Оновлено
+      money_flow_detail:
+        money_flow_category_id: Категорія надходжень / витрат
+        amount: Сума
+        order: Замовлення

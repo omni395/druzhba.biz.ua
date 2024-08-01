@@ -1,0 +1,48 @@
+.list-group.mb-3
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= money_flow.class.human_attribute_name(:id)
+      .col-md-9
+        = money_flow.id
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= money_flow.class.human_attribute_name(:admin_user_id)
+      .col-md-9
+        = link_to money_flow.admin_user.name, admin_admin_user_path(money_flow.admin_user), data: { turbo_frame: 'modal_sub' } if money_flow.admin_user
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= money_flow.class.human_attribute_name(:description)
+      .col-md-9
+        = money_flow.description
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= money_flow.class.human_attribute_name(:total_amount)
+      .col-md-9
+        = money_flow.total_amount
+.card.mb-3
+  .card-header
+    %h4.text-muted.mb-0= Admin::MoneyFlowDetail.model_name.human
+  - if money_flow.money_flow_details.blank?
+    .card-body
+      .alert= t('infold.no_data')
+  - else
+    .table-responsive
+      %table.table.table-hover.card-table
+        %thead
+          %tr
+            %th= Admin::MoneyFlowDetail.human_attribute_name(:money_flow_category_id)
+            %th= Admin::MoneyFlowDetail.human_attribute_name(:amount)
+            %th= Admin::MoneyFlowDetail.human_attribute_name(:order_id)
+        %tbody
+          - money_flow.money_flow_details.each do |money_flow_detail|
+            %tr
+              %td
+                = link_to money_flow_detail.money_flow_category.title, admin_money_flow_category_path(money_flow_detail.money_flow_category), data: { turbo_frame: 'modal_sub' } if money_flow_detail.money_flow_category
+              %td
+                = money_flow_detail.amount
+              %td
+                = money_flow_detail.order_id

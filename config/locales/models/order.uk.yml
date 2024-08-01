@@ -12,6 +12,8 @@ uk:
         updated_at_field: Оновлено
         price: Вартість
         description: Опис
+      order_detail:
+        service_id: Послуга
 
   enums:
     admin:

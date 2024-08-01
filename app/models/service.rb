@@ -19,6 +19,10 @@ class Service < ApplicationRecord
     slug
   end
 
+  def should_generate_new_friendly_id?
+    slug.blank? || self.title_changed?
+  end
+
   scope :repair, -> { where(svc: 0) } 
   scope :sewing, -> { where(svc: 1) }
 end

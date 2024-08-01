@@ -1,0 +1,16 @@
+- if @money_flow.invalid?
+  = turbo_stream.update "form_body" do
+    = fields_for @money_flow do |form|
+      = render "form", form: form
+- else
+  = turbo_stream.update "modal_main" do
+    = render Admin::RemoteModalComponent.new do |modal|
+      = render 'show_wrapper', modal: modal, money_flow: @money_flow
+  - if action_name == "create"
+    = turbo_stream.prepend "money_flows" do
+      = render 'index_row', money_flow: @money_flow
+    = turbo_stream.remove "no_data"
+  - else
+    = turbo_stream.replace @money_flow do
+      = render 'index_row', money_flow: @money_flow
+= admin_turbo_stream_flash

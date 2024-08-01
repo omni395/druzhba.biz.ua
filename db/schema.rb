@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_27_144635) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_01_093520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -134,6 +134,35 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_27_144635) do
     t.index ["translatable_id", "translatable_type", "locale", "key"], name: "index_mobility_text_translations_on_keys", unique: true
   end
 
+  create_table "money_flow_categories", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "flow"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "money_flow_details", force: :cascade do |t|
+    t.bigint "money_flow_id", null: false
+    t.bigint "money_flow_category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "amount"
+    t.integer "order_id"
+    t.index ["money_flow_category_id"], name: "index_money_flow_details_on_money_flow_category_id"
+    t.index ["money_flow_id"], name: "index_money_flow_details_on_money_flow_id"
+  end
+
+  create_table "money_flows", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.float "total_amount"
+    t.bigint "admin_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_user_id"], name: "index_money_flows_on_admin_user_id"
+  end
+
   create_table "order_details", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "service_id", null: false
@@ -173,6 +202,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_27_144635) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "services"
+  add_foreign_key "money_flow_details", "money_flow_categories"
+  add_foreign_key "money_flow_details", "money_flows"
+  add_foreign_key "money_flows", "admin_users"
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "services"
   add_foreign_key "orders", "admin_users"

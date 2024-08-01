@@ -13,11 +13,11 @@ SitemapGenerator::Sitemap.create do
       add services_path(locale: locale)
       add articles_path(locale: locale)
 
-      Article.find_each do |article|
+      Article.friendly.find_each do |article|
         add article_path(article, locale: locale), changefreq: 'daily', lastmod: article.updated_at
       end
     
-      Service.find_each do |service|
+      Service.friendly.find_each do |service|
         add service_path(service, locale: locale), changefreq: 'daily', lastmod: service.updated_at
       end 
     end

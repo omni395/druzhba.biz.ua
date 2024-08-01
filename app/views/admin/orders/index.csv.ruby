@@ -11,6 +11,7 @@ CSV.generate do |csv|
     Admin::Order.human_attribute_name(:updated_at),
     Admin::Order.human_attribute_name(:dead_date),
     Admin::Order.human_attribute_name(:dead_time),
+    Admin::Order.human_attribute_name(:description),
     Admin::Order.human_attribute_name(:admin_user_id),
     Admin::Order.human_attribute_name(:customer_id),
   ]
@@ -25,6 +26,7 @@ CSV.generate do |csv|
       order.updated_at,
       order.dead_date,
       order.dead_time,
+      order.description,
       order.admin_user_id,
       order.customer_id,
     ]

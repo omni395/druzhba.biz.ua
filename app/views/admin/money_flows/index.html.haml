@@ -1,0 +1,47 @@
+%nav.navbar.navbar-light
+  .container-fluid
+    %ol.breadcrumb
+      %li.breadcrumb-item.active Надходження (витрати)
+    .ms-auto
+      = link_to t('infold.operation.new'), new_admin_money_flow_path, class: 'btn btn-warning', data: { turbo_frame: "modal_main" }
+#index_page.d-md-flex{ data: { controller: 'index-page', index_page_target: 'wrapper' } }
+  #conditions.bg-white.container-fluid.border-end.pe-3.py-3
+    = form_with model: @search, url: admin_money_flows_path, method: :get, scope: 'search',
+      data: { index_page_target: 'searchForm' } do |form|
+      = form.hidden_field :sort_field, data: { index_page_target: 'sortField' }
+      = form.hidden_field :sort_kind, data: { index_page_target: 'sortKind' }
+      .mb-3
+        = render Admin::FieldsetComponent.new(form, :admin_user_id_eq, :association_search, alignment: false, 
+          label: Admin::MoneyFlow.human_attribute_name(:admin_user_id), association_name: :admin_user, search_path: admin_admin_users_path(name_field: :name), name_field: :admin_user_name)
+      .mb-3
+        = render Admin::FieldsetComponent.new(form, :money_flow_category_id_eq, :association_search, alignment: false, 
+          label: Admin::MoneyFlow.human_attribute_name(:money_flow_category_id), association_name: :money_flow_category, search_path: admin_money_flow_categories_path(name_field: :title), name_field: :money_flow_category_title)
+      %hr.my-3
+      .row.gx-2
+        .col-6.order-2.d-grid
+          = form.submit t('infold.operation.search'), class: 'btn btn-primary'
+        .col-6.d-grid
+          = link_to t('infold.operation.clear'), admin_money_flows_path, class: 'btn btn-secondary'
+  #result.flex-fill.container-fluid.ps-3.py-3{ data: { index_page_target: 'resultArea' } }
+    - if @money_flows.blank?
+      .alert#no_data= t('infold.no_data')
+    .card.border-top-0
+      .table_wrapper.table-responsive.bg-secondary-lt{ data: { index_page_target: 'resultTableWrapper' } }
+        %table.table.table-hover.table-striped.mb-0.bg-white
+          %thead{ data: { index_page_target: 'thead' } }
+            %tr
+              %th.icon_cell
+              %th= render Admin::SortableComponent.new(@search, :id, label: Admin::MoneyFlow.human_attribute_name(:id))
+              %th= render Admin::SortableComponent.new(@search, :admin_user_id, label: Admin::MoneyFlow.human_attribute_name(:admin_user_id))
+              %th= render Admin::SortableComponent.new(@search, :description, label: Admin::MoneyFlow.human_attribute_name(:description))
+              %th= render Admin::SortableComponent.new(@search, :total_amount, label: Admin::MoneyFlow.human_attribute_name(:total_amount))
+              %th.icon_cell
+          %tbody#money_flows
+            = render partial: "index_row", collection: @money_flows, as: 'money_flow'
+      - if @money_flows.present?
+        .card-body.d-md-flex.align-items-center.justify-content-between
+          .mb-3.mb-md-0
+            = admin_search_result_count(@money_flows)
+          .mb-3.mb-md-0
+            = paginate(@money_flows, views_prefix: "admin")
+          = link_to t('infold.operation.output_csv'), '#', class: 'btn btn-info', data: { action: 'index-page#outputCsv' }

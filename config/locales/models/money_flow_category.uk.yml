@@ -1,0 +1,15 @@
+uk:
+  activerecord:
+    attributes:
+      money_flow_category:
+        title: Назва
+        description: Короткий опис
+        flow: "Надходження / Витрата"
+        created_at_field: Створено
+        updated_at_field: Оновлено
+  enums:
+    admin:
+      money_flow_category:
+        flow:
+          income: Надходження
+          outcome: Витрата

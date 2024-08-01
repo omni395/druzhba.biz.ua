@@ -17,5 +17,9 @@ class Article < ApplicationRecord
     slug
   end
 
+  def should_generate_new_friendly_id?
+    slug.blank? || self.title_changed?
+  end
+
   scope :published, -> {where(published: true)}
 end

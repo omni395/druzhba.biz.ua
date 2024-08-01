@@ -250,6 +250,7 @@ ru:
       service: Услуга
       landing_message: Сообщение
       articles: Статьи
+      
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'

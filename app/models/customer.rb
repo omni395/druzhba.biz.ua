@@ -1,4 +1,6 @@
 class Customer < ApplicationRecord
+
+  
   include FormattedField
 
   has_many :orders, class_name: "orders", foreign_key: "reference_id"

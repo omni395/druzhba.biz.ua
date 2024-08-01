@@ -1,0 +1,15 @@
+= modal.with_header do
+  %ol.breadcrumb.text-dark
+    %li.breadcrumb-item Категорія доходів (витрат)
+    %li.breadcrumb-item.active= "#{t('infold.operation.show')} ##{money_flow_category.id}"
+= modal.with_body do
+  .modal-body
+    = render 'show_content', money_flow_category: money_flow_category
+- unless admin_remote_modal_id == 'modal_sub'
+  = modal.with_footer do
+    .modal-footer
+      = link_to t('infold.operation.edit'), edit_admin_money_flow_category_path(money_flow_category),
+        class: 'btn btn-primary', data: { turbo_frame: "modal_main" }
+      = link_to t('infold.operation.delete'), admin_money_flow_category_path(money_flow_category),
+        class: 'btn btn-danger ms-1', data: { turbo_confirm: t('infold.operation.confirm',
+        submit: t('infold.operation.delete')), turbo_method: :delete, turbo_frame: "_top" }

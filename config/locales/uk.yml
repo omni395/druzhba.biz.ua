@@ -239,6 +239,9 @@ uk:
       service: Послуга
       landing_message: Повідомлення
       articles: Статті
+      money_flow: Грошовий поток
+      money_flow_categor: Категорії надходженнь/витрат
+      money_flow_detail: Деталі по надходженню/витраті
       
     errors:
       messages:
