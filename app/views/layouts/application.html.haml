@@ -1,7 +1,6 @@
 !!!
 %html{lang: "#{I18n.locale}"}
   %head
-    -# if session[:cookies_accepted] == true
     -# Google tag (gtag.js)
     :javascript
       window.dataLayer = window.dataLayer || [];
@@ -36,17 +35,6 @@
       gtag('js', new Date());
       gtag('config', 'GTM-TJBHGWFJ');
       gtag('config', 'G-B1HN94WVHN');
-
-      function consentGranted() {
-        gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
-        });
-        console.log(session[:cookies_accepted])
-        console.log("granted")
-      }
         
     -# AnimatedCSS and WOWjs
     %link{href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css", rel: "stylesheet"}
@@ -92,3 +80,18 @@
         %i{class: "text-2xl text-stone-600 fa-solid fa-jet-fighter-up"}
       %div{id: "scroll-to-top", class: "w-24 absolute z-10 invisible inline-block transition-opacity duration-300", "data-popover": "", role: "tooltip"}
         %p{class: "font-messiri text-md text-stone-600"} До початку
+    
+    :javascript
+      function consentGranted() {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      };
+
+      window.onload = function(){
+        var el = document.getElementById('accepted');
+        el.addEventListener("click", consentGranted, true);
+      }

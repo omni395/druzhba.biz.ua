@@ -19,12 +19,18 @@ export default class extends Controller {
       $('.odd, .even').attr("data-wow-duration", "2s");
       $('.odd,  .even').attr("data-wow-delay", ".5s");
     });
+
     // Other functions you want to execute when controller is connected
   }
 
   // Optional function for when controller is disconnected, can remove
   disconnect() {
   }
+  
+  consentGranted() {
+    console.log("granted");
+  };
+
 
   exFunction() {
     // Плавная прокрутка
@@ -48,21 +54,5 @@ export default class extends Controller {
     closeContactFormButton.addEventListener('click', () => {
         contactFormModal.classList.add('hidden');
     });
-
-    /*const cookieModal = document.getElementById('cookieModal');
-    const closeCookieModalAccept = document.getElementById("closeCookieModalAccept");
-    const closeCookieModalReject = document.getElementById("closeCookieModalReject");
-    const openCookieModalButton = document.getElementById("openCookieModalButton");
-    
-    openCookieModalButton.addEventListener('click', () => {
-      cookieModal.classList.remove('hidden');
-    });
-    closeCookieModalAccept.addEventListener('click', () => {
-        cookieModal.classList.add('hidden');
-    });
-    closeCookieModalReject.addEventListener('click', () => {
-        cookieModal.classList.add('hidden');
-    });*/
-
   };
 }
