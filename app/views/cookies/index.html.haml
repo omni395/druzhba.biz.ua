@@ -8,15 +8,3 @@
           %div{class: "flex inline-block"}
             = link_to "Reject", cookies_path(cookies_accepted: false), class: "px-2"
             = link_to "Accept", cookies_path(cookies_accepted: true), class: "px-2", onClick: "consentGranted()"
-
-            :javascript
-              function consentGranted() {
-                gtag('consent', 'update', {
-                  'ad_storage': 'granted',
-                  'ad_user_data': 'granted',
-                  'ad_personalization': 'granted',
-                  'analytics_storage': 'granted'
-                });
-                console.log(session[:cookies_accepted])
-                console.log("granted")
-              }

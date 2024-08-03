@@ -36,6 +36,17 @@
       gtag('js', new Date());
       gtag('config', 'GTM-TJBHGWFJ');
       gtag('config', 'G-B1HN94WVHN');
+
+      function consentGranted() {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+        console.log(session[:cookies_accepted])
+        console.log("granted")
+      }
         
     -# AnimatedCSS and WOWjs
     %link{href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css", rel: "stylesheet"}
