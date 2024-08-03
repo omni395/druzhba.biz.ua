@@ -1,22 +1,6 @@
 !!!
 %html{lang: "#{I18n.locale}"}
   %head
-    %title
-      = @page_title.present? ? "Швейна майстерня ☞ДРУЖБА☜ - #{@page_title}" : "Швейна майстерня ☞ ДРУЖБА ☜"
-    = favicon_link_tag asset_path('favicon.png')
-    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
-    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
-    %meta{name: "description", content: "#{@page_description}"}
-    %meta{name: "revisit-after", content: "1 days"}
-    %meta{name: "google-adsense-account", content: "ca-pub-3829218691602401"}
-
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
-    = stylesheet_link_tag "application", "inter-font", "data-turbo-track": "reload"
-    = stylesheet_link_tag "custom", "data-turbo-track": "reload"
-    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true, async: ""
-
     -# if session[:cookies_accepted] == true
     -# Google tag (gtag.js)
     %script{async: "", "data-turbo-track": "reload", src: "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN"}
@@ -34,6 +18,22 @@
         'ad_personalization': 'denied',
         'analytics_storage': 'denied'
       });
+
+    %title
+      = @page_title.present? ? "Швейна майстерня ☞ДРУЖБА☜ - #{@page_title}" : "Швейна майстерня ☞ ДРУЖБА ☜"
+    = favicon_link_tag asset_path('favicon.png')
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    %meta{name: "description", content: "#{@page_description}"}
+    %meta{name: "revisit-after", content: "1 days"}
+    %meta{name: "google-adsense-account", content: "ca-pub-3829218691602401"}
+
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+    = stylesheet_link_tag "application", "inter-font", "data-turbo-track": "reload"
+    = stylesheet_link_tag "custom", "data-turbo-track": "reload"
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true, async: ""
         
     -# AnimatedCSS and WOWjs
     %link{href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css", rel: "stylesheet"}
