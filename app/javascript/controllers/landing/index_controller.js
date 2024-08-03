@@ -48,5 +48,21 @@ export default class extends Controller {
     closeContactFormButton.addEventListener('click', () => {
         contactFormModal.classList.add('hidden');
     });
+
+    /*const cookieModal = document.getElementById('cookieModal');
+    const closeCookieModalAccept = document.getElementById("closeCookieModalAccept");
+    const closeCookieModalReject = document.getElementById("closeCookieModalReject");
+    const openCookieModalButton = document.getElementById("openCookieModalButton");
+    
+    openCookieModalButton.addEventListener('click', () => {
+      cookieModal.classList.remove('hidden');
+    });
+    closeCookieModalAccept.addEventListener('click', () => {
+        cookieModal.classList.add('hidden');
+    });
+    closeCookieModalReject.addEventListener('click', () => {
+        cookieModal.classList.add('hidden');
+    });*/
+
   };
 }

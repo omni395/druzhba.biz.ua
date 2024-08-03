@@ -3,7 +3,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 
 setGtag = function setGtag() {
-  gtag('concent', 'update', {
+  gtag('consent', 'update', {
     'ad_storage': 'granted', //'denied',
     'ad_user_data': 'granted', //'denied',
     'ad_personalization': 'granted', //'denied',

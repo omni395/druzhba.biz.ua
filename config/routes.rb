@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     get "contacts", to: "landing#contacts"
     get "faq", to: "landing#faq"
 
+    # Cookies and Policy
+    get "cookies/policy", to: "cookies#policy", as: "cookie_policy"
+    get "cookies", to: "cookies#index"
+
     # Отправка сообщения
     resources :landing_messages, only: [:new, :create]
     # Послуги
