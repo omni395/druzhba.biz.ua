@@ -3,20 +3,20 @@
   %head
     -# if session[:cookies_accepted] == true
     -# Google tag (gtag.js)
-    %script{async: "", "data-turbo-track": "reload", src: "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN"}
     :javascript
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments)};
-      gtag('js', new Date());
-      gtag('config', 'GTM-TJBHGWFJ');
-      gtag('config', 'G-B1HN94WVHN');
-
       gtag('consent', 'default', {
         'ad_storage': 'denied',
         'ad_user_data': 'denied',
         'ad_personalization': 'denied',
         'analytics_storage': 'denied'
       });
+
+      %script{async: "", "data-turbo-track": "reload", src: "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN"}
+      gtag('js', new Date());
+      gtag('config', 'GTM-TJBHGWFJ');
+      gtag('config', 'G-B1HN94WVHN');
 
     %title
       = @page_title.present? ? "Швейна майстерня ☞ДРУЖБА☜ - #{@page_title}" : "Швейна майстерня ☞ ДРУЖБА ☜"
