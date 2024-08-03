@@ -29,10 +29,10 @@
     = stylesheet_link_tag "custom", "data-turbo-track": "reload"
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true, async: ""
 
+    %script{async: "", "data-turbo-track": "reload", src: "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN"}
     :javascript
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments)};
-      %script{async: "", "data-turbo-track": "reload", src: "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN"}
       gtag('js', new Date());
       gtag('config', 'GTM-TJBHGWFJ');
       gtag('config', 'G-B1HN94WVHN');
