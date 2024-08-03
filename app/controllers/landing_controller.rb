@@ -29,6 +29,9 @@ class LandingController < ApplicationController
     @page_description = "Знайдіть відповіді на найчастіші питання щодо швейної майстерні ☞ДРУЖБА☜ та задайте своє питання на нашому сайті. Все, що вам потрібно знати про нашу майстерню, знаходиться тут!"
   end
 
+  def policy
+  end
+
   def sitemap
     respond_to do |format|
       format.xml { render file: 'public/sitemaps/sitemap.xml' }

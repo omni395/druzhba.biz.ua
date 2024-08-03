@@ -32,3 +32,15 @@
     text-shadow: 4px 4px 25px rgba(174, 10, 10, 0.5);
   }
 }
+
+ul {
+  color: rgba(120, 113, 108, 1);
+}
+
+li {
+  list-style: square outside;
+}
+
+li::marker {
+  color: rgba(239, 68, 68, 1);
+}

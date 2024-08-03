@@ -33,7 +33,7 @@
                   = t(locale, scope: 'locales')
               - else
                 %div{class: "p-1 text-xl"}
-                  = link_to t(locale, scope: 'locales'), root_path(locale: locale)
+                  = link_to t(locale, scope: 'locales'), root_path(locale: locale), class: "hover:border-b-2 hover:border-red-500"
 
     %div{id: "navbar-sticky", class: "text-center items-center justify-between hidden w-full md:flex md:w-auto md:order-1"}
       %ul{class: "flex flex-col p-2 md:p-0 mt-2 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-stone-100"}
