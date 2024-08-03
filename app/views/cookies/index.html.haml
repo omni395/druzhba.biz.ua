@@ -4,7 +4,9 @@
       .bg-white.bg-opacity-95.text-xs.rounded-md.fade.show{:class => "w-[1200px]"}
         .p-4.flex.items-center.justify-between.px-6.rounded.border.border-green-700
           %p
-            By using XYZ, you agree to our
+            = t ("cookies.p1")
+            = link_to "#{t ("cookies.link")}", cookie_policy_path, class: "text-red-500 hover:border-b-2 hover:border-red-500"
+            = t ("cookies.p2")
           %div{class: "flex inline-block"}
-            = link_to "Reject", cookies_path(cookies_accepted: false), class: "px-2"
-            = link_to "Accept", cookies_path(cookies_accepted: true), class: "px-2", id: "accepted"
+            = link_to "#{t ("cookies.reject")}", cookies_path(cookies_accepted: false), class: "px-2", id: "rejected"
+            = link_to "#{t ("cookies.accept")}", cookies_path(cookies_accepted: true), class: "px-2", id: "accepted"
