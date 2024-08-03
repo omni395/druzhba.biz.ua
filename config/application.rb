@@ -46,5 +46,8 @@ module DruzhbaBizUa
 
     config.i18n.available_locales = %i[uk ru]
     config.i18n.default_locale = :uk
+
+    # Async load
+    config.active_record.async_query_executor = :global_thread_pool
   end
 end

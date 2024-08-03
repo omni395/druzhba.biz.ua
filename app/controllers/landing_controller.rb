@@ -3,6 +3,7 @@ class LandingController < ApplicationController
   before_action { @page_description }
 
   def index
+    #session[:cookies_accepted] = nil
     @page_description = "Швейна майстерня ☞ ДРУЖБА ☜ у Кривому Розі. Шукаєте ідеальний ремонт одягу? Ми пропонуємо якісний ремонт та ексклюзивне пошиття одягу. Довіртеся майстрам!"
   end
 

@@ -1,12 +1,20 @@
-.div
-  = turbo_frame_tag :cookie_consent do
-    -# Modal toggle
+= turbo_frame_tag :cookies_consent do
+  - if session[:cookies_accepted].nil?
     .fixed.bottom-0.p-6.w-full.flex.justify-center{:class => "z-[2000]"}
       .bg-white.bg-opacity-95.text-xs.rounded-md.fade.show{:class => "w-[1200px]"}
         .p-4.flex.items-center.justify-between.px-6.rounded.border.border-green-700
           %p
             By using XYZ, you agree to our
-          %button{id: "openCookieModalButton", class: "block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm.px-5 text-center py-2.5"}
-            Toggle modal
-          = button_to "Reject", cookies_path(consent: false)
-          = button_to "Accept", cookies_path(consent: true)
+          %div{class: "flex inline-block"}
+            = link_to "Reject", cookies_path(cookies_accepted: false), class: "px-2"
+            = link_to "Accept", cookies_path(cookies_accepted: true), class: "px-2"
+
+            :javascript
+              function consentGranted() {
+                gtag('consent', 'update', {
+                  'ad_storage': 'granted',
+                  'ad_user_data': 'granted',
+                  'ad_personalization': 'granted',
+                  'analytics_storage': 'granted'
+                });
+              }
