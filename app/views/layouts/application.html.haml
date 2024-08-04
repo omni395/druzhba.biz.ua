@@ -13,7 +13,10 @@
       });
 
     %title
-      = @page_title.present? ? "Швейна майстерня ☞ДРУЖБА☜ - #{@page_title}" : "Швейна майстерня ☞ ДРУЖБА ☜"
+      - if I18n.locale == :uk
+        = @page_title.present? ? "#{@page_title}" : "Швейна майстерня ☞ ДРУЖБА ☜"
+      - else
+        = @page_title.present? ? "#{@page_title}" : "Швейная мастерская ☞ДРУЖБА☜"
     = favicon_link_tag asset_path('favicon.png')
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
