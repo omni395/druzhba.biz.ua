@@ -33,14 +33,16 @@
   }
 }
 
-ul {
-  color: rgba(120, 113, 108, 1);
-}
-
-li {
-  list-style: square outside;
-}
-
-li::marker {
-  color: rgba(239, 68, 68, 1);
+.list {
+  ul {
+    color: rgba(120, 113, 108, 1);
+  }
+  
+  li {
+    list-style: square outside;
+  }
+  
+  li::marker {
+    color: rgba(239, 68, 68, 1);
+  }
 }

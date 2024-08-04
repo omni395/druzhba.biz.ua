@@ -14,8 +14,8 @@ export default class extends Controller {
   connect(){
     this.exFunction();
     window.addEventListener('load', function(){
-      $('.odd').addClass('animate__animated animate__fadeInLeft');
-      $('.even').addClass('animate__animated animate__fadeInRight');
+      $('.odd').addClass('animate__animated animate__fadeInUp');
+      $('.even').addClass('animate__animated animate__fadeInUp');
       $('.odd, .even').attr("data-wow-duration", "2s");
       $('.odd,  .even').attr("data-wow-delay", ".5s");
     });
