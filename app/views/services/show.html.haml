@@ -5,9 +5,9 @@
     %div{class: "px-4 lg:w-8/12"}
       %sectionmx-auto{class: "p-5 sm:p-10 md:p-16 relative font-messiri"}
         - if @service.image.present?
-          %div{class: "bg-cover bg-center text-center overflow-hidden", style: "min-height: 450px; background-image: url('#{url_for(@service.image)}')", title: @service.title}
+          %div{class: "bg-cover bg-center text-center overflow-hidden", style: "min-height: 450px; background-image: url('#{url_for(@service.image)}')", title: @service.title, role: "img", "aria-label": @service.title}
         - else
-          %div{class: "bg-cover bg-center text-center overflow-hidden", style: "min-height: 450px; background-image: url('#{asset_path("favicon.png")}')", title: @service.title}
+          %div{class: "bg-cover bg-center text-center overflow-hidden", style: "min-height: 450px; background-image: url('#{asset_path("favicon.png")}')", title: @service.title, role: "img", "aria-label": @service.title}
         %div{class: "max-w-3xl mx-auto mb-8"}
           %div{class: "mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal"}
             %div{class: "bg-white relative top-0 -mt-32 p-5 sm:p-10"}
