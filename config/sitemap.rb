@@ -1,6 +1,7 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "https://druzhba.biz.ua/"
 SitemapGenerator::Sitemap.create_index = true
+SitemapGenerator::Sitemap.compress = false
 
 SitemapGenerator::Sitemap.create do
   {uk: :ukrainian, ru: :russian}.each_pair do |locale, name|
