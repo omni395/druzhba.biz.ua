@@ -107,7 +107,7 @@ app:
           kind: association
           fields:
             - service:
-                kind: select
+                kind: association_search
       - price:
           kind: number
       - description
