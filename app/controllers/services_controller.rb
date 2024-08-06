@@ -15,11 +15,12 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.friendly.find(params[:id])
-    @page_title = @service.title
     if I18n.locale == :uk
-      @page_description = "Послуга швейної майстерні ☞ДРУЖБА☜ - " + @service.subtitle
+      @page_title = @service.subtitle
+      @page_description = "Послуга швейної майстерні ☞ДРУЖБА☜ - " + @service.description
     else
-      @page_description = "Услуга швейной мастерской ☞ДРУЖБА☜ -" + @service.subtitle
+      @page_title = @service.subtitle
+      @page_description = "Услуга швейной мастерской ☞ДРУЖБА☜ -" + @service.description
     end
   end
 
