@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # Admin routes with gem infold  
   draw(:admin)
 
-  root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
+  root to: redirect("/#{I18n.default_locale}", status: 301), as: :redirected_root
   
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root 'landing#index'
