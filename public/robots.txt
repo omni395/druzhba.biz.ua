@@ -1,1 +1,2 @@
 Sitemap: https://druzhba.biz.ua/sitemap.xml.gz
+Sitemap: https://druzhba.biz.ua/sitemap.xml
