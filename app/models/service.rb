@@ -25,4 +25,5 @@ class Service < ApplicationRecord
 
   scope :repair, -> { where(svc: 0) } 
   scope :sewing, -> { where(svc: 1) }
+  scope :rand, -> { where(id: [1..Service.all.count].sample(6)) }
 end

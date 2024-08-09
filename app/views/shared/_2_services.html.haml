@@ -3,80 +3,23 @@
     %h2{class: "font-messiri text-red-500 text-2xl font-medium uppercase lg:text-3xl"}
       = t "landing.services.h2"
 
-  %div{class: "mx-auto p-5 sm:p-10 md:p-16 lg:p-4 xl:p-2"}
-    %div{class: "grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5"}
-      %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
-        %div{class: "row relative"}
-          = image_tag("zip.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{t "landing.services.card1.alt"}")
-          %div{class: "p-4 pt-2 h-auto md:h-70 lg:h-70 xl:h-70"}
-            %div{class: "mb-8"}
-              %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                = t "landing.services.card1.h3"
+  - @services.each do |service|
+    %div{class: "mx-auto p-5 sm:p-10 md:p-16 lg:p-4 xl:p-2"}
+      %div{class: "grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5"}
+        %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: service_path(service)}
+          %div{class: "row relative"}
+            - if service.image.attached?
+              = image_tag service.image, class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{service.title}"
+            %div{class: "p-4 pt-2 h-auto md:h-70 lg:h-70 xl:h-70"}
+              %div{class: "mb-8"}
+                %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
+                  = service.title
 
-              %p{class: "mx-auto text-base leading-relaxed text-red-500"}
-                = t "landing.services.card1.p1"
-              
-              %p{class: "text-justify mx-auto text-base leading-relaxed text-stone-500"}
-                = t "landing.services.card1.p2"
+                %p{class: "mx-auto text-base leading-relaxed text-red-500"}
+                  від
+                  = service.price
+                  грн.
                 
-      %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
-        %div{class: "row relative"}
-          = image_tag("jeans.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{t "landing.services.card2.alt"}")
-          %div{class: "p-4 pt-2 h-auto md:h-70 lg:h-70 xl:h-70"}
-            %div{class: "mb-8"}
-              %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                = t "landing.services.card2.h3"
-                
-              %p{class: "mx-auto text-base leading-relaxed text-red-500"}
-                = t "landing.services.card2.p1"
-
-              %p{class: "text-justify mx-auto text-base leading-relaxed text-stone-500"}
-                = t "landing.services.card2.p2"
-
-      %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
-        %div{class: "row relative"}
-          = image_tag("skin.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{t "landing.services.card3.h3"}")
-          %div{class: "p-4 pt-2 h-auto md:h-70 lg:h-70 xl:h-70"}
-            %div{class: "mb-8"}
-              %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                = t "landing.services.card3.h3"
-              %p{class: "mx-auto text-base leading-relaxed text-red-500"}
-                = t "landing.services.card3.p1"     
-              %p{class: "text-justify mx-auto text-base leading-relaxed text-stone-500"}
-                = t "landing.services.card3.p2"
-    
-      %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
-        %div{class: "row relative"}
-          = image_tag("niz.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{t "landing.services.card4.h3"}")
-          %div{class: "p-4 pt-2 h-auto md:h-70 lg:h-70 xl:h-70"}
-            %div{class: "mb-8"}
-              %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                = t "landing.services.card4.h3"
-              %p{class: "mx-auto text-base leading-relaxed text-red-500"}
-                = t "landing.services.card4.p1"     
-              %p{class: "text-justify mx-auto text-base leading-relaxed text-stone-500"}
-                = t "landing.services.card4.p2"
-
-      %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
-        %div{class: "row relative"}
-          = image_tag("melkiy.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{t "landing.services.card5.h3"}")
-          %div{class: "p-4 pt-2 h-auto md:h-70 lg:h-70 xl:h-70"}
-            %div{class: "mb-8"}
-              %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                = t "landing.services.card5.h3"
-              %p{class: "mx-auto text-base leading-relaxed text-red-500"}
-                = t "landing.services.card5.p1"     
-              %p{class: "text-justify mx-auto text-base leading-relaxed text-stone-500"}
-                = t "landing.services.card5.p2"
-
-      %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: services_path}
-        %div{class: "row relative"}
-          = image_tag("shtory.avif", class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{t "landing.services.card6.h3"}")
-          %div{class: "p-4 pt-2 h-auto md:h-70 lg:h-70 xl:h-70"}
-            %div{class: "mb-8"}
-              %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                = t "landing.services.card6.h3"
-              %p{class: "mx-auto text-base leading-relaxed text-red-500"}
-                = t "landing.services.card6.p1"     
-              %p{class: "text-justify mx-auto text-base leading-relaxed text-stone-500"}
-                = t "landing.services.card6.p2"
+                %p{class: "text-justify mx-auto text-base leading-relaxed text-stone-500"}
+                  = service.description
+                  
