@@ -16,6 +16,22 @@
     /* width: 75%; */
   }
 
+  a {
+    color: rgba(239, 68, 68, 1);
+  }
+
+  a:hover {
+    color: rgba(239, 68, 68, 1);
+    text-decoration: underline solid rgba(239, 68, 68, 1);
+    text-underline-offset: 4px;
+  }
+
+  pre {
+    border-left: 3px solid rgba(239, 68, 68, 1);
+    color: rgba(120, 113, 108, 1);
+    background-color: rgba(255, 255, 255, 1);
+  }
+
   ul {
     color: rgba(120, 113, 108, 1);
   }
