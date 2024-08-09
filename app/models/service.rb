@@ -25,5 +25,5 @@ class Service < ApplicationRecord
 
   scope :repair, -> { where(svc: 0) } 
   scope :sewing, -> { where(svc: 1) }
-  scope :rand, -> { where(id: 1..8).pluck(:id).sample(6).sort }
+  scope :rand, -> { where(id: 1..8).sample(6).sort }
 end
