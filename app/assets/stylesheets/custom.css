@@ -28,7 +28,7 @@
 
   pre {
     border-left: 3px solid rgba(239, 68, 68, 1);
-    color: rgba(120, 113, 108, 1);
+    color: rgba(0, 0, 0, 1);
     background-color: rgba(255, 255, 255, 1);
     white-space: pre-wrap;
     word-wrap: break-word;
