@@ -3,7 +3,8 @@ class LandingController < ApplicationController
   before_action { @page_description }
 
   def index
-    @services = Service.rand
+    @sewings = Service.sewing.sample(6).sort
+    @repairs = Service.repair.sample(6).sort
     #session[:cookies_accepted] = nil
     if I18n.locale == :uk
       @page_title = "Кравець (Кривий Ріг) Якість + Знижки 15 Років Досвіду 💖"
