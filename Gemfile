@@ -72,9 +72,6 @@ group :development do
   # gem "spring"
 end
 
-# JS compressor
-gem "uglifier"
-
 gem "infold", require: false
 gem "haml-rails"
 gem "sassc-rails"
