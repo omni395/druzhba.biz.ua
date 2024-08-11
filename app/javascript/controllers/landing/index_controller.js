@@ -53,5 +53,12 @@ export default class extends Controller {
     closeContactFormButton.addEventListener('click', () => {
         contactFormModal.classList.add('hidden');
     });
+
+    // Toggle nav menu
+    const toggleNavMenu = document.getElementById('toggleNavMenu');
+    const navMenu = document.getElementById('navMenu');
+    toggleNavMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('hidden');
+    });
   };
 }
