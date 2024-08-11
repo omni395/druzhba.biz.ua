@@ -68,7 +68,11 @@
     %navigation{class: ""}
       = render "shared/navigation"
     %main{class: ""}
-      = yield
+      - if current_page?(root_path)
+        = turbo_frame_tag :landing, src: root_path, loading: :lazy do
+          = render "shared/spinner"
+      - else 
+        = yield
     %footer{class: "relative start-0 bottom-0", id: "footer"}
       = render "shared/footer"
 
