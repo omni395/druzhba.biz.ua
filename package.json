@@ -18,6 +18,7 @@
     "chart.js": "^4.4.2",
     "chartkick": "^5.0.1",
     "esbuild": "^0.20.2",
+    "fontawesome": "^5.6.3",
     "jquery": "^3.7.1",
     "pnpm": "^9.5.0",
     "postcss": "^8.4.39",

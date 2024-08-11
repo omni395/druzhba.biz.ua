@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus"
-//import "flowbite";
 
 const postControllerIndexFilePath = "app/javascript/controllers/landing/index_controller.js"
 
