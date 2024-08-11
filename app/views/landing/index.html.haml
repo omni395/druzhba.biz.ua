@@ -1,26 +1,19 @@
 -#= video_tag("test.mp4", size: "640", autoplay: :autoplay, loop: :loop, controls: true, html: {class: "border-4"})
--#%button{onclick: "setGtag()", class: "hidden"} Yes
-= turbo_frame_tag :landing do
-  %div{class: "", id: "hero-section-1"}
-    = render "shared/1_hero_section"
-    
-  %div{class: "even wow", id: "services"}
-    = render "shared/2_services"
 
-  %div{class: "odd wow mt-8", id: "hero-section-2"}
-    = render "shared/3_hero_section"
-    
-  -#%div{class: "wow mt-8", id: "prices"}
-  -#  = render "shared/4_prices"
-
-  %div{class: "even wow mt-8", id: "about"}
-    = render "shared/5_about"
-
-  -#%div{class: "wow mt-8", id: "reviews"}
-  -#  = render "shared/6_reviews"
-
-  %div{class: "odd wow mt-8", id: "faq"}
-    = render "shared/7_faq"
-    
-  %div{class: "even wow mt-8", id: "contacts"}
-    = render "shared/8_contacts"
+-#= turbo_frame_tag :landing do
+%div{class: "", id: "hero-section-1"}
+  = render "shared/1_hero_section"  
+%div{class: "even wow", id: "services"}
+  = render "shared/2_services"
+%div{class: "odd wow mt-8", id: "hero-section-2"}
+  = render "shared/3_hero_section"
+-#%div{class: "wow mt-8", id: "prices"}
+-#  = render "shared/4_prices"
+%div{class: "even wow mt-8", id: "about"}
+  = render "shared/5_about"
+-#%div{class: "wow mt-8", id: "reviews"}
+-#  = render "shared/6_reviews"
+%div{class: "odd wow mt-8", id: "faq"}
+  = render "shared/7_faq"
+%div{class: "even wow mt-8", id: "contacts"}
+  = render "shared/8_contacts"

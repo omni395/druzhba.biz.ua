@@ -40,10 +40,6 @@
       gtag('config', 'GTM-TJBHGWFJ');
       gtag('config', 'G-B1HN94WVHN');
 
-    -# AnimatedCSS and WOWjs
-    %link{href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css", rel: "stylesheet"}
-    %script{async: "", crossorigin: "anonymous", integrity: "sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==", referrerpolicy: "no-referrer", src: "https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"}
-    
     -# Google fonts
     %link{href: "https://fonts.googleapis.com", rel: "preconnect"}
     %link{crossorigin: "", href: "https://fonts.gstatic.com", rel: "preconnect"}
@@ -68,11 +64,11 @@
     %navigation{class: ""}
       = render "shared/navigation"
     %main{class: ""}
-      - if current_page?(root_path)
+      -# if current_page?(root_path)
         = turbo_frame_tag :landing, src: root_path, loading: :lazy do
           = render "shared/spinner"
-      - else 
-        = yield
+      -# else 
+      = yield
     %footer{class: "relative start-0 bottom-0", id: "footer"}
       = render "shared/footer"
 
