@@ -42,7 +42,7 @@
 
     -# FlowbiteJS
     %link{href: "https://unpkg.com/flowbite@latest/dist/flowbite.css", rel: "stylesheet"}
-    %script{async: "", src: "https://unpkg.com/browse/flowbite@2.4.1/dist/flowbite.min.js"}
+    %script{async: "", src: "https://unpkg.com/browse/flowbite@2.4.1/dist/flowbite.js"}
 
   %body{class: "bg-stone-100", id: "main", "data-controller": "landing--index"}
     %navigation{class: ""}
@@ -61,6 +61,20 @@
 
     -# Cookie_consent
     = turbo_frame_tag :cookies_consent, src: cookies_path if session[:cookies_accepted].nil?
+    :javascript
+      function consentGranted() {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      };
+
+      window.onload = function(){
+        var el = document.getElementById('accepted');
+        el.addEventListener("click", consentGranted, true);
+      }
 
     -# Scroll to Top button
     %div{class: "fixed bottom-10 end-10"}
@@ -83,18 +97,3 @@
             integrity: "sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==",
             referrerpolicy: "no-referrer",
             src: "https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"}
-
-    :javascript
-      function consentGranted() {
-        gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
-        });
-      };
-
-      window.onload = function(){
-        var el = document.getElementById('accepted');
-        el.addEventListener("click", consentGranted, true);
-      }
