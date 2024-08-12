@@ -1,17 +1,17 @@
 !!!
 %html{lang: "#{I18n.locale}"}
   %head
-  %link{href: "https://druzhba.biz.ua/#{I18n.locale}/", hreflang: "#{I18n.locale}", rel: "alternate"}
-    -# Google tag (gtag.js)
-    :javascript
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments)};
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied'
-      });
+    %link{href: "https://druzhba.biz.ua/#{I18n.locale}/", hreflang: "#{I18n.locale}", rel: "alternate"}
+      -# Google tag (gtag.js)
+      :javascript
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments)};
+        gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'analytics_storage': 'denied'
+        });
 
     %title
       - if I18n.locale == :uk
