@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action { @page_description }
 
   def index
-    @articles = Article.all
+    @articles = Article.published
     if I18n.locale == :uk
       @page_title = "Швейна майстерня ☞ ДРУЖБА ☜ - Наш Блог. Ділимося досвідом, навичками та прикладами робіт."
       @page_description = "Блог швейної майстерні ☞ДРУЖБА☜ - Наш досвід та майстерність, і як ми створюємо звичайні та незвичайні речі. Приклади робіт, покрокові інструкції та безліч порад!"
@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.friendly.find(params[:id])
+    @article = Article.friendly.find(params[:id]) if Article.published
     @page_title = @article.title
     @page_description = "Блог швейної майстерні ☞ ДРУЖБА ☜ - " + @page_title
   end
