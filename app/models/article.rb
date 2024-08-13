@@ -22,4 +22,20 @@ class Article < ApplicationRecord
   end
 
   scope :published, -> {where(published: true)}
+
+  def created_at_display
+    created_at ? I18n.l(created_at) : ''
+  end
+
+  def updated_at_display
+    updated_at ? I18n.l(updated_at) : ''
+  end
+
+  def created_at_field
+    attributes['created_at'].strftime("%d-%m-%Y %H:%M")
+  end
+
+  def updated_at_field
+    attributes['updated_at'].strftime("%d-%m-%Y %H:%M")
+  end
 end
