@@ -61,21 +61,22 @@
     = render "shared/contact_form"
 
     -# Cookie_consent
-    = turbo_frame_tag :cookies_consent, src: cookies_path if session[:cookies_accepted].nil? || session[:cookies_accepted] == false
-    :javascript
-      function consentGranted() {
-        gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
-        });
-      };
+    - if session[:cookies_accepted].nil?
+      = turbo_frame_tag :cookies_consent, src: cookies_path
+      :javascript
+        function consentGranted() {
+          gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted'
+          });
+        };
 
-      window.onload = function(){
-        var el = document.getElementById('accepted');
-        el.addEventListener("click", consentGranted, true);
-      }
+        window.onload = function(){
+          var el = document.getElementById('accepted');
+          el.addEventListener("click", consentGranted, true);
+        }
 
     -# Scroll to Top button
     %div{class: "fixed bottom-10 end-10"}
