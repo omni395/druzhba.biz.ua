@@ -1,24 +1,24 @@
 = turbo_frame_tag dom_id(@article), src: article_path(@article) do
   %div{id: "article_skeleton"}
-    .min-h-screen.bg-white.mt-12
-      .max-w-4xl.mx-auto.px-4.py-8
-        .animate-pulse.space-y-4
-          .h-24.bg-gray-300.rounded{:class => "w-full"}
-      .max-w-4xl.mx-auto.px-4.py-8
-        .animate-pulse.space-y-4
-          .h-4.bg-gray-300.rounded{:class => "w-2/3"}
-          .h-4.bg-gray-300.rounded
-          .h-4.bg-gray-300.rounded
-          .h-4.bg-gray-300.rounded{:class => "w-1/2"}
-          .h-4.bg-gray-300.rounded
-          .h-4.bg-gray-300.rounded
-          .h-4.bg-gray-300.rounded{:class => "w-3/4"}
-        .animate-pulse.space-y-4.mt-12
-          .h-4.bg-gray-300.rounded{:class => "w-2/3"}
-          .h-4.bg-gray-300.rounded
-          .h-4.bg-gray-300.rounded
-          .h-4.bg-gray-300.rounded{:class => "w-1/2"}
-          .h-4.bg-gray-300.rounded
-          .h-4.bg-gray-300.rounded
+    %div{class: "min-h-screen bg-white mt-12"}
+      %div{class: "max-w-4xl mx-auto px-4 py-8"}
+        %div{class: "animate-pulse space-y-4"}
+          %div{class: "h-24 bg-gray-300 rounded w-full"}
+      %div{class: "max-w-4xl mx-auto px-4 py-8"}
+        %div{class: "animate-pulse space-y-4"}
+          %div{class: "h-4 bg-gray-300 rounded w-2/3"}
+          %div{class: "h-4 bg-gray-300 rounded"}
+          %div{class: "h-4 bg-gray-300 rounded"}
+          %div{class: "h-4 bg-gray-300 rounded w-1/2"}
+          %div{class: "h-4 bg-gray-300 rounded"}
+          %div{class: "h-4 bg-gray-300 rounded"}
+          %div{class: "h-4 bg-gray-300 rounded w-3/4"}
+        %div{class: "animate-pulse space-y-4 mt-12"}
+          %div{class: "h-4 bg-gray-300 rounded w-2/3"}
+          %div{class: "h-4 bg-gray-300 rounded"}
+          %div{class: "h-4 bg-gray-300 rounded"}
+          %div{class: "h-4 bg-gray-300 rounded w-1/2"}
+          %div{class: "h-4 bg-gray-300 rounded"}
+          %div{class: "h-4 bg-gray-300 rounded"}
   
 = render @article
