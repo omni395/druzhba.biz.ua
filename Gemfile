@@ -105,3 +105,6 @@ gem "friendly_id-mobility"
 gem "mobility-actiontext", "~> 1.1"
 
 gem "font-awesome-sass"
+
+# Pagination
+gem "pagy"

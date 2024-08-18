@@ -7,3 +7,5 @@ import { application } from "./application"
 import Landing__IndexController from "./landing/index_controller"
 application.register("landing--index", Landing__IndexController)
 
+import TurboFrameHistoryController from "./turbo_frame_history_controller"
+application.register("turbo-frame-history", TurboFrameHistoryController)

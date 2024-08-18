@@ -1,5 +1,15 @@
 AdminUser.create(email: 'admin@example.com', password: '12345678', role: 0)
 
+100.times do
+  Article.create(
+    title: "Faker::Book.title",
+    description: "Faker::Book.title",
+    service_id: 1,
+    body: "Faker::Lorem.paragraph",
+    published: true
+  )
+end
+
 15.times do
   LandingMessage.create(name: Faker::Name.name, phone: Faker::PhoneNumber.phone_number, email: Faker::Internet.email, status: Faker::Number.between(from: 0, to: 3), message: Faker::Lorem.paragraph)
 end

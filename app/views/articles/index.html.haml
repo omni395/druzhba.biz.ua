@@ -3,22 +3,18 @@
     %h1{class: "text-3xl text-red-500 sm:text-4xl leading-normal font-extrabold tracking-tight"}
       = t ("articles.h1")
 %div{class: "max-w-7xl mx-auto p-5 sm:p-10 md:p-16"}
-  %div{class: "grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-4 gap-10"}
-    - @articles.each do |article|
-      %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: article_path(article)}
-        %div{class: "row"}
-          - if article.image.attached?
-            = image_tag(article.image, class: "rounded-t-xl w-full h-[150px] sm:w-full sm:h-[200px] transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: article.title)
-          - else
-            = image_tag("favicon.png", class: "rounded-t-xl w-full h-[150px] sm:h-[200px] transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: article.title)
-          %div{class: "p-4 pt-2 h-auto md:h-72"}
-            %p{class: "font-messiry text-xs text-end"}
-              = article.created_at_field
-            %div{class: "mb-8"}
-              %h2{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                = article.title
-                %i{class: "text-indigo-500 font-bold text-sm mb-2 inline-block"}
-                  \#
-                  = article.service.title
-              -#%p{class: "text-stone-700 text-sm text-ellipsis"}
-              -#  = article.description
+  = turbo_frame_tag "articles_list", src: articles_url(format: :turbo_stream, page: params[:page]), loading: "lazy" do
+    %div{id: "articles_card_skeleton", class: "grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-4 gap-10"}
+      = 4.times do
+        .bg-white.rounded-xl.shadow-lg.overflow-hidden.shadow.flex.flex-col
+          %div{class: "animate-pulse bg-gray-100 w-full block rounded-t-xl w-full h-[100px] sm:w-full sm:h-[150px]"}
+          .px-8.py-6.flex-1
+            %h2.font-mono.text-xl.font-bold
+              %span.rounded.animate-pulse.bg-gray-200.block{:class => "w-3/4 py-2"}
+            .mt-8.space-y-4
+              %p.w-full.rounded.animate-pulse.bg-gray-200.block{:class => "py-1"}
+              %p.rounded.animate-pulse.bg-gray-200.block{:class => "w-5/6 py-1"}
+              %p.w-full.rounded.animate-pulse.bg-gray-200.block{:class => "py-1"}
+            %p.mt-8.rounded.animate-pulse.bg-gray-200.block{:class => "w-5/6 py-1"}
+  
+  = turbo_frame_tag "articles_pagination", data: { controller: "turbo-frame-history" }
