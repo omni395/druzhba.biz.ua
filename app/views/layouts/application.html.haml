@@ -61,7 +61,7 @@
     = render "shared/contact_form"
 
     -# Cookie_consent
-    = turbo_frame_tag :cookies_consent, src: cookies_path if session[:cookies_accepted].nil?
+    = turbo_frame_tag :cookies_consent, src: cookies_path if session[:cookies_accepted].nil? || session[:cookies_accepted] == false
     :javascript
       function consentGranted() {
         gtag('consent', 'update', {
