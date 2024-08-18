@@ -3,7 +3,8 @@ class ArticlesController < ApplicationController
   before_action { @page_description }
 
   def index
-    @pagy, @articles = pagy(Article.published, items: 4)
+    @pagy, @articles = pagy(Article.published)
+    #sleep(20)
     respond_to do |format|
       format.html 
       format.turbo_stream
@@ -22,7 +23,6 @@ class ArticlesController < ApplicationController
     @article = Article.friendly.find(params[:id]) if Article.published
     @page_title = @article.title
     @page_description = "Блог швейної майстерні ☞ ДРУЖБА ☜ - " + @page_title
-    sleep(2)
     respond_to do |format|
       format.html
       format.turbo_stream
