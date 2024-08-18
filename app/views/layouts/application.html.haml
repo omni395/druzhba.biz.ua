@@ -38,8 +38,19 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments)};
       gtag('js', new Date());
-      gtag('config', 'GTM-TJBHGWFJ');
-      gtag('config', 'G-B1HN94WVHN');
+      //gtag('config', 'GTM-TJBHGWFJ');
+      //gtag('config', 'G-B1HN94WVHN');
+      gtag('config', 'GTM-TJBHGWFJ', {
+          'cookie_prefix': 'druzhba.biz.ua',
+          'cookie_domain': 'druzhba.biz.ua',
+          'cookie_expires': 28 * 24 * 60 * 60 // 28 днів (у секундах)
+          });
+      gtag('config', 'G-B1HN94WVHN', {
+          'cookie_prefix': 'druzhba.biz.ua',
+          'cookie_domain': 'druzhba.biz.ua',
+          'cookie_expires': 28 * 24 * 60 * 60 // 28 днів (у секундах)
+          });
+
 
     -# FlowbiteJS
     %link{href: "https://unpkg.com/flowbite@latest/dist/flowbite.css", rel: "stylesheet"}
