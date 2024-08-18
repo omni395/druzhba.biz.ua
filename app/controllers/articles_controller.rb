@@ -2,9 +2,11 @@ class ArticlesController < ApplicationController
   before_action { @page_title = "Блог швейної майстерні ☞ДРУЖБА☜" }
   before_action { @page_description }
 
+  caches_page :index, :show, gzip: :best_speed
+
   def index
-    @pagy, @articles = pagy(Article.published)
-    #sleep(20)
+    @pagy, @articles = pagy(Article.published, items: 4)
+    #sleep(2)
     respond_to do |format|
       format.html 
       format.turbo_stream

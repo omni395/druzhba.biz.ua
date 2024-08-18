@@ -49,5 +49,7 @@ module DruzhbaBizUa
 
     # Async load
     config.active_record.async_query_executor = :global_thread_pool
+    # Cache pages
+    config.action_controller.perform_caching = true
   end
 end

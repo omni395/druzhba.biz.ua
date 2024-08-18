@@ -17,4 +17,5 @@
               %p{class: "w-full rounded animate-pulse bg-gray-200 block py-1"}
             %p{class: "mt-8 rounded animate-pulse bg-gray-200 block w-5/6 py-1"}
   
-  = turbo_frame_tag "articles_pagination", data: { controller: "turbo-frame-history" }
+  = turbo_frame_tag "articles_pagination"
+  -#, data: { controller: "turbo-frame-history" }

@@ -108,3 +108,7 @@ gem "font-awesome-sass"
 
 # Pagination
 gem "pagy"
+
+# Ccache page
+gem "actionpack-page_caching"
+gem "actionpack-action_caching"
