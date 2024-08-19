@@ -1,5 +1,5 @@
-%nav{class: "w-full z-20 border-b border-gray-200"}
-  %div{class: "max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-2"}
+%nav{class: "flex flex-inline items-center w-full z-20 border-b border-gray-200"}
+  %div{class: "flex flex-inline max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-2"}
     %a{class: "flex items-center space-x-1 rtl:space-x-reverse", href: root_path}
       %span{class: "pr-1 self-center text-2xl font-bad_script font-bold whitespace-nowrap"}
         -# landing.navigation.top
@@ -8,6 +8,11 @@
       %div{class: "flex content-center"}
         %span{class: "pr-1 self-center text-2xl font-bad_script font-bold whitespace-nowrap"} ДРУЖБА
       = image_tag("scissors.svg", class: "h-4 rotate-180", alt: "<")
+  %div{class: ""}
+    = link_to "https://facebook.com/druzhba.biz.ua", target: "_blank", class: "text-blue-500 mx-1" do
+      %i{class: "fa-brands fa-facebook"}
+    = link_to "https://www.instagram.com/pismenenkoborshchova", target: "_blank", class: "text-orange-500 mx-1" do
+      %i{class: "fa-brands fa-instagram"}
 
 %nav{class: "w-full z-20 shadow-md border-gray-200 mt-auto font-messiri"}
   %div{class: "max-w-screen-xl flex flex-wrap items-center justify-center md:justify-between mx-auto px-8 py-1"}

@@ -1,7 +1,6 @@
 !!!
 %html{lang: "#{I18n.locale}"}
   %head
-    -#%link{href: "https://druzhba.biz.ua/#{I18n.locale}/", rel: "canonical"}
     = canonical_tag
     %link{href: "https://druzhba.biz.ua/#{I18n.locale}/", hreflang: "#{I18n.locale}", rel: "alternate"}
       -# Google tag (gtag.js)
@@ -66,10 +65,6 @@
     %navigation{class: ""}
       = render "shared/navigation"
     %main{class: ""}
-      -# if current_page?(root_path)
-        = turbo_frame_tag :landing, src: root_path, loading: :lazy do
-          = render "shared/spinner"
-      -# else 
       = yield
     %footer{class: "relative start-0 bottom-0", id: "footer"}
       = render "shared/footer"

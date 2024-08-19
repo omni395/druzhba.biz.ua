@@ -9,7 +9,7 @@
         %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: service_path(repair)}
           %div{class: "row relative"}
             - if repair.image.attached?
-              = image_tag repair.image, class: "transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{repair.title}"
+              = image_tag repair.image, class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{repair.title}"
             %div{class: "p-4 pt-2 h-auto md:h-64 lg:h-64 xl:h-64"}
               %div{class: "mb-8"}
                 %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
