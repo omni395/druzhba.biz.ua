@@ -61,6 +61,24 @@
             integrity: "sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==",
             crossorigin: "anonymous", referrerpolicy: "no-referrer"}
 
+    -# Meta Pixel Code
+    :javascript
+      !function(f,b,e,v,n,t,s){
+        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)
+        }(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1562402937679169');
+          fbq('track', 'PageView');
+    %noscript
+      %img{height: "1", src: "https://www.facebook.com/tr?id=1562402937679169&ev=PageView&noscript=1",
+          style: "display:none", width: "1"}
+  
+  
   %body{class: "bg-stone-100", id: "main", "data-controller": "landing--index"}
     %navigation{class: ""}
       = render "shared/navigation"
