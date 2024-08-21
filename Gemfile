@@ -115,3 +115,5 @@ gem "actionpack-action_caching"
 
 # Canonical
 gem "canonical-rails"
+
+# Schema.org
