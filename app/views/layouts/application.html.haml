@@ -91,6 +91,9 @@
     -# Modal dialog contact form
     = render "shared/contact_form"
 
+    -# Cookie consent gdpr gem
+    -#= render 'gdpr/cookie_consent'
+
     -# Cookie_consent
     - if session[:cookies_accepted].nil?
       = turbo_frame_tag :cookies_consent, src: cookies_path

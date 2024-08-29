@@ -117,3 +117,6 @@ gem "actionpack-action_caching"
 gem "canonical-rails"
 
 # Schema.org
+
+# GDPR policy
+#gem "gdpr"
