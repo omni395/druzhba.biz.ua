@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 devise_for :admin_users, skip: :all
 devise_scope :admin_user do
   get 'admin/login' => 'admin/admin_users/sessions#new', as: :new_admin_user_session
@@ -16,6 +18,6 @@ namespace 'admin' do
   resources :customers
   resources :landing_messages
   resources :admin_users
-  authenticated :admin_user do root :to => 'dashboard#index', as: :root end
-  devise_scope  :admin_user do root :to => 'admin_users/sessions#new', as: :unauthenticated_root end
+  authenticated :admin_user do root to: 'dashboard#index', as: :root end
+  devise_scope  :admin_user do root to: 'admin_users/sessions#new', as: :unauthenticated_root end
 end

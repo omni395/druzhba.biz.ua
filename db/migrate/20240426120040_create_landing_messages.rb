@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateLandingMessages < ActiveRecord::Migration[7.1]
   def change
     create_table :landing_messages do |t|

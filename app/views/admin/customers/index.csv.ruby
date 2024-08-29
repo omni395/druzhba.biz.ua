@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 CSV.generate do |csv|
@@ -9,7 +11,7 @@ CSV.generate do |csv|
     Admin::Customer.human_attribute_name(:email),
     Admin::Customer.human_attribute_name(:description),
     Admin::Customer.human_attribute_name(:created_at),
-    Admin::Customer.human_attribute_name(:updated_at),
+    Admin::Customer.human_attribute_name(:updated_at)
   ]
   # set body rows
   @customers.each do |customer|
@@ -20,7 +22,7 @@ CSV.generate do |csv|
       customer.email,
       customer.description,
       customer.created_at,
-      customer.updated_at,
+      customer.updated_at
     ]
   end
 end

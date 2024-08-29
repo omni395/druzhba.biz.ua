@@ -1,5 +1,7 @@
-every 1.day, at: "4:30 am" do
-  rails "sitemap:generate"
+# frozen_string_literal: true
+
+every 1.day, at: '4:30 am' do
+  rails 'sitemap:generate'
 end
 
 # Use this file to easily define all of your cron jobs.

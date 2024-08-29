@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Admin
   class ArticleSearchForm < BaseSearchForm
-
     set_condition :service_id_eq,
                   :published_eq
 

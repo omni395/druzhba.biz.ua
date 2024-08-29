@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   module MoneyFlowCategoryDecorator
     def flow_color
@@ -15,6 +17,5 @@ module Admin
     def updated_at_display
       updated_at ? I18n.l(updated_at) : ''
     end
-
   end
 end

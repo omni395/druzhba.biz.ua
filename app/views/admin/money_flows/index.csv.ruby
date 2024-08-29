@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 CSV.generate do |csv|
@@ -10,7 +12,7 @@ CSV.generate do |csv|
     Admin::MoneyFlow.human_attribute_name(:order_id),
     Admin::MoneyFlow.human_attribute_name(:created_at),
     Admin::MoneyFlow.human_attribute_name(:updated_at),
-    Admin::MoneyFlow.human_attribute_name(:admin_user_id),
+    Admin::MoneyFlow.human_attribute_name(:admin_user_id)
   ]
   # set body rows
   @money_flows.each do |money_flow|
@@ -22,7 +24,7 @@ CSV.generate do |csv|
       money_flow.order_id,
       money_flow.created_at,
       money_flow.updated_at,
-      money_flow.admin_user_id,
+      money_flow.admin_user_id
     ]
   end
 end

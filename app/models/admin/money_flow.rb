@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class MoneyFlow < ::MoneyFlow
     belongs_to :admin_user, foreign_key: 'admin_user_id'
@@ -11,14 +13,12 @@ module Admin
     validates :title, presence: true
     validates :order_id, allow_blank: true, numericality: { allow_nil: true }
 
-    scope :admin_user_id_eq, ->(v) do
+    scope :admin_user_id_eq, lambda { |v|
       where(admin_user_id: v) if v.present?
-    end
+    }
 
-    scope :money_flow_category_eq, ->(v) do
+    scope :money_flow_category_eq, lambda { |v|
       where(money_flow_category: v) if v.present?
-    end
-
-
+    }
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class MoneyFlowsController < BaseController
     before_action { @page_title = 'Надходження (витрати)' }
@@ -70,11 +72,11 @@ module Admin
         :admin_user_id,
         :title,
         :description,
-        money_flow_details_attributes: [
-          :id,
-          :_destroy,
-          :money_flow_category_id,
-          :amount
+        money_flow_details_attributes: %i[
+          id
+          _destroy
+          money_flow_category_id
+          amount
         ]
       )
     end

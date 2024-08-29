@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   module ErrorHandlers
     extend ActiveSupport::Concern
@@ -31,11 +33,9 @@ module Admin
       @exception = e
       logger.fatal e.message
       logger.fatal e.backtrace.join("\n")
-      if Rails.env.production?
-        render '/admin/errors/admin_server_error', status: 500
-      else
-        raise e
-      end
+      raise e unless Rails.env.production?
+
+      render '/admin/errors/admin_server_error', status: 500
     end
   end
 end

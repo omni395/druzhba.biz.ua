@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class BaseSearchForm
     include ActiveModel::Model
@@ -6,9 +8,7 @@ module Admin
     attr_writer :sort_kind
 
     class << self
-      def conditions=(value)
-        @conditions = value
-      end
+      attr_writer :conditions
 
       def conditions
         @conditions || []
@@ -16,7 +16,7 @@ module Admin
     end
 
     def self.set_condition(*condition_names)
-      attr_accessor *condition_names
+      attr_accessor(*condition_names)
 
       self.conditions += condition_names
     end
@@ -29,10 +29,9 @@ module Admin
         limit = 200 if limit > 200
         records = records.page(page).per(limit)
       end
-      records = self.class.conditions.select{ |c| send(c).present? }.inject(records) do |_records, cond|
+      self.class.conditions.select { |c| send(c).present? }.inject(records) do |_records, cond|
         _records.send(cond, send(cond))
       end
-      records
     end
 
     def apply_sort(records, primary_key)

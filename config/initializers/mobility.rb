@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Mobility.configure do
   # PLUGINS
   plugins do
@@ -9,7 +11,7 @@ Mobility.configure do
     # To default to a different backend globally, replace +:key_value+ by another
     # backend name.
     #
-    #backend :key_value
+    # backend :key_value
     backend :key_value, type: :string
 
     # ActiveRecord
@@ -105,7 +107,7 @@ Mobility.configure do
     #
     # Or define specific defaults by uncommenting line below
     # locale_accessors [:en, :ja]
-    locale_accessors [:uk, :ru]
+    locale_accessors %i[uk ru]
 
     # Attribute Methods
     #

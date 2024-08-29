@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Admin
   class LandingMessageSearchForm < BaseSearchForm
-
     set_condition :name_full_like,
                   :email_full_like,
                   :status_any

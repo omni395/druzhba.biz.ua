@@ -1,12 +1,14 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class CookiesControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
+  test 'should get index' do
     get cookies_index_url
     assert_response :success
   end
 
-  test "should get policy" do
+  test 'should get policy' do
     get cookies_policy_url
     assert_response :success
   end

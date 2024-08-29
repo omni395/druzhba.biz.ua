@@ -1,5 +1,6 @@
-class LandingMessagesController < ApplicationController
+# frozen_string_literal: true
 
+class LandingMessagesController < ApplicationController
   def new
     @landing_message = LandingMessage.new
   end
@@ -15,13 +16,14 @@ class LandingMessagesController < ApplicationController
         format.html { redirect_back fallback_location: root_path }
         flash.now[:notice] = 'Повідомлення відпраавлено'
       else
-        format.html { redirect_to root_path, status: :unprocessable_entity}
+        format.html { redirect_to root_path, status: :unprocessable_entity }
         flash.now[:alert] = t('infold.flash.invalid')
       end
     end
   end
 
   private
+
   def landing_message_params
     params.require(:landing_message).permit(:name, :phone, :email, :message)
   end

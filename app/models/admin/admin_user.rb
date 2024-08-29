@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class AdminUser < ::AdminUser
     include DatetimeFieldConcern
@@ -16,15 +18,12 @@ module Admin
 
     enum role: { admin: 0, manager: 1 }, _prefix: true
 
-
-    scope :email_eq, ->(v) do
+    scope :email_eq, lambda { |v|
       where(email: v) if v.present?
-    end
+    }
 
-    scope :name_full_like, ->(v) do
+    scope :name_full_like, lambda { |v|
       where(arel_table[:name].matches("%#{v}%")) if v.present?
-    end
-
-
+    }
   end
 end

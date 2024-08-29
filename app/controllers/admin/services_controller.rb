@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class ServicesController < BaseController
     before_action { @page_title = 'Послуги' }
@@ -66,15 +68,15 @@ module Admin
 
     def post_params
       params.require(:admin_service).permit(I18n.available_locales.map do |l|
-          [:published,
-          :image,
-          :remove_image,
-          :svc,
-          :price,
-          :"title_#{Mobility.normalize_locale(l)}",
-          :"subtitle_#{Mobility.normalize_locale(l)}",
-          :"description_#{Mobility.normalize_locale(l)}",
-          :"body_#{Mobility.normalize_locale(l)}"]
+        [:published,
+         :image,
+         :remove_image,
+         :svc,
+         :price,
+         :"title_#{Mobility.normalize_locale(l)}",
+         :"subtitle_#{Mobility.normalize_locale(l)}",
+         :"description_#{Mobility.normalize_locale(l)}",
+         :"body_#{Mobility.normalize_locale(l)}"]
       end.flatten)
     end
   end

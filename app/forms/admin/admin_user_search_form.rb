@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Admin
   class AdminUserSearchForm < BaseSearchForm
-
     set_condition :email_eq,
                   :name_full_like
 

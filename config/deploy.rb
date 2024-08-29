@@ -1,26 +1,29 @@
-# config valid for current version and patch releases of Capistrano
-lock "~> 3.19.1"
+# frozen_string_literal: true
 
-set :application, "druzhba"
-set :repo_url, "https://github.com/omni395/druzhba.biz.ua.git"
+# config valid for current version and patch releases of Capistrano
+lock '~> 3.19.1'
+
+set :application, 'druzhba'
+set :repo_url, 'https://github.com/omni395/druzhba.biz.ua.git'
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"
 
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system',
+       'public/uploads'
 
 # Only keep the last 5 releases to save disk space
 set :keep_releases, 3
 
 # RBenv paths
-#set :default_env, {
+# set :default_env, {
 #    path: '/home/deploy/.rbenv/plugins/ruby-build/bin:/home/deploy/.rbenv/plugins:/home/deploy/.rbenv/shims:$PATH',
 #    rbenv_root: '/home/deploy/.rbenv/shims'
-#}
-#set :rbenv_roles, :all
-#set :rbenv_ruby, '1.1.1'
-#set :rbenv_ruby_dir, '/home/deploy/.rbenv/versions/3.3.1'
-#set :rbenv_custom_path, '/home/deploy/.rbenv'
+# }
+# set :rbenv_roles, :all
+# set :rbenv_ruby, '1.1.1'
+# set :rbenv_ruby_dir, '/home/deploy/.rbenv/versions/3.3.1'
+# set :rbenv_custom_path, '/home/deploy/.rbenv'
 
 # Optionally, you can symlink your database.yml and/or secrets.yml file from the shared directory during deploy
 # This is useful if you don't want to use ENV variables

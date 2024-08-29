@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 ### https://betterprogramming.pub/devise-auth-setup-in-rails-7-44240aaed4be
 module Admin
   class TurboDeviseController < BaseController
     class Responder < ActionController::Responder
       def to_turbo_stream
         controller.render(options.merge(formats: :html))
-      rescue ActionView::MissingTemplate => error
+      rescue ActionView::MissingTemplate => e
         if get?
-          raise error
+          raise e
         elsif has_errors? && default_action
           render rendering_options.merge(formats: :html, status: :unprocessable_entity)
         else

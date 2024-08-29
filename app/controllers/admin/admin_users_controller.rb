@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class AdminUsersController < BaseController
     before_action { @page_title = 'Користувач системи' }

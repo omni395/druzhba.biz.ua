@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Admin
   class OrderSearchForm < BaseSearchForm
-
     set_condition :customer_id_eq,
                   :status_any,
                   :paid_any,

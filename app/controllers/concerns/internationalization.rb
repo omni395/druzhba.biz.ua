@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Internationalization
   extend ActiveSupport::Concern
 
@@ -14,16 +16,18 @@ module Internationalization
 
     def locale_from_url
       locale = params[:locale]
-      return locale if I18n.available_locales.map(&:to_s).include?(locale)
+      locale if I18n.available_locales.map(&:to_s).include?(locale)
     end
 
     def locale_from_headers
       header = request.env['HTTP_ACCEPT_LANGUAGE']
       return if header.nil?
-        locales = parse_header header
+
+      locales = parse_header header
       return if locales.empty?
-        return locales.last unless I18n.enforce_available_locales
-        detect_from_available locales
+      return locales.last unless I18n.enforce_available_locales
+
+      detect_from_available locales
     end
 
     def parse_header(header)
@@ -42,7 +46,7 @@ module Internationalization
       locales.reverse.find { |l| I18n.available_locales.any? { |al| match?(al, l) } }
       I18n.available_locales.find { |al| match?(al, locale) } if locale
     end
-    
+
     def match?(str1, str2)
       str1.to_s.casecmp(str2.to_s).zero?
     end
@@ -51,5 +55,4 @@ module Internationalization
       { locale: I18n.locale }
     end
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 CSV.generate do |csv|
@@ -12,7 +14,7 @@ CSV.generate do |csv|
     Admin::AdminUser.human_attribute_name(:name),
     Admin::AdminUser.human_attribute_name(:role),
     Admin::AdminUser.human_attribute_name(:email),
-    Admin::AdminUser.human_attribute_name(:reset_password_token),
+    Admin::AdminUser.human_attribute_name(:reset_password_token)
   ]
   # set body rows
   @admin_users.each do |admin_user|
@@ -26,7 +28,7 @@ CSV.generate do |csv|
       admin_user.name,
       admin_user.role_i18n,
       admin_user.email,
-      admin_user.reset_password_token,
+      admin_user.reset_password_token
     ]
   end
 end

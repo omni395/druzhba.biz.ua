@@ -2,7 +2,8 @@
 
 module Admin
   class FieldsetComponent < ViewComponent::Base
-    def initialize(form, field=nil, kind=nil, required: false, label: nil, no_label: false, alignment: true, append: nil, prepend: nil, **options)
+    def initialize(form, field = nil, kind = nil, required: false, label: nil, no_label: false, alignment: true,
+                   append: nil, prepend: nil, **options)
       @form = form
       @field = field
       @kind = kind

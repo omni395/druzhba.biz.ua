@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Admin
   class ServiceSearchForm < BaseSearchForm
-
     set_condition :title_full_like,
                   :svc_any
 

@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Admin
   class MoneyFlowSearchForm < BaseSearchForm
-
     set_condition :admin_user_id_eq,
                   :money_flow_category_eq
 

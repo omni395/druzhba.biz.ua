@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   module ArticleDecorator
     def created_at_display
@@ -11,6 +13,5 @@ module Admin
     def published_display
       '<i class="bi bi-check-circle-fill h3 text-warning"></i>'.html_safe if published?
     end
-
   end
 end

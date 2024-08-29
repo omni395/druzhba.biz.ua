@@ -2,7 +2,7 @@
 
 module Admin
   class SelectComponent < ViewComponent::Base
-    def initialize(form, field, list, blank:true, selected_value:nil)
+    def initialize(form, field, list, blank: true, selected_value: nil)
       @form = form
       @field = field
       @list = list
@@ -11,7 +11,7 @@ module Admin
     end
 
     def select_field
-      classes = %W(form-select #{@class})
+      classes = %W[form-select #{@class}]
       classes << 'is-invalid' if helpers.admin_field_invalid?(@form, @field)
       @form.select(@field, @list,
                    { include_blank: @blank,

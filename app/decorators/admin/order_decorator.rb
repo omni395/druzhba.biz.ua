@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   module OrderDecorator
     def status_color
@@ -29,6 +31,5 @@ module Admin
     def dead_date_display
       dead_date ? I18n.l(dead_date) : ''
     end
-
   end
 end

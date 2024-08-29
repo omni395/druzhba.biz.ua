@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 CSV.generate do |csv|
@@ -13,7 +15,7 @@ CSV.generate do |csv|
     Admin::Order.human_attribute_name(:dead_time),
     Admin::Order.human_attribute_name(:description),
     Admin::Order.human_attribute_name(:admin_user_id),
-    Admin::Order.human_attribute_name(:customer_id),
+    Admin::Order.human_attribute_name(:customer_id)
   ]
   # set body rows
   @orders.each do |order|
@@ -28,7 +30,7 @@ CSV.generate do |csv|
       order.dead_time,
       order.description,
       order.admin_user_id,
-      order.customer_id,
+      order.customer_id
     ]
   end
 end

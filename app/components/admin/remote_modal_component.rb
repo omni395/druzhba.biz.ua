@@ -6,7 +6,7 @@ module Admin
     renders_one :body
     renders_one :footer
 
-    def initialize(kind=nil, backdrop: nil)
+    def initialize(kind = nil, backdrop: nil)
       @remote_modal_kind = kind || 'modal_main'
       @backdrop = backdrop
     end

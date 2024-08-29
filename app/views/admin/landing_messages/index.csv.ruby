@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 CSV.generate do |csv|
@@ -10,7 +12,7 @@ CSV.generate do |csv|
     Admin::LandingMessage.human_attribute_name(:message),
     Admin::LandingMessage.human_attribute_name(:status),
     Admin::LandingMessage.human_attribute_name(:created_at),
-    Admin::LandingMessage.human_attribute_name(:updated_at),
+    Admin::LandingMessage.human_attribute_name(:updated_at)
   ]
   # set body rows
   @landing_messages.each do |landing_message|
@@ -22,7 +24,7 @@ CSV.generate do |csv|
       landing_message.message,
       landing_message.status_i18n,
       landing_message.created_at,
-      landing_message.updated_at,
+      landing_message.updated_at
     ]
   end
 end

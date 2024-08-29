@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class BaseController < ActionController::Base
     class Forbidden < ActionController::ActionControllerError; end
