@@ -41,7 +41,7 @@
             %div{id: "navbar-menu", class: "collapse navbar-collapse"}
               = render 'admin/common/header_menu'
               %ul{class: "navbar-nav ms-auto mb-0"}
-                - if current_admin_user.has_role?(0)
+                - if current_admin_user.admin?
                   %li{class: "nav-item dropdown"}
                     %a{class: "nav-link dripdown-toggle", id: "service-menu", role: :button, data: { bs_toggle: :dropdown} }
                       %i{class: "bi bi-gear"}

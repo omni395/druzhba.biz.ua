@@ -8,9 +8,12 @@ class AdminUser < ApplicationRecord
 
   has_many :orders
 
-  def has_role?(role)
-    self.role == role
-    # current_admin_user && current_admin_user.has_role?(role)
+  def admin?
+    role == 0
+  end
+
+  def manager?
+    role == 1
   end
 
   def month_salary(user)

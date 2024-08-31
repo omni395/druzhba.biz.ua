@@ -9,7 +9,7 @@ class Expense < ApplicationRecord
   validates :amount, presence: true, numericality: { greater_than: 0 }
   
   after_commit :create_double_entry_transaction, on: :create
-  after_commit :update_double_entry_transaction, on: :update
+  after_commit :update_double_entry_transaction, on: :update, if: :saved_change_to_status?
   after_commit :destroy_double_entry_transaction, on: :destroy
 
   private
