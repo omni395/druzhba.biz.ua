@@ -17,6 +17,7 @@ DoubleEntry.configure do |config|
     transfers.define(from: :expense, to: :cash, code: :expense_refund)
     transfers.define(from: :cash, to: :salary, code: :manager_salary)
     transfers.define(from: :cash, to: :revenue, code: :order_payment)
+    transfers.define(from: :revenue, to: :cash, code: :order_refund)
     transfers.define(from: :accounts_receivable, to: :cash, code: :receivable_payment)
     transfers.define(from: :accounts_receivable, to: :revenue, code: :order_cancellation)
     transfers.define(from: :salary, to: :cash, code: :salary_refund)
