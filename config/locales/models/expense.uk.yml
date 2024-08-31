@@ -5,11 +5,8 @@ uk:
         admin_user_id: Користувач
         expense_detail_id: Категорія надходжень / витрат
         expense_category_id: Категорія надходжень / витрат
+        title: Назва
         description: Короткий опис
-        total_amount: Сума
+        amount: Сума
         created_at_field: Створено
         updated_at_field: Оновлено
-      expense_detail:
-        expense_category_id: Категорія надходжень / витрат
-        amount: Сума
-        order: Замовлення

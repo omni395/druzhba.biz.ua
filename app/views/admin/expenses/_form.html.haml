@@ -1,0 +1,11 @@
+.list-group.mb-3
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :admin_user_id, :association_search, association_name: :admin_user, search_path: admin_admin_users_path(name_field: :name), name_field: :admin_user_name)
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :expense_category_id, :association_search, association_name: :expense_category, search_path: admin_expense_categories_path(name_field: :title), name_field: :expense_category_title)
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :amount, :text)
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :title, :text, required: true)
+  .list-group-item
+    = render Admin::FieldsetComponent.new(form, :description, :text_area)

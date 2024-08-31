@@ -9,16 +9,9 @@ model:
     admin_user:
       kind: belongs_to
       name_field: name
-    expense_details:
-      kind: has_many
-      dependent: destroy
-      model: # Associated models (order_details) can also be set
-        validate:
-          expense_category: presence
-        association: # Further associations to order_details (product)
-          expense_category:
-            kind: belongs_to
-            name_field: title
+    expense_category:
+      kind: belongs_to
+      name_field: title
 
 app:
   title: Надходження (витрати)
@@ -35,7 +28,7 @@ app:
         - id
         - admin_user_id
         - description
-        - total_amount
+        - amount
       default_order:
         field: id
         kind: desc
@@ -44,118 +37,16 @@ app:
       - id
       - admin_user
       - description
-      - total_amount
+      - amount
       - order_id
-      - expense_details:
-          kind: association
-          fields:
-            - expense_category
-            - amount
 
   form:
     fields:
       - admin_user:
           kind: association_search
-      - expense_details:
-          kind: association
-          fields:
-            - expense_category:
-                kind: association_search
-            - amount
+      - expense_category:
+          kind: association_search
+      - amount
       - title
       - description:
-            kind: text_area
-
-#model:
-#  # Define validation here
-#  validate:
-#    amount: presence
-#    price:
-#      - presence
-#      - numericality:
-#          greater_than_or_equal_to: 0
-#  # Define Enum here
-#  enum:
-#    status:
-#      ordered:
-#        value: 1
-#        color: blue
-#      charged:
-#        value: 2
-#        color: pink
-#  # Define decorator here
-#  decorator:
-#    price:
-#      prepend: $
-#      digit: true
-#  # Define association here
-#  association:
-#    customer:
-#      kind: belongs_to
-#      name_field: name
-#    order_details:
-#      kind: has_many
-#      dependent: destroy
-#      # If the child model on the has_many side also needs to be configured, define it here.
-#      model:
-#        validate:
-#        enum:
-#        decorator:
-#        association:
-#  # Define active_storage here
-#  active_storage:
-#    photo:
-#      kind: image
-#app:
-#  title: MONEY FLOWS
-#  # index view settings (search condition, list and csv)
-#  index:
-#    conditions:
-#      - id:
-#          sign: eq
-#      - status:
-#          sign: any
-#          form_kind: checkbox
-#    list:
-#      fields:
-#        - id
-#        - customer
-#        - status
-#      default_order:
-#        field: id
-#        kind: desc
-#    csv:
-#      # If fields is empty, all fields are covered. (The show view is the same)
-#      fields:
-#  # show view settings
-#  show:
-#    fields:
-#      - id
-#      - customer
-#      - order_details:
-#          fields:
-#            - product
-#            - amount
-#  # form view settings
-#  form:
-#    fields:
-#      - status:
-#          kind: radio
-#      - customer:
-#          kind: association_search
-#      #Bulk registration of has_many
-#      - order_details:
-#          kind: association
-#          fields:
-#            - product
-#                kind: association_search
-#            - amount
-#  # Child screen search for related models
-#  association_search:
-#    conditions:
-#      - id:
-#          sign: eq
-#    list:
-#      fields:
-#        - id
-#        - title
+          kind: text_area

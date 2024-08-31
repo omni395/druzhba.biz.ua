@@ -1,0 +1,31 @@
+.list-group.mb-3
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= expense.class.human_attribute_name(:id)
+      .col-md-9
+        = expense.id
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= expense.class.human_attribute_name(:admin_user_id)
+      .col-md-9
+        = link_to expense.admin_user.name, admin_admin_user_path(expense.admin_user), data: { turbo_frame: 'modal_sub' } if expense.admin_user
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= expense.class.human_attribute_name(:description)
+      .col-md-9
+        = expense.description
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= expense.class.human_attribute_name(:amount)
+      .col-md-9
+        = expense.amount
+  .list-group-item
+    .row
+      .col-md-3
+        .text-muted.fw-bold= expense.class.human_attribute_name(:order_id)
+      .col-md-9
+        = expense.order_id

@@ -6,15 +6,21 @@ DoubleEntry.configure do |config|
 
   config.define_accounts do |accounts|
     accounts.define(identifier: :cash)
-    accounts.define(identifier: :expense, scope_identifier: :expense_category)
-    accounts.define(identifier: :customer, scope_identifier: :customer)
-    accounts.define(identifier: :salary, scope_identifier: :admin_user)
+    accounts.define(identifier: :revenue)
+    accounts.define(identifier: :expense, scope_identifier: ->(expense_category_id) { expense_category_id })
+    accounts.define(identifier: :salary, scope_identifier: ->(user_id) { user_id })
+    accounts.define(identifier: :accounts_receivable, scope_identifier: ->(order_id) { order_id })
   end
 
   config.define_transfers do |transfers|
-    transfers.define(from: :customer, to: :cash, code: :order_payment)
-    transfers.define(from: :cash, to: :expense, code: :expense)
+    transfers.define(from: :cash, to: :expense, code: :expense_payment)
+    transfers.define(from: :expense, to: :cash, code: :expense_refund)
+
     transfers.define(from: :cash, to: :salary, code: :manager_salary)
+    transfers.define(from: :cash, to: :revenue, code: :order_payment)
+    transfers.define(from: :accounts_receivable, to: :cash, code: :receivable_payment)
+    transfers.define(from: :accounts_receivable, to: :revenue, code: :order_cancellation)
+    transfers.define(from: :salary, to: :cash, code: :salary_refund)
   end
 
   # config.define_accounts do |accounts|

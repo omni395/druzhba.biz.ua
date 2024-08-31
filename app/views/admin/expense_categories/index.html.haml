@@ -1,0 +1,47 @@
+%nav.navbar.navbar-light
+  .container-fluid
+    %ol.breadcrumb
+      %li.breadcrumb-item.active Категорія доходів (витрат)
+    .ms-auto
+      = link_to t('infold.operation.new'), new_admin_expense_category_path, class: 'btn btn-warning', data: { turbo_frame: "modal_main" }
+#index_page.d-md-flex{ data: { controller: 'index-page', index_page_target: 'wrapper' } }
+  #conditions.bg-white.container-fluid.border-end.pe-3.py-3
+    = form_with model: @search, url: admin_expense_categories_path, method: :get, scope: 'search',
+      data: { index_page_target: 'searchForm' } do |form|
+      = form.hidden_field :sort_field, data: { index_page_target: 'sortField' }
+      = form.hidden_field :sort_kind, data: { index_page_target: 'sortKind' }
+      .mb-3
+        = render Admin::FieldsetComponent.new(form, :title_full_like, :text, alignment: false, 
+          label: Admin::ExpenseCategory.human_attribute_name(:title), placeholder: 'like %...%')
+      .mb-3
+        = render Admin::FieldsetComponent.new(form, :flow_any, :checkbox, alignment: false, 
+          label: Admin::ExpenseCategory.human_attribute_name(:flow), list: Admin::ExpenseCategory.flows_i18n, checked_values: form.object.flow_any)
+      %hr.my-3
+      .row.gx-2
+        .col-6.order-2.d-grid
+          = form.submit t('infold.operation.search'), class: 'btn btn-primary'
+        .col-6.d-grid
+          = link_to t('infold.operation.clear'), admin_expense_categories_path, class: 'btn btn-secondary'
+  #result.flex-fill.container-fluid.ps-3.py-3{ data: { index_page_target: 'resultArea' } }
+    - if @expense_categories.blank?
+      .alert#no_data= t('infold.no_data')
+    .card.border-top-0
+      .table_wrapper.table-responsive.bg-secondary-lt{ data: { index_page_target: 'resultTableWrapper' } }
+        %table.table.table-hover.table-striped.mb-0.bg-white
+          %thead{ data: { index_page_target: 'thead' } }
+            %tr
+              %th.icon_cell
+              %th= render Admin::SortableComponent.new(@search, :id, label: Admin::ExpenseCategory.human_attribute_name(:id))
+              %th= render Admin::SortableComponent.new(@search, :title, label: Admin::ExpenseCategory.human_attribute_name(:title))
+              %th= render Admin::SortableComponent.new(@search, :description, label: Admin::ExpenseCategory.human_attribute_name(:description))
+              %th= render Admin::SortableComponent.new(@search, :flow, label: Admin::ExpenseCategory.human_attribute_name(:flow))
+              %th.icon_cell
+          %tbody#expense_categories
+            = render partial: "index_row", collection: @expense_categories, as: 'expense_category'
+      - if @expense_categories.present?
+        .card-body.d-md-flex.align-items-center.justify-content-between
+          .mb-3.mb-md-0
+            = admin_search_result_count(@expense_categories)
+          .mb-3.mb-md-0
+            = paginate(@expense_categories, views_prefix: "admin")
+          = link_to t('infold.operation.output_csv'), '#', class: 'btn btn-info', data: { action: 'index-page#outputCsv' }
