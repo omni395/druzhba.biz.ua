@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 module Admin
-  class MoneyFlowSearchForm < BaseSearchForm
+  class ExpenseSearchForm < BaseSearchForm
     set_condition :admin_user_id_eq,
-                  :money_flow_category_eq
+                  :expense_category_eq
 
     def perform(page = nil, limit: nil, csv: false)
-      records = MoneyFlow.includes(:admin_user).distinct
+      records = Expense.includes(:admin_user).distinct
       records = apply_conditions(records, page, limit, csv)
       @sort_field ||= :id
       @sort_kind  ||= :desc
-      apply_sort(records, MoneyFlow.primary_key)
+      apply_sort(records, Expense.primary_key)
     end
 
     def admin_user_name

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateMoneyFlowCategories < ActiveRecord::Migration[7.1]
+class CreateExpenseCategories < ActiveRecord::Migration[7.1]
   def change
-    create_table :money_flow_categories do |t|
+    create_table :expense_categories do |t|
       t.string :title
       t.string :description
       t.integer :flow

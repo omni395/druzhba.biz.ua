@@ -4,23 +4,23 @@
 .card.mb-3{ data: {controller: 'nested-form'} }
   .card-header
     %div
-      %h4.text-muted.mb-0= Admin::MoneyFlowDetail.model_name.human
-      = render Admin::InvalidMessageComponent.new(form, :money_flow_details)
+      %h4.text-muted.mb-0= Admin::ExpenseDetail.model_name.human
+      = render Admin::InvalidMessageComponent.new(form, :expense_details)
     %template{ data: { nested_form_target: 'template' } }
-      = form.fields_for :money_flow_details, Admin::MoneyFlowDetail.new, child_index: 'NEW_RECORD' do |nested_form|
-        = render 'form_money_flow_detail', form: nested_form
+      = form.fields_for :expense_details, Admin::ExpenseDetail.new, child_index: 'NEW_RECORD' do |nested_form|
+        = render 'form_expense_detail', form: nested_form
   .table-responsive
     %table.table.nested_form_table.card-table
       %thead
         %tr
           %th.required
-            = Admin::MoneyFlowDetail.human_attribute_name(:money_flow_category_id)
+            = Admin::ExpenseDetail.human_attribute_name(:expense_category_id)
           %th
-            = Admin::MoneyFlowDetail.human_attribute_name(:amount)
+            = Admin::ExpenseDetail.human_attribute_name(:amount)
           %th.icon_sell
       %tbody{ data: { nested_form_target: 'links' } }
-        = form.fields_for :money_flow_details do |nested_form|
-          = render 'form_money_flow_detail', form: nested_form
+        = form.fields_for :expense_details do |nested_form|
+          = render 'form_expense_detail', form: nested_form
   .card-body.text-end.py-2
     = link_to t('infold.operation.add'), '#', class: 'btn btn-info', data: { action: 'nested-form#add_association' }
 .list-group.mb-3

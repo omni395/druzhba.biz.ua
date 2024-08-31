@@ -1,15 +1,15 @@
-%tr{ id: dom_id(money_flow) }
+%tr{ id: dom_id(expense) }
   %td.icon_cell
-    = link_to admin_money_flow_path(money_flow), class: 'd-block', data: { turbo_frame: 'modal_main' } do
+    = link_to admin_expense_path(expense), class: 'd-block', data: { turbo_frame: 'modal_main' } do
       %i.bi.bi-file-text.h3
   %td
-    = money_flow.id
+    = expense.id
   %td
-    = link_to money_flow.admin_user.name, admin_admin_user_path(money_flow.admin_user), data: { turbo_frame: 'modal_sub' } if money_flow.admin_user
+    = link_to expense.admin_user.name, admin_admin_user_path(expense.admin_user), data: { turbo_frame: 'modal_sub' } if expense.admin_user
   %td
-    = money_flow.description
+    = expense.description
   %td
-    = money_flow.total_amount
+    = expense.total_amount
   %td.icon_cell
-    = link_to edit_admin_money_flow_path(money_flow), class: 'd-block', data: { turbo_frame: "modal_main" } do
+    = link_to edit_admin_expense_path(expense), class: 'd-block', data: { turbo_frame: "modal_main" } do
       %i.bi.bi-pencil-square.h3

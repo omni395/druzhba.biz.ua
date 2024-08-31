@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class MoneyFlowDetailTest < ActiveSupport::TestCase
+class ExpenseDetailTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,16 +1,16 @@
-- if @money_flow_category.invalid?
+- if @expense_category.invalid?
   = turbo_stream.update "form_body" do
-    = fields_for @money_flow_category do |form|
+    = fields_for @expense_category do |form|
       = render "form", form: form
 - else
   = turbo_stream.update "modal_main" do
     = render Admin::RemoteModalComponent.new do |modal|
-      = render 'show_wrapper', modal: modal, money_flow_category: @money_flow_category
+      = render 'show_wrapper', modal: modal, expense_category: @expense_category
   - if action_name == "create"
-    = turbo_stream.prepend "money_flow_categories" do
-      = render 'index_row', money_flow_category: @money_flow_category
+    = turbo_stream.prepend "expense_categories" do
+      = render 'index_row', expense_category: @expense_category
     = turbo_stream.remove "no_data"
   - else
-    = turbo_stream.replace @money_flow_category do
-      = render 'index_row', money_flow_category: @money_flow_category
+    = turbo_stream.replace @expense_category do
+      = render 'index_row', expense_category: @expense_category
 = admin_turbo_stream_flash

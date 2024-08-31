@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
-  module MoneyFlowDetailDecorator
+  module ExpenseDetailDecorator
     def created_at_display
       created_at ? I18n.l(created_at) : ''
     end

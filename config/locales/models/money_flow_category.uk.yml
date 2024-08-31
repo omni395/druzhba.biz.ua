@@ -1,7 +1,7 @@
 uk:
   activerecord:
     attributes:
-      money_flow_category:
+      expense_category:
         title: Назва
         description: Короткий опис
         flow: "Надходження / Витрата"
@@ -9,7 +9,7 @@ uk:
         updated_at_field: Оновлено
   enums:
     admin:
-      money_flow_category:
+      expense_category:
         flow:
           income: Надходження
           outcome: Витрата

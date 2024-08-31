@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
-  module MoneyFlowCategoryDecorator
+  module ExpenseCategoryDecorator
     def flow_color
       case flow.to_s
       when 'income' then 'lime'

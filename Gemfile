@@ -127,3 +127,4 @@ gem 'canonical-rails'
 # gem "gdpr"
 
 # Accounting
+gem 'double_entry'

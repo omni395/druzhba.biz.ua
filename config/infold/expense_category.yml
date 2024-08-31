@@ -7,7 +7,7 @@ model:
     flow:
       - presence
   association:
-    money_flow_details:
+    expense_details:
       kind: has_many
       dependent: destroy
   enum:

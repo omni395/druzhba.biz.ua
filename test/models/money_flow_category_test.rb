@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class MoneyFlowCategoryTest < ActiveSupport::TestCase
+class ExpenseCategoryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

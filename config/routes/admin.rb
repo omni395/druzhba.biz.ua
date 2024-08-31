@@ -10,8 +10,8 @@ devise_scope :admin_user do
 end
 
 namespace 'admin' do
-  resources :money_flow_categories
-  resources :money_flows
+  resources :expense_categories
+  resources :expenses
   resources :articles
   resources :orders
   resources :services

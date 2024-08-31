@@ -9,14 +9,14 @@ model:
     admin_user:
       kind: belongs_to
       name_field: name
-    money_flow_details:
+    expense_details:
       kind: has_many
       dependent: destroy
       model: # Associated models (order_details) can also be set
         validate:
-          money_flow_category: presence
+          expense_category: presence
         association: # Further associations to order_details (product)
-          money_flow_category:
+          expense_category:
             kind: belongs_to
             name_field: title
 
@@ -27,7 +27,7 @@ app:
       - admin_user_id:
           sign: eq
           form_kind: association_search
-      - money_flow_category:
+      - expense_category:
           sign: eq
           form_kind: association_search
     list:
@@ -46,20 +46,20 @@ app:
       - description
       - total_amount
       - order_id
-      - money_flow_details:
+      - expense_details:
           kind: association
           fields:
-            - money_flow_category
+            - expense_category
             - amount
 
   form:
     fields:
       - admin_user:
           kind: association_search
-      - money_flow_details:
+      - expense_details:
           kind: association
           fields:
-            - money_flow_category:
+            - expense_category:
                 kind: association_search
             - amount
       - title

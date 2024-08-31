@@ -1,15 +1,15 @@
-%tr{ id: dom_id(money_flow_category) }
+%tr{ id: dom_id(expense_category) }
   %td.icon_cell
-    = link_to admin_money_flow_category_path(money_flow_category), class: 'd-block', data: { turbo_frame: 'modal_main' } do
+    = link_to admin_expense_category_path(expense_category), class: 'd-block', data: { turbo_frame: 'modal_main' } do
       %i.bi.bi-file-text.h3
   %td
-    = money_flow_category.id
+    = expense_category.id
   %td
-    = money_flow_category.title
+    = expense_category.title
   %td
-    = money_flow_category.description
+    = expense_category.description
   %td
-    = render Admin::BadgeComponent.new(money_flow_category.flow_i18n, money_flow_category.flow_color)
+    = render Admin::BadgeComponent.new(expense_category.flow_i18n, expense_category.flow_color)
   %td.icon_cell
-    = link_to edit_admin_money_flow_category_path(money_flow_category), class: 'd-block', data: { turbo_frame: "modal_main" } do
+    = link_to edit_admin_expense_category_path(expense_category), class: 'd-block', data: { turbo_frame: "modal_main" } do
       %i.bi.bi-pencil-square.h3

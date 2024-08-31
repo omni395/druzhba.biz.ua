@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateMoneyFlows < ActiveRecord::Migration[7.1]
+class CreateExpenses < ActiveRecord::Migration[7.1]
   def change
-    create_table :money_flows do |t|
+    create_table :expenses do |t|
       t.string :title
       t.string :description
       t.float :amount
