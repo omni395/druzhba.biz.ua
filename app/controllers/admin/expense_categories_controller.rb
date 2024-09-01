@@ -59,16 +59,14 @@ module Admin
       params[:search]&.permit(
         :title_full_like,
         :sort_field,
-        :sort_kind,
-        flow_any: []
+        :sort_kind
       )
     end
 
     def post_params
       params.require(:admin_expense_category).permit(
         :title,
-        :description,
-        :flow
+        :description
       )
     end
   end

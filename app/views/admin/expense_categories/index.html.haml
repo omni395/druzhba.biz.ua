@@ -13,9 +13,6 @@
       .mb-3
         = render Admin::FieldsetComponent.new(form, :title_full_like, :text, alignment: false, 
           label: Admin::ExpenseCategory.human_attribute_name(:title), placeholder: 'like %...%')
-      .mb-3
-        = render Admin::FieldsetComponent.new(form, :flow_any, :checkbox, alignment: false, 
-          label: Admin::ExpenseCategory.human_attribute_name(:flow), list: Admin::ExpenseCategory.flows_i18n, checked_values: form.object.flow_any)
       %hr.my-3
       .row.gx-2
         .col-6.order-2.d-grid
@@ -34,7 +31,6 @@
               %th= render Admin::SortableComponent.new(@search, :id, label: Admin::ExpenseCategory.human_attribute_name(:id))
               %th= render Admin::SortableComponent.new(@search, :title, label: Admin::ExpenseCategory.human_attribute_name(:title))
               %th= render Admin::SortableComponent.new(@search, :description, label: Admin::ExpenseCategory.human_attribute_name(:description))
-              %th= render Admin::SortableComponent.new(@search, :flow, label: Admin::ExpenseCategory.human_attribute_name(:flow))
               %th.icon_cell
           %tbody#expense_categories
             = render partial: "index_row", collection: @expense_categories, as: 'expense_category'

@@ -11,9 +11,3 @@
         .text-muted.fw-bold= expense_category.class.human_attribute_name(:description)
       .col-md-9
         = expense_category.description
-  .list-group-item
-    .row
-      .col-md-3
-        .text-muted.fw-bold= expense_category.class.human_attribute_name(:flow)
-      .col-md-9
-        = render Admin::BadgeComponent.new(expense_category.flow_i18n, expense_category.flow_color)

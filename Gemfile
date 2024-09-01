@@ -128,3 +128,6 @@ gem 'canonical-rails'
 
 # Accounting
 gem 'double_entry'
+
+# search
+gem 'ransack'

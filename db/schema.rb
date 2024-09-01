@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_31_183934) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_01_091427) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -130,7 +130,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_31_183934) do
   create_table "expense_categories", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.integer "flow"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "mandatory", default: false

@@ -9,7 +9,7 @@
             %div{class: "col-12"}
               = form.label :name, 'Імʼя', class: 'form-label'
               = form.text_field :name, class: 'form-control'
-            - if current_admin_user.has_role?(0)
+            - if current_admin_user.admin?
               %div{class: "col-12"}
                 = form.label :role, 'Роль', class: 'form-label'
                 = form.select :role, [["Admin", 0], ["Manager", 1]], {}, {class: "form-select form-select"}

@@ -23,4 +23,4 @@
         .text-muted.fw-bold Заработано
       .col-md-9
         -#= Order.where(admin_user: admin_user.id).where(created_at: Date.today.at_beginning_of_month..Date.tomorrow).pluck(:price).sum
-        = admin_user.month_salary(admin_user)
+        -#= admin_user.month_salary(admin_user)

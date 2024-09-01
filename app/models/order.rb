@@ -14,41 +14,8 @@ class Order < ApplicationRecord
   after_commit :create_double_entry_transaction, on: :create
   after_commit :update_double_entry_transaction, on: :update, if: :saved_change_to_status?
   after_commit :remove_double_entry_transaction, on: :destroy
-  after_commit :create_associated_expense, on: :create
-  after_commit :update_associated_expense, on: :update, if: :should_update_expense?
-  after_commit :process_order_deletion, on: :destroy
 
   private
-
-  def create_associated_expense
-    expense_category = ExpenseCategory.find_or_create_by(title: 'Надходження від замовлення')
-    
-    Expense.create!(
-      admin_user: AdminUser.find_by(id: 1),
-      expense_category: expense_category,
-      order: self,
-      amount: price,
-      description: "Замовлення № #{id}"
-    )
-  end
-
-  def update_associated_expense
-    expense.update!(
-      amount: price,
-      description: "Revenue from Order ##{id} (Updated)"
-    )
-  end
-
-  def should_update_expense?
-    saved_change_to_price? || saved_change_to_status?
-  end
-
-  def process_order_deletion
-    # Existing logic for double entry transactions...
-
-    # Delete associated expense
-    expense.destroy if expense
-  end
 
   def create_double_entry_transaction
     DoubleEntry.lock_accounts(

@@ -1,13 +1,5 @@
 module Admin
   module ExpenseCategoryDecorator
-    def flow_color
-      case flow.to_s
-      when 'income' then 'lime'
-      when 'outcome' then 'red'
-      else ''
-      end
-    end
-
     def created_at_display
       created_at ? I18n.l(created_at) : ''
     end

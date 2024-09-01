@@ -16,7 +16,20 @@ class AdminUser < ApplicationRecord
     role == 1
   end
 
-  def month_salary(user)
-    Order.where(admin_user: user).where(updated_at: Date.today.at_beginning_of_month..Date.tomorrow).pluck(:price).sum
+  @skip = false
+
+  def skip_notifications!()
+    skip_confirmation_notification!
+    @skip = true
+  end
+
+  def email_changed?
+    return false if @skip
+    super
+  end
+
+  def encrypted_password_changed?
+    return false if @skip
+    super
   end
 end

@@ -10,14 +10,6 @@ model:
     expense:
       kind: has_many
       dependent: destroy
-  enum:
-    flow:
-      income:
-        value: 0
-        color: lime
-      outcome:
-        value: 1
-        color: red
 #######
 app:
   title: Категорія доходів (витрат)
@@ -26,15 +18,11 @@ app:
       - title:
           sign: full_like
           form_kind: text
-      - flow:
-          sign: any
-          form_kind: checkbox
     list:
       fields:
         - id
         - title
         - description
-        - flow
       default_order:
         field: id
         kind: asc
@@ -42,10 +30,7 @@ app:
     fields:
       - title
       - description
-      - flow
   form:
     fields:
       - title
       - description
-      - flow:
-          kind: radio

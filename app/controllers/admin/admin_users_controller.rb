@@ -4,6 +4,8 @@ module Admin
   class AdminUsersController < BaseController
     before_action { @page_title = 'Користувач системи' }
 
+    # before_action :allow_without_password, only: [:update]
+
     def index
       @search = AdminUserSearchForm.new(search_params)
       @admin_users = @search.perform(params[:page], limit: params[:limit], csv: request.format == :csv)
@@ -73,6 +75,12 @@ module Admin
         :role,
         :password
       )
+    end
+
+    def allow_without_password
+      if params[:user][:password].blank?
+          params[:user].delete(:password)
+      end
     end
   end
 end

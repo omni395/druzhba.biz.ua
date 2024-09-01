@@ -1,8 +1,7 @@
 module Admin
   class ExpenseCategorySearchForm < BaseSearchForm
 
-    set_condition :title_full_like,
-                  :flow_any
+    set_condition :title_full_like
 
     def perform(page = nil, limit: nil, csv: false)
       records = ExpenseCategory.distinct
