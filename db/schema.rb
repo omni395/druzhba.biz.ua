@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_01_091427) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_31_055150) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -132,18 +132,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_01_091427) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "mandatory", default: false
   end
 
   create_table "expenses", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.float "amount"
-    t.integer "order_id"
     t.bigint "admin_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "expense_category_id"
     t.index ["admin_user_id"], name: "index_expenses_on_admin_user_id"
   end
 
@@ -166,16 +163,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_01_091427) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "mandatory_expenses", force: :cascade do |t|
-    t.bigint "expense_category_id", null: false
-    t.decimal "amount", precision: 10, scale: 2, null: false
-    t.date "effective_from", null: false
-    t.date "effective_to"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["expense_category_id"], name: "index_mandatory_expenses_on_expense_category_id"
   end
 
   create_table "mobility_string_translations", force: :cascade do |t|
@@ -223,10 +210,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_01_091427) do
     t.date "dead_date"
     t.time "dead_time"
     t.string "description"
-    t.bigint "expense_id"
     t.index ["admin_user_id"], name: "index_orders_on_admin_user_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
-    t.index ["expense_id"], name: "index_orders_on_expense_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -245,10 +230,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_01_091427) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "services"
   add_foreign_key "expenses", "admin_users"
-  add_foreign_key "mandatory_expenses", "expense_categories"
   add_foreign_key "order_details", "orders"
   add_foreign_key "order_details", "services"
   add_foreign_key "orders", "admin_users"
   add_foreign_key "orders", "customers"
-  add_foreign_key "orders", "expenses"
 end
