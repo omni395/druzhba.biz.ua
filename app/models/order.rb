@@ -8,10 +8,10 @@ class Order < ApplicationRecord
 
   has_many :order_details, class_name: 'order_details', foreign_key: 'reference_id'
 
-  scope :order_paid, -> { where(paid: paid) }
+  scope :order_paid, -> { where(paid: 'inpaid') }
 
   after_commit :create_double_entry_transaction, on: :create
-  after_commit :update_double_entry_transaction, on: :update #, if: :saved_change_to_paid?
+  after_commit :update_double_entry_transaction, on: :update
   after_commit :remove_double_entry_transaction, on: :destroy
 
   private
@@ -24,12 +24,9 @@ class Order < ApplicationRecord
       DoubleEntry.account(:salary, scope: admin_user_id)
     ) do
       if paid == 'inpaid'
-        perform_order_paid_transaction(:order_payment)
-        if admin_user.role == 'manager'
-          perform_manager_salary_transaction(:salary_payment)
-        end
+        perform_paid_order_transaction
       else
-        perform_order_unpaid_transaction(:order_unpaid)
+        perform_unpaid_order_transaction
       end
     end
   end
@@ -39,20 +36,18 @@ class Order < ApplicationRecord
       DoubleEntry.account(:cash),
       DoubleEntry.account(:external),
       DoubleEntry.account(:accounts_receivable, scope: id),
-      DoubleEntry.account(:salary, scope: admin_user_id)
+      DoubleEntry.account(:salary, scope: admin_user_id),
+      DoubleEntry.account(:salary, scope: admin_user_id_was)
     ) do
-      #remove_double_entry_transaction
-      if paid == 'inpaid'
-        perform_update_order_transaction(:order_to_paid)
-        if admin_user.role_was == 'admin'
-          perform_manager_salary_transaction(:salary_payment, reverse: true)
-        end
-      else
-        perform_update_order_transaction(:order_to_unpaid, reverse: true)
+      if paid_changed?
+        update_paid_status
+      end
+      if admin_user_id_changed?
+        update_admin_user
       end
     end
   end
- 
+
   def remove_double_entry_transaction
     DoubleEntry.lock_accounts(
       DoubleEntry.account(:cash),
@@ -61,74 +56,77 @@ class Order < ApplicationRecord
       DoubleEntry.account(:salary, scope: admin_user_id)
     ) do
       if paid == 'inpaid'
-        perform_order_paid_transaction(:order_refund, reverse: true)
-        if admin_user.role == 'manager'
-          perform_manager_salary_transaction(:salary_refund, reverse: true)
-        end
+        perform_paid_order_transaction(reverse: true)
       else
-        perform_order_unpaid_transaction(:order_remove, reverse: true)
+        perform_unpaid_order_transaction(reverse: true)
       end
     end
   end
 
-  def perform_manager_salary_transaction(code, reverse: false)
-    from_account, to_account = reverse ? 
-      [DoubleEntry.account(:salary, scope: admin_user_id), DoubleEntry.account(:cash)] :
-      [DoubleEntry.account(:cash), DoubleEntry.account(:salary, scope: admin_user_id)]
-
-    price = reverse ? (self.price_was || self.price) : self.price
-    salary = price * 0.5
-
-    DoubleEntry.transfer(
-      Money.new(salary * 100),
-      from: from_account,
-      to: to_account,
-      code: code
-    )
-  end
-
-  def perform_order_paid_transaction(code, reverse: false)
+  def perform_paid_order_transaction(reverse: false)
+    total_amount = Money.new(price * 100)
+    
     from_account, to_account = reverse ?
       [DoubleEntry.account(:cash), DoubleEntry.account(:external)] :
       [DoubleEntry.account(:external), DoubleEntry.account(:cash)]
 
-    price = reverse ? (self.price_was || self.price) : self.price
+    if admin_user.role == 'manager'
+      salary_amount = total_amount * 0.5
+      cash_amount = total_amount - salary_amount
 
-    DoubleEntry.transfer(
-      Money.new(price * 100),
-      from: from_account,
-      to: to_account,
-      code: code
-    )
+      DoubleEntry.transfer(
+        salary_amount,
+        from: from_account,
+        to: DoubleEntry.account(:salary, scope: admin_user_id),
+        code: reverse ? :salary_refund : :salary_payment
+      )
+
+      DoubleEntry.transfer(
+        cash_amount,
+        from: from_account,
+        to: to_account,
+        code: reverse ? :order_refund : :order_payment
+      )
+    else
+      DoubleEntry.transfer(
+        total_amount,
+        from: from_account,
+        to: to_account,
+        code: reverse ? :order_refund : :order_payment
+      )
+    end
   end
 
-  def perform_order_unpaid_transaction(code, reverse: false)
+  def perform_unpaid_order_transaction(reverse: false)
     from_account, to_account = reverse ? 
       [DoubleEntry.account(:accounts_receivable, scope: id), DoubleEntry.account(:external)] :
       [DoubleEntry.account(:external), DoubleEntry.account(:accounts_receivable, scope: id)]
 
-    price = reverse ? (self.price_was || self.price) : self.price
-
     DoubleEntry.transfer(
       Money.new(price * 100),
       from: from_account,
       to: to_account,
-      code: code
+      code: reverse ? :order_remove : :order_unpaid
     )
   end
 
-  def perform_update_order_transaction(code, reverse: false)
-    from_account, to_account = reverse ? 
-    [DoubleEntry.account(:cash), DoubleEntry.account(:accounts_receivable, scope: id)] :
-    [DoubleEntry.account(:accounts_receivable, scope: id), DoubleEntry.account(:cash)]
+  def update_paid_status
+    if paid == 'inpaid'
+      perform_unpaid_order_transaction(reverse: true)
+      perform_paid_order_transaction
+    else
+      perform_paid_order_transaction(reverse: true)
+      perform_unpaid_order_transaction
+    end
+  end
 
-    price = reverse ? (self.price_was || self.price) : self.price
+  def update_admin_user
+    old_admin_user = AdminUser.find(admin_user_id_was)
+    new_admin_user = admin_user
 
-    DoubleEntry.transfer(
-      Money.new(price * 100),
-      from: from_account,
-      to: to_account,
-      code: code
-    )
+    if paid == 'inpaid'
+      perform_paid_order_transaction(reverse: true)
+      perform_paid_order_transaction
+    end
   end
 end
