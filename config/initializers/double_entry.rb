@@ -19,16 +19,21 @@ DoubleEntry.configure do |config|
     transfers.define(from: :cash, to: :salary, code: :salary_payment)
     transfers.define(from: :salary, to: :cash, code: :salary_refund)
 
-    # Заказ. Оплаченый. Отмена (удаление) оплаченного заказа.
+    # Заказ. Оплаченный.
     transfers.define(from: :external, to: :cash, code: :order_payment)
-    transfers.define(from: :cash, to: :external, code: :order_refund)
-
-    # Заказ. Неоплаченый. Отмена (удаление) неоплаченного заказа.
+    
+    # Заказ. Неоплаченный.
     transfers.define(from: :external, to: :accounts_receivable, code: :order_unpaid)
-    transfers.define(from: :accounts_receivable, to: :external, code: :order_remove)
 
-    # Смена неоплаченного заказа на оплаченый и наоборот
+    # Смена статуса заказа
     transfers.define(from: :cash, to: :accounts_receivable, code: :order_to_unpaid)
     transfers.define(from: :accounts_receivable, to: :cash, code: :order_to_paid)
+
+    # Удаление заказа (возврат средств на external)
+    transfers.define(from: :cash, to: :external, code: :order_refund)
+    transfers.define(from: :accounts_receivable, to: :external, code: :order_remove)
+
+    # Оставшаяся сумма для менеджера (после вычета зарплаты)
+    transfers.define(from: :external, to: :cash, code: :remaining_payment)
   end
 end
