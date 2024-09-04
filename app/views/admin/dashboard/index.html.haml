@@ -19,33 +19,30 @@
   = label_tag :end_date, "Конечная дата:"
   = date_field_tag :end_date, @end_date
   = submit_tag "Применить"
-
+ 
 %h2 Движение денежных средств
-= line_chart @cash_flow, xtitle: "Дата", ytitle: "Сумма (USD)", colors: ["#4CAF50"]
-
-%h2 Доходы и расходы
-= line_chart [{name: "Доходы", data: @revenue}, {name: "Расходы", data: @expenses.map { |k, v| [k, -v] }}], xtitle: "Дата", ytitle: "Сумма (USD)"
+= line_chart @cash_flow, xtitle: "Дата", ytitle: "Сумма (UAH)", colors: ["#4CAF50"], decimal: ",", precision: 3, thousands: " "
 
 %h2 Топ-5 категорий расходов
 = pie_chart @top_expense_categories
 
 %h2 Дебиторская задолженность
-= area_chart @accounts_receivable, xtitle: "Дата", ytitle: "Сумма (USD)", colors: ["#2196F3"]
+= area_chart @accounts_receivable, xtitle: "Дата", ytitle: "Сумма (UAH)", colors: ["#2196F3"]
 
 %h2 Сводка
 %table
   %tr
     %th Показатель
-    %th Сумма (USD)
+    %th Сумма (UAH)
   %tr
     %td Общий доход
-    %td= number_to_currency(@revenue.values.sum / 100.0)
+    %td= number_to_currency(@cash_flow.values.sum)
   %tr
     %td Общие расходы
-    %td= number_to_currency(@expenses.values.sum / 100.0)
+    %td= number_to_currency(@expenses.values.sum)
   %tr
     %td Чистый денежный поток
-    %td= number_to_currency((@revenue.values.sum - @expenses.values.sum) / 100.0)
+    %td= number_to_currency((@cash_flow.values.sum - @expenses.values.sum))
   %tr
     %td Текущая дебиторская задолженность
-    %td= number_to_currency(@accounts_receivable.values.sum / 100.0)
+    %td= number_to_currency(@accounts_receivable.values.sum)

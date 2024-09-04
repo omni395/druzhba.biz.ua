@@ -3,13 +3,11 @@
 class Expense < ApplicationRecord
   belongs_to :admin_user
   belongs_to :expense_category
-  belongs_to :order, optional: true
 
-  validates :order_id, allow_blank: true, numericality: { allow_nil: true }
   validates :amount, presence: true, numericality: { greater_than: 0 }
-  
+
   after_commit :create_double_entry_transaction, on: :create
-  after_commit :update_double_entry_transaction, on: :update, if: :saved_change_to_status?
+  after_commit :update_double_entry_transaction, on: :update # , if: :saved_change_to_amount? || :saved_change_to_expense_category_id?
   after_commit :destroy_double_entry_transaction, on: :destroy
 
   private
@@ -19,9 +17,7 @@ class Expense < ApplicationRecord
   end
 
   def update_double_entry_transaction
-    return unless amount_changed? || expense_category_id_changed?
-    
-    refund_double_entry_transaction
+    destroy_double_entry_transaction
     perform_double_entry_transaction(:expense_payment)
   end
 
@@ -30,20 +26,21 @@ class Expense < ApplicationRecord
   end
 
   def perform_double_entry_transaction(code, reverse: false)
-    from_account, to_account = reverse ? 
-      [DoubleEntry.account(:expense, scope: expense_category_id_was || expense_category_id), DoubleEntry.account(:cash)] :
-      [DoubleEntry.account(:cash), DoubleEntry.account(:expense, scope: expense_category_id)]
+    from_account, to_account = reverse ?
+      [DoubleEntry.account(:expense, scope: expense_category_id_was || expense_category_id),
+      DoubleEntry.account(:cash)] :
+      [DoubleEntry.account(:cash),
+      DoubleEntry.account(:expense, scope: expense_category_id)]
 
-    amount_cents = reverse ? (amount_was || amount) * 100 : amount * 100
+    amount = reverse ? (self.amount_was || self.amount) * 100 : self.amount * 100
 
     DoubleEntry.lock_accounts(DoubleEntry.account(:cash), DoubleEntry.account(:expense, scope: expense_category_id)) do
       DoubleEntry.transfer(
-        Money.new(amount_cents, 'USD'),
+        Money.new(amount),
         from: from_account,
         to: to_account,
-        code: code
+        code:
       )
     end
   end
-
 end

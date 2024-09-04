@@ -14,7 +14,7 @@ module Admin
 
     validates :status, presence: true
     validates :paid, presence: true
-    validates :price, presence: true
+    validates :price, presence: true, numericality: { greater_than: 0 }
     validates :dead_date, presence: true
     validates :dead_time, presence: true
 

@@ -78,9 +78,9 @@ module Admin
     end
 
     def allow_without_password
-      if params[:user][:password].blank?
-          params[:user].delete(:password)
-      end
+      return unless params[:user][:password].blank?
+
+      params[:user].delete(:password)
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   module ExpenseCategoryDecorator
     def created_at_display
@@ -7,6 +9,5 @@ module Admin
     def updated_at_display
       updated_at ? I18n.l(updated_at) : ''
     end
-
   end
 end

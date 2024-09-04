@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module Admin
   class ExpenseCategorySearchForm < BaseSearchForm
-
-    set_condition :title_full_like
+    set_condition :id_eq
 
     def perform(page = nil, limit: nil, csv: false)
       records = ExpenseCategory.distinct

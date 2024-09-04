@@ -12,7 +12,7 @@ model:
       dependent: destroy
 #######
 app:
-  title: Категорія доходів (витрат)
+  title: Категорія витрат
   index:
     conditions:
       - title:

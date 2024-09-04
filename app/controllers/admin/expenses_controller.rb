@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class ExpensesController < BaseController
     before_action { @page_title = 'Надходження (витрати)' }

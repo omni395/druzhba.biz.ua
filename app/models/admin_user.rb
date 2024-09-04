@@ -9,7 +9,7 @@ class AdminUser < ApplicationRecord
   has_many :orders
 
   def admin?
-    role == 0
+    role.zero?
   end
 
   def manager?
@@ -18,18 +18,20 @@ class AdminUser < ApplicationRecord
 
   @skip = false
 
-  def skip_notifications!()
+  def skip_notifications!
     skip_confirmation_notification!
     @skip = true
   end
 
   def email_changed?
     return false if @skip
+
     super
   end
 
   def encrypted_password_changed?
     return false if @skip
+
     super
   end
 end

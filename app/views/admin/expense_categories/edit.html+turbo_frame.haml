@@ -3,7 +3,7 @@
     = render Admin::RemoteModalComponent.new(backdrop: :static) do |modal|
       = modal.with_header do
         %ol.breadcrumb.text-dark
-          %li.breadcrumb-item Категорія доходів (витрат)
+          %li.breadcrumb-item Категорія витрат
           %li.breadcrumb-item.active= "#{t('infold.operation.edit')} ##{@expense_category.id}"
       = modal.with_body do
         .modal-body#form_body

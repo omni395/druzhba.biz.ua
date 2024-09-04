@@ -2,9 +2,6 @@ model:
   validate:
     title:
       - presence
-    order_id:
-      - numericality:
-          allow_nil: true
   association:
     admin_user:
       kind: belongs_to
@@ -38,7 +35,6 @@ app:
       - admin_user
       - description
       - amount
-      - order_id
 
   form:
     fields:

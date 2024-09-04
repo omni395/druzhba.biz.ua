@@ -3,8 +3,8 @@ uk:
     attributes:
       expense:
         admin_user_id: Користувач
-        expense_detail_id: Категорія надходжень / витрат
-        expense_category_id: Категорія надходжень / витрат
+        expense_detail_id: Категорія витрат
+        expense_category_id: Категорія витрат
         title: Назва
         description: Короткий опис
         amount: Сума

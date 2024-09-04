@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Admin
   class ExpenseSearchForm < BaseSearchForm
-
     set_condition :admin_user_id_eq,
                   :expense_category_id_eq
 

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 namespace :mandatory_expenses do
-  desc "Create mandatory expenses for the current month"
+  desc 'Create mandatory expenses for the current month'
   task create_for_month: :environment do
     MandatoryExpense.current.each do |mandatory_expense|
       Expense.create!(

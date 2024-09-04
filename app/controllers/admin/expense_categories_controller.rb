@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module Admin
   class ExpenseCategoriesController < BaseController
-    before_action { @page_title = 'Категорія доходів (витрат)' }
+    before_action { @page_title = 'Категорія витрат' }
 
     def index
       @search = ExpenseCategorySearchForm.new(search_params)
@@ -57,7 +59,7 @@ module Admin
 
     def search_params
       params[:search]&.permit(
-        :title_full_like,
+        :id_eq,
         :sort_field,
         :sort_kind
       )
