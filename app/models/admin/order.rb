@@ -18,9 +18,6 @@ module Admin
     validates :dead_date, presence: true
     validates :dead_time, presence: true
 
-    enum status: { new: 0, in_work: 1, done: 2, rejected: 3 }, _prefix: true
-    enum paid: { unpaid: 0, inpaid: 1 }, _prefix: true
-
     scope :customer_id_eq, lambda { |v|
       where(customer_id: v) if v.present?
     }

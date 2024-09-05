@@ -11,7 +11,7 @@ class Article < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :mobility
 
-  belongs_to :service
+  belongs_to :service, optional: true
   # has_rich_text :body
   has_one_attached :image
 

@@ -8,12 +8,14 @@ class AdminUser < ApplicationRecord
 
   has_many :orders
 
+  enum role: { admin: 0, manager: 1 }, _prefix: true
+
   def admin?
-    role.zero?
+    role == 'admin'
   end
 
   def manager?
-    role == 1
+    role == 'manager'
   end
 
   @skip = false

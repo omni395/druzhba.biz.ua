@@ -16,8 +16,6 @@ module Admin
     validates :remember_created_at_date, presence: true, if: -> { remember_created_at_time.present? }
     validates :remember_created_at_time, presence: true, if: -> { remember_created_at_date.present? }
 
-    enum role: { admin: 0, manager: 1 }, _prefix: true
-
     scope :email_eq, lambda { |v|
       where(email: v) if v.present?
     }

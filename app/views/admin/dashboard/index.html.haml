@@ -23,6 +23,9 @@
 %h2 Движение денежных средств
 = line_chart @cash_flow, xtitle: "Дата", ytitle: "Сумма (UAH)", colors: ["#4CAF50"], decimal: ",", precision: 3, thousands: " "
 
+%h2 Касса
+= line_chart @cash, xtitle: "Дата", ytitle: "Сумма (UAH)", colors: ["#4CAF50"], decimal: ",", precision: 3, thousands: " "
+
 %h2 Топ-5 категорий расходов
 = pie_chart @top_expense_categories
 
@@ -38,6 +41,9 @@
     %td Общий доход
     %td= number_to_currency(@cash_flow.values.sum)
   %tr
+    %td Касса
+    %td= number_to_currency(@cash.values.sum)
+  %tr
     %td Общие расходы
     %td= number_to_currency(@expenses.values.sum)
   %tr
@@ -46,3 +52,20 @@
   %tr
     %td Текущая дебиторская задолженность
     %td= number_to_currency(@accounts_receivable.values.sum)
+
+%table
+  %thead
+    %tr
+      %th User
+      %th Role
+      %th Total Salary
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.role
+        %td= number_to_currency(@salary_data[user.id].to_f)
+  %tfoot
+    %tr
+      %th{colspan: 2} Total
+      %td= number_to_currency(@salary_data.values.sum.to_f)
