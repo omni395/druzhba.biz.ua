@@ -19,9 +19,7 @@
         = customer.description
 .card.mb-3
   .card-header
-    %h4.text-muted.mb-0
-      -#= Admin::Order.model_name.human
-      Замовлення:
+    %h4.text-muted.mb-0= Admin::Order.model_name.human
   - if customer.orders.blank?
     .card-body
       .alert= t('infold.no_data')
@@ -30,18 +28,9 @@
       %table.table.table-hover.card-table
         %thead
           %tr
-            -#%th= Admin::Order.human_attribute_name(:updated_at_field)
-            %th Дата замовлення
-            %th Статус
-            %th Оплата
+            %th= Admin::Order.human_attribute_name(:updated_at_field)
         %tbody
           - customer.orders.each do |order|
             %tr
               %td
-                = link_to admin_order_path(order), class: 'd-block', data: { turbo_frame: 'modal_main' } do
-                  %i.bi.bi-file-text.h3
-                  = order.updated_at_field
-              %td
-                = render Admin::BadgeComponent.new(order.status_i18n, order.status_color)
-              %td
-                = render Admin::BadgeComponent.new(order.paid_i18n, order.paid_color)
+                = order.updated_at_field

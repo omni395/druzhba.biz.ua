@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Admin
   class CustomersController < BaseController
     before_action { @page_title = 'Замовники' }

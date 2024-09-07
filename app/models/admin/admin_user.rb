@@ -4,6 +4,8 @@ module Admin
   class AdminUser < ::AdminUser
     include DatetimeFieldConcern
 
+    has_many :orders
+
     datetime_field :reset_password_sent_at
     datetime_field :remember_created_at
 

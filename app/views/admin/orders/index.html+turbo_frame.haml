@@ -21,16 +21,16 @@
               %table.table.table-striped.table-hover
                 %thead
                   %tr
-                    %th= Admin::Order.human_attribute_name(:id)
                     %th= Admin::Order.human_attribute_name(:customer_id)
+                    %th= Admin::Order.human_attribute_name(:admin_user_id)
                     %th
                 %tbody
                   - @orders.each do |order|
                     %tr
                       %td
-                        = order.id
-                      %td
                         = link_to order.customer.name, admin_customer_path(order.customer), data: { turbo_frame: 'modal_sub' } if order.customer
+                      %td
+                        = link_to order.admin_user.name, admin_admin_user_path(order.admin_user), data: { turbo_frame: 'modal_sub' } if order.admin_user
                       %td.icon_cell
                         %a{ href: '#', data: { action: "relation-search#select remote-modal#close",
                           id: order.id, name: order.read_attribute(params[:name_field]) } }

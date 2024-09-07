@@ -1,8 +1,8 @@
 .list-group.mb-3
   .list-group-item
-    = render Admin::FieldsetComponent.new(form, :customer_id, :association_search, association_name: :customer_name, search_path: admin_customers_path(name_field: :name), name_field: :customer_name)
+    = render Admin::FieldsetComponent.new(form, :customer_name, :association_search, association_name: :customer, search_path: admin_customers_path(name_field: :name), name_field: :customer_name)
   .list-group-item
-    = render Admin::FieldsetComponent.new(form, :admin_user_id, :association_search, association_name: :admin_user_name, search_path: admin_admin_users_path(name_field: :name), name_field: :admin_user_name)
+    = render Admin::FieldsetComponent.new(form, :admin_user_name, :association_search, association_name: :admin_user, search_path: admin_admin_users_path(name_field: :name), name_field: :admin_user_name)
 .card.mb-3{ data: {controller: 'nested-form'} }
   .card-header
     %div
@@ -29,7 +29,7 @@
   .list-group-item
     = render Admin::FieldsetComponent.new(form, :description, :text)
   .list-group-item
-    = render Admin::FieldsetComponent.new(form, :dead_date, :date, required: true, datepicker: true)
+    = render Admin::FieldsetComponent.new(form, :dead_date, :date, required: true)
   .list-group-item
     = render Admin::FieldsetComponent.new(form, :dead_time, :time, required: true)
   .list-group-item

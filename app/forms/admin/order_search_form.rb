@@ -1,11 +1,10 @@
-# frozen_string_literal: true
-
 module Admin
   class OrderSearchForm < BaseSearchForm
+
     set_condition :customer_id_eq,
+                  :admin_user_id_eq,
                   :status_any,
-                  :paid_any,
-                  :admin_user_id_eq
+                  :paid_any
 
     def perform(page = nil, limit: nil, csv: false)
       records = Order.includes(:customer, :admin_user).distinct

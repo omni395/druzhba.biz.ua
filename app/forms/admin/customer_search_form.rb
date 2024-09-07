@@ -1,7 +1,6 @@
-# frozen_string_literal: true
-
 module Admin
   class CustomerSearchForm < BaseSearchForm
+
     set_condition :name_full_like,
                   :phone_full_like
 

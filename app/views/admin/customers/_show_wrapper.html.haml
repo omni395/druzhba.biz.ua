@@ -1,7 +1,7 @@
 = modal.with_header do
   %ol.breadcrumb.text-dark
-    %li.breadcrumb-item Замовник
-    %li.breadcrumb-item.active= "#{customer.name}"
+    %li.breadcrumb-item Замовники
+    %li.breadcrumb-item.active= "#{t('infold.operation.show')} ##{customer.id}"
 = modal.with_body do
   .modal-body
     = render 'show_content', customer: customer

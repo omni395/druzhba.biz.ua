@@ -18,6 +18,17 @@ model:
       - uniqueness
 
 app:
+  association_search:
+    conditions:
+      - name:
+          sign: full_like
+      - phone:
+          sign: start_with
+    list:
+      fields:
+        - name
+        - phone
+
   title: Замовники
 
   form:
