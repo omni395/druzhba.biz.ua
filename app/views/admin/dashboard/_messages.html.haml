@@ -8,7 +8,7 @@
         %th Електронна пошта
         %th Телефон
         %th
-      - LandingMessage.where(status: 0).last(5).each do |landing_message|
+      - LandingMessage.where(status: 0).last(10).each do |landing_message|
         %tr{ id: dom_id(landing_message), "data-bs-trigger": "hover focus", "data-content": "", "data-toggle": "popover", "title": "#{landing_message.message}"}
           %td{class: "icon_cell"}
             = link_to admin_landing_message_path(landing_message), class: 'd-block', data: { turbo_frame: 'modal_main' } do

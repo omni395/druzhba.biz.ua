@@ -1,71 +1,105 @@
-%div{class: ""}
+
+
+%div{class: "mx-1"}
   %div{class: "row"}
     = render "cards"
-  %div{class: "px-1"}
+  %div{class: "mx-1"}
     = render "messages"
     = render "orders"
-%div{class: "row"}
+%div{class: "row mx-1"}
   %div{class: "col-12 col-md-4 bg-info"} &nbsp
   %div{class: "col-12 col-md-4 bg-purple"} &nbsp
   %div{class: "col-12 col-md-4 bg-warning"} &nbsp
 
+%h3{class: "text-center text-warning shadow-lg px-1 mt-2"} Аналитика денежных потоков
 
+%div{class: "mx-5"}
+  %div{class: "row"}
+    %div{class: "col-12 col-md-4 px-4"}
+      = form_tag admin_root_path, method: :get do
+        %div{class: "row"}
+          = label_tag :start_date, "Начальная дата:", class: "form-label"
+          = date_field_tag :start_date, @start_date, class: "input-group-date date form-control"
+        %div{class: "row"}
+          = label_tag :end_date, "Конечная дата:", class: "form-label"
+          = date_field_tag :end_date, @end_date, class: "input-group-date date form-control"
+        %div{class: "col-12 my-1 text-end"}
+          = submit_tag "Застосуваати", class: "btn btn-success m-2"
+    %div{class: "col-12 col-md-4 px-4"}
+      %table{class: "fs-7 table table-sm table-stripe"}
+        %tr
+          %th Показник
+          %th Сума (грн.)
+        %tr
+          %td Общий доход
+          %td= number_to_currency(@financial_data[:cash_flow].values.sum)
+        %tr
+          %td Касса
+          %td= number_to_currency(@financial_data[:cash].values.sum)
+        %tr
+          %td Общие расходы
+          %td= number_to_currency(@financial_data[:expenses].values.sum)
+        %tr
+          %td Чистый денежный поток
+          %td= number_to_currency((@financial_data[:cash_flow].values.sum - @financial_data[:expenses].values.sum))
+        %tr
+          %td Текущая дебиторская задолженность
+          %td= number_to_currency(@financial_data[:accounts_receivable].values.sum)
+    %div{class: "col-12 col-md-4 px-4"}
+      %table{class: "fs-7 table table-sm table-stripe"}
+        %tr
+          %th Користувач
+          %th Роль
+          %th ЗП
+        - @users.each do |user|
+          %tr
+            %td= user.name
+            %td= user.role
+            %td= number_to_currency(@financial_data[:salary_data][user.id].to_f)
+        %tfoot
+          %tr
+            %th{colspan: 2} Разом
+            %td= number_to_currency(@financial_data[:salary_data].values.sum.to_f)
+      %table{class: "fs-7 table table-sm table-stripe"}
+        %tr
+          %th Всього замовлень
+          %td= @order_data[:total_orders]
+        %tr
+          %th Сплачено
+          %td= @order_data[:paid_orders]
+        %tr
+          %th Не сплачено
+          %td= @order_data[:unpaid_orders]
+      %table{class: "fs-7 table table-sm table-stripe"}
+        %tr
+          %th Всього замовниів
+          %td= @customer_data[:total_customers]
+        %th Тор-5 замовників
+        - @customer_data[:top_customers].each do |customer|   
+          %tr
+            %th Імʼя
+            = customer.name
+            %th	Всього витрачено
+            = number_to_currency(customer.total_spent)
 
-%h1 Аналитика денежных потоков
+%hr{class: "m-5"}
+%div{class: "m-5"}
+  %div{class: "row my-5"}
+    %div{class: "col-12 col-md-6 px-4"}
+      %h3{class: "text-center"} Касса
+      = line_chart @financial_data[:cash], xtitle: "Дата", ytitle: "Сумма (UAH)", colors: ["#4CAF50"], decimal: ",", precision: 3, thousands: " "
+    %div{class: "col-12 col-md-6 px-4"}
+      %h3{class: "text-center"} Дебиторская задолженность
+      = area_chart @financial_data[:accounts_receivable], xtitle: "Дата", ytitle: "Сумма (UAH)", colors: ["#2196F3"]
+  %div{class: "row my-5"}
+    %div{class: "col-12 col-md-12 px-4"}
+      %h3{class: "text-center"} Движение денежных средств
+      = line_chart @financial_data[:cash_flow], xtitle: "Дата", ytitle: "Сумма (UAH)", colors: ["#4CAF50"], decimal: ",", precision: 3, thousands: " "
 
-= form_tag admin_root_path, method: :get do
-  = label_tag :start_date, "Начальная дата:"
-  = date_field_tag :start_date, @start_date
-  = label_tag :end_date, "Конечная дата:"
-  = date_field_tag :end_date, @end_date
-  = submit_tag "Применить"
- 
-%h2 Движение денежных средств
-= line_chart @cash_flow, xtitle: "Дата", ytitle: "Сумма (UAH)", colors: ["#4CAF50"], decimal: ",", precision: 3, thousands: " "
-
-%h2 Касса
-= line_chart @cash, xtitle: "Дата", ytitle: "Сумма (UAH)", colors: ["#4CAF50"], decimal: ",", precision: 3, thousands: " "
-
-%h2 Топ-5 категорий расходов
-= pie_chart @top_expense_categories
-
-%h2 Дебиторская задолженность
-= area_chart @accounts_receivable, xtitle: "Дата", ytitle: "Сумма (UAH)", colors: ["#2196F3"]
-
-%h2 Сводка
-%table
-  %tr
-    %th Показатель
-    %th Сумма (UAH)
-  %tr
-    %td Общий доход
-    %td= number_to_currency(@cash_flow.values.sum)
-  %tr
-    %td Касса
-    %td= number_to_currency(@cash.values.sum)
-  %tr
-    %td Общие расходы
-    %td= number_to_currency(@expenses.values.sum)
-  %tr
-    %td Чистый денежный поток
-    %td= number_to_currency((@cash_flow.values.sum - @expenses.values.sum))
-  %tr
-    %td Текущая дебиторская задолженность
-    %td= number_to_currency(@accounts_receivable.values.sum)
-
-%table
-  %thead
-    %tr
-      %th User
-      %th Role
-      %th Total Salary
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= user.name
-        %td= user.role
-        %td= number_to_currency(@salary_data[user.id].to_f)
-  %tfoot
-    %tr
-      %th{colspan: 2} Total
-      %td= number_to_currency(@salary_data.values.sum.to_f)
+  %div{class: "row my-5"}
+    %div{class: "col-12 col-md-6 px-4"}
+      %h3{class: "text-center"} Топ-5 категорий расходов
+      = pie_chart @financial_data[:top_expense_categories]
+    %div{class: "col-12 col-md-6 px-4"}
+      %h3{class: "text-center"} Замовлення за статусом
+      = pie_chart @order_data[:orders_by_status], title: "Замовлення за статусом"

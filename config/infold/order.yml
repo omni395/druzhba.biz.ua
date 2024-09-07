@@ -51,6 +51,18 @@ model:
         color: lime
 
 app:
+  association_search:
+    conditions:
+      - name
+        sign: full_like
+      - phone
+        sign: start_with
+    list:
+      fields:
+        - id
+        - name
+        - phone
+
   title: Замовлення
   index:
     conditions:

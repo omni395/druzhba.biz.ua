@@ -9,7 +9,7 @@
         %th Сума
         %th Дата
         %th
-      - Order.where(status: 0).last(5).each do |order|
+      - Order.where(status: 0).last(10).each do |order|
         = link_to admin_order_path(order) do
           %tr{ id: dom_id(order) }
             %td{class: "icon_cell"}
