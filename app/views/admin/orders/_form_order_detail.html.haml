@@ -1,6 +1,6 @@
 %tr.nested-fields{ class: "#{'d-none' if form.object._destroy}", data: { new_record: form.object.new_record? } }
   %td.nested_form
-    = render Admin::FieldsetComponent.new(form, :service_title, :association_search, required: true, no_label: true, association_name: :service, search_path: admin_services_path(name_field: :title), name_field: :service_title)
+    = render Admin::FieldsetComponent.new(form, :service_id, :association_search, required: true, no_label: true, association_name: :service, search_path: admin_services_path(name_field: :title), name_field: :service_title)
   %td.icon_cell
     = link_to "#", class: 'd-block', data: { action: "click->nested-form#remove_association" } do
       %i.bi.bi-trash.h3
