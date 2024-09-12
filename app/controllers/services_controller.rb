@@ -55,7 +55,7 @@ class ServicesController < ApplicationController
       offers: SchemaDotOrg::AggregateOffer.new(
         lowPrice: @service.price.to_i,  # Convert to integer, will be 0 if nil
         highPrice: @service.price.to_i, # Assuming the high price is the same as the low price
-        priceCurrency: 'RUB',  # Assuming Russian Rubles, change if needed
+        priceCurrency: 'UAH',
         offers: [
           SchemaDotOrg::Offer.new(
             price: @service.price.to_i,
