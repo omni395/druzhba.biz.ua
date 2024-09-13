@@ -98,7 +98,7 @@ export default class extends Controller {
     document.getElementsByTagName('head')[0].appendChild(eventsScriptTag);
     document.getElementsByTagName('head')[0].appendChild(facebookPixel);
   }
-
+ 
   consentDefault() {
     const defaultConsent = document.createElement("script");
     defaultConsent.id = 'consentDefault';
