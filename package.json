@@ -18,6 +18,7 @@
     "chartkick": "^5.0.1",
     "esbuild": "^0.20.2",
     "jquery": "^3.7.1",
+    "js-cookie": "^3.0.5",
     "postcss": "^8.4.39",
     "strip-ansi": "^7.1.0",
     "strip-ansi-cjs": "^8.0.0",

@@ -124,9 +124,6 @@ gem 'canonical-rails'
 # Schema.org
 gem 'schema_dot_org'
 
-# GDPR policy
-# gem "gdpr"
-
 # Accounting
 gem 'double_entry'
 
