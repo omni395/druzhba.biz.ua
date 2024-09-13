@@ -105,6 +105,7 @@ export default class extends Controller {
         function gtag(){dataLayer.push(arguments)};\
         gtag("config", "GTM-TJBHGWFJ");\
         gtag("config", "G-B1HN94WVHN");\
+        gtag("config", "GTM-MBFCCW7Q")\
         gtag("consent", "default", {\
           "ad_storage": "denied",\
           "ad_user_data": "denied",\
