@@ -43,7 +43,6 @@
   %body{class: "bg-stone-100", id: "main", "data-controller": "landing--index"}
     %navigation{class: ""}
       = render "shared/navigation"
-      = cookies[:allow_cookies].blank?
     %main{class: ""}
       = yield
       = render 'shared/cookies_bar' if cookies[:allow_cookies].blank?
