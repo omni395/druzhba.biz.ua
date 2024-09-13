@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get 'policy', to: 'landing#policy'
 
     # Cookies and Policy
-    get 'cookies', to: 'cookies#index'
+    # get 'cookies', to: 'cookies#index'
 
     # Отправка сообщения
     resources :landing_messages, only: %i[new create]

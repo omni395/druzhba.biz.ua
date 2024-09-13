@@ -4,17 +4,6 @@
     = canonical_tag
     %link{href: "https://druzhba.biz.ua/#{I18n.locale}/", hreflang: "#{I18n.locale}", rel: "alternate"}
     
-    -# Google tag (gtag.js)
-    :javascript
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments)};
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied'
-      });
-
     %title
       - if I18n.locale == :uk
         = @page_title.present? ? "#{@page_title}" : "Швейна майстерня ☞ ДРУЖБА ☜"
@@ -34,23 +23,8 @@
     = stylesheet_link_tag "custom", "data-turbo-track": "reload"
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true, async: ""
 
+    -# CookieBot
     %script#CookieDeclaration{src: "https://consent.cookiebot.com/b96db7a3-49c9-4675-a08d-7f34dbddfb4e/cd.js", type: "text/javascript"}
-    %script{async: "", "data-turbo-track": "reload", src: "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN"}
-    :javascript
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments)};
-      gtag('js', new Date());
-      gtag('config', 'GTM-TJBHGWFJ', {
-          'cookie_prefix': 'druzhba.biz.ua',
-          'cookie_domain': 'druzhba.biz.ua',
-          'cookie_expires': 28 * 24 * 60 * 60 // 28 днів (у секундах)
-          });
-      gtag('config', 'G-B1HN94WVHN', {
-          'cookie_prefix': 'druzhba.biz.ua',
-          'cookie_domain': 'druzhba.biz.ua',
-          'cookie_expires': 28 * 24 * 60 * 60 // 28 днів (у секундах)
-          });
-
 
     -# FlowbiteJS
     %link{href: "https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css", rel: "stylesheet"}
@@ -61,19 +35,6 @@
             integrity: "sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==",
             crossorigin: "anonymous", referrerpolicy: "no-referrer"}
 
-    -# Meta Pixel Code
-    :javascript
-      !function(f,b,e,v,n,t,s){
-        if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)
-        }(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1562402937679169');
-          fbq('track', 'PageView');
     %noscript
       %img{height: "1", width: "1",
           src: "https://www.facebook.com/tr?id=1562402937679169&ev=PageView&noscript=1",
@@ -85,32 +46,12 @@
       = render "shared/navigation"
     %main{class: ""}
       = yield
+      = render 'shared/cookies_bar' if cookies[:allow_cookies].blank?
     %footer{class: "relative start-0 bottom-0", id: "footer"}
       = render "shared/footer"
 
     -# Modal dialog contact form
     = render "shared/contact_form"
-
-    -# Cookie consent gdpr gem
-    -#= render 'gdpr/cookie_consent'
-
-    -# Cookie_consent
-    - if session[:cookies_accepted].nil?
-      = turbo_frame_tag :cookies_consent, src: cookies_path
-      :javascript
-        function consentGranted() {
-          gtag('consent', 'update', {
-            'ad_storage': 'granted',
-            'ad_user_data': 'granted',
-            'ad_personalization': 'granted',
-            'analytics_storage': 'granted'
-          });
-        };
-
-        window.onload = function(){
-          var el = document.getElementById('accepted');
-          el.addEventListener("click", consentGranted, true);
-        }
 
     -# Scroll to Top button
     %div{class: "fixed bottom-10 end-10"}

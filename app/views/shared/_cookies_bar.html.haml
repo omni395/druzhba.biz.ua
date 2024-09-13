@@ -1,0 +1,10 @@
+%div{class: "cookies-bar fixed bottom-0 p-6 w-full flex justify-center z-[2000]"}
+  %div{class: "bg-white bg-opacity-95 text-xs rounded-md fade show w-[1200px]"}
+    %div{class: "p-4 flex items-center justify-between px-6 rounded border border-green-700"}
+      %p
+        = t ("cookies.p1")
+        = link_to "#{t ("cookies.link")}", policy_path, target: "_blank", class: "text-red-500 hover:border-b-2 hover:border-red-500"
+        = t ("cookies.p2")
+      %div{class: "flex inline-block"}
+        = link_to "#{t ("cookies.reject")}", request.original_url, data: { action: "click->landing--index#rejectCookies" }, class: "mx-1 px-2 hover:text-red-500 reject", id: "reject"
+        = link_to "#{t ("cookies.accept")}", request.original_url, data: { action: "click->landing--index#allowCookies" }, class: "mx-1 px-2 bg-stone-100 hover:text-red-500 border border-red-500 rounded-lg accept", id: "accept"
