@@ -56,8 +56,8 @@ export default class extends Controller {
   }
 
   hideBar() {
-    document.getElementById('cookies-bar').addClass('hidden');
-    //this.element.classList.add('hidden');
+    //document.getElementById('cookies-bar').addClass('hidden');
+    this.element.classList.add('hidden');
   }
 
   appendGACode() {
