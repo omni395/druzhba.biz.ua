@@ -44,7 +44,6 @@ export default class extends Controller {
     Cookies.set('allow_cookies', 'yes', {
       expires: 28
     });
-
     this.appendGACode();
     this.hideBar();
   }
@@ -53,12 +52,11 @@ export default class extends Controller {
     Cookies.set('allow_cookies', 'no', {
       expires: 28
     });
-
     this.hideBar();
   }
 
   hideBar() {
-    document.getElementsByClassName('cookies-bar').addClass('hidden');
+    document.getElementById('cookies-bar').addClass('hidden');
     //this.element.classList.add('hidden');
   }
 
