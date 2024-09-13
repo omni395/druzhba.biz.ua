@@ -52,8 +52,7 @@
     = render "shared/contact_form"
 
     -# Cookies bar
-    - if cookies[:allow_cookies].blank?
-      = render "shared/cookies_bar"
+    = render "shared/cookies_bar" if cookies[:allow_cookies].blank?
 
     -# Scroll to Top button
     %div{class: "fixed bottom-10 end-10"}
