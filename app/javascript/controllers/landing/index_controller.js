@@ -42,7 +42,7 @@ export default class extends Controller {
   allowCookies() {
     document.getElementById('consentDefault').remove();
     Cookies.set('allow_cookies', 'yes', {
-      expires: 365
+      expires: 28
     });
 
     this.appendGACode();
@@ -51,14 +51,15 @@ export default class extends Controller {
 
   rejectCookies() {
     Cookies.set('allow_cookies', 'no', {
-      expires: 365
+      expires: 28
     });
 
     this.hideBar();
   }
 
   hideBar() {
-    this.element.classList.add('hidden');
+    document.getElementsByClassName('cookies-bar').addClass('hidden');
+    //this.element.classList.add('hidden');
   }
 
   appendGACode() {

@@ -45,12 +45,15 @@
       = render "shared/navigation"
     %main{class: ""}
       = yield
-      = render 'shared/cookies_bar' if cookies[:allow_cookies].blank?
     %footer{class: "relative start-0 bottom-0", id: "footer"}
       = render "shared/footer"
 
     -# Modal dialog contact form
     = render "shared/contact_form"
+
+    -# Cookies bar
+    - if cookies[:allow_cookies].blank?
+      = render "shared/cookies_bar"
 
     -# Scroll to Top button
     %div{class: "fixed bottom-10 end-10"}
