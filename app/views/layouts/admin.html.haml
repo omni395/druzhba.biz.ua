@@ -28,6 +28,11 @@
           integrity: "sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==",
           rel: "stylesheet"}
     
+    -# Chart.js
+    %script{async: "", src: "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js",
+            integrity: "sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==",
+            crossorigin: "anonymous", referrerpolicy: "no-referrer"}
+    
 
   %body{class: "#{'border-top-wide border-primary' unless admin_user_signed_in?}"}
     %div{id: "admin_wrapper"}
