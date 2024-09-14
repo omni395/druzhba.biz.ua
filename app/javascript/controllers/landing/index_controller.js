@@ -8,9 +8,9 @@ export default class extends Controller {
 
   // Optional function for when controller is initialized, can remove
   initialize(){
-    this.initializeFlowbite();
-    this.initializeGoogleFonts();
+    //this.initializeFlowbite();
     this.initializeAnimateCSS();
+    this.initializeGoogleFonts();
   }
 
   // Optional function for when controller is connected, can remove
@@ -218,8 +218,7 @@ export default class extends Controller {
     document.getElementsByTagName('head')[0].appendChild(WOWjsScript);
   };
 
-
-  // FlowbiteJS
+  /* FlowbiteJS
   initializeFlowbite() {
     const flowbiteLink = document.createElement('link');
     const flowbiteScript = document.createElement('script');
@@ -233,4 +232,5 @@ export default class extends Controller {
     document.getElementsByTagName('head')[0].appendChild('flowbiteLink');
     document.getElementsByTagName('head')[0].appendChild('flowbiteScript');
   };
+  */
 }
