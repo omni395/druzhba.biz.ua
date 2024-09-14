@@ -8,6 +8,9 @@ export default class extends Controller {
 
   // Optional function for when controller is initialized, can remove
   initialize(){
+    this.initializeFlowbite();
+    this.initializeGoogleFonts();
+    this.initializeAnimateCSS();
   }
 
   // Optional function for when controller is connected, can remove
@@ -163,5 +166,71 @@ export default class extends Controller {
     toggleNavMenu.addEventListener('click', () => {
         navMenu.classList.toggle('hidden');
     });
+  };
+
+  initializeGoogleFonts() {
+    const googleFontsApis = document.createElement('link');
+    const googleFontsGstatic = document.createElement('link');
+    const googleFontElMessiri = document.createElement('link');
+    const googleFontBadScript = document.createElement('link');
+
+    googleFontsApis.href = 'https://fonts.googleapis.com';
+    googleFontsApis.rel = 'preconnect';
+    
+    googleFontsGstatic.crossorigin = '';
+    googleFontsGstatic.href = 'https://fonts.gstatic.com';
+    googleFontsGstatic.rel = 'preconnect';
+    
+    googleFontElMessiri.href = 'https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap';
+    googleFontElMessiri.rel = 'stylesheet';
+
+    googleFontBadScript.href = 'https://fonts.googleapis.com/css2?family=Bad+Script&family=messiri:wght@400..700&display=swap';
+    googleFontBadScript.rel = 'stylesheet';
+
+    document.getElementsByTagName('head')[0].appendChild(googleFontsApis);
+    document.getElementsByTagName('head')[0].appendChild(googleFontsGstatic);
+    document.getElementsByTagName('head')[0].appendChild(googleFontElMessiri);
+    document.getElementsByTagName('head')[0].appendChild(googleFontBadScript);
+  };
+
+  // AnimatedCSS and WOWjs
+  initializeAnimateCSS() {
+    const animateCSSLink = document.createElement('link');
+    const animateCSSScript = document.createElement('script');
+    const WOWjsScript = document.createElement('script');
+
+    animateCSSLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+    animateCSSLink.rel = 'stylesheet';
+
+    animateCSSScript.async = true;
+    animateCSSScript.integrity = 'sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==';
+    animateCSSScript.referrerpolicy = 'no-referrer';
+    animateCSSScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js';
+
+    WOWjsScript.async = true;
+    WOWjsScript.integrity = 'sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==';
+    WOWjsScript.crossorigin = 'anonymous';
+    WOWjsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js';
+    WOWjsScript.referrerpolicy = 'no-referrer';
+
+    document.getElementsByTagName('head')[0].appendChild(animateCSSLink);
+    document.getElementsByTagName('head')[0].appendChild(animateCSSScript);
+    document.getElementsByTagName('head')[0].appendChild(WOWjsScript);
+  };
+
+
+  // FlowbiteJS
+  initializeFlowbite() {
+    const flowbiteLink = document.createElement('link');
+    const flowbiteScript = document.createElement('script');
+
+    flowbiteLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css';
+    flowbiteLink.rel = 'stylesheet';
+
+    flowbiteScript.async = true;
+    flowbiteScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js';
+
+    document.getElementsByTagName('head')[0].appendChild('flowbiteLink');
+    document.getElementsByTagName('head')[0].appendChild('flowbiteScript');
   };
 }
