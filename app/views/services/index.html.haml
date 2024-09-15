@@ -1,5 +1,15 @@
-= content_for :head do
-  = @schemas.to_s.html_safe
+- content_for :head do
+  %script{:type => "application/ld+json"}
+    - @services.each do |service|
+      {
+      "@context": "http://schema.org",
+      "@type": "Service",
+      "name": "#{service.title}",
+      "alternateName": "#{service.subtitle}",
+      "description": "#{service.description}",
+      "logo": "#{service.image}",
+      "url": "#{service_url(service)}"
+      }
 
 %section{class: "mt-8 font-messiri max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between"}
   %div{class: "text-center"}
