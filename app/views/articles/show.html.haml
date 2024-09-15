@@ -1,4 +1,15 @@
-= @schema
+= content_for :head do
+  %script{:type => "application/ld+json"}
+    :plain
+      {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "#{@article.title}",
+        "description": "#{@article.description}"
+        "articleBody": "#{@article.body}"
+        "logo": "#{@article.image}",
+        "url": "#{request.url}"
+      }
 
 = turbo_frame_tag dom_id(@article), src: article_path(@article) do
   %div{id: "article_skeleton"}

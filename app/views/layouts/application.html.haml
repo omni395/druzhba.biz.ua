@@ -1,6 +1,7 @@
 !!!
 %html{lang: "#{I18n.locale}"}
   %head
+    = yield :head
     = canonical_tag
     %link{href: "https://druzhba.biz.ua/#{I18n.locale}/", hreflang: "#{I18n.locale}", rel: "alternate"}
     

@@ -123,6 +123,7 @@ gem 'canonical-rails'
 
 # Schema.org
 gem 'schema_dot_org'
+gem 'json-ld'
 
 # Accounting
 gem 'double_entry'

@@ -1,4 +1,15 @@
-= @schemas
+= content_for :head do
+  %script{:type => "application/ld+json"}
+    = @articles.map do |article|
+      {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "headline": "#{article.title}",
+      "description": "#{article.description}",
+      "articleBody": "#{article.body}",
+      "logo": "#{article.image}",
+      "url": "#{article_url(article)}"
+      }
 
 %section{class: "mt-8 font-messiri max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between"}
   %div{class: "text-center"}

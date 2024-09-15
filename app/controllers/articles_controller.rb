@@ -6,25 +6,6 @@ class ArticlesController < ApplicationController
 
   def index
     @pagy, @articles = pagy(Article.published, items: 4)
-
-    @schemas = SchemaDotOrg::ItemList.new(
-      #name: 'Список наших услуг',
-      #description: 'Полный перечень всех доступных услуг',
-      itemListElement: @articles.map.with_index(1) do |article, index|
-        SchemaDotOrg::ListItem.new(
-          position: index,
-          item: SchemaDotOrg::Product.new(
-            name: article.title,
-            description: article.description,
-            url: url_for(article),
-            offers: SchemaDotOrg::AggregateOffer.new(
-              lowPrice: 0
-            )
-          )
-        )
-      end
-    )
-
     # sleep(2)
     respond_to do |format|
       format.html
@@ -42,11 +23,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.friendly.find(params[:id]) if Article.published
-
-    @schema = SchemaDotOrg::WebSite.new(
-      name: @article.title,
-      url: url_for(@article),
-    )
 
     @page_title = @article.title
     @page_description = "Блог швейної майстерні ☞ ДРУЖБА ☜ - #{@page_title}"
