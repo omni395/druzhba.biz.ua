@@ -17,17 +17,13 @@ class ServicesController < ApplicationController
             name: service.title,
             description: service.description,
             url: url_for(service),
-            offers: SchemaDotOrg::AggregateOffer.new(
+            offers: SchemaDotOrg::Offer.new(
               lowPrice: service.price.to_i,
               highPrice: service.price.to_i,
+              price: service.price.to_i,
+              offerCount: 1,
               priceCurrency: 'UAH',
-              offers: [
-                SchemaDotOrg::Offer.new(
-                  price: service.price.to_i,
-                  priceCurrency: 'UAH',
-                  availability: 'https://schema.org/InStock'
-                )
-              ]
+              availability: 'https://schema.org/InStock'
             )
           )
         )
@@ -53,6 +49,7 @@ class ServicesController < ApplicationController
       offers: SchemaDotOrg::AggregateOffer.new(
         lowPrice: @service.price.to_i,
         highPrice: @service.price.to_i,
+        offerCount: 1,
         priceCurrency: 'UAH',
         offers: [
           SchemaDotOrg::Offer.new(
