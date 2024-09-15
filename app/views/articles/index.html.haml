@@ -1,6 +1,6 @@
-= content_for :head do
+- content_for :head do
   %script{:type => "application/ld+json"}
-    = @articles.map do |article|
+    - @articles.each do |article|
       {
       "@context": "http://schema.org",
       "@type": "Article",
