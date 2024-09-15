@@ -10,8 +10,6 @@ class ServicesController < ApplicationController
     @services = Service.order(id: :asc)
 
     @schemas = SchemaDotOrg::ItemList.new(
-      #name: 'Список наших услуг',
-      #description: 'Полный перечень всех доступных услуг',
       itemListElement: @services.map.with_index(1) do |service, index|
         SchemaDotOrg::ListItem.new(
           position: index,
@@ -22,11 +20,11 @@ class ServicesController < ApplicationController
             offers: SchemaDotOrg::AggregateOffer.new(
               lowPrice: service.price.to_i,
               highPrice: service.price.to_i,
-              priceCurrency: 'RUB',
+              priceCurrency: 'UAH',
               offers: [
                 SchemaDotOrg::Offer.new(
                   price: service.price.to_i,
-                  priceCurrency: 'RUB',
+                  priceCurrency: 'UAH',
                   availability: 'https://schema.org/InStock'
                 )
               ]
@@ -53,14 +51,14 @@ class ServicesController < ApplicationController
       description: @service.description,
       url: url_for(@service),
       offers: SchemaDotOrg::AggregateOffer.new(
-        lowPrice: @service.price.to_i,  # Convert to integer, will be 0 if nil
-        highPrice: @service.price.to_i, # Assuming the high price is the same as the low price
+        lowPrice: @service.price.to_i,
+        highPrice: @service.price.to_i,
         priceCurrency: 'UAH',
         offers: [
           SchemaDotOrg::Offer.new(
             price: @service.price.to_i,
             priceCurrency: 'UAH',
-            availability: 'https://schema.org/InStock'  # Adjust based on your business logic
+            availability: 'https://schema.org/InStock'
           )
         ]
       )
