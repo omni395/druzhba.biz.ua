@@ -1,4 +1,4 @@
-%nav{class: "flex flex-inline items-center w-full z-20 border-b border-gray-200"}
+%nav{class: "flex flex-col md:flex-row items-center w-full z-20 border-b border-gray-200"}
   %div{class: "flex flex-inline max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-2"}
     %a{class: "flex items-center space-x-1 rtl:space-x-reverse", href: root_path}
       %span{class: "pr-1 self-center text-2xl font-bad_script font-bold whitespace-nowrap"}
@@ -25,41 +25,40 @@
           %path{d: "M1 1h15M1 7h15M1 13h15", stroke: "currentColor", "stroke-linecap": "round",
                 "stroke-linejoin": "round", "stroke-width": "2"}
       %div{class: "flex flex-inline"}
-        %button{id: "openContactForm", class: "mx-1 animate-pulse hover:animate-none focus:animate-none font-messiri inline-block w-full text-center text-xl font-medium text-red-500 bg-stone-100 hover:bg-stone-200 border border-red-500 rounded-lg font-bold py-1 px-2"}
+        %button{id: "openContactForm", class: "mx-1 animate-pulse hover:animate-none focus:animate-none font-messiri inline-block w-full text-center text-md lg:text-xl font-medium text-red-500 bg-stone-100 hover:bg-stone-200 border border-red-500 rounded-lg font-bold py-1 px-2"}
           = t "landing.navigation.contact_form_button"
-        
         -# Switch locales
         - I18n.available_locales.each do |locale|
-          %div{class: "relative inline-block text-senter mx-1"}
+          %div{class: "relative inline-block text-senter my-auto mx-1"}
             %div{class: "group"}
               - if I18n.locale == locale
-                %button{class: "font-messiri inline-block w-full text-center text-xl font-medium text-red-500 bg-stone-100 p-1", type: "button"}
+                %button{class: "text-md lg:text-xl font-messiri inline-block w-full text-center font-medium text-red-500 bg-stone-100 p-1", type: "button"}
                   = t(locale, scope: 'locales')
               - else
-                %div{class: "p-1 text-xl"}
+                %div{class: "text-md lg:text-xl p-1"}
                   = link_to t(locale, scope: 'locales'), root_path(locale: locale), class: "hover:border-b-2 hover:border-red-500"
 
     %div{id: "navMenu", class: "text-center items-center justify-between hidden w-full md:flex md:w-auto md:order-1"}
       %ul{class: "flex flex-col p-2 md:p-0 mt-2 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-stone-100"}
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: root_path}
+          %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: root_path}
             = t "landing.navigation.main"
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: services_path}
+          %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: services_path}
             = t "landing.navigation.services"
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: prices_path}
+          %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: prices_path}
             = t "landing.navigation.prices"
         -#%li
-        -#  %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: about_path} Про нас
+        -#  %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: about_path} Про нас
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: faq_path}
+          %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: faq_path}
             = t "landing.navigation.faq"
         -#%li
-        -#  %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: root_path + "#reviews"} Відгуки
+        -#  %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: root_path + "#reviews"} Відгуки
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: contacts_path}
+          %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: contacts_path}
             = t "landing.navigation.contacts"
         %li
-          %a{class: "text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: articles_path}
+          %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: articles_path}
             = t "landing.navigation.articles"
