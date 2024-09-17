@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import Landing__GalleryController from "./landing/gallery_controller"
+application.register("landing--gallery", Landing__GalleryController)
+
 import Landing__IndexController from "./landing/index_controller"
 application.register("landing--index", Landing__IndexController)
 

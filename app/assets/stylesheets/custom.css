@@ -69,3 +69,27 @@
     color: rgba(239, 68, 68, 1);
   }
 }
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative; /* добавляем относительное позиционирование */
+}
+
+.gallery img {
+  width: 24em;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.gallery img.active {
+  position: fixed; /* добавляем абсолютное позиционирование */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5); /* центр масштаба */
+  width: auto; /* ширина 80% от ширины экрана */
+  height: 30vw; /* высота автоматически */
+  z-index: 10000; /* приоритетный z-index */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
