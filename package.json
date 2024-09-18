@@ -27,7 +27,7 @@
     "userland": "^0.4.3"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets --format=esm",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets",
     "build:css": "yarn build:tailwind && yarn build:bootstrap",
     "build:tailwind": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
     "build:bootstrap": "sass ./app/assets/stylesheets/admin.scss ./app/assets/builds/admin.css --no-source-map --load-path=node_modules",
