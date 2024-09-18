@@ -7,14 +7,14 @@ export default class extends Controller {
   connect() {
     this.imageTargets.forEach((image) => {
       if (image.addEventListener) {
-        console.log(image);
         image.onclick = this.toggleImage.bind(this, image);
       }
     });
   }
 
   toggleImage(image) {
-    console.log('clicked');
-    image.classList.toggle('active');
+    if (window.innerWidth >= 639) { // измените значение на необходимое
+      image.classList.toggle('active');
+    }
   }
 }

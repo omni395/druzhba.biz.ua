@@ -4,7 +4,12 @@
       = t "landing.examples.h2"
   
   %div{"data-controller": "landing--gallery"}
-    .gallery
-      = image_tag "1-min.jpg", "data-target": "landing--gallery.image", class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейная мастерская ☞ДРУЖБА☜ Кривой рог"
-      = image_tag "2-min.jpg", "data-target": "landing--gallery.image", class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейная мастерская ☞ДРУЖБА☜ Кривой рог"
-      = image_tag "3-min.jpg", "data-target": "landing--gallery.image", class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "Швейная мастерская ☞ДРУЖБА☜ Кривой рог"
+    %div{class: "grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 gallery"}
+      = image_tag "1-min.jpg", "data-landing--gallery-target": "image", class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center rounded-xl", alt: "Швейная мастерская ☞ДРУЖБА☜ Кривой рог"
+      = image_tag "2-min.jpg", "data-landing--gallery-target": "image", class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center rounded-xl", alt: "Швейная мастерская ☞ДРУЖБА☜ Кривой рог"
+      = image_tag "3-min.jpg", "data-landing--gallery-target": "image", class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center rounded-xl", alt: "Швейная мастерская ☞ДРУЖБА☜ Кривой рог"
+      -#= image_tag "1-min.jpg", "data-landing--gallery-target": "image", class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center rounded-xl", alt: "Швейная мастерская ☞ДРУЖБА☜ Кривой рог"
+      -#= image_tag "2-min.jpg", "data-landing--gallery-target": "image", class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center rounded-xl", alt: "Швейная мастерская ☞ДРУЖБА☜ Кривой рог"
+      -#= image_tag "3-min.jpg", "data-landing--gallery-target": "image", class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center rounded-xl", alt: "Швейная мастерская ☞ДРУЖБА☜ Кривой рог"
+      -#= image_tag "1-min.jpg", "data-landing--gallery-target": "image", class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center rounded-xl", alt: "Швейная мастерская ☞ДРУЖБА☜ Кривой рог"
+      -#= image_tag "2-min.jpg", "data-landing--gallery-target": "image", class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center rounded-xl", alt: "Швейная мастерская ☞ДРУЖБА☜ Кривой рог"
