@@ -6,7 +6,3 @@
 //= link_tree ../builds
 //= link admin.js
 //= link application.js
-//= link animate.min.css
-//= link wow.min.js
-//= link css.css
-//= link css2.css
