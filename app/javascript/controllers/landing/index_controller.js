@@ -3,39 +3,21 @@ import Cookies from 'js-cookie'
 
 const postControllerIndexFilePath = "app/javascript/controllers/landing/index_controller.js"
 
-// Connects to data-controller="posts--index"
 export default class extends Controller {
-
-  // Optional function for when controller is initialized, can remove
-  initialize(){
-    //this.initializeFlowbite();
+  initialize() {
     this.initializeAnimateCSS();
     this.initializeGoogleFonts();
   }
 
-  // Optional function for when controller is connected, can remove
-  connect(){
+  connect() {
     if (this.areCookiesAllowed()) {
       this.appendGACode();
-      this.consentUpdate();
-    }
-    else {
-      this.consentDefault();
+      this.setConsent('update');
+    } else {
+      this.setConsent('default');
     }
 
     this.exFunction();
-    window.addEventListener('load', function(){
-      $('.odd').addClass('animate__animated animate__fadeInUp');
-      $('.even').addClass('animate__animated animate__fadeInUp');
-      $('.odd, .even').attr("data-wow-duration", "2s");
-      $('.odd,  .even').attr("data-wow-delay", ".5s");
-    });
-
-    // Other functions you want to execute when controller is connected
-  }
-
-  // Optional function for when controller is disconnected, can remove
-  disconnect() {
   }
 
   areCookiesAllowed() {
@@ -43,11 +25,14 @@ export default class extends Controller {
   }
 
   allowCookies() {
-    document.getElementById('consentDefault').remove();
+    const consentDefault = document.getElementById('consentDefault');
+    if (consentDefault) {
+      consentDefault.remove();
+    }
     Cookies.set('allow_cookies', 'yes', {
       expires: 28
     });
-
+  
     this.appendGACode();
     this.hideBar();
   }
@@ -61,80 +46,39 @@ export default class extends Controller {
   }
 
   hideBar() {
-    //document.getElementsByClassName('cookies-bar').addClass('hidden');
-    this.element.classList.add('hidden');
+    const consentDefault = document.getElementById('consentDefault');
+    if (consentDefault) {
+      consentDefault.remove();
+    }
   }
 
   appendGACode() {
-    const tagManagerScriptTag = document.createElement("script");
-    const eventsScriptTag = document.createElement("script");
-    const facebookPixel = document.createElement("script");
-
-    tagManagerScriptTag.src = "https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN";
-    tagManagerScriptTag.async = true;
-
-    eventsScriptTag.textContent = "window.dataLayer = window.dataLayer || []; \
-          function gtag(){dataLayer.push(arguments);} \
-          gtag('js', new Date());\
-          gtag('config', 'GTM-TJBHGWFJ', {\
-              'cookie_prefix': 'gtm-druzhba.biz.ua',\
-              'cookie_domain': 'druzhba.biz.ua',\
-              'cookie_expires': 28 * 24 * 60 * 60\
-          });\
-          gtag('config', 'G-B1HN94WVHN', {\
-              'cookie_prefix': 'g-druzhba.biz.ua',\
-              'cookie_domain': 'druzhba.biz.ua',\
-              'cookie_expires': 28 * 24 * 60 * 60});";
-    
-    facebookPixel.id = 'facebookPixel';
-    facebookPixel.textContent = "!function(f,b,e,v,n,t,s)\
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?\
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};\
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\
-          n.queue=[];t=b.createElement(e);t.async=!0;\
-          t.src=v;s=b.getElementsByTagName(e)[0];\
-          s.parentNode.insertBefore(t,s)}(window, document,'script',\
-          'https://connect.facebook.net/en_US/fbevents.js');\
-          fbq('init', '1562402937679169');\
-          fbq('track', 'PageView');";
-    
-    document.getElementsByTagName('head')[0].appendChild(tagManagerScriptTag);
-    document.getElementsByTagName('head')[0].appendChild(eventsScriptTag);
-    document.getElementsByTagName('head')[0].appendChild(facebookPixel);
-  }
- 
-  consentDefault() {
-    const defaultConsent = document.createElement("script");
-    defaultConsent.id = 'consentDefault';
-    defaultConsent.textContent = 'window.dataLayer = window.dataLayer || [];\
-        function gtag(){dataLayer.push(arguments)};\
-        gtag("config", "GTM-TJBHGWFJ");\
-        gtag("config", "G-B1HN94WVHN");\
-        gtag("consent", "default", {\
-          "ad_storage": "denied",\
-          "ad_user_data": "denied",\
-          "ad_personalization": "denied",\
-          "analytics_storage": "denied"\
-        })\
-    ';
-    document.getElementsByTagName('head')[0].appendChild(defaultConsent);
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN';
+    script.async = true;
+    script.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GTM-TJBHGWFJ', {
+        'cookie_prefix': 'gtm-druzhba.biz.ua',
+        'cookie_domain': 'druzhba.biz.ua',
+        'cookie_expires': 28 * 24 * 60 * 60
+      });
+      gtag('config', 'G-B1HN94WVHN', {
+        'cookie_prefix': 'g-druzhba.biz.ua',
+        'cookie_domain': 'druzhba.biz.ua',
+        'cookie_expires': 28 * 24 * 60 * 60
+      });
+    };
+    document.getElementsByTagName('head')[0].appendChild(script);
   }
 
-  consentUpdate() {
-    const updateConsent = document.createElement("script");
-    updateConsent.id = 'consentupdate';
-    updateConsent.textContent = 'window.dataLayer = window.dataLayer || [];\
-        function gtag(){dataLayer.push(arguments)};\
-        gtag("config", "GTM-TJBHGWFJ");\
-        gtag("config", "G-B1HN94WVHN");\
-        gtag("consent", "update", {\
-          "ad_storage": "granted",\
-          "ad_user_data": "granted",\
-          "ad_personalization": "granted",\
-          "analytics_storage": "granted"\
-        })\
-    ';
-    document.getElementsByTagName('head')[0].appendChild(updateConsent);
+  setConsent(type) {
+    const script = document.createElement("script");
+    script.id = 'consent' + type;
+    script.textContent = 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag("config", "GTM-TJBHGWFJ");gtag("config", "G-B1HN94WVHN");gtag("consent", "' + type + '", {"ad_storage": "' + (type === 'default'? 'denied' : 'granted') + '","ad_user_data": "' + (type === 'default'? 'denied' : 'granted') + '","ad_personalization": "' + (type === 'default'? 'denied' : 'granted') + '","analytics_storage": "' + (type === 'default'? 'denied' : 'granted') + '"})';
+    document.getElementsByTagName('head')[0].appendChild(script);
   }
 
   exFunction() {
@@ -193,7 +137,6 @@ export default class extends Controller {
     document.getElementsByTagName('head')[0].appendChild(googleFontBadScript);
   };
 
-  // AnimatedCSS and WOWjs
   initializeAnimateCSS() {
     const animateCSSLink = document.createElement('link');
     const animateCSSScript = document.createElement('script');
@@ -218,20 +161,4 @@ export default class extends Controller {
     document.getElementsByTagName('head')[0].appendChild(animateCSSScript);
     document.getElementsByTagName('head')[0].appendChild(WOWjsScript);
   };
-
-  /* FlowbiteJS
-  initializeFlowbite() {
-    const flowbiteLink = document.createElement('link');
-    const flowbiteScript = document.createElement('script');
-
-    flowbiteLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css';
-    flowbiteLink.rel = 'stylesheet';
-
-    flowbiteScript.async = true;
-    flowbiteScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js';
-
-    document.getElementsByTagName('head')[0].appendChild('flowbiteLink');
-    document.getElementsByTagName('head')[0].appendChild('flowbiteScript');
-  };
-  */
 }
