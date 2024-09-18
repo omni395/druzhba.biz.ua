@@ -147,10 +147,10 @@ export default class extends Controller {
     animateCSSLink.rel = 'stylesheet';
     animateCSSScript.integrity = 'sha512-b42SanD3pNHoihKwgABd18JUZ2g9j423/frxIP5/gtYgfBz/0nDHGdY/3hi+3JwhSckM3JLklQ/T6tJmV7mZEw==';
 
+    WOWjsScript.crossorigin = 'anonymous';
     WOWjsScript.async = true;
     WOWjsScript.integrity = 'sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==';
-    WOWjsScript.crossorigin = 'anonymous';
-    WOWjsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js';
+    WOWjsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js?crossorigin=anonymous';
     WOWjsScript.referrerpolicy = 'no-referrer';
 
     document.getElementsByTagName('head')[0].appendChild(animateCSSLink);

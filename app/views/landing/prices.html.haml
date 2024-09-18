@@ -14,7 +14,7 @@
       %tbody
         - @repair.each do |repair|
           %tr{class: "bg-white border-b hover:bg-stone-50"}
-            %th{class: "px-6 py-4 font-medium text-stone-900 whitespace-nowrap", scope: "row"}
+            %th{class: "text-wrap px-6 py-4 font-medium text-stone-900 whitespace-nowrap", scope: "row"}
               = repair.title
             %td{class: "px-6 py-4 text-center"}
               = t ("prices.td_1")
@@ -33,7 +33,7 @@
       %tbody
         - @sewing.each do |sewing|
           %tr{class: "bg-white border-b hover:bg-stone-50"}
-            %th{class: "px-6 py-4 font-medium text-stone-900 whitespace-nowrap", scope: "row"}
+            %th{class: "text-wrap px-6 py-4 font-medium text-stone-900 whitespace-nowrap", scope: "row"}
               = sewing.title
             %td{class: "px-6 py-4 text-center"}
               = t ("prices.td_1")
