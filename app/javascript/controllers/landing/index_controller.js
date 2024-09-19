@@ -15,6 +15,9 @@ export default class extends Controller {
       this.setConsent('default');
     }
 
+    document.getElementById('accept').addEventListener('click', this.allowCookies);
+    document.getElementById('reject').addEventListener('click', this.rejectCookies);
+
     this.exFunction();
   }
 
