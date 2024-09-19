@@ -28,8 +28,6 @@
     = javascript_include_tag "aos", "data-turbo-track": "reload", defer: true, async: "", nonce: :nonce
     = stylesheet_link_tag "aos", "data-turbo-track": "reload", nonce: :nonce
 
-    -#%div{id: "csp-nonce", "data-nonce": "#{@csp_nonce}"}
-
     -# CookieBot
     %script{id: "CookieDeclaration", src: "https://consent.cookiebot.com/b96db7a3-49c9-4675-a08d-7f34dbddfb4e/cd.js", type: "text/javascript", nonce: :nonce}
     -# FlowbiteJS
@@ -42,6 +40,8 @@
           style: "display:none"}
   
   %body{class: "bg-stone-100", id: "main", "data-controller": "landing--index"}
+    = cookies[:allow_cookies].present?
+    = cookies[:allow_cookies].blank?
     %navigation{class: ""}
       = render "shared/navigation"
     %main{class: ""}
@@ -53,8 +53,7 @@
     = render "shared/contact_form"
 
     -# Cookies bar
-    - if cookies[:allow_cookies].blank?
-      = render "shared/cookies_bar"
+    = render "shared/cookies_bar" unless cookies[:allow_cookies].present?
 
     -# Scroll to Top button
     %div{class: "fixed bottom-10 end-10"}
