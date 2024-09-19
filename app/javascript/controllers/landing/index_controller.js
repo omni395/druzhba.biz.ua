@@ -15,9 +15,6 @@ export default class extends Controller {
       this.setConsent('default');
     }
 
-    document.getElementById('accept').addEventListener('click', this.allowCookies);
-    document.getElementById('reject').addEventListener('click', this.rejectCookies);
-
     this.exFunction();
   }
 
@@ -118,5 +115,17 @@ export default class extends Controller {
         //'data-aos-once': true
       }
     ) });
+
+    // Add event listeners to cookies buttons
+    const acceptButton = document.getElementById('accept');
+    const rejectButton = document.getElementById('reject');
+
+    if (acceptButton) {
+      acceptButton.addEventListener('click', this.allowCookies);
+    }
+
+    if (rejectButton) {
+      rejectButton.addEventListener('click', this.rejectCookies);
+    }
   };
 }
