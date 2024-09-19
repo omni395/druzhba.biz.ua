@@ -121,11 +121,11 @@ export default class extends Controller {
     const rejectButton = document.getElementById('reject');
 
     if (acceptButton) {
-      acceptButton.addEventListener('click', this.allowCookies);
+      acceptButton.addEventListener('click', () => this.allowCookies());
     }
-
+    
     if (rejectButton) {
-      rejectButton.addEventListener('click', this.rejectCookies);
+      rejectButton.addEventListener('click', () => this.rejectCookies());
     }
   };
 }
