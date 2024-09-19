@@ -23,14 +23,14 @@ export default class extends Controller {
   }
 
   allowCookies() {
-    console.log("allowCookies called");
-    console.log("allow_cookies:", Cookies.get("allow_cookies"));
+    //console.log("allowCookies called");
+    //console.log("allow_cookies:", Cookies.get("allow_cookies"));
     const consentDefault = document.getElementById('consentdefault');
     if (consentDefault) {
       consentDefault.remove();
     }
     Cookies.set('allow_cookies', 'yes');
-    console.log("allow_cookies after setting:", Cookies.get("allow_cookies"));
+    //console.log("allow_cookies after setting:", Cookies.get("allow_cookies"));
     this.appendGACode();
     this.hideBar();
   }
@@ -43,14 +43,14 @@ export default class extends Controller {
   }
 
   hideBar() {
-    console.log("hideBar called");
+    //console.log("hideBar called");
     const consentDefault = document.getElementById('consentdefault');
     const cookiesBar = document.getElementById('cookies-bar');
     if (consentDefault) {
       consentDefault.remove();
     }
     cookiesBar.classList.add('hidden');
-    console.log("cookiesBar hidden:", cookiesBar.classList.contains('hidden'));
+    //console.log("cookiesBar hidden:", cookiesBar.classList.contains('hidden'));
   }
 
   appendGACode() {
@@ -78,9 +78,7 @@ export default class extends Controller {
 
   setConsent(type) {
     const script = document.createElement("script");
-    //const cspNonce = document.getElementById('csp-nonce').getAttribute('data-nonce');
     script.id = 'consent' + type;
-    //script.nonce = cspNonce;
     script.textContent = 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag("config", "GTM-TJBHGWFJ");gtag("config", "G-B1HN94WVHN");gtag("consent", "' + type + '", {"ad_storage": "' + (type === 'default'? 'denied' : 'granted') + '","ad_user_data": "' + (type === 'default'? 'denied' : 'granted') + '","ad_personalization": "' + (type === 'default'? 'denied' : 'granted') + '","analytics_storage": "' + (type === 'default'? 'denied' : 'granted') + '"})';
     document.getElementsByTagName('head')[0].appendChild(script);
   }
