@@ -111,6 +111,13 @@ export default class extends Controller {
     });
 
     // Animation effects with aos.js
-    document.addEventListener('turbo:load', () => { AOS.init() });
+    document.addEventListener('turbo:load', () => { AOS.init(
+      {
+        'offset': 200,
+        'duration': 800,
+        'easing': 'ease-in-sine',
+        'data-aos-once': true
+      }
+    ) });
   };
 }
