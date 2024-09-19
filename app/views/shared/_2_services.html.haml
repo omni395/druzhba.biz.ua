@@ -6,7 +6,7 @@
   %div{class: "mx-auto p-5 sm:p-10 md:p-16 lg:p-4 xl:p-2"}
     %div{class: "grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5"}
       - @repairs.each do |repair|
-        %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: service_path(repair)}
+        %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", "data-aos": "zoom-in", href: service_path(repair)}
           %div{class: "row relative"}
             - if repair.image.attached?
               = image_tag repair.image, class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{repair.title}"
