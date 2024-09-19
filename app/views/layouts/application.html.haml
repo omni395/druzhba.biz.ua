@@ -20,10 +20,13 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload", nonce: @csp_nonce
-    = stylesheet_link_tag "application", "inter-font", "data-turbo-track": "reload", nonce: @csp_nonce
+    = stylesheet_link_tag "application", "https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap", "https://fonts.googleapis.com/css2?family=Bad+Script&family=messiri:wght@400..700&display=swap", "inter-font", "data-turbo-track": "reload", nonce: @csp_nonce
     = stylesheet_link_tag "custom", "data-turbo-track": "reload", nonce: @csp_nonce
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true, async: "", nonce: @csp_nonce
-
+    
+    -# Animate styles
+    = javascript_include_tag "aos", "data-turbo-track": "reload", defer: true, async: "", nonce: @csp_nonce
+    = stylesheet_link_tag "aos", "data-turbo-track": "reload", nonce: @csp_nonce
 
     -# CookieBot
     %script#CookieDeclaration{src: "https://consent.cookiebot.com/b96db7a3-49c9-4675-a08d-7f34dbddfb4e/cd.js", type: "text/javascript", nonce: @csp_nonce}

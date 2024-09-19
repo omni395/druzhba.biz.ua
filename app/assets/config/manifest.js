@@ -6,3 +6,5 @@
 //= link_tree ../builds
 //= link admin.js
 //= link application.js
+//= link aos.js
+//= link aos.css

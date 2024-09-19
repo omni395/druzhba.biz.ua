@@ -3,17 +3,13 @@
 -#= turbo_frame_tag :landing do
 %div{class: "", id: "hero-section-1"}
   = render "shared/1_hero_section"  
-%div{class: "z-0 even wow", id: "services"}
+%div{class: "z-0", id: "services", "data-aos": "fade-up-right", "data-aos-duration": "600", "data-aos-anchor-placement": "top-center"}
   = render "shared/2_services"
-%div{class: "z-100 odd wow mt-8", id: "hero-section-2"}
+%div{class: "z-100 mt-8", id: "hero-section-2", "data-aos": "fade-up-left", "data-aos-duration": "600", "data-aos-anchor-placement": "top-center"}
   = render "shared/3_hero_section"
--#%div{class: "wow mt-8", id: "prices"}
--#  = render "shared/4_prices"
-%div{class: "z-0 even wow mt-8", id: "about"}
+%div{class: "z-0 mt-8", id: "about", "data-aos": "fade-up-right", "data-aos-duration": "600", "data-aos-anchor-placement": "top-center"}
   = render "shared/5_about"
--#%div{class: "wow mt-8", id: "reviews"}
--#  = render "shared/6_reviews"
-%div{class: "odd wow mt-8", id: "faq"}
+%div{class: "mt-8", id: "faq", "data-aos": "fade-up-left", "data-aos-duration": "600", "data-aos-anchor-placement": "top-center"}
   = render "shared/7_faq"
-%div{class: "even wow mt-8", id: "contacts"}
+%div{class: "mt-8", id: "contacts", "data-aos": "fade-up-right", "data-aos-duration": "600", "data-aos-anchor-placement": "top-center"}
   = render "shared/8_contacts"
