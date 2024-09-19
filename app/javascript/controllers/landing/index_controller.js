@@ -45,9 +45,11 @@ export default class extends Controller {
 
   hideBar() {
     const consentDefault = document.getElementById('consentDefault');
+    const cookiesBar = document.getElementById('cookies-bar');
     if (consentDefault) {
       consentDefault.remove();
     }
+    cookiesBar.classList.add('hidden');
   }
 
   appendGACode() {
@@ -113,7 +115,7 @@ export default class extends Controller {
     // Animation effects with aos.js
     document.addEventListener('turbo:load', () => { AOS.init(
       {
-        'offset': 200,
+        'offset': 300,
         'duration': 800,
         'easing': 'ease-in-sine'
         //'data-aos-once': true

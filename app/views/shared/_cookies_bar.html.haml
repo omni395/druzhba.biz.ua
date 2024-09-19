@@ -8,3 +8,4 @@
       %div{class: "flex inline-block"}
         = link_to "#{t ("cookies.reject")}", request.original_url, data: { action: "click->landing--index#rejectCookies" }, class: "mx-1 px-2 hover:text-red-500 reject", id: "reject"
         = link_to "#{t ("cookies.accept")}", request.original_url, data: { action: "click->landing--index#allowCookies" }, class: "mx-1 px-2 bg-stone-100 hover:text-red-500 border border-red-500 rounded-lg accept", id: "accept"
+        
