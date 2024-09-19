@@ -75,7 +75,7 @@
 %div{class: "mx-auto p-5 sm:p-10 md:p-16"}
   %h2{class: "text-center my-4 text-xl text-stone-500 sm:text-2xl leading-normal font-extrabold tracking-tight"}
     = t ("service.h2_2")
-  %div{class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10"}
+  %div{class: "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10"}
     - @services.sewing.each do |service|
       %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: service_path(service)}
         %div{class: "row"}
