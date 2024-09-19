@@ -23,28 +23,22 @@ export default class extends Controller {
   }
 
   allowCookies() {
-    const consentDefault = document.getElementById('consentDefault');
+    const consentDefault = document.getElementById('consentdefault');
     if (consentDefault) {
       consentDefault.remove();
     }
-    Cookies.set('allow_cookies', 'yes', {
-      expires: 28
-    });
-  
+    Cookies.set('allow_cookies', 'yes');
     this.appendGACode();
     this.hideBar();
   }
 
   rejectCookies() {
-    Cookies.set('allow_cookies', 'no', {
-      expires: 28
-    });
-
+    Cookies.set('allow_cookies', 'no');
     this.hideBar();
   }
 
   hideBar() {
-    const consentDefault = document.getElementById('consentDefault');
+    const consentDefault = document.getElementById('consentdefault');
     const cookiesBar = document.getElementById('cookies-bar');
     if (consentDefault) {
       consentDefault.remove();
