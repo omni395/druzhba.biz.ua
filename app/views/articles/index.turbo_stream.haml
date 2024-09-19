@@ -1,6 +1,6 @@
 = turbo_stream.remove("articles_card_skeleton") 
 = turbo_stream.append("articles_list") do
-  %div{class: "grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-4 gap-10"}
+  %div{class: "grid grid-cols-2 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-4 gap-10"}
     - @articles.each do |article|
       %a{id: dom_id(article), data: {turbo_frame: "_top"}, class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: article_path(article)}
         %div{class: "row"}
