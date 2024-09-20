@@ -12,6 +12,7 @@ export default class extends Controller {
       this.appendGACode();
       this.setConsent('update');
     } else {
+      Cookies.set('allow_cookies', 'no');
       this.setConsent('default');
     }
 
