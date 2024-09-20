@@ -30,6 +30,7 @@
 
     -# CookieBot
     %script{id: "CookieDeclaration", src: "https://consent.cookiebot.com/b96db7a3-49c9-4675-a08d-7f34dbddfb4e/cd.js", type: "text/javascript", nonce: :nonce}
+    
     -# FlowbiteJS
     %link{href: "https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css", rel: "stylesheet", nonce: :nonce}
     %script{async: "", src: "https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js", nonce: :nonce}
@@ -42,6 +43,7 @@
   %body{class: "bg-stone-100", id: "main", "data-controller": "landing--index"}
     %navigation{class: ""}
       = render "shared/navigation"
+      -#= @cookie_value.nil?
     %main{class: ""}
       = yield
     %footer{class: "relative start-0 bottom-0", id: "footer"}
@@ -51,7 +53,7 @@
     = render "shared/contact_form"
 
     -# Cookies bar
-    = render "shared/cookies_bar" if cookies[:allow_cookies] == 'no' || cookies[:allow_cookies].blank?
+    = render "shared/cookies_bar" if @cookie_value.nil?
 
     -# Scroll to Top button
     %div{class: "fixed bottom-10 end-10"}
