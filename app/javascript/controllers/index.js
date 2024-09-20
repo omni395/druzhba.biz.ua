@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import CookiesController from "./cookies_controller"
+application.register("cookies", CookiesController)
+
 import Landing__GalleryController from "./landing/gallery_controller"
 application.register("landing--gallery", Landing__GalleryController)
 
