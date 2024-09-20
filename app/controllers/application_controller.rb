@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :check_cookies
 
   def check_cookies
-    @cookie_value = cookies["allow_cookies"]
+    @cookie_value = cookies[:allow_cookies]
   end
   
 end
