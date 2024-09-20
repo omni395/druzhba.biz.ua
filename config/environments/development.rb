@@ -11,6 +11,7 @@ Rails.application.configure do
   config.enable_reloading = true
 
   config.serve_static_assets = false
+  config.assets.compile = true
 
   # Do not eager load code on boot.
   config.eager_load = false
