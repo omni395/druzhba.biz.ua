@@ -31,7 +31,7 @@ Rails.application.configure do
   config.assets.compress = true
   #config.assets.css_compressor = :sass
   config.assets.css_compressor = nil
-  config.assets.js_compressor = :esbuild
+  config.assets.js_compressor = EsbuildRails::Compressor
  
   config.esbuild = {
   plugins: [
