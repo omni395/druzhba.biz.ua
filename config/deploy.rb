@@ -22,6 +22,6 @@ namespace :deploy do
   before :compile_assets, :run_purgecss
 
   task :run_purgecss do
-    run "cd #{release_path} && yarn build:purgecss"
+    execute "cd #{release_path} && yarn build:purgecss"
   end
 end
