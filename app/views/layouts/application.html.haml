@@ -41,18 +41,22 @@
           style: "display:none"}
   
   %body{class: "bg-stone-100", id: "main"}
-    %navigation{class: ""}
-      = render "shared/navigation"
+    = cache 'navigation' do
+      %navigation{class: ""}
+        = render "shared/navigation"
     %main{class: "", "data-controller": "landing--index"}
       = yield
-    %footer{class: "relative start-0 bottom-0", id: "footer"}
-      = render "shared/footer"
+    = cache 'footer' do
+      %footer{class: "relative start-0 bottom-0", id: "footer"}
+        = render "shared/footer"
 
     -# Modal dialog contact form
-    = render "shared/contact_form"
+    = cache 'contact_form' do
+      = render "shared/contact_form"
 
     -# Cookies bar
-    = render "shared/cookies_bar" if @cookie_value.nil?
+    = cache 'cookies_bar' do
+      = render "shared/cookies_bar" if @cookie_value.nil?
 
     -# Scroll to Top button
     %div{class: "fixed bottom-10 end-10"}
