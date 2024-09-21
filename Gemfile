@@ -126,5 +126,3 @@ gem 'double_entry'
 
 # search
 gem 'ransack'
-
-gem 'gon'
