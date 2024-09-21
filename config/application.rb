@@ -33,6 +33,9 @@ module DruzhbaBizUa
 
     # Video asseets
     config.assets.paths << "#{Rails.root}/app/assets/videos"
+    
+    # All assets
+    config.assets.paths << Rails.root
     config.assets.enabled = true
 
     # Configuration for the application, engines, and railties goes here.

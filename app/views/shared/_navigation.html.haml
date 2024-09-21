@@ -4,10 +4,10 @@
       %span{class: "pr-1 self-center text-2xl font-bad_script font-bold whitespace-nowrap"}
         -# landing.navigation.top
         = t "landing.navigation.top"
-      = image_tag("scissors.svg", class: "h-4", alt: ">")
+      = image_tag("scissors.svg", class: "h-4", alt: ">", loading: 'lazy')
       %div{class: "flex content-center"}
         %span{class: "pr-1 self-center text-2xl font-bad_script font-bold whitespace-nowrap"} ДРУЖБА
-      = image_tag("scissors.svg", class: "h-4 rotate-180", alt: "<")
+      = image_tag("scissors.svg", class: "h-4 rotate-180", alt: "<", loading: 'lazy')
   %div{class: ""}
     = link_to "https://facebook.com/druzhba.biz.ua", target: "_blank", class: "text-blue-500 mx-1" do
       %i{class: "fa-brands fa-facebook"}
@@ -49,13 +49,9 @@
         %li
           %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: prices_path}
             = t "landing.navigation.prices"
-        -#%li
-        -#  %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: about_path} Про нас
         %li
           %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: faq_path}
             = t "landing.navigation.faq"
-        -#%li
-        -#  %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: root_path + "#reviews"} Відгуки
         %li
           %a{class: "text-md lg:text-xl block py-2 px-4 hover:bg-stone-200 border-b-4 inline-block w-full hover:border-b-1 hover:border-red-500 rounded text-red-500 md:hover:bg-transparent md:hover:text-red-500 md:p-0", href: contacts_path}
             = t "landing.navigation.contacts"

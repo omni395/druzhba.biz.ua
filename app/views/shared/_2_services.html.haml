@@ -1,5 +1,5 @@
 %section{class: "font-messiri relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl"}
-  %div{class: "py-3 sm:py-6 text-center"}
+  %div{class: "py-3 sm:py-6 text-center", "data-aos": "zoom-in"}
     %h2{class: "font-messiri text-red-500 text-2xl font-medium uppercase lg:text-3xl"}
       = t "landing.services.h2"
 
@@ -9,7 +9,7 @@
         %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", "data-aos": "zoom-in", href: service_path(repair)}
           %div{class: "row relative"}
             - if repair.image.attached?
-              = image_tag repair.image, class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{repair.title}"
+              = image_tag repair.image, class: "transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0 object-cover object-center w-full mb-8 lg:h-48 rounded-xl", alt: "#{repair.title}", loading: 'lazy'
             %div{class: "p-4 pt-2 h-auto md:h-64 lg:h-64 xl:h-64"}
               %div{class: "mb-8"}
                 %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
