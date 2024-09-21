@@ -22,6 +22,10 @@ namespace :deploy do
   before :compile_assets, :run_purgecss
 
   task :run_purgecss do
-    execute "cd #{release_path} && yarn build:purgecss"
+    on roles(:app) do
+      within release_path do
+        execute :yarn, "build:purgecss"
+      end
+    end
   end
 end
