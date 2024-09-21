@@ -4,8 +4,6 @@ class LandingController < ApplicationController
   before_action { @page_title }
   before_action { @page_description }
 
-  caches_page :index, :prices, :about, :contacts, :faq, :policy, gzip: :best_speed
-
   def index
     @sewings = Service.sewing.sample(6).sort
     @repairs = Service.repair.sample(6).sort

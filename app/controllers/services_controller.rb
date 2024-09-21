@@ -4,8 +4,6 @@ class ServicesController < ApplicationController
   before_action { @page_title = 'Послуги швейної майстерні ☞ДРУЖБА☜ у Кривому Розі' }
   before_action { @page_description }
 
-  caches_page :index, :show, gzip: :best_speed
-
   def index
     @services = Service.order(id: :asc)
 

@@ -114,10 +114,6 @@ gem 'font-awesome-sass'
 # Pagination
 gem 'pagy'
 
-# Cache page
-gem 'actionpack-action_caching'
-gem 'actionpack-page_caching'
-
 # Canonical
 gem 'canonical-rails'
 
