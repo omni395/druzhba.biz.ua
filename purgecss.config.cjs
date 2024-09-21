@@ -13,7 +13,6 @@ module.exports = {
           'pre',
           'html',
           'body'
-      ],
-      deep: [/some-custom-class/]
+      ]
   }
 }
