@@ -6,6 +6,18 @@
   %div{class: "mx-auto p-5 sm:p-10 md:p-16 lg:p-4 xl:p-2"}
     %div{class: "grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-5"}
       - @repairs.each do |repair|
+        - content_for :head do
+          %script{:type => "application/ld+json"}
+            :plain
+              {
+              "@context": "http://schema.org",
+              "@type": "Service",
+              "name": "#{repair.title}",
+              "alternateName": "#{repair.subtitle}",
+              "description": "#{repair.description}",
+              "logo": "#{repair.image}",
+              "url": "#{service_url(repair)}"
+              }
         %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", "data-aos": "zoom-in", href: service_path(repair)}
           %div{class: "row relative"}
             - if repair.image.attached?
