@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'active_support/core_ext/integer/time'
-
 Rails.application.configure do
   config.port = 3000
   # Settings specified here will take precedence over those in config/application.rb.
@@ -18,7 +16,8 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = false
-  config.cache_store = :null_store
+  #config.cache_store = :null_store
+  config.cache_store = :memory_store
 
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
   # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).
@@ -62,6 +61,7 @@ Rails.application.configure do
   config.logger = ActiveSupport::Logger.new($stdout)
                                        .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
                                        .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+  config.logger = ActiveSupport::Logger.new('/home/deploy/druzhba/shared/log')
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
