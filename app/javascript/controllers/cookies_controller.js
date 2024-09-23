@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 // Connects to data-controller="landing--cookies"
 export default class extends Controller {
   connect() {
-    console.log('connected');
+    //console.log('connected');
     if (this.areCookiesAllowed()) {
       this.appendGACode();
       this.setConsent('update');
@@ -19,14 +19,14 @@ export default class extends Controller {
   }
 
   allowCookies() {
-    console.log("allowCookies called");
-    console.log("allow_cookies:", Cookies.get("allow_cookies"));
+    //console.log("allowCookies called");
+    //console.log("allow_cookies:", Cookies.get("allow_cookies"));
     const consentDefault = document.getElementById('consentdefault');
     if (consentDefault) {
       consentDefault.remove();
     }
     Cookies.set('allow_cookies', 'yes');
-    console.log("allow_cookies after setting:", Cookies.get("allow_cookies"));
+    //console.log("allow_cookies after setting:", Cookies.get("allow_cookies"));
     this.appendGACode();
     this.setConsent('update');
     this.hideBar();
@@ -39,18 +39,18 @@ export default class extends Controller {
   }
 
   hideBar() {
-    console.log("hideBar called");
+    //console.log("hideBar called");
     const consentDefault = document.getElementById('consentdefault');
     const cookiesBar = document.getElementById('cookies-bar');
     if (consentDefault) {
       consentDefault.remove();
     }
     cookiesBar.classList.add('hidden');
-    console.log("cookiesBar hidden:", cookiesBar.classList.contains('hidden'));
+    //console.log("cookiesBar hidden:", cookiesBar.classList.contains('hidden'));
   }
 
   appendGACode() {
-    console.log("GA appended");
+    //console.log("GA appended");
     const script = document.createElement('script');
     script.src = 'https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN';
     script.async = true;

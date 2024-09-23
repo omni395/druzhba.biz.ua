@@ -43,8 +43,6 @@
     = cache 'contact_form' do
       = render "shared/contact_form"
 
-    -# Cookies bar
-    = render "shared/cookies_bar" if @cookie_value.nil?
 
     -# Scroll to Top button
     %div{class: "fixed bottom-10 end-10"}
@@ -63,3 +61,6 @@
     -# FlowbiteJS
     %link{href: "https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css", rel: "stylesheet", nonce: true}
     %script{async: true, src: "https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js", nonce: true}
+
+    -# Cookies bar
+    = render "shared/cookies_bar" if @cookie_value.nil?
