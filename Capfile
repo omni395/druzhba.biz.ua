@@ -39,8 +39,6 @@ require 'capistrano/rails'
 require 'capistrano/rbenv'
 require 'capistrano/sitemap_generator'
 require 'capistrano/puma'
-install_plugin Capistrano::Puma
-install_plugin Capistrano::Puma::Daemon
 
 set :rbenv_type, :user
 set :rbenv_ruby, '3.3.1'
