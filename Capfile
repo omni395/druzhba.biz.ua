@@ -36,9 +36,9 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 require 'capistrano/rails'
-require 'capistrano/passenger'
 require 'capistrano/rbenv'
 require 'capistrano/sitemap_generator'
+require 'capistrano/puma'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '3.3.1'
