@@ -55,7 +55,6 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug'
   gem 'faker'
-
   gem 'bcrypt_pbkdf'
   gem 'ed25519'
   # gem "foreman"
@@ -66,13 +65,10 @@ group :development do
   gem 'html2haml'
   gem 'web-console'
   # gem "mina"
-
   # Code analitic
   gem 'rubocop', require: false
-
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
-
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
@@ -92,10 +88,11 @@ gem 'groupdate'
 gem 'jquery-rails'
 gem 'rails-i18n'
 
-gem 'capistrano', '~> 3.11'
-gem 'capistrano-passenger', '~> 0.2.0'
-gem 'capistrano-rails', '~> 1.4'
-gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv'
+gem 'capistrano-bundler'
+gem 'capistrano-puma'
 
 # Frendly urls
 gem 'friendly_id'
