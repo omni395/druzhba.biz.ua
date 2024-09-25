@@ -38,7 +38,7 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rails'
 require 'capistrano/rbenv'
 require 'capistrano/sitemap_generator'
-require 'capistrano/puma'
+require 'capistrano3/unicorn'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '3.3.1'

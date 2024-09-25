@@ -92,7 +92,7 @@ gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-rbenv'
 gem 'capistrano-bundler'
-gem 'capistrano3-puma'
+gem 'capistrano3-unicorn'
 
 # Frendly urls
 gem 'friendly_id'
