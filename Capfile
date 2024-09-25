@@ -39,6 +39,7 @@ require 'capistrano/rails'
 require 'capistrano/rbenv'
 require 'capistrano/sitemap_generator'
 require 'capistrano3/unicorn'
+require 'capistrano/configuration'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '3.3.1'

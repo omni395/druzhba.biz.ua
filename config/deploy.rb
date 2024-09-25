@@ -23,11 +23,18 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 #set :unicorn_pid, '/home/deploy/druzhba/shared/tmp/pids/unicorn.pid'
 #set :unicorn_bind, '/home/deploy/druzhba/shared/tmp/sockets/unicorn.sock'
 
-
 namespace :deploy do
   before :compile_assets, :run_purgecss
 
   task :run_purgecss do
-    run "cd #{release_path} && yarn build:purgecss"
+    Capistrano::Deploy::Local.run "cd #{release_path} && yarn build:purgecss"
   end
 end
+
+#namespace :deploy do
+#  before :compile_assets, :run_purgecss
+#
+#  task :run_purgecss do
+#    run "cd #{release_path} && yarn build:purgecss"
+#  end
+#end

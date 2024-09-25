@@ -71,6 +71,11 @@ group :development do
   # gem "rack-mini-profiler"
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-unicorn'
 end
 
 gem 'active_decorator'
@@ -87,12 +92,6 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'jquery-rails'
 gem 'rails-i18n'
-
-gem 'capistrano'
-gem 'capistrano-rails'
-gem 'capistrano-rbenv'
-gem 'capistrano-bundler'
-gem 'capistrano3-unicorn'
 
 # Frendly urls
 gem 'friendly_id'
