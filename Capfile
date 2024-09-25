@@ -40,6 +40,12 @@ require 'capistrano/rbenv'
 require 'capistrano/sitemap_generator'
 require 'capistrano/puma'
 
+## new lines
+install_plugin Capistrano::Puma
+
+require "capistrano/scm/git"
+install_plugin Capistrano::SCM::Git
+
 set :rbenv_type, :user
 set :rbenv_ruby, '3.3.1'
 set :sitemap_roles, :web # default
