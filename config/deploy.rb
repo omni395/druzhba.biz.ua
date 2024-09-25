@@ -20,8 +20,8 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 #-----------#
 
-set :unicorn_pid, '/home/deploy/druzhba/shared/tmp/pids/unicorn.pid'
-set :unicorn_bind, '/home/deploy/druzhba/shared/tmp/sockets/unicorn.sock'
+#set :unicorn_pid, '/home/deploy/druzhba/shared/tmp/pids/unicorn.pid'
+#set :unicorn_bind, '/home/deploy/druzhba/shared/tmp/sockets/unicorn.sock'
 
 
 namespace :deploy do
