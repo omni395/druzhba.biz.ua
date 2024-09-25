@@ -77,7 +77,9 @@ namespace :deploy do
   task :run_purgecss do
     run "cd #{release_path} && yarn build:purgecss"
   end
+end
 
+namespace :deploy do
   desc 'Deploy application'
   task :default do
     invoke 'deploy:prepare'
