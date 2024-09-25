@@ -16,4 +16,4 @@ stderr_path "#{shared_dir}/log/unicorn.stderr.log"
 stdout_path "#{shared_dir}/log/unicorn.stdout.log"
 
 # Set proccess id path
-pid "#{shared_dir}/pids/unicorn.pid"
+pid "/home/deploy/druzhba/shared/tmp/pids/unicorn.pid"
