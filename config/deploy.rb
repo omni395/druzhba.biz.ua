@@ -27,14 +27,6 @@ namespace :deploy do
   before :compile_assets, :run_purgecss
 
   task :run_purgecss do
-    Capistrano::Deploy::Local.run "cd #{release_path} && yarn build:purgecss"
+    run "cd #{release_path} && yarn build:purgecss"
   end
 end
-
-#namespace :deploy do
-#  before :compile_assets, :run_purgecss
-#
-#  task :run_purgecss do
-#    run "cd #{release_path} && yarn build:purgecss"
-#  end
-#end
