@@ -9,11 +9,11 @@ preload_app true
 timeout 30
 
 # Path for the Unicorn socket
-listen "#{shared_dir}/sockets/unicorn.sock", :backlog => 64
+listen "/home/deploy/druzhba/shared/tmp/sockets/unicorn.sock", :backlog => 64
 
 # Set path for logging
-stderr_path "#{shared_dir}/log/unicorn.stderr.log"
-stdout_path "#{shared_dir}/log/unicorn.stdout.log"
+stderr_path "/home/deploy/druzhba/shared/log/unicorn.stderr.log"
+stdout_path "/home/deploy/druzhba/shared/log/unicorn.stdout.log"
 
 # Set proccess id path
 pid "/home/deploy/druzhba/shared/tmp/pids/unicorn.pid"
