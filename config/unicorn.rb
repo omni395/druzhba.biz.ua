@@ -1,6 +1,6 @@
 # set path to the application
 app_dir = File.expand_path("../..", __FILE__)
-shared_dir = "#{app_dir}/shared"
+shared_dir = "/home/deploy/druzhba/shared"
 working_directory app_dir
 
 # Set unicorn options
@@ -9,11 +9,11 @@ preload_app true
 timeout 30
 
 # Path for the Unicorn socket
-listen "/home/deploy/druzhba/shared/tmp/sockets/unicorn.sock", :backlog => 64
+listen "#{shared_dir}/sockets/unicorn.sock", :backlog => 64
 
 # Set path for logging
-stderr_path "/home/deploy/druzhba/shared/log/unicorn.stderr.log"
-stdout_path "/home/deploy/druzhba/shared/log/unicorn.stdout.log"
+stderr_path "#{shared_dir}/log/unicorn.stderr.log"
+stdout_path "#{shared_dir}/log/unicorn.stdout.log"
 
 # Set proccess id path
-pid "/home/deploy/druzhba/shared/tmp/pids/unicorn.pid"
+pid "#{shared_dir}/pids/unicorn.pid"
