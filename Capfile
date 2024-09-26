@@ -38,7 +38,7 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rails'
 require 'capistrano/rbenv'
 require 'capistrano/sitemap_generator'
-require 'capistrano3/unicorn'
+require 'capistrano3/puma'
 require 'capistrano/configuration'
 
 require "capistrano/setup"
