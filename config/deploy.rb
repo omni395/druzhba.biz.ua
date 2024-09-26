@@ -19,7 +19,7 @@ set :keep_releases, 3
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 #-----------#
-
+set :puma_daemonize, false
 
 #namespace :deploy do
 #  before :compile_assets, :run_purgecss

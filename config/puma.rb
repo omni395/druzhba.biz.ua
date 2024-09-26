@@ -35,39 +35,3 @@ pidfile ENV.fetch('PIDFILE', 'tmp/pids/server.pid')
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
-
-
-
-###
-# Переменные окружения
-#app_dir = File.expand_path("../..", __FILE__)
-#shared_dir = "#{app_dir}/shared"
-#rails_env = ENV['RAILS_ENV'] || "production"
-
-# Настройки Puma
-#threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
-#threads threads_count, threads_count
-
-# Режим запуска по умолчанию - кластерный. Работники не поддерживают потоки.
-#workers ENV.fetch("WEB_CONCURRENCY") { 2 }
-
-# Установите главную директорию приложения
-#directory app_dir
-
-# Указываем путь к файлу состояния
-#state_path "#{shared_dir}/tmp/pids/puma.state"
-
-# Указываем путь к файлу сокета
-#bind "unix://#{shared_dir}/tmp/sockets/puma.sock"
-
-# Указываем путь к файлу с PID
-#pidfile "#{shared_dir}/tmp/pids/puma.pid"
-
-# Указываем путь к лог-файлу
-#stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
-
-# Указываем окружение
-#environment rails_env
-
-# Позволяем перезапуск без простоя
-#plugin :tmp_restart
