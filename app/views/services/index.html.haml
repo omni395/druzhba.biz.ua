@@ -2,32 +2,25 @@
   %script{:type => "application/ld+json"}
     - @services.each do |service|
       {
-        "@context":"https://schema.org",
-        "@type":"Product",
-        "productID":"#{service.id}",
-        "name":"#{service.title}",
-        "alternateName": "#{service.subtitle}",
-        "description":"#{service.description}",
-        "url":"#{service_url(service)}",
-        "image":"#{service.image}",
-        "brand":"☞ДРУЖБА☜",
-        "offers": [
-          {
-            "@type": "Offer",
-            "price": "#{service.price}",
-            "priceCurrency": "UAH",
-            "itemCondition": "new",
-            "availability": "in stock"
-          }
-        ]
+      "@context":"https://schema.org",
+      "@type":"Product",
+      "productID":"#{service.id}",
+      "name":"#{service.title}",
+      "alternateName": "#{service.subtitle}",
+      "description":"#{service.description}",
+      "url":"#{service_url(service)}",
+      "image":"#{service.image}",
+      "brand":"☞ДРУЖБА☜",
+      "offers": [
+      {
+      "@type": "Offer",
+      "price": "#{service.price}",
+      "priceCurrency": "UAH",
+      "itemCondition": "new",
+      "availability": "in stock"
       }
-      //"@context": "http://schema.org",
-      //"@type": "Service",
-      //"name": "#{service.title}",
-      //"alternateName": "#{service.subtitle}",
-      //"description": "#{service.description}",
-      //"logo": "#{service.image}",
-      //"url": "#{service_url(service)}"*/
+      ]
+      }
 
 %section{class: "mt-8 font-messiri max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between"}
   %div{class: "text-center"}
