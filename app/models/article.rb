@@ -24,6 +24,7 @@ class Article < ApplicationRecord
   end
 
   scope :published, -> { where(published: true) }
+  scope :recent, -> { order(created_at: :desc) }
 
   def created_at_field
     attributes['created_at'].strftime('%d-%m-%Y %H:%M')

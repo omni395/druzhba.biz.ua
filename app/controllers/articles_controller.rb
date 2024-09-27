@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action { @page_description }
 
   def index
-    @pagy, @articles = pagy(Article.published, items: 4)
+    @pagy, @articles = pagy(Article.published.recent, items: 4)
     # sleep(2)
     respond_to do |format|
       format.html
