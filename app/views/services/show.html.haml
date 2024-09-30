@@ -9,15 +9,15 @@
       "alternateName": "#{@service.subtitle}",
       "description":"#{@service.description}",
       "url":"#{service_url(@service)}",
-      "image":"#{@service.image}",
+      "image":"#{url_for(@service.image)}",
       "brand":"☞ДРУЖБА☜",
       "offers": [
       {
       "@type": "Offer",
       "price": "#{@service.price}",
       "priceCurrency": "UAH",
-      "itemCondition": "new",
-      "availability": "in stock"
+      "itemCondition": "https://schema.org/NewCondition",
+      "availability": "https://schema.org/InStock"
       }
       ]
       }
