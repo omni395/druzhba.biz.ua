@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-  before_action { @page_title = 'Блог швейної майстерні ☞ДРУЖБА☜' }
+  before_action { @page_title }
   before_action { @page_description }
 
   def index

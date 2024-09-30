@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ServicesController < ApplicationController
-  before_action { @page_title = 'Послуги швейної майстерні ☞ДРУЖБА☜ у Кривому Розі' }
+  before_action { @page_title }
   before_action { @page_description }
 
   def index
