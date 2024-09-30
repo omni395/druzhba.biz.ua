@@ -2,13 +2,14 @@
   %script{:type => "application/ld+json"}
     :plain
       {
-        "@context": "http://schema.org",
-        "@type": "Article",
-        "headline": "#{@article.title}",
-        "description": "#{@article.description}"
-        "articleBody": "#{@article.body}"
-        "image": "#{@article.image}",
-        "url": "#{request.url}"
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "headline": "#{@article.title}",
+      "description": "#{@article.description}",
+      "image":"#{service_url(@article) + rails_blob_path(@article.image, disposition: "attachment", only_path: true)}",
+      "url": "#{article_url(@article)}",
+      "datePublished":"#{@article.created_at}",
+      "dateModified": "#{@article.updated_at}"
       }
 
 = turbo_frame_tag dom_id(@article), src: article_path(@article) do
