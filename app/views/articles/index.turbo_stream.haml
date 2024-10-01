@@ -8,7 +8,7 @@
             = image_tag(article.image, class: "rounded-t-xl w-full h-[150px] sm:w-full sm:h-[200px] transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0", alt: article.title, loading: 'lazy')
           - else
             = image_tag("favicon.png", class: "rounded-t-xl w-full h-[150px] sm:h-[200px] transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0", alt: article.title, loading: 'lazy')
-          %div{class: "p-4 pt-2 h-auto md:h-72"}
+          %div{class: "px-4 py-2 h-auto md:h-72 lg:h-64 xl:h-60"}
             %p{class: "font-messiry text-xs text-end"}
               = article.created_at_field
             %div{class: "mb-8"}
