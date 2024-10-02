@@ -22,6 +22,13 @@
                 = repair.price
               = t ("prices.td_2")
 
+  -# AdSense block media
+  %script{:async => "", :crossorigin => "anonymous", :src => "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401"}
+  / test media
+  %ins.adsbygoogle{"data-ad-client" => "ca-pub-3829218691602401", "data-ad-format" => "auto", "data-ad-slot" => "9965566145", "data-full-width-responsive" => "true", :style => "display:block"}
+  :javascript
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  
   %div{class: "relative overflow-x-auto shadow-md sm:rounded-lg my-10"}
     %table{class: "w-full text-md text-left rtl:text-right text-stone-500"}
       %thead{class: "text-xl text-stone-700 uppercase bg-stone-50"}
@@ -81,6 +88,14 @@
           = t ("prices.ul.b_7")
         %span{class: "text-xl text-stone-700 sm:text-3xl leading-normal font-normal tracking-tight"}
           = t ("prices.ul.li_7")
+    
+    -# AdSense block media
+    %script{:async => "", :crossorigin => "anonymous", :src => "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401"}
+    / test media
+    %ins.adsbygoogle{"data-ad-client" => "ca-pub-3829218691602401", "data-ad-format" => "auto", "data-ad-slot" => "9965566145", "data-full-width-responsive" => "true", :style => "display:block"}
+    :javascript
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    
     %p{class: "pt-4 text-xl text-stone-700 sm:text-3xl leading-normal font-semibold tracking-tight indent-8"}
       = t ("prices.p3")
     %p{class: "pt-4 text-2xl text-center text-stone-700 sm:text-3xl leading-normal font-extrabold tracking-tight"}
