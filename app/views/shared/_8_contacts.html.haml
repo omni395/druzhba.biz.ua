@@ -24,20 +24,20 @@
             %p{class: "mt-1 text-gray-600 text-2xl"}
               = t ("contacts.p_3")
             
-            %div{id: "warning", class: "flex items-center w-full p-4 text-gray-500 bg-red-100 rounded-lg shadow", role: "alert"}
-              %div{class: "inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg"}
-                %i{class: "fa-solid fa-triangle-exclamation"}
-              %div{class: "ms-auto text-md font-normal text-center"}
-                = t ("contacts.warning.div1")
-                %span{class: "px-[5px] text-stone-900 whitespace-nowrap"}
-                  %i{class: "fa-solid fa-phone"}
-                  %a{href: "tel:+380972870571"}
-                    = t ("contacts.warning.a")
-                %br
-                = t ("contacts.warning.div2")
-              %button{class: "ms-auto bg-white text-gray-400 hover:text-stone-900 rounded-lg focus:ring-2 focus:ring-gray-300 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 -mx-1.5 -my-1.5 p-1.5", "aria-label": "Close", "data-dismiss-target": "#warning", type: "button"}
-                %span.sr-only Close
-                %i{class: "fa-solid fa-xmark"}
+            -#%div{id: "warning", class: "flex items-center w-full p-4 text-gray-500 bg-red-100 rounded-lg shadow", role: "alert"}
+            -#  %div{class: "inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg"}
+            -#    %i{class: "fa-solid fa-triangle-exclamation"}
+            -#  %div{class: "ms-auto text-md font-normal text-center"}
+            -#    = t ("contacts.warning.div1")
+            -#    %span{class: "px-[5px] text-stone-900 whitespace-nowrap"}
+            -#      %i{class: "fa-solid fa-phone"}
+            -#      %a{href: "tel:+380972870571"}
+            -#        = t ("contacts.warning.a")
+            -#    %br
+            -#    = t ("contacts.warning.div2")
+            -#  %button{class: "ms-auto bg-white text-gray-400 hover:text-stone-900 rounded-lg focus:ring-2 focus:ring-gray-300 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 -mx-1.5 -my-1.5 p-1.5", "aria-label": "Close", "data-dismiss-target": "#warning", type: "button"}
+            -#    %span.sr-only Close
+            -#    %i{class: "fa-solid fa-xmark"}
 
 
           %div{class: "border-t-4 border-gray-200 mx-6 py-4"}
