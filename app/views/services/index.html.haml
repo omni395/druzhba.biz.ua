@@ -1,27 +1,3 @@
-- content_for :head do
-  %script{:type => "application/ld+json"}
-    - @services.each do |service|
-      {
-      "@context":"https://schema.org",
-      "@type":"Product",
-      "productID":"#{service.id}",
-      "name":"#{service.title}",
-      "alternateName": "#{service.subtitle}",
-      "description":"#{service.description}",
-      "url":"#{service_url(service)}",
-      "image":"#{service_url(service) + rails_blob_path(service.image, disposition: "attachment", only_path: true)}",
-      "brand":"☞ДРУЖБА☜",
-      "offers": [
-      {
-      "@type": "Offer",
-      "price": "#{service.price}",
-      "priceCurrency": "UAH",
-      "itemCondition": "https://schema.org/NewCondition",
-      "availability": "https://schema.org/InStock"
-      }
-      ]
-      }
-
 :javascript
   fbq('track', 'ViewContent');
 
