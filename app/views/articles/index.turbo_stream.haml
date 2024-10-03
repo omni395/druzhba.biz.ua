@@ -14,11 +14,6 @@
             %div{class: "mb-8"}
               %h2{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
                 = article.title
-              -#%p{class: "text-indigo-500 font-bold text-sm mb-2 inline-block"}
-              -#  \#
-              -#  = article.service.title
-              -#%p{class: "text-stone-700 text-sm text-ellipsis"}
-              -#  = article.description
               
 = turbo_stream.update "articles_pagination" do
   %div{class: "flex mt-12 items-center justify-center space-x-4 w-full"}
