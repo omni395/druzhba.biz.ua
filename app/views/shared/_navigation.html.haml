@@ -25,8 +25,14 @@
           %path{d: "M1 1h15M1 7h15M1 13h15", stroke: "currentColor", "stroke-linecap": "round",
                 "stroke-linejoin": "round", "stroke-width": "2"}
       %div{class: "flex flex-inline"}
+        -# Contact Form Show Button
         %button{id: "openContactForm", class: "mx-1 animate-pulse hover:animate-none focus:animate-none font-messiri inline-block w-full text-center text-md lg:text-xl font-medium text-red-500 bg-stone-100 hover:bg-stone-200 border border-red-500 rounded-lg font-bold py-1 px-2"}
           = t "landing.navigation.contact_form_button"
+          -# Add meta action
+          :javascript
+            document.getElementById('openContactForm').addEventListener('click', function() {
+              fbq('track', 'Lead');
+            });
         -# Switch locales
         - I18n.available_locales.each do |locale|
           %div{class: "relative inline-block text-senter my-auto mx-1"}

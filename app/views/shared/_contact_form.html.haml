@@ -26,4 +26,9 @@
           %label{class: "block text-gray-700 text-sm font-bold mb-2", for: "message"}
             = t("landing.contact_form.message")
           = f.text_area :message, required: true, size: "70x2", class: 'w-full p-2 border rounded-md focus:outline-none focus:border-blue-500', id: 'message'
-        = f.submit "#{t("landing.contact_form.submit")}", data: { disable_with: false }, class: "cursor-pointer font-messiri inline-block w-full md:w-1/2 flex ms-auto text-center text-xl font-medium text-red-500 bg-stone-100 hover:bg-stone-200 border border-red-500 rounded-lg font-bold py-2 px-4", type: "submit"
+        = f.submit "#{t("landing.contact_form.submit")}", id: "contactFormSubmit", data: { disable_with: false }, class: "cursor-pointer font-messiri inline-block w-full md:w-1/2 flex ms-auto text-center text-xl font-medium text-red-500 bg-stone-100 hover:bg-stone-200 border border-red-500 rounded-lg font-bold py-2 px-4", type: "submit"
+        -# Add meta action
+        :javascript
+          document.getElementById('contactFormSubmit').addEventListener('click', function() {
+            fbq('track', 'Contact');
+          });
