@@ -16,7 +16,7 @@
   fbq('track', 'ViewContent');
 
 = turbo_frame_tag dom_id(@article), src: article_path(@article) do
-  %div{id: "article_skeleton"}
+  %div{id: "article_skeleton", data: {turbo_frame: "_top"}}
     %div{class: "min-h-screen bg-white mt-12"}
       %div{class: "max-w-4xl mx-auto px-4 py-8"}
         %div{class: "animate-pulse space-y-4"}

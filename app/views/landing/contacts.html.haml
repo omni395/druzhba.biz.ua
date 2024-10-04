@@ -7,14 +7,6 @@
     = t ("contacts.p_12")
   %p{class: "mb-3 text-xl text-stone-500 text-justify indent-8"}
     = t ("contacts.p_13")
-
-  -# AdSense block media
-  %script{:async => "", :crossorigin => "anonymous", :src => "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401"}
-  / test media
-  %ins.adsbygoogle{"data-ad-client" => "ca-pub-3829218691602401", "data-ad-format" => "auto", "data-ad-slot" => "9965566145", "data-full-width-responsive" => "true", :style => "display:block"}
-  :javascript
-    (adsbygoogle = window.adsbygoogle || []).push({});
-
   
   %div{class: "text-center lg:text-left my-10"}
     %div{class: ""}
@@ -47,6 +39,12 @@
               = t ("contacts.p_5")
               %a{href: "tel:+380972870571"}
                 = t ("contacts.p_5_a")
+
+  -# AdSense block test media
+  %script{:async => "", :crossorigin => "anonymous", :src => "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401"}
+  %ins.adsbygoogle{"data-ad-client" => "ca-pub-3829218691602401", "data-ad-format" => "auto", "data-ad-slot" => "9965566145", "data-full-width-responsive" => "true", :style => "display:block"}
+  :javascript
+    (adsbygoogle = window.adsbygoogle || []).push({});
 
 %section{class: "my-8 font-messiri max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between"}
   %p{class: "mb-3 text-xl text-stone-500 text-justify indent-8"}

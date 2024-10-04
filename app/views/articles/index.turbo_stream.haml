@@ -5,10 +5,10 @@
       %a{id: dom_id(article), data: {turbo_frame: "_top"}, class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: article_path(article)}
         %div{class: "row"}
           - if article.image.attached?
-            = image_tag(article.image, class: "rounded-t-xl w-full h-[150px] sm:w-full sm:h-[200px] transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0", alt: article.title, loading: 'lazy')
+            = image_tag(article.image.variant(convert: "avif", resize_to_limit: [250, 125]), class: "rounded-t-xl w-full h-[150px] sm:w-full sm:h-[200px] transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0", alt: article.title, loading: 'lazy')
           - else
             = image_tag("favicon.png", class: "rounded-t-xl w-full h-[150px] sm:h-[200px] transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0", alt: article.title, loading: 'lazy')
-          %div{class: "px-4 py-2 h-auto md:h-72 lg:h-64 xl:h-60"}
+          %div{class: "px-4 py-2 h-auto md:h-64 lg:h-48 xl:h-40"}
             %p{class: "font-messiry text-xs text-end"}
               = article.created_at_field
             %div{class: "mb-8"}
