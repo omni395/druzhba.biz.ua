@@ -1,2 +1,7 @@
-Sitemap: https://druzhba.biz.ua/sitemap.xml.gz
 Sitemap: https://druzhba.biz.ua/sitemap.xml
+
+User-agent: *
+Disallow: /admin
+Disallow: /?
+Disallow: /*?
+Disallow: /rails/
