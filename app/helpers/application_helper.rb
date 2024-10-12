@@ -60,12 +60,17 @@ module ApplicationHelper
     # Убедимся, что URL не пустой и не дублирует текущий URL
     return nil if alternate_url.blank? || alternate_url == current_path
 
-    tag.link(href: "https://druzhba.biz.ua/uk", 
-             hreflang: "x-default", 
-             rel: "alternate")
-    tag.link(href: "https://druzhba.biz.ua#{alternate_url}", 
-             hreflang: alternate_locale, 
-             rel: "alternate")
+    default_tag = tag.link(href: "https://druzhba.biz.ua/#{I18n.locale}/#{request.path}", 
+                          hreflang: "x-default", 
+                          rel: "alternate")
+    alternate_tag = tag.link(href: "https://druzhba.biz.ua#{alternate_url}", 
+                            hreflang: alternate_locale, 
+                            rel: "alternate")
+    current_tag = tag.link(href: "https://druzhba.biz.ua/#{I18n.locale}/#{request.path}", 
+                          hreflang: I18n.locale,
+                          rel: "alternate")
+
+    safe_join([default_tag, alternate_tag, current_tag])
   end
 
   def canonical_link
