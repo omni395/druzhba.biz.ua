@@ -4,6 +4,5 @@ User-agent: *
 Disallow: /admin
 Disallow: /?
 Disallow: /*?
-Disallow: /rails/
 Disallow: ru/policy
 Disallow: uk/policy
