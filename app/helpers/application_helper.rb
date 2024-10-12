@@ -60,13 +60,20 @@ module ApplicationHelper
     # Убедимся, что URL не пустой и не дублирует текущий URL
     return nil if alternate_url.blank? || alternate_url == current_path
 
-    default_tag = tag.link(href: "https://druzhba.biz.ua/#{I18n.locale}/#{request.path}", 
-                          hreflang: "x-default", 
-                          rel: "alternate")
+    if I18n.locale == :uk
+      default_tag = tag.link(href: "https://druzhba.biz.ua/#{request.path}", 
+                            hreflang: "x-default", 
+                            rel: "alternate")
+    else
+      default_tag = tag.link(href: "https://druzhba.biz.ua/#{alternate_url}", 
+                            hreflang: "x-default", 
+                            rel: "alternate")
+    end
+    
     alternate_tag = tag.link(href: "https://druzhba.biz.ua#{alternate_url}", 
                             hreflang: alternate_locale, 
                             rel: "alternate")
-    current_tag = tag.link(href: "https://druzhba.biz.ua/#{I18n.locale}/#{request.path}", 
+    current_tag = tag.link(href: "https://druzhba.biz.ua/#{request.path}", 
                           hreflang: I18n.locale,
                           rel: "alternate")
 
