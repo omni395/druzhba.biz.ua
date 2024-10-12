@@ -60,6 +60,9 @@ module ApplicationHelper
     # Убедимся, что URL не пустой и не дублирует текущий URL
     return nil if alternate_url.blank? || alternate_url == current_path
 
+    tag.link(href: "https://druzhba.biz.ua/uk", 
+             hreflang: "x-default", 
+             rel: "alternate")
     tag.link(href: "https://druzhba.biz.ua#{alternate_url}", 
              hreflang: alternate_locale, 
              rel: "alternate")
