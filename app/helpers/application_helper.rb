@@ -61,11 +61,11 @@ module ApplicationHelper
     return nil if alternate_url.blank? || alternate_url == current_path
 
     if I18n.locale == :uk
-      default_tag = tag.link(href: "https://druzhba.biz.ua/#{request.path}", 
+      default_tag = tag.link(href: "https://druzhba.biz.ua#{request.path}", 
                             hreflang: "x-default", 
                             rel: "alternate")
     else
-      default_tag = tag.link(href: "https://druzhba.biz.ua/#{alternate_url}", 
+      default_tag = tag.link(href: "https://druzhba.biz.ua#{alternate_url}", 
                             hreflang: "x-default", 
                             rel: "alternate")
     end
@@ -73,7 +73,7 @@ module ApplicationHelper
     alternate_tag = tag.link(href: "https://druzhba.biz.ua#{alternate_url}", 
                             hreflang: alternate_locale, 
                             rel: "alternate")
-    current_tag = tag.link(href: "https://druzhba.biz.ua/#{request.path}", 
+    current_tag = tag.link(href: "https://druzhba.biz.ua#{request.path}", 
                           hreflang: I18n.locale,
                           rel: "alternate")
 
