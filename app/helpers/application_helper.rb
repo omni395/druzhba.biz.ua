@@ -68,17 +68,15 @@ module ApplicationHelper
              rel: "alternate")
   end
 
-  def canonical_link(options = {})
-    default_options = {
-      domain: 'https://druzhba.biz.ua',
-      include_params: []
-    }
-    options = default_options.merge(options)
-
-    canonical_params = request.params.slice(*options[:include_params])
-    canonical_url = url_for(canonical_params.merge(only_path: true))
+  def canonical_link
+    current_url = request.original_url
+    uri = URI(current_url)
+    canonical_url = "#{uri.scheme}://#{uri.host}#{request.path}"
     
-    tag.link(rel: "canonical", href: "#{options[:domain]}#{canonical_url}")
+    # Убираем trailing slash, если он есть (кроме корневого URL)
+    canonical_url = canonical_url.chomp('/') unless canonical_url == "#{uri.scheme}://#{uri.host}/"
+    
+    tag.link(rel: "canonical", href: canonical_url)
   end
 
   def page_title(custom_title = nil, options = {})
