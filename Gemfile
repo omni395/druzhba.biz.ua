@@ -110,9 +110,6 @@ gem 'font-awesome-sass'
 # Pagination
 gem 'pagy'
 
-# Canonical
-gem 'canonical-rails'
-
 # Schema.org
 gem 'schema_dot_org'
 gem 'json-ld'

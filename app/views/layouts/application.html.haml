@@ -2,16 +2,9 @@
 %html{lang: "#{I18n.locale}"}
   %head
     = yield :head
-    = canonical_tag
-    %link{href: "https://druzhba.biz.ua/#{I18n.locale}/", hreflang: "#{I18n.locale}", rel: "alternate"}
-    
-    %title
-      - if I18n.locale == :uk
-        = @page_title.present? ? "#{@page_title.truncate(70)}" : "Швейна майстерня ☞ ДРУЖБА ☜"
-        -#= @page_title
-      - else
-        -#= @page_title
-        = @page_title.present? ? "#{@page_title.truncate(70)}" : "Швейная мастерская ☞ДРУЖБА☜"
+    = canonical_link
+    = alternate_locale_link
+    = page_title(@page_title)
     
     = favicon_link_tag asset_path('favicon.png')
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}
