@@ -7,6 +7,48 @@ module ApplicationHelper
     I18n.available_locales
   end
 
+  def locale_switch_path(locale)
+    current_path = request.path
+    current_params = request.query_parameters
+
+    begin
+      # Получаем текущий маршрут
+      current_route = Rails.application.routes.recognize_path(current_path)
+
+      if current_route[:controller] && current_route[:action] == 'show'
+        model_name = current_route[:controller].classify
+        model_class = model_name.constantize
+
+        if model_class.respond_to?(:friendly)
+          # Находим текущий объект
+          current_object = model_class.friendly.find(current_route[:id])
+
+          # Генерируем альтернативный путь
+          I18n.with_locale(locale) do
+            alternate_slug = current_object.friendly_id
+            url_for(controller: current_route[:controller],
+                     action: 'show',
+                     id: alternate_slug,
+                     only_path: true,
+                     locale: locale)
+          end
+        else
+          # Если модель не использует friendly_id
+          current_path.sub("/#{I18n.locale}/", "/#{locale}/")
+        end
+      else
+        # Для других случаев
+        current_path.sub("/#{I18n.locale}/", "/#{locale}/")
+      end
+    rescue
+      # В случае ошибки возвращаем просто путь с новой локалью
+      current_path.sub("/#{I18n.locale}/", "/#{locale}/")
+    end.tap do |path|
+      # Добавляем параметры запроса
+      path += "?#{current_params.to_query}" if current_params.any?
+    end
+  end
+
   def alternate_locale_link
     alternate_locale = I18n.locale == :uk ? :ru : :uk
     current_path = request.path
