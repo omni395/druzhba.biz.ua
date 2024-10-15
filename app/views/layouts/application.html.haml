@@ -39,9 +39,8 @@
           style: "display:none"}
   
   %body{class: "bg-stone-100", id: "main"}
-    = cache 'navigation' do
-      %navigation{class: ""}
-        = render "shared/navigation"
+    %navigation{class: ""}
+      = render "shared/navigation"
     %main{class: "", "data-controller": "landing--index"}
       = yield
     = cache 'footer' do
