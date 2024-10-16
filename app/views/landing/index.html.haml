@@ -1,19 +1,19 @@
 -#= video_tag("test.mp4", size: "640", autoplay: :autoplay, loop: :loop, controls: true, html: {class: "border-4"})
 
 -#= turbo_frame_tag :landing do
-= cache 'hero-section-1' do
-  %div{class: "", id: "hero-section-1"}
-    = render "shared/1_hero_section"  
+-#= cache 'hero-section-1' do
+%div{class: "", id: "hero-section-1"}
+  = render "shared/1_hero_section"  
 %div{class: "z-0", id: "services"}
   = render "shared/2_services"
 -#%div{class: "z-100 mt-8", id: "hero-section-2", "data-aos": "zoom-in"}
 -#  = render "shared/3_hero_section"
-= cache 'about' do
-  %div{class: "z-0 mt-8", id: "about", "data-aos": "zoom-in"}
-    = render "shared/5_about"
-= cache 'faq' do
-  %div{class: "mt-8", id: "faq", "data-aos": "zoom-in"}
-    = render "shared/7_faq"
-= cache 'contacts' do
-  %div{class: "mt-8", id: "contacts", "data-aos": "zoom-in"}
-    = render "shared/8_contacts"
+-#= cache 'about' do
+%div{class: "z-0 mt-8", id: "about", "data-aos": "zoom-in"}
+  = render "shared/5_about"
+-#= cache 'faq' do
+%div{class: "mt-8", id: "faq", "data-aos": "zoom-in"}
+  = render "shared/7_faq"
+-#= cache 'contacts' do
+%div{class: "mt-8", id: "contacts", "data-aos": "zoom-in"}
+  = render "shared/8_contacts"
