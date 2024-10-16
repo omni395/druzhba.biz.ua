@@ -1,54 +1,52 @@
-import { Controller } from "@hotwired/stimulus";
+import { Controller } from "@hotwired/stimulus"
 
-const postControllerIndexFilePath = "app/javascript/controllers/landing/index_controller.js"
-
+// Connects to data-controller="landing--gallery"
 export default class extends Controller {
-  initialize() {
-  }
-
   connect() {
-    this.exFunction();
-  }
-
-  exFunction() {
-    // Плавная прокрутка
-    var $page = $('html, body');
-    $('a[href*="#"]').click(function() {
-        $page.animate({
-            scrollTop: $($.attr(this, 'href')).offset().top
-        }, 400);
-        return false;
-    });
-
-    // Toggle the modal
-    const openContactFormButton = document.getElementById('openContactForm');
-    const closeContactFormButton = document.getElementById('closeContactForm');
-    const contactFormModal = document.getElementById('contactFormModal');
+    // Получаем все кнопки для открытия и закрытия модальных окон
+    this.toggleButtons = this.element.querySelectorAll('[data-modal-toggle]');
+    this.hideButtons = this.element.querySelectorAll('[data-modal-hide]');
+    this.disableTurboForLinks();
     
-    openContactFormButton.addEventListener('click', () => {
-        contactFormModal.classList.remove('hidden');
+    // Обработчик для открытия модального окна
+    this.toggleButtons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault(); // Предотвращаем стандартное поведение
+        const modalId = button.dataset.modalToggle;
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.remove('hidden');
+        }
+      });
     });
 
-    closeContactFormButton.addEventListener('click', () => {
-        contactFormModal.classList.add('hidden');
+    // Обработчик для закрытия модального окна
+    this.hideButtons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault(); // Предотвращаем стандартное поведение
+        const modalId = button.dataset.modalHide;
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('hidden');
+        }
+      });
     });
 
-    // Toggle nav menu
-    const toggleNavMenu = document.getElementById('toggleNavMenu');
-    const navMenu = document.getElementById('navMenu');
-    toggleNavMenu.addEventListener('click', () => {
-        navMenu.classList.toggle('hidden');
+    // Обработчик клика вне модального окна для закрытия
+    document.addEventListener('click', (event) => {
+      const modals = document.querySelectorAll('[id^="image-modal-"]');
+      modals.forEach(modal => {
+        if (!modal.classList.contains('hidden') && event.target === modal) {
+          modal.classList.add('hidden');
+        }
+      });
     });
-
-    // Animation effects with aos.js
-    document.addEventListener('turbo:load', () => { AOS.init(
-      {
-        'offset': 300,
-        'duration': 800,
-        'easing': 'ease-in-sine'
-        //'data-aos-once': true
-      }
-    ) });
-  };
+  }
+  // Запретить turbo
+  disableTurboForLinks() {
+    const links = this.element.querySelectorAll('a');
+    links.forEach(link => {
+      link.setAttribute('data-turbo', 'false')
+    });
+  }
 }
-
