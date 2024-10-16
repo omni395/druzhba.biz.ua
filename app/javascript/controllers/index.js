@@ -13,8 +13,5 @@ application.register("landing--gallery", Landing__GalleryController)
 import Landing__IndexController from "./landing/index_controller"
 application.register("landing--index", Landing__IndexController)
 
-import TurboController from "./turbo_controller"
-application.register("turbo", TurboController)
-
 import TurboFrameHistoryController from "./turbo_frame_history_controller"
 application.register("turbo-frame-history", TurboFrameHistoryController)
