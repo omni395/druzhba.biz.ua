@@ -6,7 +6,6 @@ export default class extends Controller {
     // Получаем все кнопки для открытия и закрытия модальных окон
     this.toggleButtons = this.element.querySelectorAll('[data-modal-toggle]');
     this.hideButtons = this.element.querySelectorAll('[data-modal-hide]');
-    this.disableTurboForLinks();
     
     // Обработчик для открытия модального окна
     this.toggleButtons.forEach(button => {
@@ -40,13 +39,6 @@ export default class extends Controller {
           modal.classList.add('hidden');
         }
       });
-    });
-  }
-  // Запретить turbo
-  disableTurboForLinks() {
-    const links = this.element.querySelectorAll('a');
-    links.forEach(link => {
-      link.setAttribute('data-turbo', 'false')
     });
   }
 }
