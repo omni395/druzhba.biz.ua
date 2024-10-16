@@ -30,15 +30,5 @@ export default class extends Controller {
         }
       });
     });
-
-    // Обработчик клика вне модального окна для закрытия
-    document.addEventListener('click', (event) => {
-      const modals = document.querySelectorAll('[id^="image-modal-"]');
-      modals.forEach(modal => {
-        if (!modal.classList.contains('hidden') && event.target === modal) {
-          modal.classList.add('hidden');
-        }
-      });
-    });
   }
 }
