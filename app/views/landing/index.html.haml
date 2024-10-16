@@ -4,12 +4,13 @@
 = cache 'hero-section-1' do
   %div{class: "", id: "hero-section-1"}
     = render "shared/1_hero_section"  
-%div{class: "z-0", id: "services"}
+%div{class: "", id: "services"}
   = render "shared/2_services"
--#%div{class: "z-100 mt-8", id: "hero-section-2", "data-aos": "zoom-in"}
--#  = render "shared/3_hero_section"
+= cache 'hero-section-2' do
+  %div{class: "mt-8", id: "hero-section-2", "data-aos": "zoom-in", "data-controller": "landing--gallery"}
+    = render "shared/3_hero_section"
 = cache 'about' do
-  %div{class: "z-0 mt-8", id: "about", "data-aos": "zoom-in"}
+  %div{class: "mt-8", id: "about", "data-aos": "zoom-in"}
     = render "shared/5_about"
 = cache 'faq' do
   %div{class: "mt-8", id: "faq", "data-aos": "zoom-in"}
