@@ -41,51 +41,50 @@
         %dd{class: "mt-2 ml-16 text-base text-gray-500 text-justify"}
           = t ("service.dl4.dd")
 
-%div{class: "mx-auto p-5 sm:p-10 md:p-16"}
-  %h2{class: "text-center my-4 text-xl text-stone-500 sm:text-2xl leading-normal font-extrabold tracking-tight"}
-    = t ("service.h2_1")
-  %div{class: "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10"}
-    - @services.repair.each do |service|
-      %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: service_path(service)}
-        %div{class: "row"}
-          - if service.image.attached?
-            = image_tag(service.image.variant(convert: "avif", resize_to_limit: [250, 125]), class: "rounded-t-xl w-full h-[150px] sm:w-full sm:h-[200px] transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0", alt: service.title, loading: 'lazy')
-          - else
-            = image_tag("favicon.png", class: "rounded-t-xl w-full h-[150px] sm:h-[200px] transition-all duration-300 cursor-pointer filter hover:grayscale-[50%] grayscale-0", alt: service.title, loading: 'lazy')
-          %div{class: "px-4 py-2 h-auto md:h-64 lg:h-48 xl:h-40"}
-            %div{class: "mb-8"}
-              %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                = service.title
-              %p{class: "text-gray-700 text-sm text-ellipsis text-justify"}
-                = service.description
-    
-    -# AdSense block
-    %script{:async => "", :crossorigin => "anonymous", :src => "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401"}
-    %ins.adsbygoogle{"data-ad-client" => "ca-pub-3829218691602401", "data-ad-format" => "fluid", "data-ad-layout-key" => "-6i+cd-2-3r+ld", "data-ad-slot" => "3777827084", :style => "display:block"}
-    :javascript
-      (adsbygoogle = window.adsbygoogle || []).push({});
 
+  -# Карточки услуг с блоком рекламы
+  %div{class: "mx-auto p-5 sm:p-10 md:p-16"}
+    %h2{class: "text-center my-4 text-xl text-stone-500 sm:text-2xl leading-normal font-extrabold tracking-tight"}
+      = t ("service.h2_2")
 
-%div{class: "mx-auto p-5 sm:p-10 md:p-16"}
-  %h2{class: "text-center my-4 text-xl text-stone-500 sm:text-2xl leading-normal font-extrabold tracking-tight"}
-    = t ("service.h2_2")
-  %div{class: "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10"}
-    - @services.sewing.each do |service|
-      %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300", href: service_path(service)}
-        %div{class: "row"}
-          - if service.image.attached?
-            = image_tag(service.image.variant(convert: "avif", resize_to_limit: [250, 125]), class: "rounded-t-xl w-full h-[150px] sm:w-full sm:h-[200px] transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: service.title, loading: 'lazy')
-          - else
-            = image_tag("favicon.png", class: "rounded-t-xl w-full h-[150px] sm:h-[200px] transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: service.title, loading: 'lazy')
-          %div{class: "px-4 py-2 h-auto md:h-64 lg:h-48 xl:h-40"}
-            %div{class: "mb-8"}
-              %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
-                = service.title
-              %p{class: "text-gray-700 text-sm text-ellipsis text-justify"}
-                = service.description
-    
-    -# AdSense block 2
-    %script{:async => "", :crossorigin => "anonymous", :src => "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401"}
-    %ins.adsbygoogle{"data-ad-client" => "ca-pub-3829218691602401", "data-ad-format" => "fluid", "data-ad-layout-key" => "-76+d5-2s-2t+oy", "data-ad-slot" => "8096685354", :style => "display:block"}
-    :javascript
-      (adsbygoogle = window.adsbygoogle || []).push({});
+    - if @services.sewing.present?
+      %div{class: "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10"}
+        - @services.sewing.each_with_index do |service, index|
+          - if index < 5
+            %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300 flex flex-col", href: service_path(service)}
+              %div{class: "flex-grow"}
+                - if service.image.attached?
+                  = image_tag(service.image.variant(convert: "avif", resize_to_limit: [250, 125]), class: "rounded-t-xl w-full h-[150px] sm:w-full sm:h-[200px] transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: service.title, loading: 'lazy')
+                - else
+                  = image_tag("favicon.png", class: "rounded-t-xl w-full h-[150px] sm:h-[200px] transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: service.title, loading: 'lazy')
+              %div{class: "px-4 py-2 flex-grow"}
+                %div{class: "mb-8"}
+                  %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
+                    = service.title
+                  %p{class: "text-gray-700 text-sm text-ellipsis text-justify"}
+                    = service.description
+
+          - if @services.sewing.size > 5
+            -# AdSense block
+            %script{:async => "", :crossorigin => "anonymous", :src => "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401"}
+            %ins.adsbygoogle{"data-ad-client" => "ca-pub-3829218691602401", "data-ad-format" => "fluid", "data-ad-layout-key" => "-6i+cd-2-3r+ld", "data-ad-slot" => "3777827084", :style => "display:block"}
+            :javascript
+              (adsbygoogle = window.adsbygoogle || []).push({});
+
+          %div{class: "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10"}
+            - @services.sewing[5..-1].each do |service|
+              %a{class: "rounded-xl shadow-lg hover:shadow-lg hover:shadow-red-300 flex flex-col", href: service_path(service)}
+                %div{class: "flex-grow"}
+                  - if service.image.attached?
+                    = image_tag(service.image.variant(convert: "avif", resize_to_limit: [250, 125]), class: "rounded-t-xl w-full h-[150px] sm:w-full sm:h-[200px] transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: service.title, loading: 'lazy')
+                  - else
+                    = image_tag("favicon.png", class: "rounded-t-xl w-full h-[150px] sm:h-[200px] transition-all duration-300 cursor-pointer filter grayscale-[50%] hover:grayscale-0", alt: service.title, loading: 'lazy')
+                %div{class: "px-4 py-2 flex-grow"}
+                  %div{class: "mb-8"}
+                    %h3{class: "text-stone-900 font-bold text-lg mb-2 hover:text-red-500 inline-block"}
+                      = service.title
+                    %p{class: "text-gray-700 text-sm text-ellipsis text-justify"}
+                      = service.description
+    - else
+      %p{class: "text-center text-gray-500"} 
+        = t("service.no_services") # Сообщение, если нет услуг
