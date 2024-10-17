@@ -37,7 +37,19 @@ export default class extends Controller {
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js';
     script.async = true;
     script.nonce = true; // Добавьте nonce, если требуется
+    script.onload = () => {
+      console.log('Flowbite script loaded');
+      this.initializeModals(); // Инициализация модальных окон после загрузки Flowbite
+    };
     document.body.appendChild(script);
+  }
+  
+  initializeModals() {
+    // Здесь вы можете инициализировать ваши модальные окна
+    const modals = document.querySelectorAll('[data-modal-target]');
+    modals.forEach(modal => {
+      Flowbite.Modal.init(modal);
+    });
   }
 
   exFunction() {
