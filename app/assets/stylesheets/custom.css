@@ -46,6 +46,7 @@
 
   li {
     list-style: square outside;
+    padding-left: 25px;
   }
 
   li::marker {
