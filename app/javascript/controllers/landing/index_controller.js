@@ -7,7 +7,41 @@ export default class extends Controller {
   }
 
   connect() {
+    this.loadFlowbiteStylesheet();
+    this.loadFlowbiteScript();
+    this.loadAdsScript();
     this.exFunction();
+  }
+
+  loadAdsScript() {
+    window.addEventListener('load', () => { // Ждем полной загрузки страницы
+      const script = document.createElement('script');
+      script.async = true;
+      script.crossOrigin = "anonymous";
+      script.nonce = true; // Добавьте nonce, если требуется
+      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401";
+      document.head.appendChild(script);
+    });
+  }
+
+  loadFlowbiteStylesheet() {
+    window.addEventListener('load', () => { // Ждем полной загрузки страницы
+      const link = document.createElement('link');
+      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css';
+      link.rel = 'stylesheet';
+      link.nonce = true; // Добавьте nonce, если требуется
+      document.head.appendChild(link);
+    });
+  }
+
+  loadFlowbiteScript() {
+    window.addEventListener('load', () => { // Ждем полной загрузки страницы
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js';
+      script.async = true;
+      script.nonce = true; // Добавьте nonce, если требуется
+      document.body.appendChild(script);
+    });
   }
 
   exFunction() {
