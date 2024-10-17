@@ -25,23 +25,19 @@ export default class extends Controller {
   }
 
   loadFlowbiteStylesheet() {
-    window.addEventListener('load', () => { // Ждем полной загрузки страницы
-      const link = document.createElement('link');
-      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css';
-      link.rel = 'stylesheet';
-      link.nonce = true; // Добавьте nonce, если требуется
-      document.head.appendChild(link);
-    });
+    const link = document.createElement('link');
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css';
+    link.rel = 'stylesheet';
+    link.nonce = true; // Добавьте nonce, если требуется
+    document.head.appendChild(link);
   }
 
   loadFlowbiteScript() {
-    window.addEventListener('load', () => { // Ждем полной загрузки страницы
-      const script = document.createElement('script');
-      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js';
-      script.async = true;
-      script.nonce = true; // Добавьте nonce, если требуется
-      document.body.appendChild(script);
-    });
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js';
+    script.async = true;
+    script.nonce = true; // Добавьте nonce, если требуется
+    document.body.appendChild(script);
   }
 
   exFunction() {
