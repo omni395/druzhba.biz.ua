@@ -2,6 +2,7 @@
 //= link_tree ../videos
 //= link application.css
 //= link custom.css
+//= link fonts.css
 //= link admin.css
 //= link_tree ../builds
 //= link admin.js

@@ -15,12 +15,13 @@
 
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag "application", "https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap", "https://fonts.googleapis.com/css2?family=Bad+Script&family=messiri:wght@400..700&display=swap", "inter-font", "data-turbo-track": "reload", nonce: true
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload", nonce: true
     = stylesheet_link_tag "custom", "data-turbo-track": "reload", nonce: true
+    -#= stylesheet_link_tag "application", "https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap", "https://fonts.googleapis.com/css2?family=Bad+Script&family=messiri:wght@400..700&display=swap", "inter-font", "data-turbo-track": "reload", nonce: true
+    = stylesheet_link_tag "fonts", "data-turbo-track": "reload", nonce: true
     = stylesheet_link_tag "aos", "data-turbo-track": "reload", nonce: true
-    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true, async: true, nonce: true
-    = javascript_include_tag "aos", "data-turbo-track": "reload", defer: true, async: true, nonce: true
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true, nonce: true
+    = javascript_include_tag "aos", "data-turbo-track": "reload", defer: true, nonce: true
 
     -# Meta Pixel Code
     %meta{content: "c4iyqbhq6lzkda2zk3t9xgbnd162ag", name: "facebook-domain-verification"}
@@ -65,5 +66,3 @@
     
     -# Cookies bar
     = render "shared/cookies_bar" if @cookie_value.nil?
-
-    -#%script{async: true, crossorigin: "anonymous", src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401"}
