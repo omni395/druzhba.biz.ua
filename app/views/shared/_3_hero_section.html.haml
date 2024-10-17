@@ -3,6 +3,6 @@
     %h2{class: "font-messiri text-red-500 text-2xl font-medium uppercase lg:text-3xl"}
       = t "landing.examples.h2"
 
-  %div{class: "grid grid-cols-2 md:grid-cols-4 gap-4 place-content-center"}
-    - (1..3).each do |i|
-      = image_tag("#{i}-min.jpg", "data-aos": "zoom-in", alt: "Изделие #{i}", loading: 'lazy', class: "cursor-pointer rounded-lg shadow hover:shadow-lg max-h-[600px] w-auto object-cover", data: { "modal-target": "image-modal-#{i}", "modal-toggle": "image-modal-#{i}" })
+%div{class: "grid grid-cols-2 md:grid-cols-4 gap-4 place-content-center"}
+  - (1..3).each do |i|
+    = image_tag("#{i}-min.jpg", "data-aos": "zoom-in", alt: "Изделие #{i}", loading: 'lazy', class: "cursor-pointer rounded-lg shadow hover:shadow-lg max-h-[600px] w-auto object-cover", data: { "modal-target": "image-modal-#{i}", "modal-toggle": "image-modal-#{i}" })

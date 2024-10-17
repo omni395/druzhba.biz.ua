@@ -14,8 +14,11 @@ export default class extends Controller {
         if (modal) {
           modal.classList.remove('hidden');
           modal.setAttribute('aria-hidden', 'false'); // Установите aria-hidden в false
+          console.log(`Opened modal: ${modalId}`); // Отладочное сообщение
           // Инициализация модального окна Flowbite
           Flowbite.Modal.init(modal);
+        } else {
+          console.error(`Modal with ID ${modalId} not found.`);
         }
       });
     });
@@ -28,6 +31,9 @@ export default class extends Controller {
         if (modal) {
           modal.classList.add('hidden');
           modal.setAttribute('aria-hidden', 'true'); // Установите aria-hidden в true
+          console.log(`Closed modal: ${modalId}`); // Отладочное сообщение
+        } else {
+          console.error(`Modal with ID ${modalId} not found.`);
         }
       });
     });
