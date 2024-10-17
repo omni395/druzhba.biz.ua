@@ -15,12 +15,20 @@
 
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload", nonce: true
-    = stylesheet_link_tag "custom", "data-turbo-track": "reload", nonce: true
-    = stylesheet_link_tag "fonts", "data-turbo-track": "reload", nonce: true
-    = stylesheet_link_tag "aos", "data-turbo-track": "reload", nonce: true
+    -#= stylesheet_link_tag "fonts", "data-turbo-track": "reload", nonce: true
+    -#= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload", nonce: true
+    -#= stylesheet_link_tag "custom", "data-turbo-track": "reload", nonce: true
+    -#= stylesheet_link_tag "aos", "data-turbo-track": "reload", nonce: true
+    -#= javascript_include_tag "application", "data-turbo-track": "reload", defer: true, nonce: true
+    -#= javascript_include_tag "aos", "data-turbo-track": "reload", defer: true, nonce: true
+
+    = stylesheet_link_tag "tailwind", "inter-font", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: true
+    = stylesheet_link_tag "custom", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: true
+    = stylesheet_link_tag "fonts", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: true
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true, nonce: true
-    = javascript_include_tag "aos", "data-turbo-track": "reload", defer: true, nonce: true
+    - if @use_aos
+      = stylesheet_link_tag "aos", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: true
+      = javascript_include_tag "aos", "data-turbo-track": "reload", defer: true, nonce: true
 
     -# Meta Pixel Code
     %meta{content: "c4iyqbhq6lzkda2zk3t9xgbnd162ag", name: "facebook-domain-verification"}
