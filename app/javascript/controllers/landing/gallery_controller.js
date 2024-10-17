@@ -14,17 +14,6 @@ export default class extends Controller {
         if (modal) {
           modal.classList.remove('hidden');
           modal.setAttribute('aria-hidden', 'false'); // Установите aria-hidden в false
-          console.log(`Opened modal: ${modalId}`); // Отладочное сообщение
-          
-          // Проверка наличия Flowbite перед инициализацией
-          if (typeof Flowbite !== 'undefined' && Flowbite.Modal) {
-            if (!modal.classList.contains('initialized')) {
-              Flowbite.Modal.init(modal);
-              modal.classList.add('initialized'); // Добавьте класс, чтобы избежать повторной инициализации
-            }
-          } else {
-            console.error('Flowbite is not defined or Modal is not available.');
-          }
         } else {
           console.error(`Modal with ID ${modalId} not found.`);
         }
