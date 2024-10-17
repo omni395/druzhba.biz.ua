@@ -4,10 +4,6 @@ export default class extends Controller {
   connect() {
     this.loadAdsScript();
     this.exFunction();
-
-    document.addEventListener('turbo:load', () => {
-      this.initializeModals(); // Инициализация модальных окон при загрузке страницы
-    });
   }
 
   loadAdsScript() {
