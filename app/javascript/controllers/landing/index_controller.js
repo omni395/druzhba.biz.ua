@@ -2,8 +2,6 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   connect() {
-    this.loadFlowbiteStylesheet();
-    this.loadFlowbiteScript();
     this.loadAdsScript();
     this.exFunction();
 
