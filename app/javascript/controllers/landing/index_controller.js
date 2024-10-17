@@ -23,39 +23,6 @@ export default class extends Controller {
     });
   }
 
-  loadFlowbiteStylesheet() {
-    const link = document.createElement('link');
-    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css';
-    link.rel = 'stylesheet';
-    link.nonce = true; // Добавьте nonce, если требуется
-    document.head.appendChild(link);
-  }
-
-  loadFlowbiteScript() {
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js';
-    script.async = true;
-    script.onload = () => {
-      console.log('Flowbite script loaded');
-      this.initializeModals(); // Инициализация модальных окон после загрузки Flowbite
-    };
-    script.onerror = () => {
-      console.error('Failed to load Flowbite script');
-    };
-    document.body.appendChild(script);
-  }
-
-  initializeModals() {
-    const modals = document.querySelectorAll('[data-modal-target]');
-    modals.forEach(modal => {
-      if (typeof Flowbite !== 'undefined' && Flowbite.Modal) {
-        Flowbite.Modal.init(modal);
-      } else {
-        console.error('Flowbite is not defined or Modal is not available.');
-      }
-    });
-  }
-
   exFunction() {
     // Плавная прокрутка
     var $page = $('html, body');
