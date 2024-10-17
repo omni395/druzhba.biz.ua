@@ -1,20 +1,19 @@
 import { Controller } from "@hotwired/stimulus";
 
-const postControllerIndexFilePath = "app/javascript/controllers/landing/index_controller.js"
-
 export default class extends Controller {
-  initialize() {
-  }
-
   connect() {
     this.loadFlowbiteStylesheet();
     this.loadFlowbiteScript();
     this.loadAdsScript();
     this.exFunction();
+
+    document.addEventListener('turbo:load', () => {
+      this.initializeModals(); // Инициализация модальных окон при загрузке страницы
+    });
   }
 
   loadAdsScript() {
-    window.addEventListener('load', () => { // Ждем полной загрузки страницы
+    window.addEventListener('load', () => {
       const script = document.createElement('script');
       script.async = true;
       script.crossOrigin = "anonymous";
@@ -36,19 +35,24 @@ export default class extends Controller {
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js';
     script.async = true;
-    script.nonce = true; // Добавьте nonce, если требуется
     script.onload = () => {
       console.log('Flowbite script loaded');
       this.initializeModals(); // Инициализация модальных окон после загрузки Flowbite
     };
+    script.onerror = () => {
+      console.error('Failed to load Flowbite script');
+    };
     document.body.appendChild(script);
   }
-  
+
   initializeModals() {
-    // Здесь вы можете инициализировать ваши модальные окна
     const modals = document.querySelectorAll('[data-modal-target]');
     modals.forEach(modal => {
-      Flowbite.Modal.init(modal);
+      if (typeof Flowbite !== 'undefined' && Flowbite.Modal) {
+        Flowbite.Modal.init(modal);
+      } else {
+        console.error('Flowbite is not defined or Modal is not available.');
+      }
     });
   }
 
