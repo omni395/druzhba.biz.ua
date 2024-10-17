@@ -15,6 +15,11 @@
             = article.title
           %p{class: "py-2 font-messiri text-gray-700 text-sm text-ellipsis text-justify"}
             = article.description
+      - if (index + 1) % 5 == 0
+        %script{:async => "", :crossorigin => "anonymous", :src => "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401"}
+        %ins.adsbygoogle{"data-ad-client" => "ca-pub-3829218691602401", "data-ad-format" => "fluid", "data-ad-layout-key" => "-76+d5-2s-2t+oy", "data-ad-slot" => "8096685354", :style => "display:block"}
+        :javascript
+          (adsbygoogle = window.adsbygoogle || []).push({});
               
 = turbo_stream.update "articles_pagination" do
   %div{class: "flex mt-12 items-center justify-center space-x-4 w-full"}
