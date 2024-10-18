@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 // Connects to data-controller="landing--cookies"
 export default class extends Controller {
   connect() {
-    console.log('connected');
+    //console.log('connected');
     if (this.areCookiesAllowed()) {
       this.appendGACode();
       this.appendFacebookPixel();
@@ -20,14 +20,14 @@ export default class extends Controller {
   }
 
   allowCookies() {
-    console.log("allowCookies called");
-    console.log("allow_cookies:", Cookies.get("allow_cookies"));
+    //console.log("allowCookies called");
+    //console.log("allow_cookies:", Cookies.get("allow_cookies"));
     const consentDefault = document.getElementById('consentdefault');
     if (consentDefault) {
       consentDefault.remove();
     }
     Cookies.set('allow_cookies', 'yes');
-    console.log("allow_cookies after setting:", Cookies.get("allow_cookies"));
+    //console.log("allow_cookies after setting:", Cookies.get("allow_cookies"));
     this.appendGACode();
     this.appendFacebookPixel();
     this.setConsent('update');
@@ -41,19 +41,19 @@ export default class extends Controller {
   }
 
   hideBar() {
-    console.log("hideBar called");
+    //console.log("hideBar called");
     const consentDefault = document.getElementById('consentdefault');
     const cookiesBar = document.getElementById('cookies-bar');
     if (consentDefault) {
       consentDefault.remove();
     }
     cookiesBar.classList.add('hidden');
-    console.log("cookiesBar hidden:", cookiesBar.classList.contains('hidden'));
+    //console.log("cookiesBar hidden:", cookiesBar.classList.contains('hidden'));
   }
 
   // Append GA
   appendGACode() {
-    console.log("GA appended");
+    //console.log("GA appended");
     const script = document.createElement('script');
     script.src = 'https://www.googletagmanager.com/gtag/js?id=G-B1HN94WVHN';
     script.async = true;
@@ -72,7 +72,7 @@ export default class extends Controller {
   
   // Append Facebook
   appendFacebookPixel() {
-    console.log("Facebook Pixel appending");
+    //console.log("Facebook Pixel appending");
     // Создаем новый элемент script
     const script = document.createElement('script');
     // Добавляем код Facebook Pixel в этот элемент
@@ -91,11 +91,11 @@ export default class extends Controller {
     `;
     // Добавляем скрипт в head документа
     document.getElementsByTagName('head')[0].appendChild(script);
-    console.log("Facebook Pixel appended");
+    //console.log("Facebook Pixel appended");
   }
 
   setConsent(i) {
-    console.log("Consent appended");
+    //console.log("Consent appended");
     let t = document.createElement("script");
     t.id = "consent" + i;
     t.textContent = 'window.dataLayer = window.dataLayer || [];' +
