@@ -68,6 +68,7 @@ export default class extends Controller {
     };
     document.getElementsByTagName('head')[0].appendChild(script);
   }
+  
   // Append Facebook
   appendFacebookPixel() {
     console.log("Facebook Pixel appended");
