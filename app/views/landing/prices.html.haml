@@ -15,7 +15,8 @@
         - @repair.each do |repair|
           %tr{class: "bg-white border-b hover:bg-stone-50"}
             %th{class: "text-wrap px-6 py-4 font-medium text-stone-900 whitespace-nowrap", scope: "row"}
-              = repair.title
+              = link_to repair.title, service_path(repair), class: "hover:text-red-500"
+              -#= repair.title
             %td{class: "px-6 py-4 text-center"}
               = t ("prices.td_1")
               %span{class: "text-stone-900"}
