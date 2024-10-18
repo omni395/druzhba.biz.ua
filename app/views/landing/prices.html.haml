@@ -16,7 +16,6 @@
           %tr{class: "bg-white border-b hover:bg-stone-50"}
             %th{class: "text-wrap px-6 py-4 font-medium text-stone-900 whitespace-nowrap", scope: "row"}
               = link_to repair.title, service_path(repair), class: "hover:text-red-500"
-              -#= repair.title
             %td{class: "px-6 py-4 text-center"}
               = t ("prices.td_1")
               %span{class: "text-stone-900"}
@@ -42,7 +41,7 @@
         - @sewing.each do |sewing|
           %tr{class: "bg-white border-b hover:bg-stone-50"}
             %th{class: "text-wrap px-6 py-4 font-medium text-stone-900 whitespace-nowrap", scope: "row"}
-              = sewing.title
+              = link_to sewing.title, service_path(sewing), class: "hover:text-red-500"
             %td{class: "px-6 py-4 text-center"}
               = t ("prices.td_1")
               %span{class: "text-stone-900"}
