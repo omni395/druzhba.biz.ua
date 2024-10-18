@@ -15,13 +15,6 @@
 
     = csrf_meta_tags
     = csp_meta_tag
-    -#= stylesheet_link_tag "fonts", "data-turbo-track": "reload", nonce: true
-    -#= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload", nonce: true
-    -#= stylesheet_link_tag "custom", "data-turbo-track": "reload", nonce: true
-    -#= stylesheet_link_tag "aos", "data-turbo-track": "reload", nonce: true
-    -#= javascript_include_tag "application", "data-turbo-track": "reload", defer: true, nonce: true
-    -#= javascript_include_tag "aos", "data-turbo-track": "reload", defer: true, nonce: true
-
     = stylesheet_link_tag "tailwind", "inter-font", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: true
     = stylesheet_link_tag "custom", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: true
     = stylesheet_link_tag "fonts", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: true
@@ -44,7 +37,7 @@
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '1562402937679169');
         fbq('track', 'PageView');
-      )};
+      });
     %noscript
       %img{height: "1", width: "1",
           src: "https://www.facebook.com/tr?id=1562402937679169&ev=PageView&noscript=1",
