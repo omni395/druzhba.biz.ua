@@ -105,7 +105,7 @@ gem 'mobility'
 
 gem 'mobility-actiontext', '~> 1.1'
 
-gem 'font-awesome-sass'
+#gem 'font-awesome-sass'
 
 # Pagination
 gem 'pagy'
