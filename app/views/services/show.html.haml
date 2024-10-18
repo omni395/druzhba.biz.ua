@@ -21,23 +21,6 @@
       }
       ]
       }
-:javascript
-  fbq('track', 'ViewContent', {
-    content_ids: ["#{@service.id}"],
-    content_type: 'product',
-    content_name: "#{@service.title}",
-    content_category: 'Services',
-    value: "#{@service.price}",
-    currency: 'UAH',
-    description: "#{@service.description}",
-    url: "#{service_url(@service)}",
-    image: "#{service_url(@service) + rails_blob_path(@service.image, disposition: "attachment", only_path: true)}",
-    availability_circle_origin: {latitude: "47.90306", longitude: "33.45735"},
-    availability_circle_radius_unit: 'm',
-    availability_circle_radius: '20',
-    availability: 'https://schema.org/InStock',
-    itemCondition: 'https://schema.org/NewCondition'
-  });
 
 %div{class: "container mx-auto my-4 font-messiri"}
   %h1{class: "text-3xl text-red-500 sm:text-4xl text-center leading-normal font-bold"}
@@ -83,3 +66,21 @@
             %li{class: "mb-2 text-justify"}
               %i{class: "me-2 text-sm fa-solid fa-feather text-red-500"}
               = link_to article.title, article_path(article), class: "text-xl hover:border-b-2 hover:border-red-500 text-stone-500 hover:text-stone-900"
+
+:javascript
+  fbq('track', 'ViewContent', {
+    content_ids: ["#{@service.id}"],
+    content_type: 'product',
+    content_name: "#{@service.title}",
+    content_category: 'Services',
+    value: "#{@service.price}",
+    currency: 'UAH',
+    description: "#{@service.description}",
+    url: "#{service_url(@service)}",
+    image: "#{service_url(@service) + rails_blob_path(@service.image, disposition: "attachment", only_path: true)}",
+    availability_circle_origin: {latitude: "47.90306", longitude: "33.45735"},
+    availability_circle_radius_unit: 'm',
+    availability_circle_radius: '20',
+    availability: 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition'
+  });

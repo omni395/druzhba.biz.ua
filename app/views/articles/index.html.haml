@@ -2,8 +2,6 @@
 -#= content_for :description
 -#= content_for :locale
 
-:javascript
-  fbq('track', 'ViewContent');
 
 %section{class: "mt-8 font-messiri mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between"}
   %div{class: "text-center"}
@@ -26,3 +24,6 @@
   
   = turbo_frame_tag "articles_pagination"
   -#, data: { controller: "turbo-frame-history" }
+
+:javascript
+  fbq('track', 'ViewContent');
