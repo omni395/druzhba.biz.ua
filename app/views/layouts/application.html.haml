@@ -67,4 +67,5 @@
         %p{class: "font-messiri text-md text-stone-600"} До початку
     
     -# Cookies bar
-    = render "shared/cookies_bar" if @cookie_value.nil?
+    %div{id: "cookies-bar","data-controller": "cookies"}
+      = render "shared/cookies_bar" if @cookie_value.nil?
