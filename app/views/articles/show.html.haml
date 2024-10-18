@@ -12,6 +12,10 @@
       "dateModified": "#{@article.updated_at}"
       }
 
+- content_for :body do
+  :javascript
+    fbq('track', 'ViewContent');
+
 %div{class: "container max-w-7xl mx-auto my-10 font-messiri"}
   %div{class: "flex flex-wrap justify-between"}
     %div{class: "w-full px-4"}
@@ -38,6 +42,3 @@
                 = @article.body
           %div{class: "text-end p-4"}
             = link_to "#{t ("service.back")}", articles_path, "data-turbo": "false", class: "justify-end text-xl hover:border-b-2 hover:border-red-500 text-stone-500 hover:text-stone-900"
-
-:javascript
-  fbq('track', 'ViewContent');

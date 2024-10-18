@@ -29,6 +29,7 @@
           style: "display:none"}
   
   %body{class: "bg-stone-100", id: "main"}
+    = yield :body
     = cache ['navigation', I18n.locale] do
       = render "shared/navigation"
     %main{class: "", "data-controller": "landing--index"}
