@@ -7,6 +7,7 @@ export default class extends Controller {
     console.log('connected');
     if (this.areCookiesAllowed()) {
       this.appendGACode();
+      this.appendFacebookPixel();
       this.setConsent('update');
     } else {
       this.setConsent('default');
