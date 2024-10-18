@@ -13,7 +13,10 @@ module ApplicationHelper
 
   def image_set_tag(source, srcset = {}, options = {})
     srcset = srcset.map { |src, size| "#{path_to_image(src)} #{size}" }.join(', ')
-    image_tag(source, options.merge(srcset: srcset))
+    # Установите фиксированные размеры на основе самого большого изображения
+    width = 1200
+    height = 600
+    image_tag(source, options.merge(srcset: srcset, width: width, height: height))
   end
 
   def locale_switch_path(locale)

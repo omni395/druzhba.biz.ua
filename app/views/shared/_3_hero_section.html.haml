@@ -5,4 +5,13 @@
 
   %div{class: "grid grid-cols-2 md:grid-cols-4 gap-4 place-content-center"}
     - (1..3).each do |i|
-      = image_tag("#{i}-min.jpg", "data-aos": "zoom-in", alt: "Изделие #{i}", loading: 'lazy', class: "cursor-pointer rounded-lg shadow hover:shadow-lg max-h-[600px] w-auto object-cover", data: { "modal-target": "image-modal-#{i}", "modal-toggle": "image-modal-#{i}" })
+      = image_tag("#{i}-min.jpg",
+                  srcset: {"#{i}-min.jpg" => "1200w", "#{i}-min.jpg" => "800w", "#{i}-min.jpg" => "600w"},
+                  sizes: "(max-width: 600px) 100vw, 600px",
+                  width: 1200,
+                  height: 600,
+                  "data-aos": "zoom-in",
+                  alt: "Изделие #{i}",
+                  loading: 'lazy',
+                  class: "cursor-pointer rounded-lg shadow hover:shadow-lg max-h-[600px] w-auto object-cover",
+                  data: { "modal-target": "image-modal-#{i}", "modal-toggle": "image-modal-#{i}" })
