@@ -15,13 +15,13 @@
 
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag "tailwind", "inter-font", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: true
-    = stylesheet_link_tag "custom", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: true
-    = stylesheet_link_tag "fonts", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: true
-    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true, nonce: true
+    = stylesheet_link_tag "tailwind", "inter-font", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: content_security_policy_nonce
+    = stylesheet_link_tag "custom", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: content_security_policy_nonce
+    = stylesheet_link_tag "fonts", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: content_security_policy_nonce
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true, nonce: content_security_policy_nonce
     -# if @use_aos
-    = stylesheet_link_tag "aos", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: true
-    = javascript_include_tag "aos", "data-turbo-track": "reload", defer: true, nonce: true
+    = stylesheet_link_tag "aos", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: content_security_policy_nonce
+    = javascript_include_tag "aos", "data-turbo-track": "reload", defer: true, nonce: content_security_policy_nonce
 
     %noscript
       %img{height: "1", width: "1",
@@ -55,5 +55,5 @@
     %div{id: "cookies-bar","data-controller": "cookies"}
       = render "shared/cookies_bar" if @cookie_value.nil?
 
-    %link{rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css", integrity: "sha512-EJp8vMVhYl7tBFE2rgNGb//drnr1+6XKMvTyamMS34YwOEFohhWkGq13tPWnK0FbjSS6D8YoA3n3bZmb3KiUYA==", crossorigin: "anonymous", referrerpolicy: "no-referrer", nonce: true}
-    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js", integrity: "sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==", crossorigin: "anonymous", referrerpolicy: "no-referrer", nonce: true}
+    %link{rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css", crossorigin: "anonymous", referrerpolicy: "no-referrer", nonce: content_security_policy_nonce}
+    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js", crossorigin: "anonymous", referrerpolicy: "no-referrer", nonce: content_security_policy_nonce}

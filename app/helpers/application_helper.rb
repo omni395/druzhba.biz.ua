@@ -7,6 +7,10 @@ module ApplicationHelper
     I18n.available_locales
   end
 
+  def content_security_policy_nonce
+    @csp_nonce ||= SecureRandom.base64(16)
+  end
+
   def image_set_tag(source, srcset = {}, options = {})
     srcset = srcset.map { |src, size| "#{path_to_image(src)} #{size}" }.join(', ')
     image_tag(source, options.merge(srcset: srcset))
