@@ -89,7 +89,7 @@ export default class extends Controller {
         fbq('track', 'PageView');
     `;
     // Добавляем скрипт в head документа
-    document.head.appendChild(script);
+    document.getElementsByTagName('head')[0].appendChild(script);
     console.log("Facebook Pixel appended");
   }
 
