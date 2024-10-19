@@ -50,7 +50,7 @@ export default class extends Controller {
     // Animation effects with aos.js
     document.addEventListener('turbo:load', () => { AOS.init(
       {
-        'offset': 300,
+        'offset': 250,
         'duration': 800,
         'easing': 'ease-in-sine'
         //'data-aos-once': true
