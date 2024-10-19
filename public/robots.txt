@@ -4,5 +4,5 @@ User-agent: *
 Disallow: /admin
 Disallow: /?
 Disallow: /*?
-Disallow: ru/policy
-Disallow: uk/policy
+Disallow: /ru/policy
+Disallow: /uk/policy

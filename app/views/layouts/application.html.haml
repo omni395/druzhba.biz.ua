@@ -15,9 +15,9 @@
 
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag "tailwind", "inter-font", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: content_security_policy_nonce
-    = stylesheet_link_tag "custom", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: content_security_policy_nonce
-    = stylesheet_link_tag "fonts", media: "print", onload: "this.media='all'", "data-turbo-track": "reload", nonce: content_security_policy_nonce
+    = stylesheet_link_tag "tailwind", "data-turbo-track": "reload", nonce: content_security_policy_nonce
+    = stylesheet_link_tag "custom", "data-turbo-track": "reload", nonce: content_security_policy_nonce
+    = stylesheet_link_tag "fonts", "data-turbo-track": "reload", nonce: content_security_policy_nonce
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true, nonce: content_security_policy_nonce
 
     %noscript
