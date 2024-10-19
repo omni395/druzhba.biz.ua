@@ -17,14 +17,23 @@ export default class extends Controller {
     });
   }
 
-  exFunction() {
+  exFunction() {    
     // Плавная прокрутка
-    var $page = $('html, body');
-    $('a[href*="#"]').click(function() {
-        $page.animate({
-            scrollTop: $($.attr(this, 'href')).offset().top
-        }, 400);
-        return false;
+    document.querySelectorAll('a[href*="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+          e.preventDefault(); // Отменяем стандартное поведение ссылки
+
+          const targetId = this.getAttribute('href'); // Получаем значение атрибута href
+          const targetElement = document.querySelector(targetId); // Находим целевой элемент
+
+          if (targetElement) {
+              // Плавная прокрутка
+              window.scrollTo({
+                  top: targetElement.getBoundingClientRect().top + window.scrollY,
+                  behavior: 'smooth' // Параметр для плавной прокрутки
+              });
+          }
+      });
     });
 
     // Toggle the modal

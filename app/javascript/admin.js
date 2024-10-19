@@ -15,6 +15,11 @@ import('@rails/activestorage')
 
 document.currentModals = []
 
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();
+document.addEventListener('DOMContentLoaded', function() {
+    const popoverElements = document.querySelectorAll('[data-toggle="popover"]');
+
+    popoverElements.forEach(function(element) {
+        // Инициализация поповеров
+        new bootstrap.Popover(element);
+    });
 });

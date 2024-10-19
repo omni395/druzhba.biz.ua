@@ -90,7 +90,7 @@ gem 'view_component'
 
 gem 'chartkick'
 gem 'groupdate'
-gem 'jquery-rails'
+#gem 'jquery-rails'
 gem 'rails-i18n'
 
 # Frendly urls
