@@ -6,4 +6,13 @@
           %button{id: "closeModal-#{i}", class: "text-gray-700 hover:text-red-500", data: { modal_hide: "image-modal-#{i}" }}
             %svg{class: "w-6 h-6", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg"}
               %path{d: "M6 18L18 6M6 6l12 12", "stroke-linecap": "round", "stroke-linejoin": "round", "stroke-width": "2"}
-        = image_tag("#{i}-min.jpg", alt: "Изображение #{i}", class: "w-full h-5/6 max-h-5/6 rounded-lg")
+        = image_tag("#{i}-min.jpg",
+                  srcset: {"#{i}-min.jpg" => "1200w", "#{i}-min.jpg" => "800w", "#{i}-min.jpg" => "600w"},
+                  sizes: "(max-width: 600px) 100vw, 600px",
+                  width: 1200,
+                  height: 600,
+                  "data-aos": "zoom-in",
+                  alt: "Изделие #{i}",
+                  loading: 'lazy',
+                  class: "cursor-pointer rounded-lg shadow hover:shadow-lg max-h-[600px] w-auto object-cover",
+                  data: { "modal-target": "image-modal-#{i}", "modal-toggle": "image-modal-#{i}" })
