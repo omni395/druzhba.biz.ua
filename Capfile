@@ -38,15 +38,12 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rails'
 require 'capistrano/rbenv'
 require 'capistrano/sitemap_generator'
-#require 'capistrano/puma'
+# require 'capistrano/puma'
 require 'capistrano/configuration'
 
-require "capistrano/setup"
-require "capistrano/deploy"
-require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
-require "capistrano/rails/assets"
-require "capistrano/rails/migrations"
+require 'capistrano/rails/assets'
+require 'capistrano/rails/migrations'
 
 set :rbenv_type, :user
 set :rbenv_ruby, '3.3.1'

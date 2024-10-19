@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.config.to_prepare do
   ActiveStorage::Blob.class_eval do
     def service_headers(filename:, disposition:, content_type:, **)

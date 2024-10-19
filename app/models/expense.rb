@@ -26,13 +26,15 @@ class Expense < ApplicationRecord
   end
 
   def perform_double_entry_transaction(code, reverse: false)
-    from_account, to_account = reverse ?
-      [DoubleEntry.account(:expense, scope: expense_category_id_was || expense_category_id),
-      DoubleEntry.account(:cash)] :
-      [DoubleEntry.account(:cash),
-      DoubleEntry.account(:expense, scope: expense_category_id)]
+    from_account, to_account = if reverse
+                                 [DoubleEntry.account(:expense, scope: expense_category_id_was || expense_category_id),
+                                  DoubleEntry.account(:cash)]
+                               else
+                                 [DoubleEntry.account(:cash),
+                                  DoubleEntry.account(:expense, scope: expense_category_id)]
+                               end
 
-    amount = reverse ? (self.amount_was || self.amount) * 100 : self.amount * 100
+    amount = reverse ? (amount_was || self.amount) * 100 : self.amount * 100
 
     DoubleEntry.lock_accounts(DoubleEntry.account(:cash), DoubleEntry.account(:expense, scope: expense_category_id)) do
       DoubleEntry.transfer(

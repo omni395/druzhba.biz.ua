@@ -53,10 +53,10 @@ gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug'
-  gem 'faker'
   gem 'bcrypt_pbkdf'
+  gem 'debug'
   gem 'ed25519'
+  gem 'faker'
   # gem "foreman"
 end
 
@@ -72,10 +72,10 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
-  gem 'capistrano3-puma'
 end
 
 gem 'active_decorator'
@@ -105,14 +105,14 @@ gem 'mobility'
 
 gem 'mobility-actiontext', '~> 1.1'
 
-#gem 'font-awesome-sass'
+# gem 'font-awesome-sass'
 
 # Pagination
 gem 'pagy'
 
 # Schema.org
-gem 'schema_dot_org'
 gem 'json-ld'
+gem 'schema_dot_org'
 
 # Accounting
 gem 'double_entry'

@@ -10,7 +10,6 @@ class Order < ApplicationRecord
 
   scope :order_paid, -> { where(paid: 'inpaid') }
 
-
   enum status: { new: 0, in_work: 1, done: 2, rejected: 3 }, _prefix: true
   enum paid: { unpaid: 0, inpaid: 1 }, _prefix: true
 

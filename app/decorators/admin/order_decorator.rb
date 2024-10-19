@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   module OrderDecorator
     def status_color
@@ -17,6 +19,5 @@ module Admin
       else ''
       end
     end
-
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class Order < ::Order
     belongs_to :customer, foreign_key: 'customer_id'
@@ -19,23 +21,20 @@ module Admin
     enum status: { new: 0, in_work: 1, done: 2, rejected: 3 }, _prefix: true
     enum paid: { unpaid: 0, inpaid: 1 }, _prefix: true
 
-
-    scope :customer_id_eq, ->(v) do
+    scope :customer_id_eq, lambda { |v|
       where(customer_id: v) if v.present?
-    end
+    }
 
-    scope :admin_user_id_eq, ->(v) do
+    scope :admin_user_id_eq, lambda { |v|
       where(admin_user_id: v) if v.present?
-    end
+    }
 
-    scope :status_any, ->(v) do
+    scope :status_any, lambda { |v|
       where(status: v) if v.present?
-    end
+    }
 
-    scope :paid_any, ->(v) do
+    scope :paid_any, lambda { |v|
       where(paid: v) if v.present?
-    end
-
-
+    }
   end
 end

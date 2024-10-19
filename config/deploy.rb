@@ -21,13 +21,13 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 #-----------#
 set :puma_daemonize, false
 
-#namespace :deploy do
+# namespace :deploy do
 #  before :compile_assets, :run_purgecss
 
 #  task :run_purgecss do
 #    run "cd #{release_path} && yarn build:purgecss"
 #  end
-#end
+# end
 
 namespace :deploy do
   before :compile_assets, :run_purgecss
@@ -35,7 +35,7 @@ namespace :deploy do
   task :run_purgecss do
     on roles(:app) do
       within release_path do
-        execute :yarn, "build:purgecss"
+        execute :yarn, 'build:purgecss'
       end
     end
   end

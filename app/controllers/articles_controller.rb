@@ -25,10 +25,7 @@ class ArticlesController < ApplicationController
     @article = Article.friendly.find(params[:id]) if Article.published
     @page_title = @article.title
     @page_description = "Блог швейної майстерні ☞ ДРУЖБА ☜ - #{@page_title}"
-    #sleep(2)
-    respond_to do |format|
-      format.html
-      #format.turbo_stream
-    end
+    # sleep(2)
+    respond_to(&:html)
   end
 end

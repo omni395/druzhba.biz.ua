@@ -16,7 +16,7 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = false
-  #config.cache_store = :null_store
+  # config.cache_store = :null_store
   config.cache_store = :memory_store
   # config.serve_static_assets = false
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
@@ -28,7 +28,7 @@ Rails.application.configure do
 
   # Compress CSS using a preprocessor.
   config.assets.compress = true
-  #config.assets.css_compressor = :sass
+  # config.assets.css_compressor = :sass
   config.assets.css_compressor = nil
 
   # Do not fall back to assets pipeline if a precompiled asset is missed.
@@ -61,7 +61,7 @@ Rails.application.configure do
   config.logger = ActiveSupport::Logger.new($stdout)
                                        .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
                                        .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
-  #config.logger = ActiveSupport::Logger.new('/home/deploy/druzhba/shared/log/rails.log')
+  # config.logger = ActiveSupport::Logger.new('/home/deploy/druzhba/shared/log/rails.log')
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
@@ -69,7 +69,7 @@ Rails.application.configure do
   # "info" includes generic and useful information about system operation, but avoids logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII). If you
   # want to log everything, set the level to "debug".
-  #config.log_level = ENV.fetch('RAILS_LOG_LEVEL', 'info')
+  # config.log_level = ENV.fetch('RAILS_LOG_LEVEL', 'info')
   config.log_level = :debug
   config.paths['log'] = '/home/deploy/druzhba/shared/log/production.log'
   config.log_formatter = ::Logger::Formatter.new

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class OrdersController < BaseController
     before_action { @page_title = 'Замовлення' }
@@ -77,10 +79,10 @@ module Admin
         :dead_time,
         :status,
         :paid,
-        order_details_attributes: [
-          :id,
-          :_destroy,
-          :service_id
+        order_details_attributes: %i[
+          id
+          _destroy
+          service_id
         ]
       )
     end
