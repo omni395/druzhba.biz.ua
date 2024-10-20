@@ -3,6 +3,12 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="landing--gallery"
 export default class extends Controller {
   connect() {
+    document.addEventListener('DOMContentLoaded', () => {
+      this.setupModalButtons();
+    });
+  }
+
+  setupModalButtons() {
     this.toggleButtons = this.element.querySelectorAll('[data-modal-toggle]');
     this.hideButtons = this.element.querySelectorAll('[data-modal-hide]');
 

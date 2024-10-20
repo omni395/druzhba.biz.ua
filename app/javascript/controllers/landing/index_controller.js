@@ -2,17 +2,29 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   connect() {
+    document.addEventListener('DOMContentLoaded', () => {
+      this.exFunction();
+    });
     this.loadAdsScript();
-    this.exFunction();
   }
 
   loadAdsScript() {
     window.addEventListener('load', () => {
       const script = document.createElement('script');
       script.async = true;
+      script.defer = true;
       script.crossOrigin = "anonymous";
-      script.nonce = true; // Добавьте nonce, если требуется
+      script.nonce = true; // Ensure nonce is set correctly if required
       script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401";
+      
+      script.onload = () => {
+        console.log("Скрипт рекламы загружен успешно.");
+      };
+  
+      script.onerror = (error) => {
+        console.error("Ошибка загрузки скрипта рекламы:", error);
+      };
+  
       document.head.appendChild(script);
     });
   }
@@ -57,13 +69,12 @@ export default class extends Controller {
     });
 
     // Animation effects with aos.js
-    document.addEventListener('turbo:load', () => { AOS.init(
-      {
+    document.addEventListener('turbo:load', () => {
+      AOS.init({
         'offset': 250,
         'duration': 800,
         'easing': 'ease-in-sine'
-        //'data-aos-once': true
-      }
-    ) });
-  };
+      });
+    });
+  }
 }
