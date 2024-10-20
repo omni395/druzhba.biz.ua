@@ -91,7 +91,6 @@ gem 'view_component'
 
 gem 'chartkick'
 gem 'groupdate'
-#gem 'jquery-rails'
 gem 'rails-i18n'
 
 # Frendly urls
@@ -105,8 +104,6 @@ gem 'friendly_id-mobility'
 gem 'mobility'
 
 gem 'mobility-actiontext', '~> 1.1'
-
-# gem 'font-awesome-sass'
 
 # Pagination
 gem 'pagy'
