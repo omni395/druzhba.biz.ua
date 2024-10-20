@@ -8,7 +8,7 @@
     link.rel = 'stylesheet';
     link.href = 'https://unpkg.com/aos@next/dist/aos.css';
     link.setAttribute('nonce', nonceValue); // Устанавливаем nonce
-    document.head.appendChild(link);
+    document.body.appendChild(link);
 
     // Добавляем JavaScript
     const script = document.createElement('script');

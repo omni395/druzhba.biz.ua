@@ -10,7 +10,7 @@
     link.setAttribute('crossorigin', 'anonymous');
     link.setAttribute('referrerpolicy', 'no-referrer');
     link.setAttribute('nonce', nonceValue); // Устанавливаем nonce
-    document.head.appendChild(link);
+    document.body.appendChild(link);
 
     // Добавляем JavaScript для Font Awesome
     const script = document.createElement('script');
