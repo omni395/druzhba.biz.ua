@@ -15,8 +15,6 @@
 
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag "tailwind", rel: 'stylesheet', "data-turbo-track": "reload", nonce: content_security_policy_nonce
-    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true, nonce: content_security_policy_nonce
 
     %noscript
       %img{height: "1", width: "1",
@@ -51,6 +49,9 @@
     %div{id: "cookies-bar","data-controller": "cookies"}
       = render "shared/cookies_bar" if @cookie_value.nil?
 
+
+    = stylesheet_link_tag "tailwind", rel: 'stylesheet', "data-turbo-track": "reload", nonce: content_security_policy_nonce
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true, nonce: content_security_policy_nonce
     = stylesheet_link_tag "custom", rel: 'stylesheet', "data-turbo-track": "reload", nonce: content_security_policy_nonce
     = stylesheet_link_tag "fonts", rel: 'stylesheet', "data-turbo-track": "reload", nonce: content_security_policy_nonce
     = render "shared/aos"
