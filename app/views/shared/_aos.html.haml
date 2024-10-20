@@ -13,7 +13,7 @@
     // Добавляем JavaScript
     const script = document.createElement('script');
     script.src = 'https://unpkg.com/aos@next/dist/aos.js';
-    script.defer = true;
+    script.async = true;
     script.setAttribute('nonce', nonceValue); // Устанавливаем nonce
     document.body.appendChild(script);
 
