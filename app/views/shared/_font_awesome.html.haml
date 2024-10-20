@@ -1,0 +1,31 @@
+:javascript
+  document.addEventListener('DOMContentLoaded', function() {
+    // Вставляем значение nonce из Rails
+    const nonceValue = '#{content_security_policy_nonce}';
+
+    // Добавляем CSS для Font Awesome
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/brands.min.css';
+    link.setAttribute('crossorigin', 'anonymous');
+    link.setAttribute('referrerpolicy', 'no-referrer');
+    link.setAttribute('nonce', nonceValue); // Устанавливаем nonce
+    document.head.appendChild(link);
+
+    // Добавляем JavaScript для Font Awesome
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js';
+    script.defer = true;
+    script.setAttribute('crossorigin', 'anonymous');
+    script.setAttribute('referrerpolicy', 'no-referrer');
+    script.setAttribute('nonce', nonceValue); // Устанавливаем nonce
+    document.body.appendChild(script);
+
+    script.onload = function() {
+      console.log("Скрипт Font Awesome загружен успешно.");
+    };
+
+    script.onerror = function(error) {
+      console.error("Ошибка загрузки скрипта Font Awesome:", error);
+    };
+  });

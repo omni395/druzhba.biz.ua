@@ -1,0 +1,27 @@
+:javascript
+  document.addEventListener('DOMContentLoaded', function() {
+    // Вставляем значение nonce из Rails
+    const nonceValue = '#{content_security_policy_nonce}';
+
+    // Добавляем CSS
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://unpkg.com/aos@next/dist/aos.css';
+    link.setAttribute('nonce', nonceValue); // Устанавливаем nonce
+    document.head.appendChild(link);
+
+    // Добавляем JavaScript
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/aos@next/dist/aos.js';
+    script.defer = true;
+    script.setAttribute('nonce', nonceValue); // Устанавливаем nonce
+    document.body.appendChild(script);
+
+    script.onload = function() {
+      console.log("Скрипт AOS загружен успешно.");
+    };
+
+    script.onerror = function(error) {
+      console.error("Ошибка загрузки скрипта AOS:", error);
+    };
+  });
