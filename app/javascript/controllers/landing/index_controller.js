@@ -5,9 +5,10 @@ export default class extends Controller {
     document.addEventListener('DOMContentLoaded', () => {
       this.exFunction();
     });
-    this.loadAdsScript();
+    //this.loadAdsScript();
   }
 
+  /*
   loadAdsScript() {
     window.addEventListener('load', () => {
       const script = document.createElement('script');
@@ -28,6 +29,7 @@ export default class extends Controller {
       document.head.appendChild(script);
     });
   }
+  */
 
   exFunction() {    
     // Плавная прокрутка
