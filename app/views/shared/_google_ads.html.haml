@@ -6,7 +6,7 @@
     script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3829218691602401";
 
     script.onload = function() {
-      console.log("Скрипт рекламы загружен успешно.");
+      //console.log("Скрипт рекламы загружен успешно.");
     };
 
     script.onerror = function(error) {
@@ -14,5 +14,5 @@
     };
 
     // Добавляем скрипт в конец body
-    document.body.appendChild(script);
+    document.head.appendChild(script);
   });

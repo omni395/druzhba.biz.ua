@@ -8,18 +8,18 @@
     link.rel = 'stylesheet';
     link.href = 'https://unpkg.com/aos@next/dist/aos.css';
     link.setAttribute('nonce', nonceValue); // Устанавливаем nonce
-    document.body.appendChild(link);
+    document.head.appendChild(link);
 
     // Добавляем JavaScript
     const script = document.createElement('script');
     script.src = 'https://unpkg.com/aos@next/dist/aos.js';
     script.async = true;
     script.setAttribute('nonce', nonceValue); // Устанавливаем nonce
-    document.body.appendChild(script);
+    document.head.appendChild(script);
 
-    script.onload = function() {
-      console.log("Скрипт AOS загружен успешно.");
-    };
+    //script.onload = function() {
+    //  console.log("Скрипт AOS загружен успешно.");
+    //};
 
     script.onerror = function(error) {
       console.error("Ошибка загрузки скрипта AOS:", error);

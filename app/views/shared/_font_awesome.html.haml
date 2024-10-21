@@ -10,7 +10,7 @@
     link.setAttribute('crossorigin', 'anonymous');
     link.setAttribute('referrerpolicy', 'no-referrer');
     link.setAttribute('nonce', nonceValue); // Устанавливаем nonce
-    document.body.appendChild(link);
+    document.head.appendChild(link);
 
     // Добавляем JavaScript для Font Awesome
     const script = document.createElement('script');
@@ -19,11 +19,11 @@
     script.setAttribute('crossorigin', 'anonymous');
     script.setAttribute('referrerpolicy', 'no-referrer');
     script.setAttribute('nonce', nonceValue); // Устанавливаем nonce
-    document.body.appendChild(script);
+    document.head.appendChild(script);
 
-    script.onload = function() {
-      console.log("Скрипт Font Awesome загружен успешно.");
-    };
+    //script.onload = function() {
+    //  console.log("Скрипт Font Awesome загружен успешно.");
+    //};
 
     script.onerror = function(error) {
       console.error("Ошибка загрузки скрипта Font Awesome:", error);
