@@ -1,8 +1,9 @@
 %div{class: "font-messiri py-4 px-4 shadow-md z-10 bg-stone-200"}
   %div{class: "flex flex-col sm:flex-row justify-between"}
     %div{class: "hidden sm:block"}
-      %a{href: "https://www.digitalocean.com/?refcode=92959b0d393a&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge", target: "_blank"}
-        %img{alt: "DigitalOcean Referral Badge", height: "200px", width: "65px", src: "https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%202.svg", height: "auto", width: "100px"}
+      = cache "digital" do
+        %a{href: "https://www.digitalocean.com/?refcode=92959b0d393a&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge", target: "_blank"}
+          %img{alt: "DigitalOcean Referral Badge", height: "200px", width: "65px", src: "https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%202.svg", height: "auto", width: "100px"}
     %div{class: "text-sm text-gray-600 my-auto px-2 sm:inline-block flex justify-center"}
       %div{class: "hidden sm:block"}
         © 2022-#{Date.today.strftime('%Y')}
