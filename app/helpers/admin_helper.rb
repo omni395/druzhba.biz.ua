@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 module AdminHelper
+  def content_security_policy_nonce
+    @content_security_policy_nonce ||= SecureRandom.base64(16)
+  end
+
   def admin_field_invalid?(form, field)
     form.object&.errors&.include?(field)
   end
