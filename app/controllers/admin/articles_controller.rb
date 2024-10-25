@@ -6,7 +6,7 @@ module Admin
 
     def index
       @search = ArticleSearchForm.new(search_params)
-      @articles = @search.perform(params[:page], limit: params[:limit], csv: request.format == :csv)
+      @articles = @search.perform(params[:page], limit: params[:limit], csv: request.format == :csv, sort_by: params[:sort_by] || 'id DESC')
     end
 
     def show
