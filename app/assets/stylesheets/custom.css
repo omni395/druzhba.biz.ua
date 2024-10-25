@@ -20,6 +20,30 @@
     /* width: 75%; */
   }
 
+  h1 {
+    text-transform: uppercase; /* Преобразование текста в заглавные буквы */
+    font-size: 1.1em; /* Увеличение размера шрифта на 1.2em */
+    text-decoration: none; /* Удаление подчеркивания текста */
+    position: relative; /* Для позиционирования псевдоэлемента */
+  }
+
+  h1::after {
+    content: ""; /* Псевдоэлемент для создания подчеркивания */
+    display: block; /* Отображение в виде блока */
+    height: 3px; /* Высота подчеркивания */
+    background-color: rgba(239, 68, 68, 1); /* Цвет подчеркивания */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0; /* Сдвиг влево */
+    right: 0; /* Сдвиг вправо (до конца блока) */
+    bottom: -3px; /* Расположение подчеркивания ниже текста */
+  }
+
+  em {
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.05em;
+  }
+
   a {
     color: rgba(239, 68, 68, 1);
   }
@@ -37,16 +61,17 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     text-align: justify;
-    padding-left: 5px;
+    padding-left: 10px;
   }
 
   ul {
     color: rgba(120, 113, 108, 1);
+    margin-left: 15px;
   }
 
   li {
     list-style: square outside;
-    padding-left: 25px;
+    padding-left: 10px;
   }
 
   li::marker {
