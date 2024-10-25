@@ -21,10 +21,12 @@
   }
 
   h1 {
+    font-weight: 600;
     text-transform: uppercase; /* Преобразование текста в заглавные буквы */
-    font-size: 1.1em; /* Увеличение размера шрифта на 1.2em */
+    font-size: 1.02em; /* Увеличение размера шрифта на 1.2em */
     text-decoration: none; /* Удаление подчеркивания текста */
     position: relative; /* Для позиционирования псевдоэлемента */
+    color: rgba(28, 24, 21, 1);
   }
 
   h1::after {
@@ -39,9 +41,10 @@
   }
 
   em {
-    font-weight: 300;
+    font-weight: 100;
     font-style: italic;
     letter-spacing: 0.05em;
+    color: rgba(28, 24, 21, 1);
   }
 
   a {
@@ -56,8 +59,9 @@
 
   pre {
     border-left: 3px solid rgba(239, 68, 68, 1);
-    color: rgba(0, 0, 0, 1);
+    color: rgba(28, 24, 21, 1);
     background-color: rgba(255, 255, 255, 1);
+    font-weight: 200;
     white-space: pre-wrap;
     word-wrap: break-word;
     text-align: justify;
