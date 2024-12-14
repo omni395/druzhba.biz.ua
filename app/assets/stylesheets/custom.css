@@ -27,6 +27,7 @@
     text-decoration: none; /* Удаление подчеркивания текста */
     position: relative; /* Для позиционирования псевдоэлемента */
     color: rgba(28, 24, 21, 1);
+    text-shadow: 2px 2px 2px rgba(174, 10, 10, 0.5);
   }
 
   h1::after {
@@ -47,6 +48,43 @@
     color: rgba(28, 24, 21, 1);
   }
 
+  strong {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.02em;
+    text-decoration: none;
+    color: rgba(28, 24, 21, 1);
+    text-shadow: 2px 2px 2px rgba(174, 10, 10, 0.3);
+    position: relative; /* Для позиционирования псевдоэлемента */
+    display: inline; /* Измените на inline, чтобы текст занимал только необходимую ширину */
+  }
+  
+  strong::after {
+    content: ""; 
+    display: block; 
+    height: 3px; 
+    background-color: rgba(239, 68, 68, 1);
+    position: relative; 
+    left: 0; 
+    right: 0; /* Занимает всю ширину */
+    bottom: -3px; 
+    width: 100%; /* Растягивает до конца окна просмотра */
+  }
+
+  /* Убираем подчеркивание, если внутри strong есть em */
+  strong:has(em) {
+    text-decoration: none; /* Убираем подчеркивание */
+    font-weight: 100;
+    font-style: italic;
+    font-size: 1.05rem;
+    letter-spacing: 0.09em;
+    color: rgba(28, 24, 21, 1);
+  }
+
+  strong:has(em)::after {
+    content: none; /* Убираем псевдоэлемент для strong */
+  }
+
   a {
     color: rgba(239, 68, 68, 1);
   }
@@ -58,14 +96,56 @@
   }
 
   pre {
-    border-left: 3px solid rgba(239, 68, 68, 1);
-    color: rgba(28, 24, 21, 1);
+    border-left:4px solid rgba(239, 68, 68, 1);
+    font-family:El Messiri;
+    color: rgba(120, 113, 108, 1);
     background-color: rgba(255, 255, 255, 1);
     font-weight: 200;
     white-space: pre-wrap;
     word-wrap: break-word;
     text-align: justify;
-    padding-left: 10px;
+    padding:.5em 15px .5em 15px;
+  }
+
+  blockquote {
+    font-size: 1.1em;
+    width:100%;
+    font-family:El Messiri;
+    font-style:italic;
+    color: rgba(239, 68, 68, 1);
+    padding:.5em 15px .5em 15px;
+    border-left:4px solid rgba(239, 68, 68, 1);
+    line-height:1.3;
+    position: relative;
+    background:rgba(250, 245, 245, 1);
+  }
+  
+  blockquote::before {
+    font-family:El Messiri;
+    /*content: "\201C"; */
+    color:rgba(239, 68, 68, 1);
+    font-size:2em;
+    position: absolute;
+    left: 10px;
+    top:-5px;
+  }
+  
+  blockquote::after {
+    font-family:El Messiri;
+    /* content: '\201E'; */
+    color:rgba(239, 68, 68, 1);
+    font-size:2em;
+    position: absolute;
+    left: 15px;
+    bottom:-5px;
+  }
+  
+  blockquote span {
+    display:block;
+    color:rgba(239, 68, 68, 1);
+    font-style: normal;
+    font-weight: bold;
+    margin-top:1em;
   }
 
   ul {
@@ -81,10 +161,6 @@
   li::marker {
     color: rgba(239, 68, 68, 1);
   }
-
-  strong {
-    text-shadow: 4px 4px 15px rgba(174, 10, 10, 0.5);
-  }
 }
 
 .list {
@@ -99,46 +175,4 @@
   li::marker {
     color: rgba(239, 68, 68, 1);
   }
-}
-
-blockquote{
-  font-size: 1.1em;
-  width:100%;
-  margin-top:5px auto;
-  font-family:El Messiri;
-  font-style:italic;
-  color: rgba(239, 68, 68, 1);
-  padding:1.1em 25px 1.1em 25px;
-  border-left:4px solid rgba(239, 68, 68, 1) ;
-  line-height:1.3;
-  position: relative;
-  background:rgb(250, 245, 245, 1);
-}
-
-blockquote::before{
-  font-family:Arial;
-  content: "\201C";
-  color:rgba(239, 68, 68, 1);
-  font-size:2em;
-  position: absolute;
-  left: 10px;
-  top:-5px;
-}
-
-blockquote::after{
-  font-family:Arial;
-  content: '\201E';
-  color:rgba(239, 68, 68, 1);
-  font-size:2em;
-  position: absolute;
-  left: 15px;
-  bottom:-5px;
-}
-
-blockquote span{
-  display:block;
-  color:rgba(239, 68, 68, 1);
-  font-style: normal;
-  font-weight: bold;
-  margin-top:1em;
 }
