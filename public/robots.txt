@@ -6,3 +6,5 @@ Disallow: /?
 Disallow: /*?
 Disallow: /ru/policy
 Disallow: /uk/policy
+Allow: /ru/articles?page=*
+Allow: /uk/articles?page=*
